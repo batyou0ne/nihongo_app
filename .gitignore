@@ -10,3 +10,6 @@ DerivedData/
 
 # Swift Package Manager
 .swiftpm/
+
+# Firebase (proje bilgilerini public repoda paylaşmamak için)
+GoogleService-Info.plist

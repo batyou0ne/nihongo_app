@@ -1,8 +1,13 @@
 import SwiftUI
 import SwiftData
+import FirebaseCore
 
 @main
 struct NihongoApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
+
     let modelContainer: ModelContainer = {
         let schema = Schema([
             LearningItemProgress.self,
