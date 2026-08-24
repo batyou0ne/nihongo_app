@@ -1,0 +1,411 @@
+import SwiftUI
+import SwiftData
+
+/// Ortak flashcard motoru: karakterler/kanjiler tek tek, tam ekran bir kart olarak gelir.
+/// Her kartın altında 4 şık vardır — seçilen şık doğruysa yeşile, yanlışsa kırmızıya döner.
+/// Cevaplandıktan sonra kart otomatik çevrilir ve arkasında bir özet + örnek kelime gösterilir.
+/// Hem LearningView (Hiragana/Katakana) hem Kanji akışı bu bileşeni sarmalayarak kullanır.
+///
+/// Oturum devamlılığı: kullanıcı ekrandan çıkıp geri döndüğünde kaldığı karta devam eder;
+/// yanlış yapılan kartlar hafızada (SwiftData'da) tutulur ve tüm kartlar bitince otomatik
+/// olarak sadece onlarla yeni bir tur başlar — bu, art arda bir turda hepsi doğru bilinene
+/// kadar sürer.
+struct FlashcardSessionView<Item: FlashcardItem>: View {
+    let sessionKey: String
+    let itemKind: LearnableItemKind
+    let allItems: [Item]
+    let distractorPool: [Item]
+    let accentColor: Color
+    let title: String
+
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
+    @Query private var userProgressRecords: [UserProgress]
+
+    @State private var progressByID: [String: LearningItemProgress] = [:]
+    @State private var quizViewModel: QuizViewModel<Item>?
+    @State private var sessionState: LearningSessionState?
+    @State private var isFlipped = false
+    @State private var isPresentingQuiz = false
+    @State private var hasRecordedStreak = false
+    @State private var autoAdvanceTask: Task<Void, Never>?
+    @State private var didSetup = false
+
+    /// Toplam öğe sayısı üzerinden "kalıcı olarak ustalaşılan" oran. `remainingItemIDs` +
+    /// `wrongItemIDs` her zaman "henüz bitmemiş" öğeleri temsil eder (tur değişse bile bu
+    /// toplam sabit kalır), bu yüzden bu ikisinin dışındakiler gerçekten ustalaşılmış demektir.
+    private var moduleProgress: Double {
+        guard let session = sessionState, !allItems.isEmpty else { return 0 }
+        let inPlay = session.remainingItemIDs.count + session.wrongItemIDs.count
+        return Double(max(0, allItems.count - inPlay)) / Double(allItems.count)
+    }
+
+    private var moduleProgressLabel: String {
+        guard let session = sessionState else { return "" }
+        let inPlay = session.remainingItemIDs.count + session.wrongItemIDs.count
+        let mastered = max(0, allItems.count - inPlay)
+        return "\(mastered)/\(allItems.count) öğrenildi"
+    }
+
+    var body: some View {
+        Group {
+            if let quizViewModel {
+                if quizViewModel.isFinished {
+                    completionView(quizViewModel)
+                } else {
+                    flashcardContent(quizViewModel)
+                }
+            } else {
+                SwiftUI.ProgressView()
+            }
+        }
+        .background(Color(uiColor: .systemGroupedBackground))
+        .navigationTitle(title)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("Hızlı Quiz") {
+                    isPresentingQuiz = true
+                }
+                .tint(accentColor)
+            }
+        }
+        .sheet(isPresented: $isPresentingQuiz) {
+            NavigationStack {
+                QuizView(
+                    questions: allItems,
+                    itemKind: itemKind,
+                    accentColor: accentColor,
+                    progressLookup: { progressByID[$0] }
+                )
+            }
+        }
+        .onAppear {
+            guard !didSetup else { return }
+            didSetup = true
+            syncProgress()
+            setupSession()
+        }
+    }
+
+    // MARK: - İlerleme kaydı (SpacedRepetitionService için)
+
+    private func syncProgress() {
+        let kind = itemKind
+        let descriptor = FetchDescriptor<LearningItemProgress>(predicate: #Predicate { $0.itemKind == kind })
+        let existing = (try? modelContext.fetch(descriptor)) ?? []
+        var byID = Dictionary(uniqueKeysWithValues: existing.map { ($0.itemID, $0) })
+
+        for item in allItems where byID[item.id] == nil {
+            let newProgress = LearningItemProgress(itemID: item.id, itemKind: kind)
+            modelContext.insert(newProgress)
+            byID[item.id] = newProgress
+        }
+        try? modelContext.save()
+        progressByID = byID
+    }
+
+    // MARK: - Oturum (kaldığı yerden devam + yanlışları tekrar turu)
+
+    private func setupSession() {
+        let key = sessionKey
+        let descriptor = FetchDescriptor<LearningSessionState>(predicate: #Predicate { $0.moduleType == key })
+        let existing = (try? modelContext.fetch(descriptor))?.first
+
+        let session: LearningSessionState
+        if let existing {
+            session = existing
+        } else {
+            session = LearningSessionState(moduleType: key, remainingItemIDs: allItems.map(\.id).shuffled())
+            modelContext.insert(session)
+        }
+
+        if session.isCompleted {
+            // Daha önce tüm kartlar art arda doğru bilinerek tamamlanmıştı;
+            // tekrar açıldığında sıfırdan yeni bir pratik turu başlatıyoruz.
+            session.isCompleted = false
+            session.wrongItemIDs = []
+            session.remainingItemIDs = allItems.map(\.id).shuffled()
+        } else if session.remainingItemIDs.isEmpty && !session.wrongItemIDs.isEmpty {
+            // Kaldığımız yer "ana tur bitti, tekrar turu bekleniyor" noktasıydı.
+            session.remainingItemIDs = session.wrongItemIDs.shuffled()
+            session.wrongItemIDs = []
+        } else if session.remainingItemIDs.isEmpty {
+            session.remainingItemIDs = allItems.map(\.id).shuffled()
+        }
+
+        try? modelContext.save()
+        sessionState = session
+        startRound(with: session.remainingItemIDs)
+    }
+
+    /// `ids`'i sıraya koyar (daha önce ekranda olan kart varsa en başa alır, geri kalanı
+    /// karıştırır), sonra bu sabit sırayla bir QuizViewModel oluşturur — kullanıcı ekrandan
+    /// çıkıp geri döndüğünde tam olarak bıraktığı kartla karşılaşır. Şık havuzu olarak
+    /// `distractorPool`'u (genelde tüm modül) veriyoruz ki küçük tekrar turlarında bile 4 şık çıksın.
+    private func startRound(with ids: [String]) {
+        var orderedIDs = ids
+        if let currentID = sessionState?.currentCardID, let idx = orderedIDs.firstIndex(of: currentID) {
+            orderedIDs.remove(at: idx)
+            orderedIDs.shuffle()
+            orderedIDs.insert(currentID, at: 0)
+        } else {
+            orderedIDs.shuffle()
+        }
+
+        let itemsByID = Dictionary(uniqueKeysWithValues: allItems.map { ($0.id, $0) })
+        let items = orderedIDs.compactMap { itemsByID[$0] }
+
+        let vm = QuizViewModel(
+            questions: items,
+            itemKind: itemKind,
+            modelContext: modelContext,
+            progressLookup: { progressByID[$0] },
+            shuffled: false,
+            distractorPool: distractorPool
+        )
+        quizViewModel = vm
+        isFlipped = false
+        syncCurrentCard(vm)
+    }
+
+    /// O an ekranda olan kartın id'sini oturuma yazar (bkz. LearningSessionState.currentCardID).
+    private func syncCurrentCard(_ vm: QuizViewModel<Item>?) {
+        sessionState?.currentCardID = vm?.currentQuestion?.id
+        try? modelContext.save()
+    }
+
+    /// Her cevaptan hemen sonra çağrılır: öğe artık "kalan" değildir; yanlışsa tekrar turu
+    /// listesine eklenir. Kullanıcı ekrandan çıksa bile bu kayıtlı kalır.
+    private func recordAnswer(for item: Item, correct: Bool) {
+        guard let session = sessionState else { return }
+        session.remainingItemIDs.removeAll { $0 == item.id }
+        if correct {
+            session.wrongItemIDs.removeAll { $0 == item.id }
+        } else if !session.wrongItemIDs.contains(item.id) {
+            session.wrongItemIDs.append(item.id)
+        }
+        try? modelContext.save()
+    }
+
+    /// Bir tur bittiğinde (son karta cevap verilip ileri geçildiğinde) çağrılır. Yanlış
+    /// yapılan öğe varsa modülü bitirmek yerine sadece onlarla yeni bir tur açar — kullanıcı
+    /// tüm kartları art arda doğru yapana kadar bu döngü sürer.
+    private func handleRoundCompletionIfNeeded(_ vm: QuizViewModel<Item>) {
+        guard vm.isFinished, let session = sessionState else { return }
+
+        if session.wrongItemIDs.isEmpty {
+            session.isCompleted = true
+            try? modelContext.save()
+        } else {
+            let retryIDs = session.wrongItemIDs.shuffled()
+            session.remainingItemIDs = retryIDs
+            session.wrongItemIDs = []
+            try? modelContext.save()
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                startRound(with: retryIDs)
+            }
+        }
+    }
+
+    // MARK: - Akış (tek tek gelen kartlar)
+
+    @ViewBuilder
+    private func flashcardContent(_ vm: QuizViewModel<Item>) -> some View {
+        VStack(spacing: 24) {
+            VStack(spacing: 4) {
+                SwiftUI.ProgressView(value: moduleProgress)
+                    .tint(accentColor)
+                Text(moduleProgressLabel)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.horizontal)
+
+            if let question = vm.currentQuestion {
+                flipCard(question)
+                    .id(question.id)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: .trailing).combined(with: .opacity),
+                        removal: .move(edge: .leading).combined(with: .opacity)
+                    ))
+                    .padding(.horizontal)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        guard isFlipped else { return }
+                        autoAdvanceTask?.cancel()
+                        advanceToNext(vm)
+                    }
+
+                optionsGrid(vm)
+
+                // Doğru cevapta otomatik geçilir; yanlışta kullanıcı örnek kelimeyi
+                // inceleyip karta dokunarak kendi geçer (bkz. flipCard'daki tap gesture).
+                if isFlipped && vm.isAnswerCorrect == false {
+                    Text("Devam etmek için karta dokun")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Spacer()
+        }
+        .padding(.top)
+        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: vm.currentIndex)
+    }
+
+    @ViewBuilder
+    private func flipCard(_ item: Item) -> some View {
+        ZStack {
+            cardFace {
+                VStack(spacing: 10) {
+                    Text(item.prompt)
+                        .font(.system(size: 80, weight: .regular, design: .serif))
+                        .minimumScaleFactor(0.5)
+                        .lineLimit(1)
+                    Button {
+                        AudioService.shared.speak(item.prompt)
+                    } label: {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .foregroundStyle(accentColor)
+                    }
+                }
+            }
+            .opacity(isFlipped ? 0 : 1)
+
+            cardFace {
+                exampleWordsView(item)
+            }
+            .opacity(isFlipped ? 1 : 0)
+            .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+        }
+        .rotation3DEffect(.degrees(isFlipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
+        .frame(height: 220)
+    }
+
+    private func cardFace<Content: View>(@ViewBuilder content: () -> Content) -> some View {
+        RoundedRectangle(cornerRadius: 20, style: .continuous)
+            .fill(Color(uiColor: .systemBackground))
+            .overlay(
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .strokeBorder(accentColor.opacity(0.35), lineWidth: 1)
+            )
+            .shadow(color: .black.opacity(0.06), radius: 8, y: 4)
+            .overlay(content().padding())
+    }
+
+    private func exampleWordsView(_ item: Item) -> some View {
+        VStack(spacing: 10) {
+            Text(item.flipRecap)
+                .font(.headline)
+                .foregroundStyle(accentColor)
+                .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.7)
+
+            if item.exampleWords.isEmpty {
+                Text("Örnek kelime yakında eklenecek")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            } else {
+                ForEach(item.exampleWords, id: \.hiragana) { word in
+                    VStack(spacing: 2) {
+                        Text(word.hiragana)
+                            .font(.system(size: 20, design: .serif))
+                        Text("\(word.romaji) · \(word.turkishMeaning)")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - 4 şıklı seçim
+
+    @ViewBuilder
+    private func optionsGrid(_ vm: QuizViewModel<Item>) -> some View {
+        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+            ForEach(vm.options, id: \.self) { option in
+                optionButton(option, vm: vm)
+            }
+        }
+        .padding(.horizontal)
+    }
+
+    private func optionButton(_ option: String, vm: QuizViewModel<Item>) -> some View {
+        let isSelected = vm.selectedAnswer == option
+
+        return Button {
+            guard vm.selectedAnswer == nil, let item = vm.currentQuestion else { return }
+            withAnimation(.easeInOut(duration: 0.2)) {
+                vm.submitAnswer(option)
+            }
+            recordAnswer(for: item, correct: vm.isAnswerCorrect == true)
+            autoAdvanceTask = Task {
+                try? await Task.sleep(for: .seconds(0.7))
+                guard !Task.isCancelled else { return }
+                withAnimation(.spring(response: 0.45, dampingFraction: 0.75)) {
+                    isFlipped = true
+                }
+                if vm.isAnswerCorrect == true {
+                    try? await Task.sleep(for: .seconds(2.8))
+                    guard !Task.isCancelled else { return }
+                    advanceToNext(vm)
+                }
+            }
+        } label: {
+            Text(option)
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(optionColor(isSelected: isSelected, vm: vm))
+                .foregroundStyle(isSelected ? .white : .primary)
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        }
+        .disabled(vm.selectedAnswer != nil)
+    }
+
+    private func optionColor(isSelected: Bool, vm: QuizViewModel<Item>) -> Color {
+        guard isSelected else { return Color(uiColor: .secondarySystemGroupedBackground) }
+        return vm.isAnswerCorrect == true ? .green : .red
+    }
+
+    private func advanceToNext(_ vm: QuizViewModel<Item>) {
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            isFlipped = false
+            vm.moveToNext()
+        }
+        syncCurrentCard(vm)
+        handleRoundCompletionIfNeeded(vm)
+    }
+
+    // MARK: - Bitiş
+
+    private func completionView(_ vm: QuizViewModel<Item>) -> some View {
+        VStack(spacing: 16) {
+            Image(systemName: "checkmark.seal.fill")
+                .font(.system(size: 56))
+                .foregroundStyle(accentColor)
+            Text("\(vm.score) / \(vm.questions.count) doğru")
+                .font(.title2.bold())
+            Button("Bitir") { dismiss() }
+                .buttonStyle(.borderedProminent)
+                .tint(accentColor)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear { recordStreakIfNeeded() }
+    }
+
+    private func recordStreakIfNeeded() {
+        guard !hasRecordedStreak else { return }
+        hasRecordedStreak = true
+
+        let userProgress = userProgressRecords.first ?? {
+            let newProgress = UserProgress()
+            modelContext.insert(newProgress)
+            return newProgress
+        }()
+        userProgress.recordStudySession()
+        try? modelContext.save()
+    }
+}

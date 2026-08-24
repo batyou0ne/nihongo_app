@@ -1,0 +1,57 @@
+[
+  { "character": "ア", "romaji": "a", "turkishPronunciation": "a", "row": "a", "strokeCount": 2 },
+  { "character": "イ", "romaji": "i", "turkishPronunciation": "i", "row": "a", "strokeCount": 2 },
+  { "character": "ウ", "romaji": "u", "turkishPronunciation": "u", "row": "a", "strokeCount": 3 },
+  { "character": "エ", "romaji": "e", "turkishPronunciation": "e", "row": "a", "strokeCount": 3 },
+  { "character": "オ", "romaji": "o", "turkishPronunciation": "o", "row": "a", "strokeCount": 3 },
+
+  { "character": "カ", "romaji": "ka", "turkishPronunciation": "ka", "row": "ka", "strokeCount": 2 },
+  { "character": "キ", "romaji": "ki", "turkishPronunciation": "ki", "row": "ka", "strokeCount": 3 },
+  { "character": "ク", "romaji": "ku", "turkishPronunciation": "ku", "row": "ka", "strokeCount": 2 },
+  { "character": "ケ", "romaji": "ke", "turkishPronunciation": "ke", "row": "ka", "strokeCount": 3 },
+  { "character": "コ", "romaji": "ko", "turkishPronunciation": "ko", "row": "ka", "strokeCount": 2 },
+
+  { "character": "サ", "romaji": "sa", "turkishPronunciation": "sa", "row": "sa", "strokeCount": 3 },
+  { "character": "シ", "romaji": "shi", "turkishPronunciation": "şi", "row": "sa", "strokeCount": 3 },
+  { "character": "ス", "romaji": "su", "turkishPronunciation": "su", "row": "sa", "strokeCount": 2 },
+  { "character": "セ", "romaji": "se", "turkishPronunciation": "se", "row": "sa", "strokeCount": 2 },
+  { "character": "ソ", "romaji": "so", "turkishPronunciation": "so", "row": "sa", "strokeCount": 2 },
+
+  { "character": "タ", "romaji": "ta", "turkishPronunciation": "ta", "row": "ta", "strokeCount": 3 },
+  { "character": "チ", "romaji": "chi", "turkishPronunciation": "çi", "row": "ta", "strokeCount": 3 },
+  { "character": "ツ", "romaji": "tsu", "turkishPronunciation": "tsu", "row": "ta", "strokeCount": 3 },
+  { "character": "テ", "romaji": "te", "turkishPronunciation": "te", "row": "ta", "strokeCount": 3 },
+  { "character": "ト", "romaji": "to", "turkishPronunciation": "to", "row": "ta", "strokeCount": 2 },
+
+  { "character": "ナ", "romaji": "na", "turkishPronunciation": "na", "row": "na", "strokeCount": 2 },
+  { "character": "ニ", "romaji": "ni", "turkishPronunciation": "ni", "row": "na", "strokeCount": 2 },
+  { "character": "ヌ", "romaji": "nu", "turkishPronunciation": "nu", "row": "na", "strokeCount": 2 },
+  { "character": "ネ", "romaji": "ne", "turkishPronunciation": "ne", "row": "na", "strokeCount": 4 },
+  { "character": "ノ", "romaji": "no", "turkishPronunciation": "no", "row": "na", "strokeCount": 1 },
+
+  { "character": "ハ", "romaji": "ha", "turkishPronunciation": "ha", "row": "ha", "strokeCount": 2 },
+  { "character": "ヒ", "romaji": "hi", "turkishPronunciation": "hi", "row": "ha", "strokeCount": 2 },
+  { "character": "フ", "romaji": "fu", "turkishPronunciation": "fu", "row": "ha", "strokeCount": 1 },
+  { "character": "ヘ", "romaji": "he", "turkishPronunciation": "he", "row": "ha", "strokeCount": 1 },
+  { "character": "ホ", "romaji": "ho", "turkishPronunciation": "ho", "row": "ha", "strokeCount": 4 },
+
+  { "character": "マ", "romaji": "ma", "turkishPronunciation": "ma", "row": "ma", "strokeCount": 2 },
+  { "character": "ミ", "romaji": "mi", "turkishPronunciation": "mi", "row": "ma", "strokeCount": 3 },
+  { "character": "ム", "romaji": "mu", "turkishPronunciation": "mu", "row": "ma", "strokeCount": 2 },
+  { "character": "メ", "romaji": "me", "turkishPronunciation": "me", "row": "ma", "strokeCount": 2 },
+  { "character": "モ", "romaji": "mo", "turkishPronunciation": "mo", "row": "ma", "strokeCount": 3 },
+
+  { "character": "ヤ", "romaji": "ya", "turkishPronunciation": "ya", "row": "ya", "strokeCount": 2 },
+  { "character": "ユ", "romaji": "yu", "turkishPronunciation": "yu", "row": "ya", "strokeCount": 2 },
+  { "character": "ヨ", "romaji": "yo", "turkishPronunciation": "yo", "row": "ya", "strokeCount": 3 },
+
+  { "character": "ラ", "romaji": "ra", "turkishPronunciation": "ra", "row": "ra", "strokeCount": 2 },
+  { "character": "リ", "romaji": "ri", "turkishPronunciation": "ri", "row": "ra", "strokeCount": 2 },
+  { "character": "ル", "romaji": "ru", "turkishPronunciation": "ru", "row": "ra", "strokeCount": 2 },
+  { "character": "レ", "romaji": "re", "turkishPronunciation": "re", "row": "ra", "strokeCount": 1 },
+  { "character": "ロ", "romaji": "ro", "turkishPronunciation": "ro", "row": "ra", "strokeCount": 3 },
+
+  { "character": "ワ", "romaji": "wa", "turkishPronunciation": "va", "row": "wa", "strokeCount": 2 },
+  { "character": "ヲ", "romaji": "wo", "turkishPronunciation": "o", "row": "wa", "strokeCount": 3 },
+  { "character": "ン", "romaji": "n", "turkishPronunciation": "n", "row": "wa", "strokeCount": 2 }
+]
