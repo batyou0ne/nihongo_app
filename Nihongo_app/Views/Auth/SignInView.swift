@@ -62,6 +62,23 @@ struct SignInView: View {
                 .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
                 .frame(height: 52)
 
+                Button {
+                    signInWithGoogle()
+                } label: {
+                    HStack(spacing: 8) {
+                        Text("G")
+                            .font(.system(size: 20, weight: .black))
+                            .foregroundStyle(Theme.accent)
+                        Text("Google ile devam et")
+                            .font(.system(size: 17, weight: .bold))
+                            .foregroundStyle(Theme.ink)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 52)
+                    .inkBordered()
+                }
+                .padding(.top, 12)
+
                 Button("Şimdilik misafir olarak devam et") {
                     dismiss()
                 }
@@ -186,6 +203,21 @@ struct SignInView: View {
             do {
                 try await AuthService.shared.sendPasswordReset(email: trimmedEmail)
                 infoMessage = "Şifre sıfırlama bağlantısı \(trimmedEmail) adresine gönderildi."
+            } catch {
+                errorMessage = AuthService.friendlyMessage(for: error)
+            }
+        }
+    }
+
+    private func signInWithGoogle() {
+        errorMessage = nil
+        infoMessage = nil
+        Task {
+            do {
+                let didSignIn = try await AuthService.shared.signInWithGoogle()
+                if didSignIn {
+                    dismiss()
+                }
             } catch {
                 errorMessage = AuthService.friendlyMessage(for: error)
             }

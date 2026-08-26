@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import FirebaseCore
+import GoogleSignIn
 
 @main
 struct NihongoApp: App {
@@ -27,8 +28,12 @@ struct NihongoApp: App {
             HomeView()
                 .task {
                     // Oturum yoksa sessizce anonim oturum aç; kullanıcı daha
-                    // sonra Apple ile hesap bağladığında uid korunur.
+                    // sonra hesap bağladığında uid korunur.
                     await AuthService.shared.signInAnonymouslyIfNeeded()
+                }
+                .onOpenURL { url in
+                    // Google giriş akışının OAuth geri dönüşü (URL şeması).
+                    GIDSignIn.sharedInstance.handle(url)
                 }
         }
         .modelContainer(modelContainer)

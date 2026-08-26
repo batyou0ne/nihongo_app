@@ -1,8 +1,11 @@
 import Foundation
 import Security
 import CryptoKit
+import UIKit
 import AuthenticationServices
 import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
 
 /// Firebase Auth işlemlerini yöneten servis.
 ///
@@ -98,24 +101,71 @@ final class AuthService {
                 rawNonce: nonce,
                 fullName: appleIDCredential.fullName
             )
+            try await linkOrSignIn(with: credential)
+            return true
+        }
+    }
 
-            if let user = Auth.auth().currentUser {
-                do {
-                    // Anonim hesabı Apple kimliğine bağla → uid korunur.
-                    let result = try await user.link(with: credential)
-                    currentUser = result.user
-                } catch let error as NSError where error.code == AuthErrorCode.credentialAlreadyInUse.rawValue {
-                    // Bu Apple kimliği zaten başka bir hesaba ait: o hesaba giriş yap.
-                    let existingCredential =
-                        (error.userInfo[AuthErrorUserInfoUpdatedCredentialKey] as? AuthCredential) ?? credential
-                    let result = try await Auth.auth().signIn(with: existingCredential)
-                    currentUser = result.user
-                }
-            } else {
-                let result = try await Auth.auth().signIn(with: credential)
+    // MARK: - Google ile giriş
+
+    /// Google giriş akışını başlatır ve sonucu Firebase hesabına bağlar.
+    /// - Returns: Kullanıcı akışı kendi iptal ettiyse `false`, giriş başarılıysa `true`.
+    @discardableResult
+    func signInWithGoogle() async throws -> Bool {
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+            throw AuthError.missingGoogleConfig
+        }
+        GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientID)
+
+        guard let rootViewController else {
+            throw AuthError.missingGoogleConfig
+        }
+
+        let result: GIDSignInResult
+        do {
+            result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+        } catch let error as GIDSignInError where error.code == .canceled {
+            return false // Kullanıcının kendi iptali hata sayılmaz.
+        }
+
+        guard let idToken = result.user.idToken?.tokenString else {
+            throw AuthError.invalidCredential
+        }
+        let credential = GoogleAuthProvider.credential(
+            withIDToken: idToken,
+            accessToken: result.user.accessToken.tokenString
+        )
+        try await linkOrSignIn(with: credential)
+        return true
+    }
+
+    /// Google giriş sayfasını sunmak için o anki kök view controller.
+    private var rootViewController: UIViewController? {
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap(\.windows)
+            .first { $0.isKeyWindow }?
+            .rootViewController
+    }
+
+    // MARK: - Ortak bağlama akışı
+
+    /// Verilen kimliği mevcut (anonim) hesaba bağlar → uid korunur. Kimlik zaten
+    /// başka bir hesaba aitse o hesaba giriş yapar.
+    private func linkOrSignIn(with credential: AuthCredential) async throws {
+        if let user = Auth.auth().currentUser {
+            do {
+                let result = try await user.link(with: credential)
+                currentUser = result.user
+            } catch let error as NSError where error.code == AuthErrorCode.credentialAlreadyInUse.rawValue {
+                let existingCredential =
+                    (error.userInfo[AuthErrorUserInfoUpdatedCredentialKey] as? AuthCredential) ?? credential
+                let result = try await Auth.auth().signIn(with: existingCredential)
                 currentUser = result.user
             }
-            return true
+        } else {
+            let result = try await Auth.auth().signIn(with: credential)
+            currentUser = result.user
         }
     }
 
@@ -173,9 +223,15 @@ final class AuthService {
 
     enum AuthError: LocalizedError {
         case invalidCredential
+        case missingGoogleConfig
 
         var errorDescription: String? {
-            "Apple kimlik bilgileri doğrulanamadı. Lütfen tekrar deneyin."
+            switch self {
+            case .invalidCredential:
+                return "Kimlik bilgileri doğrulanamadı. Lütfen tekrar deneyin."
+            case .missingGoogleConfig:
+                return "Google giriş yapılandırması bulunamadı."
+            }
         }
     }
 
