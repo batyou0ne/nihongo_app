@@ -2,9 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>com.apple.developer.applesignin</key>
-	<array>
-		<string>Default</string>
-	</array>
+	<!-- Sign in with Apple entitlement'ı geçici olarak kaldırıldı: ücretsiz
+	     (Personal Team) hesap bu özelliği desteklemiyor ve gerçek cihaza
+	     yükleme imzalanamıyordu. Ücretli Apple Developer üyeliği alınınca
+	     geri eklenecek: com.apple.developer.applesignin = [Default]
+	     (SignInView'daki isSignInWithAppleEnabled bayrağı da açılmalı.) -->
 </dict>
 </plist>

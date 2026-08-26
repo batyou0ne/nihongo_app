@@ -14,6 +14,11 @@ struct SignInView: View {
         case signUp, signIn
     }
 
+    /// Sign in with Apple, ücretsiz (Personal Team) hesapla cihazda çalışmadığı
+    /// için geçici olarak kapalı. Ücretli Apple Developer üyeliği alınınca bu
+    /// bayrak açılmalı ve entitlement geri eklenmeli (bkz. Nihongo_app.entitlements).
+    private let isSignInWithAppleEnabled = false
+
     @State private var mode: Mode = .signIn
     @State private var email = ""
     @State private var password = ""
@@ -57,13 +62,15 @@ struct SignInView: View {
                 divider
                     .padding(.vertical, 20)
 
-                SignInWithAppleButton(.signIn) { request in
-                    AuthService.shared.prepareAppleRequest(request)
-                } onCompletion: { result in
-                    Task { await handleAppleCompletion(result) }
+                if isSignInWithAppleEnabled {
+                    SignInWithAppleButton(.signIn) { request in
+                        AuthService.shared.prepareAppleRequest(request)
+                    } onCompletion: { result in
+                        Task { await handleAppleCompletion(result) }
+                    }
+                    .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+                    .frame(height: 52)
                 }
-                .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
-                .frame(height: 52)
 
                 Button {
                     signInWithGoogle()
