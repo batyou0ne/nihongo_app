@@ -39,6 +39,11 @@ final class AuthService {
         currentUser?.isAnonymous ?? true
     }
 
+    /// Kullanıcının bağlı bir hesabı var mı (Apple, Google veya email — fark etmez)?
+    var hasAccount: Bool {
+        !(currentUser?.isAnonymous ?? true)
+    }
+
     // MARK: - Anonim oturum
 
     /// Uygulama açılışında çağrılır: mevcut oturum yoksa anonim oturum açar.
@@ -111,6 +116,58 @@ final class AuthService {
                 currentUser = result.user
             }
             return true
+        }
+    }
+
+    // MARK: - Email/şifre
+
+    /// Email/şifre ile kayıt oluşturur. Mevcut anonim hesap bu kimliğe "link" edilir,
+    /// böylece uid değişmez ve o ana kadarki ilerleme korunur.
+    func signUp(email: String, password: String) async throws {
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        if let user = Auth.auth().currentUser {
+            let result = try await user.link(with: credential)
+            currentUser = result.user
+        } else {
+            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            currentUser = result.user
+        }
+    }
+
+    /// Var olan bir email/şifre hesabına giriş yapar.
+    func signIn(email: String, password: String) async throws {
+        let result = try await Auth.auth().signIn(withEmail: email, password: password)
+        currentUser = result.user
+    }
+
+    /// Şifre sıfırlama maili gönderir.
+    func sendPasswordReset(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
+
+    /// Firebase Auth hatalarını kullanıcıya gösterilebilir Türkçe mesajlara çevirir.
+    static func friendlyMessage(for error: Error) -> String {
+        if let authError = error as? AuthError {
+            return authError.errorDescription ?? "Bir hata oluştu."
+        }
+        let code = AuthErrorCode(rawValue: (error as NSError).code)
+        switch code {
+        case .invalidEmail:
+            return "Geçersiz email adresi."
+        case .emailAlreadyInUse, .credentialAlreadyInUse:
+            return "Bu email zaten kayıtlı. Giriş yapmayı dene."
+        case .weakPassword:
+            return "Şifre en az 6 karakter olmalı."
+        case .wrongPassword, .invalidCredential:
+            return "Email veya şifre hatalı."
+        case .userNotFound:
+            return "Bu email ile bir hesap bulunamadı. Önce kayıt ol."
+        case .networkError:
+            return "İnternet bağlantını kontrol edip tekrar dene."
+        case .tooManyRequests:
+            return "Çok fazla deneme yapıldı. Biraz bekleyip tekrar dene."
+        default:
+            return error.localizedDescription
         }
     }
 

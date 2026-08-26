@@ -101,7 +101,7 @@ struct HomeView: View {
                     Button {
                         showSignIn = true
                     } label: {
-                        Image(systemName: AuthService.shared.isLinkedToApple
+                        Image(systemName: AuthService.shared.hasAccount
                               ? "person.crop.circle.fill.badge.checkmark"
                               : "person.crop.circle")
                             .foregroundStyle(Theme.ink)
