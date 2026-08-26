@@ -91,9 +91,18 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
 
     private func syncProgress() {
         let kind = itemKind
-        let descriptor = FetchDescriptor<LearningItemProgress>(predicate: #Predicate { $0.itemKind == kind })
-        let existing = (try? modelContext.fetch(descriptor)) ?? []
-        var byID = Dictionary(uniqueKeysWithValues: existing.map { ($0.itemID, $0) })
+        // Dikkat: #Predicate ile enum karşılaştırması ($0.itemKind == kind) SwiftData'da
+        // desteklenmiyor ve çalışma zamanında hata fırlatıyor. Bu, mevcut kayıtların hiç
+        // bulunamamasına, her açılışta aynı itemID'lerle sıfır kayıtların upsert edilmesine
+        // ve oturumdaki ilerleme güncellemelerinin kaybolmasına yol açıyordu. Bu yüzden
+        // tüm kayıtlar çekilip tür filtresi bellekte yapılıyor.
+        let descriptor = FetchDescriptor<LearningItemProgress>()
+        let existing = ((try? modelContext.fetch(descriptor)) ?? []).filter { $0.itemKind == kind }
+
+        var byID: [String: LearningItemProgress] = [:]
+        for progress in existing where byID[progress.itemID] == nil {
+            byID[progress.itemID] = progress
+        }
 
         for item in allItems where byID[item.id] == nil {
             let newProgress = LearningItemProgress(itemID: item.id, itemKind: kind)
