@@ -393,8 +393,12 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         } label: {
             Text(option)
                 .font(.system(size: 17, weight: .bold))
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .minimumScaleFactor(0.6)
+                .padding(.horizontal, 10)
                 .frame(maxWidth: .infinity)
-                .padding()
+                .frame(height: 68) // Metin kaç satır olursa olsun tüm şıklar aynı boyutta.
                 .background(optionColor(isSelected: isSelected, vm: vm))
                 .foregroundStyle(isSelected ? .white : Theme.ink)
                 .overlay(Rectangle().strokeBorder(Theme.ink, lineWidth: 2))
