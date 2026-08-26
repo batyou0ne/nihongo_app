@@ -6,6 +6,7 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var userProgressRecords: [UserProgress]
+    @State private var showSignIn = false
 
     private var userProgress: UserProgress {
         if let existing = userProgressRecords.first {
@@ -72,6 +73,20 @@ struct HomeView: View {
             }
             .background(Color(uiColor: .systemGroupedBackground))
             .navigationTitle("Nihongo")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showSignIn = true
+                    } label: {
+                        Image(systemName: AuthService.shared.isLinkedToApple
+                              ? "person.crop.circle.fill.badge.checkmark"
+                              : "person.crop.circle")
+                    }
+                }
+            }
+            .sheet(isPresented: $showSignIn) {
+                SignInView()
+            }
             .onAppear {
                 _ = userProgress
             }

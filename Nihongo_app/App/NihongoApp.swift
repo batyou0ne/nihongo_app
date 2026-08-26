@@ -25,6 +25,11 @@ struct NihongoApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .task {
+                    // Oturum yoksa sessizce anonim oturum aç; kullanıcı daha
+                    // sonra Apple ile hesap bağladığında uid korunur.
+                    await AuthService.shared.signInAnonymouslyIfNeeded()
+                }
         }
         .modelContainer(modelContainer)
     }
