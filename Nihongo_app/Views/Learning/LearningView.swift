@@ -9,7 +9,7 @@ struct LearningView: View {
     @State private var characters: [JapaneseCharacter] = []
 
     private var accentColor: Color {
-        characterType == .hiragana ? .red : .blue
+        Theme.accent
     }
 
     var body: some View {

@@ -32,7 +32,7 @@ struct KanjiPartSelectionView: View {
                                     itemKind: .kanji,
                                     allItems: part,
                                     distractorPool: allKanji,
-                                    accentColor: .green,
+                                    accentColor: Theme.accent,
                                     title: "\(level) Kanji's Part \(index + 1)"
                                 )
                             } label: {
@@ -42,7 +42,7 @@ struct KanjiPartSelectionView: View {
                     }
                     .padding()
                 }
-                .background(Color(uiColor: .systemGroupedBackground))
+                .background(Theme.paper)
             }
         }
         .navigationTitle("\(level) Kanji's")
@@ -60,31 +60,27 @@ struct KanjiPartSelectionView: View {
     private func partRow(index: Int, count: Int) -> some View {
         HStack(spacing: 16) {
             Text("\(index + 1)")
-                .font(.headline)
+                .font(Theme.heading(19))
                 .foregroundStyle(.white)
                 .frame(width: 44, height: 44)
-                .background(Color.green)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .background(Theme.accent)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("\(level) Kanji's Part \(index + 1)")
-                    .font(.system(.headline, design: .serif))
+                    .font(Theme.heading(19))
+                    .foregroundStyle(Theme.ink)
                 Text("\(count) kanji")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
-            Image(systemName: "chevron.right")
-                .foregroundStyle(.tertiary)
+            Image(systemName: "arrow.right")
+                .font(.system(size: 15, weight: .bold))
+                .foregroundStyle(Theme.ink)
         }
         .padding()
-        .background(Color(uiColor: .systemBackground))
-        .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .strokeBorder(Color.green.opacity(0.25), lineWidth: 1)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .inkBordered()
     }
 }
 

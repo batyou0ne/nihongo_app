@@ -12,67 +12,60 @@ struct SignInView: View {
     @State private var errorMessage: String?
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 24) {
-                Spacer()
-
-                header
-
-                Spacer()
-
-                VStack(spacing: 12) {
-                    SignInWithAppleButton(.signIn) { request in
-                        AuthService.shared.prepareAppleRequest(request)
-                    } onCompletion: { result in
-                        Task { await handleCompletion(result) }
-                    }
-                    .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
-                    .frame(height: 50)
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-
-                    if let errorMessage {
-                        Text(errorMessage)
-                            .font(.footnote)
-                            .foregroundStyle(.red)
-                            .multilineTextAlignment(.center)
-                    }
-
-                    Button("Şimdilik misafir olarak devam et") {
-                        dismiss()
-                    }
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .padding(.top, 4)
-                }
+        VStack(alignment: .leading, spacing: 0) {
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(Theme.ink)
             }
-            .padding(24)
-            .background(Color(uiColor: .systemGroupedBackground))
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundStyle(.secondary)
-                    }
-                }
-            }
-        }
-    }
+            .padding(.top, 24)
 
-    private var header: some View {
-        VStack(spacing: 12) {
+            Spacer()
+
             Text("日本語")
-                .font(.system(size: 56, design: .serif))
+                .font(Theme.display(64))
+                .foregroundStyle(Theme.accent)
+                .padding(.bottom, 16)
 
             Text("Hesabını bağla")
-                .font(.title2.bold())
+                .font(Theme.display(32))
+                .foregroundStyle(Theme.ink)
+                .padding(.bottom, 12)
 
             Text("İlerlemen hesabına kaydedilir; başka bir cihazdan giriş yaptığında kaldığın yerden devam edersin.")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
+                .font(.system(size: 17))
+                .foregroundStyle(Theme.secondaryInk)
+                .padding(.bottom, 28)
+
+            SignInWithAppleButton(.signIn) { request in
+                AuthService.shared.prepareAppleRequest(request)
+            } onCompletion: { result in
+                Task { await handleCompletion(result) }
+            }
+            .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+            .frame(height: 56)
+
+            if let errorMessage {
+                Text(errorMessage)
+                    .font(.footnote)
+                    .foregroundStyle(Theme.accent)
+                    .padding(.top, 12)
+            }
+
+            Button("Şimdilik misafir olarak devam et") {
+                dismiss()
+            }
+            .font(.system(size: 17, weight: .heavy))
+            .foregroundStyle(Theme.accent)
+            .padding(.top, 20)
+
+            Spacer()
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 24)
+        .background(Theme.paper)
     }
 
     private func handleCompletion(_ result: Result<ASAuthorization, Error>) async {

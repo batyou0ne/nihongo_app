@@ -69,7 +69,8 @@ struct QuizView<Item: QuizItem>: View {
 
             if let question = viewModel.currentQuestion {
                 Text(question.prompt)
-                    .font(.system(size: 88, weight: .regular, design: .serif))
+                    .font(Theme.display(88))
+                    .foregroundStyle(Theme.ink)
                     .padding(.top, 24)
 
                 VStack(spacing: 12) {
@@ -83,8 +84,8 @@ struct QuizView<Item: QuizItem>: View {
                     Button("Devam Et") {
                         withAnimation { viewModel.moveToNext() }
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(accentColor)
+                    .buttonStyle(PrimaryButtonStyle())
+                    .padding(.horizontal)
                     .padding(.top, 8)
                 }
             }
@@ -113,19 +114,20 @@ struct QuizView<Item: QuizItem>: View {
                     Image(systemName: "xmark.circle.fill")
                 }
             }
+            .font(.system(size: 17, weight: .bold))
             .padding()
             .background(optionBackground(isSelected: isSelected, isCorrectAnswer: isCorrectAnswer, showResult: showResult))
-            .foregroundStyle(.primary)
-            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .foregroundStyle(Theme.ink)
+            .overlay(Rectangle().strokeBorder(Theme.ink, lineWidth: 2))
         }
         .disabled(showResult)
     }
 
     private func optionBackground(isSelected: Bool, isCorrectAnswer: Bool, showResult: Bool) -> Color {
-        guard showResult else { return Color(uiColor: .secondarySystemGroupedBackground) }
+        guard showResult else { return Theme.paper }
         if isCorrectAnswer { return .green.opacity(0.25) }
-        if isSelected { return .red.opacity(0.25) }
-        return Color(uiColor: .secondarySystemGroupedBackground)
+        if isSelected { return Theme.accent.opacity(0.25) }
+        return Theme.paper
     }
 
     private func recordStreakIfNeeded() {
@@ -145,12 +147,13 @@ struct QuizView<Item: QuizItem>: View {
         VStack(spacing: 16) {
             Image(systemName: score == total ? "star.fill" : "checkmark.seal.fill")
                 .font(.system(size: 56))
-                .foregroundStyle(accentColor)
+                .foregroundStyle(Theme.accent)
             Text("\(score) / \(total) doğru")
-                .font(.title2.bold())
+                .font(Theme.heading(22))
+                .foregroundStyle(Theme.ink)
             Button("Bitir") { dismiss() }
-                .buttonStyle(.borderedProminent)
-                .tint(accentColor)
+                .buttonStyle(PrimaryButtonStyle())
+                .padding(.horizontal, 40)
         }
     }
 }

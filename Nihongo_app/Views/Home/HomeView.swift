@@ -1,8 +1,8 @@
 import SwiftUI
 import SwiftData
 
-/// Uygulamanın giriş ekranı. Her öğrenme modülü için renk kodlu bir kart gösterir
-/// (Hiragana: kırmızı, Katakana: mavi, Kanji: yeşil) ve üstte günlük seriyi gösterir.
+/// Uygulamanın giriş ekranı. Büyük vermilyon "日本語" başlığı, altında keskin
+/// köşeli siyah kenarlıklı modül kartları ve günlük seri gösterir.
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var userProgressRecords: [UserProgress]
@@ -20,18 +20,19 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
+                VStack(alignment: .leading, spacing: 28) {
+                    header
+
                     streakHeader
 
-                    VStack(spacing: 16) {
+                    VStack(spacing: 14) {
                         NavigationLink {
                             LearningView(characterType: .hiragana)
                         } label: {
                             ModuleCard(
                                 title: "Hiragana",
                                 subtitle: "46 karakter · あいうえお",
-                                systemImage: "character.book.closed.fill",
-                                color: .red
+                                systemImage: "character.book.closed.fill"
                             )
                         }
 
@@ -41,8 +42,7 @@ struct HomeView: View {
                             ModuleCard(
                                 title: "Katakana",
                                 subtitle: "46 karakter · アイウエオ",
-                                systemImage: "character.book.closed.fill",
-                                color: .blue
+                                systemImage: "character.book.closed.fill"
                             )
                         }
 
@@ -52,8 +52,7 @@ struct HomeView: View {
                             ModuleCard(
                                 title: "Kanji",
                                 subtitle: "N5 · 80 kanji",
-                                systemImage: "text.book.closed.fill",
-                                color: .green
+                                systemImage: "text.book.closed.fill"
                             )
                         }
 
@@ -63,16 +62,15 @@ struct HomeView: View {
                             ModuleCard(
                                 title: "İlerleme",
                                 subtitle: "Öğrenilenleri görüntüle",
-                                systemImage: "chart.bar.fill",
-                                color: .gray
+                                systemImage: "chart.bar.fill"
                             )
                         }
                     }
                 }
-                .padding()
+                .padding(20)
             }
-            .background(Color(uiColor: .systemGroupedBackground))
-            .navigationTitle("Nihongo")
+            .background(Theme.paper)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -81,6 +79,7 @@ struct HomeView: View {
                         Image(systemName: AuthService.shared.isLinkedToApple
                               ? "person.crop.circle.fill.badge.checkmark"
                               : "person.crop.circle")
+                            .foregroundStyle(Theme.ink)
                     }
                 }
             }
@@ -91,58 +90,64 @@ struct HomeView: View {
                 _ = userProgress
             }
         }
+        .tint(Theme.accent)
+    }
+
+    private var header: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("日本語")
+                .font(Theme.display(56))
+                .foregroundStyle(Theme.accent)
+            Text("Nihongo")
+                .font(Theme.heading(22))
+                .foregroundStyle(Theme.ink)
+        }
     }
 
     private var streakHeader: some View {
-        HStack {
+        HStack(spacing: 10) {
             Image(systemName: "flame.fill")
-                .foregroundStyle(.orange)
+                .foregroundStyle(Theme.accent)
             Text("\(userProgress.currentStreak) günlük seri")
-                .font(.headline)
+                .font(.system(size: 17, weight: .heavy))
+                .foregroundStyle(Theme.ink)
             Spacer()
         }
         .padding()
-        .background(Color(uiColor: .secondarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .inkBordered()
     }
 }
 
-/// Ana ekrandaki modül kartı. Minimalist, ince kenarlıklı, tek bir vurgu rengiyle.
+/// Ana ekrandaki modül kartı: keskin köşeli, kalın siyah kenarlıklı,
+/// vermilyon ikonlu.
 private struct ModuleCard: View {
     let title: String
     let subtitle: String
     let systemImage: String
-    let color: Color
 
     var body: some View {
         HStack(spacing: 16) {
             Image(systemName: systemImage)
                 .font(.title2)
-                .foregroundStyle(color)
+                .foregroundStyle(Theme.accent)
                 .frame(width: 44, height: 44)
-                .background(color.opacity(0.12))
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
-                    .font(.system(.headline, design: .serif))
-                    .foregroundStyle(.primary)
+                    .font(Theme.heading(19))
+                    .foregroundStyle(Theme.ink)
                 Text(subtitle)
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
-            Image(systemName: "chevron.right")
-                .foregroundStyle(.tertiary)
+            Image(systemName: "arrow.right")
+                .font(.system(size: 15, weight: .bold))
+                .foregroundStyle(Theme.ink)
         }
         .padding()
-        .background(Color(uiColor: .systemBackground))
-        .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .strokeBorder(color.opacity(0.25), lineWidth: 1)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .inkBordered()
     }
 }
 

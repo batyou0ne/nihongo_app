@@ -4,7 +4,7 @@ import SwiftUI
 /// dokununca 3B flip animasyonuyla arkaya döner ve romaji + Türkçe okunuşu gösterir.
 struct CharacterCardView: View {
     let character: JapaneseCharacter
-    var accentColor: Color = .red
+    var accentColor: Color = Theme.accent
 
     @State private var isFlipped = false
 
@@ -29,8 +29,8 @@ struct CharacterCardView: View {
         cardBackground {
             VStack(spacing: 8) {
                 Text(character.character)
-                    .font(.system(size: 72, weight: .regular, design: .serif))
-                    .foregroundStyle(.primary)
+                    .font(Theme.display(72))
+                    .foregroundStyle(Theme.ink)
                 Button {
                     AudioService.shared.speak(character.character)
                 } label: {
@@ -45,7 +45,7 @@ struct CharacterCardView: View {
         cardBackground {
             VStack(spacing: 6) {
                 Text(character.romaji)
-                    .font(.system(size: 28, weight: .semibold, design: .rounded))
+                    .font(Theme.heading(28))
                 Text(character.turkishPronunciation)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
@@ -54,13 +54,9 @@ struct CharacterCardView: View {
     }
 
     private func cardBackground<Content: View>(@ViewBuilder content: () -> Content) -> some View {
-        RoundedRectangle(cornerRadius: 20, style: .continuous)
-            .fill(Color(uiColor: .systemBackground))
-            .overlay(
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .strokeBorder(accentColor.opacity(0.35), lineWidth: 1)
-            )
-            .shadow(color: .black.opacity(0.06), radius: 8, y: 4)
+        Rectangle()
+            .fill(Theme.paper)
+            .overlay(Rectangle().strokeBorder(Theme.accent, lineWidth: 2))
             .overlay(content())
     }
 }

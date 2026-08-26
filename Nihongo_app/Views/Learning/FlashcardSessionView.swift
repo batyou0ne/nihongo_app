@@ -59,7 +59,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                 SwiftUI.ProgressView()
             }
         }
-        .background(Color(uiColor: .systemGroupedBackground))
+        .background(Theme.paper)
         .navigationTitle(title)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -259,7 +259,8 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             cardFace {
                 VStack(spacing: 10) {
                     Text(item.prompt)
-                        .font(.system(size: 80, weight: .regular, design: .serif))
+                        .font(Theme.display(80))
+                        .foregroundStyle(Theme.ink)
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                     Button {
@@ -283,21 +284,17 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
     }
 
     private func cardFace<Content: View>(@ViewBuilder content: () -> Content) -> some View {
-        RoundedRectangle(cornerRadius: 20, style: .continuous)
-            .fill(Color(uiColor: .systemBackground))
-            .overlay(
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .strokeBorder(accentColor.opacity(0.35), lineWidth: 1)
-            )
-            .shadow(color: .black.opacity(0.06), radius: 8, y: 4)
+        Rectangle()
+            .fill(Theme.paper)
+            .overlay(Rectangle().strokeBorder(Theme.accent, lineWidth: 2))
             .overlay(content().padding())
     }
 
     private func exampleWordsView(_ item: Item) -> some View {
         VStack(spacing: 10) {
             Text(item.flipRecap)
-                .font(.headline)
-                .foregroundStyle(accentColor)
+                .font(Theme.heading(17))
+                .foregroundStyle(Theme.accent)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.7)
 
@@ -309,7 +306,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                 ForEach(item.exampleWords, id: \.hiragana) { word in
                     VStack(spacing: 2) {
                         Text(word.hiragana)
-                            .font(.system(size: 20, design: .serif))
+                            .font(.system(size: 20, weight: .bold))
                         Text("\(word.romaji) · \(word.turkishMeaning)")
                             .font(.caption)
                             .foregroundStyle(.secondary)
@@ -355,19 +352,19 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             }
         } label: {
             Text(option)
-                .font(.headline)
+                .font(.system(size: 17, weight: .bold))
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(optionColor(isSelected: isSelected, vm: vm))
-                .foregroundStyle(isSelected ? .white : .primary)
-                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .foregroundStyle(isSelected ? .white : Theme.ink)
+                .overlay(Rectangle().strokeBorder(Theme.ink, lineWidth: 2))
         }
         .disabled(vm.selectedAnswer != nil)
     }
 
     private func optionColor(isSelected: Bool, vm: QuizViewModel<Item>) -> Color {
-        guard isSelected else { return Color(uiColor: .secondarySystemGroupedBackground) }
-        return vm.isAnswerCorrect == true ? .green : .red
+        guard isSelected else { return Theme.paper }
+        return vm.isAnswerCorrect == true ? .green : Theme.accent
     }
 
     private func advanceToNext(_ vm: QuizViewModel<Item>) {
@@ -385,12 +382,13 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         VStack(spacing: 16) {
             Image(systemName: "checkmark.seal.fill")
                 .font(.system(size: 56))
-                .foregroundStyle(accentColor)
+                .foregroundStyle(Theme.accent)
             Text("\(vm.score) / \(vm.questions.count) doğru")
-                .font(.title2.bold())
+                .font(Theme.heading(22))
+                .foregroundStyle(Theme.ink)
             Button("Bitir") { dismiss() }
-                .buttonStyle(.borderedProminent)
-                .tint(accentColor)
+                .buttonStyle(PrimaryButtonStyle())
+                .padding(.horizontal, 40)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear { recordStreakIfNeeded() }

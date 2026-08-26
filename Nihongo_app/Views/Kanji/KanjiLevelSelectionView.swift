@@ -29,7 +29,7 @@ struct KanjiLevelSelectionView: View {
             }
             .padding()
         }
-        .background(Color(uiColor: .systemGroupedBackground))
+        .background(Theme.paper)
         .navigationTitle("Kanji")
     }
 
@@ -37,37 +37,31 @@ struct KanjiLevelSelectionView: View {
         HStack(spacing: 16) {
             Image(systemName: "character.book.closed.fill")
                 .font(.title2)
-                .foregroundStyle(isAvailable ? .green : .secondary)
+                .foregroundStyle(isAvailable ? Theme.accent : Theme.secondaryInk)
                 .frame(width: 44, height: 44)
-                .background((isAvailable ? Color.green : Color.gray).opacity(0.12))
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("\(level) Kanji's")
-                    .font(.system(.headline, design: .serif))
-                    .foregroundStyle(isAvailable ? .primary : .secondary)
+                    .font(Theme.heading(19))
+                    .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
                 Text(isAvailable ? "80 kanji · 4 bölüm" : "Yakında")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
             if isAvailable {
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(.tertiary)
+                Image(systemName: "arrow.right")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(Theme.ink)
             } else {
                 Image(systemName: "lock.fill")
-                    .foregroundStyle(.tertiary)
+                    .foregroundStyle(Theme.secondaryInk)
             }
         }
         .padding()
-        .background(Color(uiColor: .systemBackground))
-        .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .strokeBorder((isAvailable ? Color.green : Color.gray).opacity(0.25), lineWidth: 1)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .opacity(isAvailable ? 1 : 0.6)
+        .inkBordered()
+        .opacity(isAvailable ? 1 : 0.5)
     }
 }
 

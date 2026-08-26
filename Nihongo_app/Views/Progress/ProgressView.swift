@@ -19,41 +19,82 @@ struct ProgressOverviewView: View {
     }
 
     var body: some View {
-        List {
-            if let userProgress = userProgressRecords.first {
-                Section("Seri") {
-                    HStack {
-                        Image(systemName: "flame.fill")
-                            .foregroundStyle(.orange)
-                        Text("\(userProgress.currentStreak) günlük seri")
-                        Spacer()
-                        Text("En uzun: \(userProgress.longestStreak)")
-                            .foregroundStyle(.secondary)
-                    }
+        ScrollView {
+            VStack(alignment: .leading, spacing: 28) {
+                if let userProgress = userProgressRecords.first {
+                    streakSection(userProgress)
+                }
+
+                VStack(alignment: .leading, spacing: 14) {
+                    sectionTitle("Öğrenilenler")
+                    progressRow(title: "Hiragana", learned: hiraganaLearned, total: 46)
+                    progressRow(title: "Katakana", learned: katakanaLearned, total: 46)
+                    progressRow(title: "Kanji (N5)", learned: kanjiLearned, total: 80)
                 }
             }
-
-            Section("Öğrenilenler") {
-                progressRow(title: "Hiragana", learned: hiraganaLearned, total: 46, color: .red)
-                progressRow(title: "Katakana", learned: katakanaLearned, total: 46, color: .blue)
-                progressRow(title: "Kanji (N5)", learned: kanjiLearned, total: 80, color: .green)
-            }
+            .padding(20)
         }
+        .background(Theme.paper)
         .navigationTitle("İlerleme")
     }
 
-    private func progressRow(title: String, learned: Int, total: Int, color: Color) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
+    private func sectionTitle(_ title: String) -> some View {
+        Text(title)
+            .font(Theme.display(24))
+            .foregroundStyle(Theme.ink)
+    }
+
+    private func streakSection(_ userProgress: UserProgress) -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            sectionTitle("Seri")
+
+            HStack(spacing: 10) {
+                Image(systemName: "flame.fill")
+                    .foregroundStyle(Theme.accent)
+                Text("\(userProgress.currentStreak) günlük seri")
+                    .font(.system(size: 17, weight: .heavy))
+                    .foregroundStyle(Theme.ink)
+                Spacer()
+                Text("En uzun: \(userProgress.longestStreak)")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.secondaryInk)
+            }
+            .padding()
+            .inkBordered()
+        }
+    }
+
+    private func progressRow(title: String, learned: Int, total: Int) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Text(title)
+                    .font(Theme.heading(17))
+                    .foregroundStyle(Theme.ink)
                 Spacer()
                 Text("\(learned)/\(total)")
-                    .foregroundStyle(.secondary)
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(Theme.secondaryInk)
             }
-            SwiftUI.ProgressView(value: Double(learned), total: Double(total))
-                .tint(color)
+
+            progressBar(fraction: total > 0 ? Double(learned) / Double(total) : 0)
         }
-        .padding(.vertical, 4)
+        .padding()
+        .inkBordered()
+    }
+
+    /// Keskin köşeli, siyah kenarlıklı ilerleme çubuğu — dolu kısım vermilyon.
+    private func progressBar(fraction: Double) -> some View {
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                Rectangle()
+                    .fill(Theme.paper)
+                Rectangle()
+                    .fill(Theme.accent)
+                    .frame(width: geometry.size.width * min(max(fraction, 0), 1))
+            }
+            .overlay(Rectangle().strokeBorder(Theme.ink, lineWidth: 2))
+        }
+        .frame(height: 16)
     }
 }
 
