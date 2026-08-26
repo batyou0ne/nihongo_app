@@ -201,7 +201,7 @@ final class AuthService {
 
     /// Email/şifre ile kayıt oluşturur. Mevcut anonim hesap bu kimliğe "link" edilir,
     /// böylece uid değişmez ve o ana kadarki ilerleme korunur.
-    func signUp(email: String, password: String) async throws {
+    func signUp(email: String, password: String, displayName: String? = nil) async throws {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         if let user = Auth.auth().currentUser {
             let result = try await user.link(with: credential)
@@ -209,6 +209,12 @@ final class AuthService {
         } else {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             currentUser = result.user
+        }
+
+        if let displayName, !displayName.isEmpty, let user = Auth.auth().currentUser {
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.displayName = displayName
+            try? await changeRequest.commitChanges()
         }
     }
 

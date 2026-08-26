@@ -14,9 +14,12 @@ struct SignInView: View {
         case signUp, signIn
     }
 
-    @State private var mode: Mode = .signUp
+    @State private var mode: Mode = .signIn
     @State private var email = ""
     @State private var password = ""
+    @State private var firstName = ""
+    @State private var lastName = ""
+    @State private var ageText = ""
     @State private var errorMessage: String?
     @State private var infoMessage: String?
     @State private var isWorking = false
@@ -98,6 +101,25 @@ struct SignInView: View {
 
     private var emailPasswordForm: some View {
         VStack(alignment: .leading, spacing: 12) {
+            if mode == .signUp {
+                HStack(spacing: 12) {
+                    TextField("Ad", text: $firstName)
+                        .textContentType(.givenName)
+                        .padding(14)
+                        .inkBordered()
+
+                    TextField("Soyad", text: $lastName)
+                        .textContentType(.familyName)
+                        .padding(14)
+                        .inkBordered()
+                }
+
+                TextField("Yaş (opsiyonel)", text: $ageText)
+                    .keyboardType(.numberPad)
+                    .padding(14)
+                    .inkBordered()
+            }
+
             TextField("Email", text: $email)
                 .keyboardType(.emailAddress)
                 .textContentType(.emailAddress)
@@ -173,11 +195,32 @@ struct SignInView: View {
             return
         }
 
+        let trimmedFirstName = firstName.trimmingCharacters(in: .whitespaces)
+        let trimmedLastName = lastName.trimmingCharacters(in: .whitespaces)
+        if mode == .signUp {
+            guard !trimmedFirstName.isEmpty, !trimmedLastName.isEmpty else {
+                errorMessage = "Ad ve soyad boş bırakılamaz."
+                return
+            }
+        }
+
         isWorking = true
         Task {
             do {
                 if mode == .signUp {
-                    try await AuthService.shared.signUp(email: trimmedEmail, password: password)
+                    try await AuthService.shared.signUp(
+                        email: trimmedEmail,
+                        password: password,
+                        displayName: "\(trimmedFirstName) \(trimmedLastName)"
+                    )
+                    // Kişisel bilgiler Firestore'a yazılır; hesap zaten oluştuğu
+                    // için profil kaydı başarısız olsa bile akış kesilmez.
+                    let profile = UserProfile(
+                        firstName: trimmedFirstName,
+                        lastName: trimmedLastName,
+                        age: Int(ageText.trimmingCharacters(in: .whitespaces))
+                    )
+                    try? UserProfileService.shared.save(profile)
                 } else {
                     try await AuthService.shared.signIn(email: trimmedEmail, password: password)
                 }

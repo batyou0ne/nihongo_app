@@ -1,10 +1,20 @@
 import SwiftUI
+import FirebaseAuth
 
-/// Hesap ekranı: bağlı hesabın bilgilerini ve çıkış seçeneğini gösterir.
+/// Hesap ekranı: kullanıcının kişisel bilgilerini ve çıkış seçeneğini gösterir.
 /// Giriş yapılmışken profil butonuna basıldığında SignInView yerine bu açılır.
 /// (Hesap silme, account-management aşamasında eklenecek.)
 struct AccountView: View {
     @Environment(\.dismiss) private var dismiss
+
+    private var profile: UserProfile? {
+        UserProfileService.shared.profile
+    }
+
+    /// Firestore profili varsa ad-soyad, yoksa (Google/Apple girişi gibi) Auth'taki isim/email.
+    private var displayName: String {
+        profile?.fullName ?? AuthService.shared.accountDescription
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -28,30 +38,23 @@ struct AccountView: View {
                 .foregroundStyle(Theme.ink)
                 .padding(.bottom, 24)
 
-            VStack(alignment: .leading, spacing: 6) {
-                Text("HESAP")
-                    .font(.caption.weight(.heavy))
-                    .foregroundStyle(Theme.secondaryInk)
-                Text(AuthService.shared.accountDescription)
-                    .font(Theme.heading(17))
+            VStack(alignment: .leading, spacing: 10) {
+                Text(displayName)
+                    .font(Theme.heading(22))
                     .foregroundStyle(Theme.ink)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
-            .inkBordered()
-            .padding(.bottom, 12)
 
-            VStack(alignment: .leading, spacing: 6) {
-                Text("GİRİŞ YÖNTEMLERİ")
-                    .font(.caption.weight(.heavy))
-                    .foregroundStyle(Theme.secondaryInk)
-                Text(AuthService.shared.providerNames.joined(separator: " · "))
-                    .font(Theme.heading(17))
-                    .foregroundStyle(Theme.ink)
+                if let email = AuthService.shared.currentUser?.email {
+                    Text(email)
+                        .font(.system(size: 16))
+                        .foregroundStyle(Theme.secondaryInk)
+                }
+
+                if let age = profile?.age {
+                    Text("Yaş: \(age)")
+                        .font(.system(size: 16))
+                        .foregroundStyle(Theme.secondaryInk)
+                }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
-            .inkBordered()
             .padding(.bottom, 24)
 
             Text("İlerlemen bu hesaba bağlı. Başka bir cihazda aynı hesapla giriş yaptığında kaldığın yerden devam edersin.")
@@ -62,6 +65,7 @@ struct AccountView: View {
             Button("Çıkış Yap") {
                 Task {
                     await AuthService.shared.signOut()
+                    UserProfileService.shared.clear()
                     dismiss()
                 }
             }
@@ -72,6 +76,9 @@ struct AccountView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 24)
         .background(Theme.paper)
+        .task {
+            await UserProfileService.shared.loadIfNeeded()
+        }
     }
 }
 
