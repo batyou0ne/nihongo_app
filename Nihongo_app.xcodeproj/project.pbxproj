@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4717F5FE303F5C4D007B41F9 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 4717F5FD303F5C4D007B41F9 /* GoogleSignIn */; };
+		4717F600303F5C4D007B41F9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4717F5FF303F5C4D007B41F9 /* GoogleSignInSwift */; };
 		4730F906303C85C60074D0BD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4730F905303C85C60074D0BD /* FirebaseAuth */; };
 		4730F908303C85C60074D0BD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4730F907303C85C60074D0BD /* FirebaseFirestore */; };
 		4730F90D303C88710074D0BD /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4730F90C303C88710074D0BD /* FirebaseCore */; };
@@ -16,9 +18,22 @@
 		4730F895303C69FD0074D0BD /* Nihongo_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nihongo_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4717F602303F5D60007B41F9 /* Exceptions for "Nihongo_app" folder in "Nihongo_app" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Nihongo-app-Info.plist",
+			);
+			target = 4730F894303C69FD0074D0BD /* Nihongo_app */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4730F897303C69FD0074D0BD /* Nihongo_app */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4717F602303F5D60007B41F9 /* Exceptions for "Nihongo_app" folder in "Nihongo_app" target */,
+			);
 			path = Nihongo_app;
 			sourceTree = "<group>";
 		};
@@ -29,7 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4717F600303F5C4D007B41F9 /* GoogleSignInSwift in Frameworks */,
 				4730F906303C85C60074D0BD /* FirebaseAuth in Frameworks */,
+				4717F5FE303F5C4D007B41F9 /* GoogleSignIn in Frameworks */,
 				4730F90D303C88710074D0BD /* FirebaseCore in Frameworks */,
 				4730F908303C85C60074D0BD /* FirebaseFirestore in Frameworks */,
 			);
@@ -85,6 +102,8 @@
 				4730F905303C85C60074D0BD /* FirebaseAuth */,
 				4730F907303C85C60074D0BD /* FirebaseFirestore */,
 				4730F90C303C88710074D0BD /* FirebaseCore */,
+				4717F5FD303F5C4D007B41F9 /* GoogleSignIn */,
+				4717F5FF303F5C4D007B41F9 /* GoogleSignInSwift */,
 			);
 			productName = Nihongo_app;
 			productReference = 4730F895303C69FD0074D0BD /* Nihongo_app.app */;
@@ -116,6 +135,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				4730F904303C85C60074D0BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4717F5FC303F5C4D007B41F9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4730F896303C69FD0074D0BD /* Products */;
@@ -274,6 +294,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Nihongo-app-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -317,6 +338,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Nihongo-app-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -372,6 +394,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4717F5FC303F5C4D007B41F9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.2.0;
+			};
+		};
 		4730F904303C85C60074D0BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -383,6 +413,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4717F5FD303F5C4D007B41F9 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4717F5FC303F5C4D007B41F9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		4717F5FF303F5C4D007B41F9 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4717F5FC303F5C4D007B41F9 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
 		4730F905303C85C60074D0BD /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4730F904303C85C60074D0BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

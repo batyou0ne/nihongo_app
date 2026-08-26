@@ -216,6 +216,8 @@ final class AuthService {
             return "İnternet bağlantını kontrol edip tekrar dene."
         case .tooManyRequests:
             return "Çok fazla deneme yapıldı. Biraz bekleyip tekrar dene."
+        case .operationNotAllowed:
+            return "Bu giriş yöntemi Firebase Console'da etkin değil (Sign-in method sekmesinden açılmalı)."
         default:
             return error.localizedDescription
         }
