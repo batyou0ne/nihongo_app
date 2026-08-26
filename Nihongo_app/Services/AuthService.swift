@@ -47,6 +47,34 @@ final class AuthService {
         !(currentUser?.isAnonymous ?? true)
     }
 
+    /// Hesap ekranında gösterilecek email/isim.
+    var accountDescription: String {
+        guard let user = currentUser else { return "" }
+        return user.email
+            ?? user.providerData.compactMap(\.email).first
+            ?? user.displayName
+            ?? "Bağlı hesap"
+    }
+
+    /// Bağlı giriş yöntemlerinin okunabilir adları (ör. ["Google", "Email/Şifre"]).
+    var providerNames: [String] {
+        (currentUser?.providerData ?? []).map { provider in
+            switch provider.providerID {
+            case "apple.com": return "Apple"
+            case "google.com": return "Google"
+            case "password": return "Email/Şifre"
+            default: return provider.providerID
+            }
+        }
+    }
+
+    /// Oturumu kapatır ve misafir moduna (yeni anonim oturum) döner.
+    func signOut() async {
+        try? Auth.auth().signOut()
+        currentUser = nil
+        await signInAnonymouslyIfNeeded()
+    }
+
     // MARK: - Anonim oturum
 
     /// Uygulama açılışında çağrılır: mevcut oturum yoksa anonim oturum açar.

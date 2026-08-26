@@ -109,7 +109,11 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showSignIn) {
-                SignInView()
+                if AuthService.shared.hasAccount {
+                    AccountView()
+                } else {
+                    SignInView()
+                }
             }
             .onAppear {
                 _ = userProgress
