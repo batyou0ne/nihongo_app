@@ -29,6 +29,7 @@ struct KanjiLevelSelectionView: View {
             }
             .padding()
         }
+        .scrollIndicators(.hidden)
         .background(Theme.paper)
         .navigationTitle("Kanji")
     }

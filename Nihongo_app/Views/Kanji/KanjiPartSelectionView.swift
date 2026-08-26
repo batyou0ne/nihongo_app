@@ -42,6 +42,7 @@ struct KanjiPartSelectionView: View {
                     }
                     .padding()
                 }
+                .scrollIndicators(.hidden)
                 .background(Theme.paper)
             }
         }

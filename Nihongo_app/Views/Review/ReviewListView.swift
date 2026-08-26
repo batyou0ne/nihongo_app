@@ -29,6 +29,7 @@ struct ReviewListView: View {
             }
             .padding(20)
         }
+        .scrollIndicators(.hidden)
         .background(Theme.paper)
         .navigationTitle("Tekrar Çalış")
         .onAppear {

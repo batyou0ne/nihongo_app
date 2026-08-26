@@ -53,6 +53,7 @@ struct SessionSummaryView: View {
                             }
                         }
                     }
+                    .scrollIndicators(.hidden)
 
                     Text("Bunlar \"Tekrar Çalış\" listesine eklendi.")
                         .font(.footnote)

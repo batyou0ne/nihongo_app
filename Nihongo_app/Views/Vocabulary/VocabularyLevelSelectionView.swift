@@ -28,6 +28,7 @@ struct VocabularyLevelSelectionView: View {
             }
             .padding(20)
         }
+        .scrollIndicators(.hidden)
         .background(Theme.paper)
         .navigationTitle("Kelimeler")
     }

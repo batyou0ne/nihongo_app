@@ -36,6 +36,7 @@ struct ProgressOverviewView: View {
             }
             .padding(20)
         }
+        .scrollIndicators(.hidden)
         .background(Theme.paper)
         .navigationTitle("İlerleme")
     }

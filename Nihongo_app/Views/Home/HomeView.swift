@@ -93,6 +93,7 @@ struct HomeView: View {
                 }
                 .padding(20)
             }
+            .scrollIndicators(.hidden)
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
