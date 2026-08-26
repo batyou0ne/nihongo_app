@@ -57,6 +57,16 @@ struct HomeView: View {
                         }
 
                         NavigationLink {
+                            VocabularyLevelSelectionView()
+                        } label: {
+                            ModuleCard(
+                                title: "Kelimeler",
+                                subtitle: "N5 · 675 kelime",
+                                systemImage: "character.bubble.fill"
+                            )
+                        }
+
+                        NavigationLink {
                             ProgressOverviewView()
                         } label: {
                             ModuleCard(

@@ -258,13 +258,20 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         ZStack {
             cardFace {
                 VStack(spacing: 10) {
+                    if let reading = item.promptReading {
+                        Text(reading)
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundStyle(Theme.secondaryInk)
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
+                    }
                     Text(item.prompt)
                         .font(Theme.display(80))
                         .foregroundStyle(Theme.ink)
-                        .minimumScaleFactor(0.5)
+                        .minimumScaleFactor(0.3)
                         .lineLimit(1)
                     Button {
-                        AudioService.shared.speak(item.prompt)
+                        AudioService.shared.speak(item.speechText)
                     } label: {
                         Image(systemName: "speaker.wave.2.fill")
                             .foregroundStyle(accentColor)
@@ -299,9 +306,13 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                 .minimumScaleFactor(0.7)
 
             if item.exampleWords.isEmpty {
-                Text("Örnek kelime yakında eklenecek")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                // Örnek kelimesi olmayan öğelerde (ör. kelime kartları) kartın
+                // arkasında doğru cevap (anlam) gösterilir.
+                Text(item.correctAnswer)
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundStyle(Theme.ink)
+                    .multilineTextAlignment(.center)
+                    .minimumScaleFactor(0.6)
             } else {
                 ForEach(item.exampleWords, id: \.hiragana) { word in
                     VStack(spacing: 2) {

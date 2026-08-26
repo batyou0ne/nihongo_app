@@ -21,11 +21,24 @@ extension Kanji: QuizItem {
     var correctAnswer: String { meaning }
 }
 
-/// `FlashcardSessionView`'ın (Hiragana/Katakana/Kanji ortak akışı) ihtiyaç duyduğu ek bilgiler:
-/// kart çevrilince üstte gösterilen özet satırı ve örnek kelimeler.
+/// `FlashcardSessionView`'ın (Hiragana/Katakana/Kanji/Kelime ortak akışı) ihtiyaç duyduğu
+/// ek bilgiler: kart çevrilince üstte gösterilen özet satırı ve örnek kelimeler.
 protocol FlashcardItem: QuizItem {
     var flipRecap: String { get }
     var exampleWords: [ExampleWord] { get }
+
+    /// Kartta büyük prompt'un üstünde küçük/gri gösterilen okunuş (ör. kelimenin
+    /// hiraganası). Karakter/kanji kartlarında gerek yok, varsayılanı nil.
+    var promptReading: String? { get }
+
+    /// Sesli okuma butonunun okuyacağı metin. Varsayılanı prompt; kelimelerde TTS
+    /// kanjiyi yanlış okuyabildiği için hiragana kullanılır.
+    var speechText: String { get }
+}
+
+extension FlashcardItem {
+    var promptReading: String? { nil }
+    var speechText: String { prompt }
 }
 
 extension JapaneseCharacter: FlashcardItem {

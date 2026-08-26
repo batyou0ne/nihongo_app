@@ -7,7 +7,7 @@ import SwiftData
 enum LearnableItemKind: String, Codable {
     case hiraganaCharacter
     case katakanaCharacter
-    case vocabularyWord // artık üretilmiyor; eski kayıtlarla uyumluluk için tutuluyor
+    case vocabularyWord // N5 kelime modülü (VocabularyWord) tarafından kullanılır
     case kanji
 }
 

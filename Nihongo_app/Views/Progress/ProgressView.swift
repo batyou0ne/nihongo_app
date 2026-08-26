@@ -17,6 +17,9 @@ struct ProgressOverviewView: View {
     private var kanjiLearned: Int {
         allProgress.filter { $0.itemKind == .kanji && $0.isLearned }.count
     }
+    private var vocabularyLearned: Int {
+        allProgress.filter { $0.itemKind == .vocabularyWord && $0.isLearned }.count
+    }
 
     var body: some View {
         ScrollView {
@@ -30,6 +33,7 @@ struct ProgressOverviewView: View {
                     progressRow(title: "Hiragana", learned: hiraganaLearned, total: 46)
                     progressRow(title: "Katakana", learned: katakanaLearned, total: 46)
                     progressRow(title: "Kanji (N5)", learned: kanjiLearned, total: 80)
+                    progressRow(title: "Kelimeler (N5)", learned: vocabularyLearned, total: 675)
                 }
             }
             .padding(20)
