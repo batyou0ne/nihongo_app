@@ -119,18 +119,26 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             modelContext.insert(session)
         }
 
+        // Öğe seti değişmiş olabilir (ör. "Tekrar Çalış" oturumlarında liste küçülür);
+        // artık geçerli olmayan id'ler temizlenir ki tur boş kartlarla açılmasın.
+        let validIDs = Set(allItems.map(\.id))
+        session.remainingItemIDs.removeAll { !validIDs.contains($0) }
+        session.wrongItemIDs.removeAll { !validIDs.contains($0) }
+
         if session.isCompleted {
             // Daha önce tüm kartlar art arda doğru bilinerek tamamlanmıştı;
             // tekrar açıldığında sıfırdan yeni bir pratik turu başlatıyoruz.
             session.isCompleted = false
             session.wrongItemIDs = []
             session.remainingItemIDs = allItems.map(\.id).shuffled()
+            resetSessionStats(session)
         } else if session.remainingItemIDs.isEmpty && !session.wrongItemIDs.isEmpty {
             // Kaldığımız yer "ana tur bitti, tekrar turu bekleniyor" noktasıydı.
             session.remainingItemIDs = session.wrongItemIDs.shuffled()
             session.wrongItemIDs = []
         } else if session.remainingItemIDs.isEmpty {
             session.remainingItemIDs = allItems.map(\.id).shuffled()
+            resetSessionStats(session)
         }
 
         try? modelContext.save()
@@ -174,15 +182,27 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         try? modelContext.save()
     }
 
+    /// Yeni bir oturum başlarken özet istatistiklerini sıfırlar.
+    private func resetSessionStats(_ session: LearningSessionState) {
+        session.totalAnswerCount = 0
+        session.wrongAnswerCounts = [:]
+    }
+
     /// Her cevaptan hemen sonra çağrılır: öğe artık "kalan" değildir; yanlışsa tekrar turu
-    /// listesine eklenir. Kullanıcı ekrandan çıksa bile bu kayıtlı kalır.
+    /// listesine eklenir, özet sayaçları güncellenir ve öğe "Tekrar Çalış" listesine
+    /// işaretlenir. Kullanıcı ekrandan çıksa bile bunlar kayıtlı kalır.
     private func recordAnswer(for item: Item, correct: Bool) {
         guard let session = sessionState else { return }
+        session.totalAnswerCount += 1
         session.remainingItemIDs.removeAll { $0 == item.id }
         if correct {
             session.wrongItemIDs.removeAll { $0 == item.id }
-        } else if !session.wrongItemIDs.contains(item.id) {
-            session.wrongItemIDs.append(item.id)
+        } else {
+            if !session.wrongItemIDs.contains(item.id) {
+                session.wrongItemIDs.append(item.id)
+            }
+            session.wrongAnswerCounts[item.id, default: 0] += 1
+            progressByID[item.id]?.needsReview = true
         }
         try? modelContext.save()
     }
@@ -390,18 +410,19 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
     // MARK: - Bitiş
 
     private func completionView(_ vm: QuizViewModel<Item>) -> some View {
-        VStack(spacing: 16) {
-            Image(systemName: "checkmark.seal.fill")
-                .font(.system(size: 56))
-                .foregroundStyle(Theme.accent)
-            Text("\(vm.score) / \(vm.questions.count) doğru")
-                .font(Theme.heading(22))
-                .foregroundStyle(Theme.ink)
-            Button("Bitir") { dismiss() }
-                .buttonStyle(PrimaryButtonStyle())
-                .padding(.horizontal, 40)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        let itemsByID = Dictionary(uniqueKeysWithValues: allItems.map { ($0.id, $0) })
+        let wrongItems = (sessionState?.wrongAnswerCounts ?? [:])
+            .compactMap { id, count -> SessionSummaryItem? in
+                guard let item = itemsByID[id] else { return nil }
+                return SessionSummaryItem(id: id, prompt: item.prompt, detail: item.flipRecap, wrongCount: count)
+            }
+            .sorted { $0.wrongCount > $1.wrongCount }
+
+        return SessionSummaryView(
+            totalAnswers: sessionState?.totalAnswerCount ?? vm.questions.count,
+            wrongItems: wrongItems,
+            onFinish: { dismiss() }
+        )
         .onAppear { recordStreakIfNeeded() }
     }
 

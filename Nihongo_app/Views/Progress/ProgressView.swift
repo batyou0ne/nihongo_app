@@ -8,17 +8,15 @@ struct ProgressOverviewView: View {
     @Query private var allProgress: [LearningItemProgress]
     @Query private var userProgressRecords: [UserProgress]
 
-    private var hiraganaLearned: Int {
-        allProgress.filter { $0.itemKind == .hiraganaCharacter && $0.isLearned }.count
+    /// "Öğrenildi" = son cevabı doğru olan öğe (yanlış cevap sayacı sıfırladığı için
+    /// repetitionCount >= 1 bunu garanti eder). SM-2'nin uzun vadeli `isLearned`
+    /// bayrağı (4+ doğru tekrar) çubuğun altında ayrıca gösterilir.
+    private func learnedCount(_ kind: LearnableItemKind) -> Int {
+        allProgress.filter { $0.itemKind == kind && $0.repetitionCount >= 1 }.count
     }
-    private var katakanaLearned: Int {
-        allProgress.filter { $0.itemKind == .katakanaCharacter && $0.isLearned }.count
-    }
-    private var kanjiLearned: Int {
-        allProgress.filter { $0.itemKind == .kanji && $0.isLearned }.count
-    }
-    private var vocabularyLearned: Int {
-        allProgress.filter { $0.itemKind == .vocabularyWord && $0.isLearned }.count
+
+    private func masteredCount(_ kind: LearnableItemKind) -> Int {
+        allProgress.filter { $0.itemKind == kind && $0.isLearned }.count
     }
 
     var body: some View {
@@ -30,10 +28,10 @@ struct ProgressOverviewView: View {
 
                 VStack(alignment: .leading, spacing: 14) {
                     sectionTitle("Öğrenilenler")
-                    progressRow(title: "Hiragana", learned: hiraganaLearned, total: 46)
-                    progressRow(title: "Katakana", learned: katakanaLearned, total: 46)
-                    progressRow(title: "Kanji (N5)", learned: kanjiLearned, total: 80)
-                    progressRow(title: "Kelimeler (N5)", learned: vocabularyLearned, total: 675)
+                    progressRow(title: "Hiragana", kind: .hiraganaCharacter, total: 46)
+                    progressRow(title: "Katakana", kind: .katakanaCharacter, total: 46)
+                    progressRow(title: "Kanji (N5)", kind: .kanji, total: 80)
+                    progressRow(title: "Kelimeler (N5)", kind: .vocabularyWord, total: 675)
                 }
             }
             .padding(20)
@@ -68,8 +66,11 @@ struct ProgressOverviewView: View {
         }
     }
 
-    private func progressRow(title: String, learned: Int, total: Int) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
+    private func progressRow(title: String, kind: LearnableItemKind, total: Int) -> some View {
+        let learned = learnedCount(kind)
+        let mastered = masteredCount(kind)
+
+        return VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Text(title)
                     .font(Theme.heading(17))
@@ -81,6 +82,12 @@ struct ProgressOverviewView: View {
             }
 
             progressBar(fraction: total > 0 ? Double(learned) / Double(total) : 0)
+
+            if mastered > 0 {
+                Text("🏆 \(mastered) tanesi kalıcı öğrenildi (4+ doğru tekrar)")
+                    .font(.caption)
+                    .foregroundStyle(Theme.secondaryInk)
+            }
         }
         .padding()
         .inkBordered()

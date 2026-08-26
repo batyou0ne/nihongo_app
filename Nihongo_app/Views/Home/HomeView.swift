@@ -6,6 +6,8 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var userProgressRecords: [UserProgress]
+    @Query(filter: #Predicate<LearningItemProgress> { $0.needsReview == true })
+    private var reviewItems: [LearningItemProgress]
     @State private var showSignIn = false
 
     private var userProgress: UserProgress {
@@ -63,6 +65,18 @@ struct HomeView: View {
                                 title: "Kelimeler",
                                 subtitle: "N5 · 675 kelime",
                                 systemImage: "character.bubble.fill"
+                            )
+                        }
+
+                        NavigationLink {
+                            ReviewListView()
+                        } label: {
+                            ModuleCard(
+                                title: "Tekrar Çalış",
+                                subtitle: reviewItems.isEmpty
+                                    ? "Bekleyen öğe yok"
+                                    : "\(reviewItems.count) öğe seni bekliyor",
+                                systemImage: "exclamationmark.arrow.circlepath"
                             )
                         }
 

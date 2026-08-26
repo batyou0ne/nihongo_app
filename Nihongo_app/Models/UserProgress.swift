@@ -9,6 +9,15 @@ enum LearnableItemKind: String, Codable {
     case katakanaCharacter
     case vocabularyWord // N5 kelime modülü (VocabularyWord) tarafından kullanılır
     case kanji
+
+    var displayName: String {
+        switch self {
+        case .hiraganaCharacter: return "Hiragana"
+        case .katakanaCharacter: return "Katakana"
+        case .vocabularyWord: return "Kelimeler"
+        case .kanji: return "Kanji"
+        }
+    }
 }
 
 /// Tek bir öğrenilebilir öğenin (karakter/kanji) spaced-repetition durumu.
@@ -29,6 +38,10 @@ final class LearningItemProgress {
     var lastReviewedDate: Date?
     var isLearned: Bool
 
+    /// Yanlış cevap verildiğinde işaretlenir ve kullanıcı "Tekrar Çalış" ekranında
+    /// öğrendiğini onaylayana kadar işaretli kalır (doğru bilmek otomatik temizlemez).
+    var needsReview: Bool = false
+
     init(
         itemID: String,
         itemKind: LearnableItemKind,
@@ -37,7 +50,8 @@ final class LearningItemProgress {
         repetitionCount: Int = 0,
         dueDate: Date = .now,
         lastReviewedDate: Date? = nil,
-        isLearned: Bool = false
+        isLearned: Bool = false,
+        needsReview: Bool = false
     ) {
         self.itemID = itemID
         self.itemKind = itemKind
@@ -47,6 +61,7 @@ final class LearningItemProgress {
         self.dueDate = dueDate
         self.lastReviewedDate = lastReviewedDate
         self.isLearned = isLearned
+        self.needsReview = needsReview
     }
 }
 
@@ -68,18 +83,30 @@ final class LearningSessionState {
     /// bıraktığı kartla karşılaşsın diye ayrıca saklanır.
     var currentCardID: String?
 
+    /// Oturum boyunca (tekrar turları dahil) verilen toplam cevap sayısı.
+    /// Oturum sonundaki özet ekranında gösterilir; yeni oturumda sıfırlanır.
+    var totalAnswerCount: Int = 0
+
+    /// Oturum boyunca yanlış yapılan öğeler ve kaçar kez yanlış yapıldıkları
+    /// (itemID → yanlış sayısı). Özet ekranındaki liste bundan üretilir.
+    var wrongAnswerCounts: [String: Int] = [:]
+
     init(
         moduleType: String,
         remainingItemIDs: [String],
         wrongItemIDs: [String] = [],
         isCompleted: Bool = false,
-        currentCardID: String? = nil
+        currentCardID: String? = nil,
+        totalAnswerCount: Int = 0,
+        wrongAnswerCounts: [String: Int] = [:]
     ) {
         self.moduleType = moduleType
         self.remainingItemIDs = remainingItemIDs
         self.wrongItemIDs = wrongItemIDs
         self.isCompleted = isCompleted
         self.currentCardID = currentCardID
+        self.totalAnswerCount = totalAnswerCount
+        self.wrongAnswerCounts = wrongAnswerCounts
     }
 }
 
