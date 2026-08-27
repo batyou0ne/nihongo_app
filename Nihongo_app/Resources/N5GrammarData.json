@@ -818,5 +818,285 @@
       { "kind": "fillBlank", "prompt": "重そうですね。持ち＿＿か。", "hint": "Ağır görünüyor. Taşıyayım mı?", "choices": ["ましょう", "ました", "ません", "たい"], "answer": "ましょう" },
       { "kind": "multipleChoice", "prompt": "「ましょうか」 ile 「ましょう」 farkı?", "hint": null, "choices": ["ましょうか daha kibar; öneri/soru sunar", "İkisi aynı", "ましょうか geçmiş zamandır", "ましょう olumsuzdur"], "answer": "ましょうか daha kibar; öneri/soru sunar" }
     ]
+  },
+  {
+    "key": "nai_to_ikenai",
+    "pattern": "～ないといけない",
+    "romaji": "~ nai to ikenai",
+    "title": "Zorunluluk: ～ないといけない",
+    "explanation": "'... yapmak zorunda / yapmam lazım'. 'Yapmazsan olmaz' mantığıyla zorunluluk bildirir. Konuşmada ないと'e kısalır.",
+    "formula": "[fiil ない-biçimi] + と + いけない / いけません",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "明日は早く起きないといけません。", "romaji": "ashita wa hayaku okinai to ikemasen.", "turkish": "Yarın erken kalkmam lazım." },
+      { "japanese": "薬を飲まないといけない。", "romaji": "kusuri o nomanai to ikenai.", "turkish": "İlaç içmem lazım." },
+      { "japanese": "もう帰らないといけません。", "romaji": "mou kaeranai to ikemasen.", "turkish": "Artık gitmem lazım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "レポートを出さ＿＿。", "hint": "Raporu teslim etmem lazım.", "choices": ["ないといけません", "てもいいです", "ないでください", "ましょう"], "answer": "ないといけません" },
+      { "kind": "multipleChoice", "prompt": "「勉強しないといけない」 ne demek?", "hint": null, "choices": ["Ders çalışmam lazım", "Ders çalışmasam da olur", "Ders çalışma", "Ders çalıştım"], "answer": "Ders çalışmam lazım" },
+      { "kind": "multipleChoice", "prompt": "「ないといけない」 konuşmada neye kısalır?", "hint": null, "choices": ["ないと", "ないで", "なくて", "ながら"], "answer": "ないと" }
+    ]
+  },
+  {
+    "key": "nakute_wa_ikenai",
+    "pattern": "～なくてはいけない",
+    "romaji": "~ nakute wa ikenai",
+    "title": "Zorunluluk: ～なくてはいけない",
+    "explanation": "Zorunluluk bildiren bir başka kalıp: '... yapmak zorunda'. なくては 'yapmazsan', いけない 'olmaz'. Konuşmada なくちゃ'e kısalır; ～なければならない ile eş anlamlı.",
+    "formula": "[fiil なくて-biçimi] + はいけない / はいけません",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "パスポートを見せなくてはいけません。", "romaji": "pasupooto o misenakute wa ikemasen.", "turkish": "Pasaportu göstermek zorundasınız." },
+      { "japanese": "毎日、花に水をやらなくてはいけない。", "romaji": "mainichi, hana ni mizu o yaranakute wa ikenai.", "turkish": "Her gün çiçekleri sulamak zorundayım." },
+      { "japanese": "宿題をしなくてはいけません。", "romaji": "shukudai o shinakute wa ikemasen.", "turkish": "Ödevi yapmak zorundayım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "8時までに行か＿＿。", "hint": "8'e kadar gitmek zorundayım.", "choices": ["なくてはいけません", "てもいいです", "ないでください", "ましょうか"], "answer": "なくてはいけません" },
+      { "kind": "multipleChoice", "prompt": "「なくてはいけない」 konuşmada neye kısalır?", "hint": null, "choices": ["なくちゃ", "ないで", "なくて", "ながら"], "answer": "なくちゃ" },
+      { "kind": "multipleChoice", "prompt": "「食べなくてはいけません」 ne demek?", "hint": null, "choices": ["Yemek zorundayım", "Yememem lazım", "Yesem de olur", "Yedim"], "answer": "Yemek zorundayım" }
+    ]
+  },
+  {
+    "key": "nakute_mo_ii",
+    "pattern": "～なくてもいい",
+    "romaji": "~ nakute mo ii",
+    "title": "Gerek yok: ～なくてもいい",
+    "explanation": "'... yapmasan da olur / yapmak zorunda değilsin'. ～なくてはいけない'in karşıtı; izin/rahatlatma bildirir.",
+    "formula": "[fiil なくて-biçimi] + もいい / もいいです",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "明日は来なくてもいいです。", "romaji": "ashita wa konakute mo ii desu.", "turkish": "Yarın gelmesen de olur." },
+      { "japanese": "お金を払わなくてもいいです。", "romaji": "okane o harawanakute mo ii desu.", "turkish": "Para ödemek zorunda değilsiniz." },
+      { "japanese": "全部食べなくてもいい。", "romaji": "zenbu tabenakute mo ii.", "turkish": "Hepsini yemek zorunda değilsin." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "急がなくても＿＿。", "hint": "Acele etmesen de olur.", "choices": ["いいです", "いけません", "ください", "います"], "answer": "いいです" },
+      { "kind": "multipleChoice", "prompt": "「来なくてもいいです」 ne demek?", "hint": null, "choices": ["Gelmesen de olur", "Gelmek zorundasın", "Gelme!", "Geldin mi?"], "answer": "Gelmesen de olur" },
+      { "kind": "multipleChoice", "prompt": "「なくてもいい」 hangisinin karşıtıdır?", "hint": null, "choices": ["なくてはいけない", "てもいい", "てはいけない", "たい"], "answer": "なくてはいけない" }
+    ]
+  },
+  {
+    "key": "nakucha",
+    "pattern": "～なくちゃ",
+    "romaji": "~ nakucha",
+    "title": "Konuşma dili: ～なくちゃ",
+    "explanation": "なくては(いけない)'nin gündelik, kısaltılmış hâli; sonundaki いけない çoğu zaman söylenmez. 'Yapmam lazım' anlamı taşır, samimi konuşmada kullanılır.",
+    "formula": "[fiil なくて-biçimi] → なくちゃ",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "もう行かなくちゃ。", "romaji": "mou ikanakucha.", "turkish": "Artık gitmem lazım." },
+      { "japanese": "買い物しなくちゃ。", "romaji": "kaimono shinakucha.", "turkish": "Alışveriş yapmam lazım." },
+      { "japanese": "明日までに終わらせなくちゃ。", "romaji": "ashita made ni owarasenakucha.", "turkish": "Yarına kadar bitirmem lazım." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「なくちゃ」 hangi kalıbın kısasıdır?", "hint": null, "choices": ["なくてはいけない", "なくてもいい", "てはいけない", "ないでください"], "answer": "なくてはいけない" },
+      { "kind": "multipleChoice", "prompt": "「寝なくちゃ」 ne demek?", "hint": null, "choices": ["Uyumam lazım", "Uyumasam da olur", "Uyuma", "Uyudum"], "answer": "Uyumam lazım" },
+      { "kind": "multipleChoice", "prompt": "「なくちゃ」 hangi durumda uygundur?", "hint": null, "choices": ["Samimi, günlük konuşma", "Resmî sunum", "Yazılı rapor", "Haber bülteni"], "answer": "Samimi, günlük konuşma" }
+    ]
+  },
+  {
+    "key": "cha_ikenai",
+    "pattern": "～ちゃいけない",
+    "romaji": "~ cha ikenai",
+    "title": "Konuşma dili: ～ちゃいけない",
+    "explanation": "～てはいけない'in gündelik kısası: ては→ちゃ (では→じゃ). 'Yapmak yok / yasak' anlamı; samimi konuşmada kullanılır.",
+    "formula": "[fiil te-biçimi] → ては→ちゃ + いけない",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "ここで遊んじゃいけないよ。", "romaji": "koko de asonja ikenai yo.", "turkish": "Burada oynamak yok." },
+      { "japanese": "まだ食べちゃいけない。", "romaji": "mada tabecha ikenai.", "turkish": "Daha yeme (yasak)." },
+      { "japanese": "嘘をついちゃいけない。", "romaji": "uso o tsuicha ikenai.", "turkish": "Yalan söylemek yok." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「ちゃいけない」 hangi kalıbın kısasıdır?", "hint": null, "choices": ["てはいけない", "てもいい", "なくてはいけない", "てから"], "answer": "てはいけない" },
+      { "kind": "multipleChoice", "prompt": "「入っちゃいけない」 ne demek?", "hint": null, "choices": ["Girmek yok", "Girebilirsin", "Gir!", "Girdim"], "answer": "Girmek yok" },
+      { "kind": "fillBlank", "prompt": "ここで写真をとっ＿＿いけないよ。", "hint": "Burada fotoğraf çekmek yok.", "choices": ["ちゃ", "ても", "てから", "たり"], "answer": "ちゃ" }
+    ]
+  },
+  {
+    "key": "node_because",
+    "pattern": "～ので",
+    "romaji": "~ node",
+    "title": "Sebep (nazik): ～ので",
+    "explanation": "'... olduğu için' — sebep bildirir. から'ya göre daha nesnel ve nazik; ricalarla, özürlerle uyumlu. İsim/na-sıfattan sonra な + ので olur (病気なので).",
+    "formula": "[cümle (yalın)] + ので、 + [sonuç]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "雨なので、行きません。", "romaji": "ame na node, ikimasen.", "turkish": "Yağmurlu olduğu için gitmiyorum." },
+      { "japanese": "お腹が痛いので、早退します。", "romaji": "onaka ga itai node, soutai shimasu.", "turkish": "Karnım ağrıdığı için erken çıkıyorum." },
+      { "japanese": "時間がないので、タクシーで行きます。", "romaji": "jikan ga nai node, takushii de ikimasu.", "turkish": "Vaktim olmadığı için taksiyle giderim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "日本語がわからない＿＿、英語で話してください。", "hint": "Japonca bilmediğim için İngilizce konuşun.", "choices": ["ので", "のに", "でも", "が"], "answer": "ので" },
+      { "kind": "multipleChoice", "prompt": "「から」 ile 「ので」 farkı nedir?", "hint": null, "choices": ["ので daha nazik/nesnel", "から daha nazik", "İkisi tam zıt", "ので geçmiş zamandır"], "answer": "ので daha nazik/nesnel" },
+      { "kind": "multipleChoice", "prompt": "「病気＿＿ので、休みます」 boşluğa ne gelir?", "hint": null, "choices": ["な", "だ", "の", "を"], "answer": "な" }
+    ]
+  },
+  {
+    "key": "kedo_keredomo",
+    "pattern": "～けど／～けれども",
+    "romaji": "~ kedo / ~ keredomo",
+    "title": "Zıtlık: ～けど／～けれども",
+    "explanation": "İki cümleyi zıtlık ile bağlar: 'ama, gene de'. けれども en resmî, けど en gündelik (けれど ortada). Cümle içinde が ile aynı işlevi görür.",
+    "formula": "[cümle] + けど / けれども + [zıt cümle]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "このカメラは高いけど、いいです。", "romaji": "kono kamera wa takai kedo, ii desu.", "turkish": "Bu fotoğraf makinesi pahalı ama iyi." },
+      { "japanese": "行きたいけれども、時間がありません。", "romaji": "ikitai keredomo, jikan ga arimasen.", "turkish": "Gitmek istiyorum ama vaktim yok." },
+      { "japanese": "勉強したけど、わかりませんでした。", "romaji": "benkyou shita kedo, wakarimasen deshita.", "turkish": "Çalıştım ama anlamadım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "安い＿＿、おいしくないです。", "hint": "Ucuz ama lezzetli değil.", "choices": ["けど", "ので", "から", "し"], "answer": "けど" },
+      { "kind": "multipleChoice", "prompt": "En gündelik olanı hangisi?", "hint": null, "choices": ["けど", "けれども", "けれど", "しかし"], "answer": "けど" },
+      { "kind": "multipleChoice", "prompt": "「食べたいけど、お金がない」 ne demek?", "hint": null, "choices": ["Yemek istiyorum ama param yok", "Param olmadığı için yemek istemiyorum", "Param olduğu için yemek istiyorum", "Yedim ve param yok"], "answer": "Yemek istiyorum ama param yok" }
+    ]
+  },
+  {
+    "key": "demo_but",
+    "pattern": "でも",
+    "romaji": "demo",
+    "title": "Ama (cümle başı): でも",
+    "explanation": "Yeni cümlenin başında 'ama, yine de' anlamı verir; bir önceki cümleye zıtlık kurar. (でも ayrıca 'bile' anlamında da kullanılır: 子どもでも.)",
+    "formula": "[cümle]。 + でも、 + [zıt cümle]",
+    "category": "conjunction",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "頭が痛いです。でも、会社に行きます。", "romaji": "atama ga itai desu. demo, kaisha ni ikimasu.", "turkish": "Başım ağrıyor. Ama işe gidiyorum." },
+      { "japanese": "この店は安いです。でも、あまりおいしくないです。", "romaji": "kono mise wa yasui desu. demo, amari oishikunai desu.", "turkish": "Bu dükkân ucuz. Ama pek lezzetli değil." },
+      { "japanese": "疲れました。でも、もう少しがんばります。", "romaji": "tsukaremashita. demo, mou sukoshi ganbarimasu.", "turkish": "Yoruldum. Ama biraz daha gayret edeceğim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "日本語はむずかしいです。＿＿、おもしろいです。", "hint": "Japonca zor. Ama ilginç.", "choices": ["でも", "だから", "そして", "それから"], "answer": "でも" },
+      { "kind": "multipleChoice", "prompt": "「でも」 cümlede nerede durur?", "hint": null, "choices": ["Yeni cümlenin başında", "Cümlenin sonunda", "İki ismin arasında", "Fiilin önünde"], "answer": "Yeni cümlenin başında" },
+      { "kind": "multipleChoice", "prompt": "「高いです。でも、買います。」 ne demek?", "hint": null, "choices": ["Pahalı. Ama alacağım.", "Pahalı olduğu için almayacağım.", "Ucuz, o yüzden alacağım.", "Pahalı mı?"], "answer": "Pahalı. Ama alacağım." }
+    ]
+  },
+  {
+    "key": "shikashi",
+    "pattern": "しかし",
+    "romaji": "shikashi",
+    "title": "Fakat (resmî): しかし",
+    "explanation": "でも ile aynı işlev ('fakat, ancak') ama daha resmî; yazıda ve sunumlarda tercih edilir. Yeni cümlenin başında durur.",
+    "formula": "[cümle]。 + しかし、 + [zıt cümle]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "練習しました。しかし、勝てませんでした。", "romaji": "renshuu shimashita. shikashi, katemasen deshita.", "turkish": "Antrenman yaptık. Fakat kazanamadık." },
+      { "japanese": "この薬はよく効きます。しかし、高いです。", "romaji": "kono kusuri wa yoku kikimasu. shikashi, takai desu.", "turkish": "Bu ilaç iyi etki ediyor. Fakat pahalı." },
+      { "japanese": "雨が降っていました。しかし、試合は続きました。", "romaji": "ame ga futte imashita. shikashi, shiai wa tsuzukimashita.", "turkish": "Yağmur yağıyordu. Fakat maç devam etti." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「しかし」 ile 「でも」 arasındaki fark nedir?", "hint": null, "choices": ["しかし daha resmî", "でも daha resmî", "しかし olumlu bağlar", "İkisi de soru yapar"], "answer": "しかし daha resmî" },
+      { "kind": "fillBlank", "prompt": "たくさん食べました。＿＿、まだお腹がすいています。", "hint": "Çok yedim. Fakat hâlâ açım.", "choices": ["しかし", "だから", "そして", "または"], "answer": "しかし" },
+      { "kind": "multipleChoice", "prompt": "「しかし」 nerede kullanılır?", "hint": null, "choices": ["Resmî yazı ve sunumlarda", "Sadece arkadaşlar arası", "Sadece sorularda", "Sadece cümle sonunda"], "answer": "Resmî yazı ve sunumlarda" }
+    ]
+  },
+  {
+    "key": "sorekara",
+    "pattern": "それから",
+    "romaji": "sorekara",
+    "title": "Sonra / bir de: それから",
+    "explanation": "İki kullanımı var: (1) olaylar arasında 'ondan sonra' (zaman sırası), (2) liste eklerken 'bir de, ayrıca'.",
+    "formula": "[cümle]。 + それから、 + [sonraki cümle]",
+    "category": "conjunction",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "朝ご飯を食べました。それから、学校へ行きました。", "romaji": "asagohan o tabemashita. sorekara, gakkou e ikimashita.", "turkish": "Kahvaltı yaptım. Sonra okula gittim." },
+      { "japanese": "パンを買いました。それから、牛乳も買いました。", "romaji": "pan o kaimashita. sorekara, gyuunyuu mo kaimashita.", "turkish": "Ekmek aldım. Bir de süt aldım." },
+      { "japanese": "宿題をします。それから、寝ます。", "romaji": "shukudai o shimasu. sorekara, nemasu.", "turkish": "Ödev yaparım. Sonra uyurum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "顔を洗いました。＿＿、朝ご飯を食べました。", "hint": "Yüzümü yıkadım. Sonra kahvaltı yaptım.", "choices": ["それから", "でも", "しかし", "けど"], "answer": "それから" },
+      { "kind": "multipleChoice", "prompt": "「それから」 ne anlatır?", "hint": null, "choices": ["Ondan sonra / bir de", "Ama", "Çünkü", "Eğer"], "answer": "Ondan sonra / bir de" },
+      { "kind": "multipleChoice", "prompt": "「コーヒー、それからケーキをください」 ne demek?", "hint": null, "choices": ["Kahve, bir de pasta alayım", "Kahve yerine pasta", "Kahveden sonra pasta gelsin", "Sadece kahve"], "answer": "Kahve, bir de pasta alayım" }
+    ]
+  },
+  {
+    "key": "soshite",
+    "pattern": "そして",
+    "romaji": "soshite",
+    "title": "Ve: そして",
+    "explanation": "Cümleleri düzgünce ekler: 've, ve sonra'. Olumlu, art arda gelen bilgileri bağlar; それから'ya benzer ama daha yazılı ve tarafsızdır.",
+    "formula": "[cümle]。 + そして、 + [ek cümle]",
+    "category": "conjunction",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "京都へ行きました。そして、お寺を見ました。", "romaji": "Kyouto e ikimashita. soshite, otera o mimashita.", "turkish": "Kyoto'ya gittim. Ve tapınakları gezdim." },
+      { "japanese": "彼は親切です。そして、まじめです。", "romaji": "kare wa shinsetsu desu. soshite, majime desu.", "turkish": "O kibardır. Ve ciddidir." },
+      { "japanese": "掃除をしました。そして、洗濯もしました。", "romaji": "souji o shimashita. soshite, sentaku mo shimashita.", "turkish": "Temizlik yaptım. Ve çamaşır da yıkadım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "田中さんは頭がいいです。＿＿、やさしいです。", "hint": "Tanaka akıllıdır. Ve naziktir.", "choices": ["そして", "でも", "しかし", "けれども"], "answer": "そして" },
+      { "kind": "multipleChoice", "prompt": "「そして」 hangi tür bilgileri bağlar?", "hint": null, "choices": ["Olumlu, art arda gelen bilgileri", "Zıt bilgileri", "Sebep-sonucu", "Koşulu"], "answer": "Olumlu, art arda gelen bilgileri" },
+      { "kind": "multipleChoice", "prompt": "「ご飯を食べました。そして、寝ました。」 ne demek?", "hint": null, "choices": ["Yemek yedim. Ve uyudum.", "Yemek yedim ama uyumadım.", "Uyudum çünkü yedim.", "Yemeden uyudum."], "answer": "Yemek yedim. Ve uyudum." }
+    ]
+  },
+  {
+    "key": "ga_but",
+    "pattern": "～が (ama)",
+    "romaji": "~ ga (but)",
+    "title": "Zıtlık (kibar): ～が",
+    "explanation": "İki cümleyi tek cümlede zıtlıkla bağlar: 'ama'. けど'nun daha kibar/yazılı hâli. (が ayrıca özne edatıdır — bu tümüyle farklı bir kullanım.)",
+    "formula": "[cümle] + が、 + [zıt cümle]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "すみませんが、道を教えてください。", "romaji": "sumimasen ga, michi o oshiete kudasai.", "turkish": "Kusura bakmayın ama yolu tarif eder misiniz?" },
+      { "japanese": "この部屋は狭いですが、きれいです。", "romaji": "kono heya wa semai desu ga, kirei desu.", "turkish": "Bu oda dar ama temiz." },
+      { "japanese": "電話しましたが、だれも出ませんでした。", "romaji": "denwa shimashita ga, dare mo demasen deshita.", "turkish": "Telefon ettim ama kimse açmadı." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "行きたいです＿＿、時間がありません。", "hint": "Gitmek istiyorum ama vaktim yok.", "choices": ["が", "ので", "から", "し"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "Cümle içindeki 「が」 ile 「けど」 arasındaki fark nedir?", "hint": null, "choices": ["が daha kibar/yazılı", "けど daha kibar", "が sadece soru yapar", "İkisi tam zıt anlamlı"], "answer": "が daha kibar/yazılı" },
+      { "kind": "multipleChoice", "prompt": "「安いですが、おいしいです」 ne demek?", "hint": null, "choices": ["Ucuz ama lezzetli", "Ucuz olduğu için lezzetli", "Ne ucuz ne lezzetli", "Pahalı ve lezzetli"], "answer": "Ucuz ama lezzetli" }
+    ]
+  },
+  {
+    "key": "toki",
+    "pattern": "～とき",
+    "romaji": "~ toki",
+    "title": "... dığında: ～とき",
+    "explanation": "'... dığı zaman'. Fiil/sıfat + とき. Fiil sözlük biçiminde → eylemden önce/sırasında; た-biçiminde → eylemden sonra. İsim + の + とき (子どものとき).",
+    "formula": "[fiil/sıfat yalın] + とき   /   [İsim] + の + とき",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "日本へ行くとき、カメラを買いました。", "romaji": "Nihon e iku toki, kamera o kaimashita.", "turkish": "Japonya'ya giderken (gitmeden önce) fotoğraf makinesi aldım." },
+      { "japanese": "子どものとき、よく泳ぎました。", "romaji": "kodomo no toki, yoku oyogimashita.", "turkish": "Çocukken sık sık yüzerdim." },
+      { "japanese": "暇なとき、映画を見ます。", "romaji": "hima na toki, eiga o mimasu.", "turkish": "Boş olduğumda film izlerim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "国へ帰る＿＿、おみやげを買います。", "hint": "Ülkeme dönerken hediye alırım.", "choices": ["とき", "まえ", "あと", "ながら"], "answer": "とき" },
+      { "kind": "fillBlank", "prompt": "子ども＿＿とき、東京に住んでいました。", "hint": "Çocukken Tokyo'da yaşıyordum.", "choices": ["の", "な", "だ", "を"], "answer": "の" },
+      { "kind": "multipleChoice", "prompt": "「食べたとき」 ile 「食べるとき」 farkı nedir?", "hint": null, "choices": ["食べたとき: yedikten sonra; 食べるとき: yemeden önce/sırasında", "İkisi aynı", "食べたとき: gelecek", "食べるとき: geçmiş"], "answer": "食べたとき: yedikten sonra; 食べるとき: yemeden önce/sırasında" }
+    ]
+  },
+  {
+    "key": "mae_ni",
+    "pattern": "～まえに",
+    "romaji": "~ mae ni",
+    "title": "... den önce: ～まえに",
+    "explanation": "'... yapmadan önce'. Fiil sözlük biçimi + まえに; isim + の + まえに (食事のまえに); süre + まえに (3年まえに = 3 yıl önce).",
+    "formula": "[fiil sözlük biçimi] + まえに   /   [İsim] + の + まえに",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "寝るまえに、歯をみがきます。", "romaji": "neru mae ni, ha o migakimasu.", "turkish": "Yatmadan önce dişlerimi fırçalarım." },
+      { "japanese": "食事のまえに、手を洗います。", "romaji": "shokuji no mae ni, te o araimasu.", "turkish": "Yemekten önce ellerimi yıkarım." },
+      { "japanese": "3年まえに、日本に来ました。", "romaji": "san-nen mae ni, Nihon ni kimashita.", "turkish": "3 yıl önce Japonya'ya geldim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "出かける＿＿、天気を調べます。", "hint": "Çıkmadan önce havaya bakarım.", "choices": ["まえに", "あとで", "とき", "から"], "answer": "まえに" },
+      { "kind": "fillBlank", "prompt": "テスト＿＿まえに、よく寝てください。", "hint": "Sınavdan önce iyi uyuyun.", "choices": ["の", "な", "を", "に"], "answer": "の" },
+      { "kind": "wordOrder", "prompt": "Yemekten önce ellerini yıka.", "hint": "ご飯 / の / まえに / 手を / 洗って", "choices": ["ご飯", "の", "まえに", "手を", "洗って"], "answer": "ご飯のまえに手を洗って", "answerTokens": ["ご飯", "の", "まえに", "手を", "洗って"] }
+    ]
   }
 ]
