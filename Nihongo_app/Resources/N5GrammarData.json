@@ -9,9 +9,9 @@
     "category": "particle",
     "difficulty": 1,
     "examples": [
-      { "japanese": "私は学生です。", "romaji": "watashi wa gakusei desu.", "turkish": "Ben öğrenciyim." },
+      { "japanese": "私は学生です。", "hiragana": "わたしはがくせいです。", "romaji": "watashi wa gakusei desu.", "turkish": "Ben öğrenciyim." },
       { "japanese": "これはかばんです。", "romaji": "kore wa kaban desu.", "turkish": "Bu bir çanta." },
-      { "japanese": "田中さんは先生です。", "romaji": "Tanaka-san wa sensei desu.", "turkish": "Tanaka öğretmendir." }
+      { "japanese": "田中さんは先生です。", "hiragana": "たなかさんはせんせいです。", "romaji": "Tanaka-san wa sensei desu.", "turkish": "Tanaka öğretmendir." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "私＿＿日本人です。", "hint": "Ben Japon'um.", "choices": ["は", "を", "に", "が"], "answer": "は" },
@@ -29,9 +29,9 @@
     "category": "particle",
     "difficulty": 1,
     "examples": [
-      { "japanese": "私は先生じゃありません。", "romaji": "watashi wa sensei ja arimasen.", "turkish": "Ben öğretmen değilim." },
-      { "japanese": "これは水じゃありません。", "romaji": "kore wa mizu ja arimasen.", "turkish": "Bu su değil." },
-      { "japanese": "田中さんは学生ではありません。", "romaji": "Tanaka-san wa gakusei dewa arimasen.", "turkish": "Tanaka öğrenci değil." }
+      { "japanese": "私は先生じゃありません。", "hiragana": "わたしはせんせいじゃありません。", "romaji": "watashi wa sensei ja arimasen.", "turkish": "Ben öğretmen değilim." },
+      { "japanese": "これは水じゃありません。", "hiragana": "これはみずじゃありません。", "romaji": "kore wa mizu ja arimasen.", "turkish": "Bu su değil." },
+      { "japanese": "田中さんは学生ではありません。", "hiragana": "たなかさんはがくせいではありません。", "romaji": "Tanaka-san wa gakusei dewa arimasen.", "turkish": "Tanaka öğrenci değil." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "私は医者＿＿。", "hint": "Ben doktor değilim.", "choices": ["じゃありません", "です", "ます", "でした"], "answer": "じゃありません" },
@@ -49,9 +49,9 @@
     "category": "particle",
     "difficulty": 1,
     "examples": [
-      { "japanese": "パンを食べます。", "romaji": "pan o tabemasu.", "turkish": "Ekmek yerim." },
-      { "japanese": "水を飲みます。", "romaji": "mizu o nomimasu.", "turkish": "Su içerim." },
-      { "japanese": "本を読みます。", "romaji": "hon o yomimasu.", "turkish": "Kitap okurum." }
+      { "japanese": "パンを食べます。", "hiragana": "ぱんをたべます。", "romaji": "pan o tabemasu.", "turkish": "Ekmek yerim." },
+      { "japanese": "水を飲みます。", "hiragana": "みずをのみます。", "romaji": "mizu o nomimasu.", "turkish": "Su içerim." },
+      { "japanese": "本を読みます。", "hiragana": "ほんをよみます。", "romaji": "hon o yomimasu.", "turkish": "Kitap okurum." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "コーヒー＿＿飲みます。", "hint": "Kahve içerim.", "choices": ["を", "は", "に", "で"], "answer": "を" },
@@ -69,9 +69,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "図書館で勉強します。", "romaji": "toshokan de benkyou shimasu.", "turkish": "Kütüphanede ders çalışırım." },
-      { "japanese": "バスで行きます。", "romaji": "basu de ikimasu.", "turkish": "Otobüsle giderim." },
-      { "japanese": "はしで食べます。", "romaji": "hashi de tabemasu.", "turkish": "Çubuklarla yerim." }
+      { "japanese": "図書館で勉強します。", "hiragana": "としょかんでべんきょうします。", "romaji": "toshokan de benkyou shimasu.", "turkish": "Kütüphanede ders çalışırım." },
+      { "japanese": "バスで行きます。", "hiragana": "ばすでいきます。", "romaji": "basu de ikimasu.", "turkish": "Otobüsle giderim." },
+      { "japanese": "はしで食べます。", "hiragana": "はしでたべます。", "romaji": "hashi de tabemasu.", "turkish": "Çubuklarla yerim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "レストラン＿＿昼ご飯を食べます。", "hint": "Restoranda öğle yemeği yerim.", "choices": ["で", "に", "を", "へ"], "answer": "で" },
@@ -89,9 +89,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "学校に行きます。", "romaji": "gakkou ni ikimasu.", "turkish": "Okula giderim." },
-      { "japanese": "日本へ来ました。", "romaji": "Nihon e kimashita.", "turkish": "Japonya'ya geldim." },
-      { "japanese": "うちに帰ります。", "romaji": "uchi ni kaerimasu.", "turkish": "Eve dönerim." }
+      { "japanese": "学校に行きます。", "hiragana": "がっこうにいきます。", "romaji": "gakkou ni ikimasu.", "turkish": "Okula giderim." },
+      { "japanese": "日本へ来ました。", "hiragana": "にほんへきました。", "romaji": "Nihon e kimashita.", "turkish": "Japonya'ya geldim." },
+      { "japanese": "うちに帰ります。", "hiragana": "うちにかえります。", "romaji": "uchi ni kaerimasu.", "turkish": "Eve dönerim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "来週、京都＿＿行きます。", "hint": "Gelecek hafta Kyoto'ya giderim.", "choices": ["に", "で", "を", "が"], "answer": "に" },
@@ -109,9 +109,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "7時に起きます。", "romaji": "shichi-ji ni okimasu.", "turkish": "Saat 7'de kalkarım." },
-      { "japanese": "日曜日に休みます。", "romaji": "nichiyoubi ni yasumimasu.", "turkish": "Pazar günü dinlenirim." },
-      { "japanese": "3月に日本へ行きます。", "romaji": "san-gatsu ni Nihon e ikimasu.", "turkish": "Mart'ta Japonya'ya giderim." }
+      { "japanese": "7時に起きます。", "hiragana": "しちじにおきます。", "romaji": "shichi-ji ni okimasu.", "turkish": "Saat 7'de kalkarım." },
+      { "japanese": "日曜日に休みます。", "hiragana": "にちようびにやすみます。", "romaji": "nichiyoubi ni yasumimasu.", "turkish": "Pazar günü dinlenirim." },
+      { "japanese": "3月に日本へ行きます。", "hiragana": "さんがつににほんへいきます。", "romaji": "san-gatsu ni Nihon e ikimasu.", "turkish": "Mart'ta Japonya'ya giderim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "8時半＿＿会社に行きます。", "hint": "8:30'da şirkete giderim.", "choices": ["に", "で", "を", "へ"], "answer": "に" },
@@ -129,9 +129,9 @@
     "category": "particle",
     "difficulty": 1,
     "examples": [
-      { "japanese": "私も学生です。", "romaji": "watashi mo gakusei desu.", "turkish": "Ben de öğrenciyim." },
-      { "japanese": "コーヒーも飲みます。", "romaji": "koohii mo nomimasu.", "turkish": "Kahve de içerim." },
-      { "japanese": "田中さんも来ます。", "romaji": "Tanaka-san mo kimasu.", "turkish": "Tanaka da geliyor." }
+      { "japanese": "私も学生です。", "hiragana": "わたしもがくせいです。", "romaji": "watashi mo gakusei desu.", "turkish": "Ben de öğrenciyim." },
+      { "japanese": "コーヒーも飲みます。", "hiragana": "こおひいものみます。", "romaji": "koohii mo nomimasu.", "turkish": "Kahve de içerim." },
+      { "japanese": "田中さんも来ます。", "hiragana": "たなかさんもきます。", "romaji": "Tanaka-san mo kimasu.", "turkish": "Tanaka da geliyor." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "A: 私は日本人です。 B: 私＿＿日本人です。", "hint": "Ben de Japon'um.", "choices": ["も", "は", "を", "に"], "answer": "も" },
@@ -149,9 +149,9 @@
     "category": "particle",
     "difficulty": 1,
     "examples": [
-      { "japanese": "私の本です。", "romaji": "watashi no hon desu.", "turkish": "Benim kitabım." },
-      { "japanese": "日本語の先生です。", "romaji": "nihongo no sensei desu.", "turkish": "Japonca öğretmeni." },
-      { "japanese": "これは田中さんのかばんです。", "romaji": "kore wa Tanaka-san no kaban desu.", "turkish": "Bu Tanaka'nın çantası." }
+      { "japanese": "私の本です。", "hiragana": "わたしのほんです。", "romaji": "watashi no hon desu.", "turkish": "Benim kitabım." },
+      { "japanese": "日本語の先生です。", "hiragana": "にほんごのせんせいです。", "romaji": "nihongo no sensei desu.", "turkish": "Japonca öğretmeni." },
+      { "japanese": "これは田中さんのかばんです。", "hiragana": "これはたなかさんのかばんです。", "romaji": "kore wa Tanaka-san no kaban desu.", "turkish": "Bu Tanaka'nın çantası." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "これは友だち＿＿車です。", "hint": "Bu arkadaşımın arabası.", "choices": ["の", "は", "を", "で"], "answer": "の" },
@@ -169,9 +169,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "机の上に本があります。", "romaji": "tsukue no ue ni hon ga arimasu.", "turkish": "Masanın üstünde kitap var." },
-      { "japanese": "公園に犬がいます。", "romaji": "kouen ni inu ga imasu.", "turkish": "Parkta bir köpek var." },
-      { "japanese": "教室に学生がいます。", "romaji": "kyoushitsu ni gakusei ga imasu.", "turkish": "Sınıfta öğrenciler var." }
+      { "japanese": "机の上に本があります。", "hiragana": "つくえのうえにほんがあります。", "romaji": "tsukue no ue ni hon ga arimasu.", "turkish": "Masanın üstünde kitap var." },
+      { "japanese": "公園に犬がいます。", "hiragana": "こうえんにいぬがいます。", "romaji": "kouen ni inu ga imasu.", "turkish": "Parkta bir köpek var." },
+      { "japanese": "教室に学生がいます。", "hiragana": "きょうしつにがくせいがいます。", "romaji": "kyoushitsu ni gakusei ga imasu.", "turkish": "Sınıfta öğrenciler var." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "部屋にテレビ＿＿あります。", "hint": "Odada televizyon var.", "choices": ["が", "を", "は", "で"], "answer": "が" },
@@ -189,9 +189,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "毎日日本語を勉強します。", "romaji": "mainichi nihongo o benkyou shimasu.", "turkish": "Her gün Japonca çalışırım." },
-      { "japanese": "今日は勉強しません。", "romaji": "kyou wa benkyou shimasen.", "turkish": "Bugün çalışmayacağım." },
-      { "japanese": "きのう映画を見ました。", "romaji": "kinou eiga o mimashita.", "turkish": "Dün film izledim." }
+      { "japanese": "毎日日本語を勉強します。", "hiragana": "まいにちにほんごをべんきょうします。", "romaji": "mainichi nihongo o benkyou shimasu.", "turkish": "Her gün Japonca çalışırım." },
+      { "japanese": "今日は勉強しません。", "hiragana": "きょうはべんきょうしません。", "romaji": "kyou wa benkyou shimasen.", "turkish": "Bugün çalışmayacağım." },
+      { "japanese": "きのう映画を見ました。", "hiragana": "きのうえいがをみました。", "romaji": "kinou eiga o mimashita.", "turkish": "Dün film izledim." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「きのう」 (dün) ile hangi çekim uyar: 映画を見＿＿", "hint": null, "choices": ["ました", "ます", "ません", "ましょう"], "answer": "ました" },
@@ -209,9 +209,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "ちょっと待ってください。", "romaji": "chotto matte kudasai.", "turkish": "Lütfen biraz bekleyin." },
-      { "japanese": "ここに名前を書いてください。", "romaji": "koko ni namae o kaite kudasai.", "turkish": "Lütfen buraya adınızı yazın." },
-      { "japanese": "もう一度言ってください。", "romaji": "mou ichido itte kudasai.", "turkish": "Lütfen bir daha söyleyin." }
+      { "japanese": "ちょっと待ってください。", "hiragana": "ちょっとまってください。", "romaji": "chotto matte kudasai.", "turkish": "Lütfen biraz bekleyin." },
+      { "japanese": "ここに名前を書いてください。", "hiragana": "ここになまえをかいてください。", "romaji": "koko ni namae o kaite kudasai.", "turkish": "Lütfen buraya adınızı yazın." },
+      { "japanese": "もう一度言ってください。", "hiragana": "もういちどいってください。", "romaji": "mou ichido itte kudasai.", "turkish": "Lütfen bir daha söyleyin." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "すみません、写真を撮って＿＿。", "hint": "Affedersiniz, lütfen fotoğraf çekin.", "choices": ["ください", "います", "ました", "ましょう"], "answer": "ください" },
@@ -229,9 +229,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "今、本を読んでいます。", "romaji": "ima, hon o yonde imasu.", "turkish": "Şu an kitap okuyorum." },
-      { "japanese": "東京に住んでいます。", "romaji": "Toukyou ni sunde imasu.", "turkish": "Tokyo'da yaşıyorum." },
-      { "japanese": "姉は銀行で働いています。", "romaji": "ane wa ginkou de hataraite imasu.", "turkish": "Ablam bankada çalışıyor." }
+      { "japanese": "今、本を読んでいます。", "hiragana": "いま、ほんをよんでいます。", "romaji": "ima, hon o yonde imasu.", "turkish": "Şu an kitap okuyorum." },
+      { "japanese": "東京に住んでいます。", "hiragana": "とうきょうにすんでいます。", "romaji": "Toukyou ni sunde imasu.", "turkish": "Tokyo'da yaşıyorum." },
+      { "japanese": "姉は銀行で働いています。", "hiragana": "あねはぎんこうではたらいています。", "romaji": "ane wa ginkou de hataraite imasu.", "turkish": "Ablam bankada çalışıyor." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "父は今、テレビを見て＿＿。", "hint": "Babam şu an televizyon izliyor.", "choices": ["います", "ください", "ました", "ません"], "answer": "います" },
@@ -249,9 +249,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "水が飲みたいです。", "romaji": "mizu ga nomitai desu.", "turkish": "Su içmek istiyorum." },
-      { "japanese": "日本へ行きたいです。", "romaji": "Nihon e ikitai desu.", "turkish": "Japonya'ya gitmek istiyorum." },
-      { "japanese": "今日は何もしたくないです。", "romaji": "kyou wa nani mo shitakunai desu.", "turkish": "Bugün hiçbir şey yapmak istemiyorum." }
+      { "japanese": "水が飲みたいです。", "hiragana": "みずがのみたいです。", "romaji": "mizu ga nomitai desu.", "turkish": "Su içmek istiyorum." },
+      { "japanese": "日本へ行きたいです。", "hiragana": "にほんへいきたいです。", "romaji": "Nihon e ikitai desu.", "turkish": "Japonya'ya gitmek istiyorum." },
+      { "japanese": "今日は何もしたくないです。", "hiragana": "きょうはなにもしたくないです。", "romaji": "kyou wa nani mo shitakunai desu.", "turkish": "Bugün hiçbir şey yapmak istemiyorum." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "つかれました。少し休み＿＿です。", "hint": "Yoruldum. Biraz dinlenmek istiyorum.", "choices": ["たい", "ます", "てください", "ています"], "answer": "たい" },
@@ -269,9 +269,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "一緒に昼ご飯を食べましょう。", "romaji": "issho ni hirugohan o tabemashou.", "turkish": "Birlikte öğle yemeği yiyelim." },
-      { "japanese": "週末、映画を見ませんか。", "romaji": "shuumatsu, eiga o mimasen ka.", "turkish": "Hafta sonu film izlemez misiniz?" },
-      { "japanese": "ちょっと休みましょう。", "romaji": "chotto yasumimashou.", "turkish": "Biraz dinlenelim." }
+      { "japanese": "一緒に昼ご飯を食べましょう。", "hiragana": "いっしょにひるごはんをたべましょう。", "romaji": "issho ni hirugohan o tabemashou.", "turkish": "Birlikte öğle yemeği yiyelim." },
+      { "japanese": "週末、映画を見ませんか。", "hiragana": "しゅうまつ、えいがをみませんか。", "romaji": "shuumatsu, eiga o mimasen ka.", "turkish": "Hafta sonu film izlemez misiniz?" },
+      { "japanese": "ちょっと休みましょう。", "hiragana": "ちょっとやすみましょう。", "romaji": "chotto yasumimashou.", "turkish": "Biraz dinlenelim." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「コーヒーを飲みませんか」 ne demek?", "hint": null, "choices": ["Kahve içmez misiniz? (davet)", "Kahve içmiyor musun? (kızgın)", "Kahve içmedim", "Kahve içeceğim"], "answer": "Kahve içmez misiniz? (davet)" },
@@ -289,9 +289,9 @@
     "category": "adjective",
     "difficulty": 2,
     "examples": [
-      { "japanese": "大きい犬がいます。", "romaji": "ookii inu ga imasu.", "turkish": "Büyük bir köpek var." },
-      { "japanese": "これはきれいな花です。", "romaji": "kore wa kirei na hana desu.", "turkish": "Bu güzel bir çiçek." },
-      { "japanese": "この本は高くないです。", "romaji": "kono hon wa takakunai desu.", "turkish": "Bu kitap pahalı değil." }
+      { "japanese": "大きい犬がいます。", "hiragana": "おおきいいぬがいます。", "romaji": "ookii inu ga imasu.", "turkish": "Büyük bir köpek var." },
+      { "japanese": "これはきれいな花です。", "hiragana": "これはきれいなはなです。", "romaji": "kore wa kirei na hana desu.", "turkish": "Bu güzel bir çiçek." },
+      { "japanese": "この本は高くないです。", "hiragana": "このほんはたかくないです。", "romaji": "kono hon wa takakunai desu.", "turkish": "Bu kitap pahalı değil." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "きれい＿＿部屋ですね。", "hint": "Temiz bir oda, değil mi?", "choices": ["な", "い", "の", "を"], "answer": "な" },
@@ -309,9 +309,9 @@
     "category": "conjunction",
     "difficulty": 2,
     "examples": [
-      { "japanese": "時間がないから、タクシーで行きます。", "romaji": "jikan ga nai kara, takushii de ikimasu.", "turkish": "Vaktim olmadığı için taksiyle giderim." },
-      { "japanese": "寒いから、まどを閉めてください。", "romaji": "samui kara, mado o shimete kudasai.", "turkish": "Soğuk olduğu için lütfen pencereyi kapatın." },
-      { "japanese": "あした試験があるから、今日は勉強します。", "romaji": "ashita shiken ga aru kara, kyou wa benkyou shimasu.", "turkish": "Yarın sınavım olduğu için bugün çalışıyorum." }
+      { "japanese": "時間がないから、タクシーで行きます。", "hiragana": "じかんがないから、たくしいでいきます。", "romaji": "jikan ga nai kara, takushii de ikimasu.", "turkish": "Vaktim olmadığı için taksiyle giderim." },
+      { "japanese": "寒いから、まどを閉めてください。", "hiragana": "さむいから、まどをしめてください。", "romaji": "samui kara, mado o shimete kudasai.", "turkish": "Soğuk olduğu için lütfen pencereyi kapatın." },
+      { "japanese": "あした試験があるから、今日は勉強します。", "hiragana": "あしたしけんがあるから、きょうはべんきょうします。", "romaji": "ashita shiken ga aru kara, kyou wa benkyou shimasu.", "turkish": "Yarın sınavım olduğu için bugün çalışıyorum." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "あたまがいたい＿＿、うちに帰ります。", "hint": "Başım ağrıdığı için eve dönüyorum.", "choices": ["から", "でも", "が", "と"], "answer": "から" },
@@ -329,9 +329,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "雨が降っています。", "romaji": "ame ga futte imasu.", "turkish": "Yağmur yağıyor." },
-      { "japanese": "だれが来ましたか。", "romaji": "dare ga kimashita ka.", "turkish": "Kim geldi?" },
-      { "japanese": "私は犬が好きです。", "romaji": "watashi wa inu ga suki desu.", "turkish": "Ben köpekleri severim." }
+      { "japanese": "雨が降っています。", "hiragana": "あめがふっています。", "romaji": "ame ga futte imasu.", "turkish": "Yağmur yağıyor." },
+      { "japanese": "だれが来ましたか。", "hiragana": "だれがきましたか。", "romaji": "dare ga kimashita ka.", "turkish": "Kim geldi?" },
+      { "japanese": "私は犬が好きです。", "hiragana": "わたしはいぬがすきです。", "romaji": "watashi wa inu ga suki desu.", "turkish": "Ben köpekleri severim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "だれ＿＿この本を書きましたか。", "hint": "Bu kitabı kim yazdı?", "choices": ["が", "は", "を", "に"], "answer": "が" },
@@ -349,9 +349,9 @@
     "category": "particle",
     "difficulty": 1,
     "examples": [
-      { "japanese": "パンとたまごを買いました。", "romaji": "pan to tamago o kaimashita.", "turkish": "Ekmek ve yumurta aldım." },
-      { "japanese": "友だちと映画を見ます。", "romaji": "tomodachi to eiga o mimasu.", "turkish": "Arkadaşımla film izlerim." },
-      { "japanese": "母と話しました。", "romaji": "haha to hanashimashita.", "turkish": "Annemle konuştum." }
+      { "japanese": "パンとたまごを買いました。", "hiragana": "ぱんとたまごをかいました。", "romaji": "pan to tamago o kaimashita.", "turkish": "Ekmek ve yumurta aldım." },
+      { "japanese": "友だちと映画を見ます。", "hiragana": "ともだちとえいがをみます。", "romaji": "tomodachi to eiga o mimasu.", "turkish": "Arkadaşımla film izlerim." },
+      { "japanese": "母と話しました。", "hiragana": "ははとはなしました。", "romaji": "haha to hanashimashita.", "turkish": "Annemle konuştum." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "コーヒー＿＿ケーキをください。", "hint": "Kahve ve pasta alayım.", "choices": ["と", "も", "を", "で"], "answer": "と" },
@@ -369,9 +369,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "つくえの上に本やペンがあります。", "romaji": "tsukue no ue ni hon ya pen ga arimasu.", "turkish": "Masanın üstünde kitap, kalem gibi şeyler var." },
-      { "japanese": "週末は買い物や掃除をします。", "romaji": "shuumatsu wa kaimono ya souji o shimasu.", "turkish": "Hafta sonu alışveriş, temizlik gibi şeyler yaparım." },
-      { "japanese": "京都や大阪へ行きました。", "romaji": "Kyouto ya Oosaka e ikimashita.", "turkish": "Kyoto, Osaka gibi yerlere gittim." }
+      { "japanese": "つくえの上に本やペンがあります。", "hiragana": "つくえのうえにほんやぺんがあります。", "romaji": "tsukue no ue ni hon ya pen ga arimasu.", "turkish": "Masanın üstünde kitap, kalem gibi şeyler var." },
+      { "japanese": "週末は買い物や掃除をします。", "hiragana": "しゅうまつはかいものやそうじをします。", "romaji": "shuumatsu wa kaimono ya souji o shimasu.", "turkish": "Hafta sonu alışveriş, temizlik gibi şeyler yaparım." },
+      { "japanese": "京都や大阪へ行きました。", "hiragana": "きょうとやおおさかへいきました。", "romaji": "Kyouto ya Oosaka e ikimashita.", "turkish": "Kyoto, Osaka gibi yerlere gittim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "かばんの中にさいふ＿＿かぎがあります。", "hint": "Çantada cüzdan, anahtar gibi şeyler var.", "choices": ["や", "と", "を", "へ"], "answer": "や" },
@@ -389,8 +389,8 @@
     "category": "particle",
     "difficulty": 1,
     "examples": [
-      { "japanese": "あなたは学生ですか。", "romaji": "anata wa gakusei desu ka.", "turkish": "Sen öğrenci misin?" },
-      { "japanese": "もう昼ご飯を食べましたか。", "romaji": "mou hirugohan o tabemashita ka.", "turkish": "Öğle yemeğini yedin mi?" },
+      { "japanese": "あなたは学生ですか。", "hiragana": "あなたはがくせいですか。", "romaji": "anata wa gakusei desu ka.", "turkish": "Sen öğrenci misin?" },
+      { "japanese": "もう昼ご飯を食べましたか。", "hiragana": "もうひるごはんをたべましたか。", "romaji": "mou hirugohan o tabemashita ka.", "turkish": "Öğle yemeğini yedin mi?" },
       { "japanese": "トイレはどこですか。", "romaji": "toire wa doko desu ka.", "turkish": "Tuvalet nerede?" }
     ],
     "questions": [
@@ -409,9 +409,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "コーヒーかお茶を飲みます。", "romaji": "koohii ka ocha o nomimasu.", "turkish": "Ya kahve ya çay içerim." },
-      { "japanese": "土曜日か日曜日に行きます。", "romaji": "doyoubi ka nichiyoubi ni ikimasu.", "turkish": "Ya cumartesi ya pazar giderim." },
-      { "japanese": "ペンかえんぴつで書いてください。", "romaji": "pen ka enpitsu de kaite kudasai.", "turkish": "Ya kalemle ya kurşun kalemle yazın." }
+      { "japanese": "コーヒーかお茶を飲みます。", "hiragana": "こおひいかおちゃをのみます。", "romaji": "koohii ka ocha o nomimasu.", "turkish": "Ya kahve ya çay içerim." },
+      { "japanese": "土曜日か日曜日に行きます。", "hiragana": "どようびかにちようびにいきます。", "romaji": "doyoubi ka nichiyoubi ni ikimasu.", "turkish": "Ya cumartesi ya pazar giderim." },
+      { "japanese": "ペンかえんぴつで書いてください。", "hiragana": "ぺんかえんぴつでかいてください。", "romaji": "pen ka enpitsu de kaite kudasai.", "turkish": "Ya kalemle ya kurşun kalemle yazın." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "バス＿＿電車で行きます。", "hint": "Ya otobüsle ya trenle giderim.", "choices": ["か", "と", "や", "も"], "answer": "か" },
@@ -429,9 +429,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "5時まで働きます。", "romaji": "go-ji made hatarakimasu.", "turkish": "Saat 5'e kadar çalışırım." },
-      { "japanese": "駅まで歩きました。", "romaji": "eki made arukimashita.", "turkish": "İstasyona kadar yürüdüm." },
-      { "japanese": "月曜日から金曜日まで学校があります。", "romaji": "getsuyoubi kara kinyoubi made gakkou ga arimasu.", "turkish": "Pazartesiden cumaya kadar okul var." }
+      { "japanese": "5時まで働きます。", "hiragana": "ごじまではたらきます。", "romaji": "go-ji made hatarakimasu.", "turkish": "Saat 5'e kadar çalışırım." },
+      { "japanese": "駅まで歩きました。", "hiragana": "えきまであるきました。", "romaji": "eki made arukimashita.", "turkish": "İstasyona kadar yürüdüm." },
+      { "japanese": "月曜日から金曜日まで学校があります。", "hiragana": "げつようびからきんようびまでがっこうがあります。", "romaji": "getsuyoubi kara kinyoubi made gakkou ga arimasu.", "turkish": "Pazartesiden cumaya kadar okul var." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "9時から6時＿＿会社にいます。", "hint": "9'dan 6'ya kadar iş yerindeyim.", "choices": ["まで", "から", "に", "で"], "answer": "まで" },
@@ -449,9 +449,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "9時から授業が始まります。", "romaji": "ku-ji kara jugyou ga hajimarimasu.", "turkish": "Ders 9'dan itibaren başlar." },
-      { "japanese": "日本から手紙が来ました。", "romaji": "Nihon kara tegami ga kimashita.", "turkish": "Japonya'dan mektup geldi." },
-      { "japanese": "家から駅まで10分です。", "romaji": "ie kara eki made juppun desu.", "turkish": "Evden istasyona 10 dakika." }
+      { "japanese": "9時から授業が始まります。", "hiragana": "くじからじゅぎょうがはじまります。", "romaji": "ku-ji kara jugyou ga hajimarimasu.", "turkish": "Ders 9'dan itibaren başlar." },
+      { "japanese": "日本から手紙が来ました。", "hiragana": "にほんからてがみがきました。", "romaji": "Nihon kara tegami ga kimashita.", "turkish": "Japonya'dan mektup geldi." },
+      { "japanese": "家から駅まで10分です。", "hiragana": "いえからえきまでじゅっぷんです。", "romaji": "ie kara eki made juppun desu.", "turkish": "Evden istasyona 10 dakika." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "銀行は何時＿＿ですか。", "hint": "Banka saat kaçtan itibaren açık?", "choices": ["から", "まで", "に", "で"], "answer": "から" },
@@ -469,9 +469,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "水だけ飲みます。", "romaji": "mizu dake nomimasu.", "turkish": "Sadece su içerim." },
-      { "japanese": "一人だけ来ました。", "romaji": "hitori dake kimashita.", "turkish": "Sadece bir kişi geldi." },
-      { "japanese": "日曜日だけ休みます。", "romaji": "nichiyoubi dake yasumimasu.", "turkish": "Sadece pazar dinlenirim." }
+      { "japanese": "水だけ飲みます。", "hiragana": "みずだけのみます。", "romaji": "mizu dake nomimasu.", "turkish": "Sadece su içerim." },
+      { "japanese": "一人だけ来ました。", "hiragana": "ひとりだけきました。", "romaji": "hitori dake kimashita.", "turkish": "Sadece bir kişi geldi." },
+      { "japanese": "日曜日だけ休みます。", "hiragana": "にちようびだけやすみます。", "romaji": "nichiyoubi dake yasumimasu.", "turkish": "Sadece pazar dinlenirim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "少し＿＿食べました。", "hint": "Sadece biraz yedim.", "choices": ["だけ", "まで", "から", "と"], "answer": "だけ" },
@@ -489,9 +489,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "いい天気ですね。", "romaji": "ii tenki desu ne.", "turkish": "Güzel hava, değil mi?" },
-      { "japanese": "この店は高いですね。", "romaji": "kono mise wa takai desu ne.", "turkish": "Bu dükkân pahalı, ha." },
-      { "japanese": "じゃあ、また明日ね。", "romaji": "jaa, mata ashita ne.", "turkish": "O zaman, yarın görüşürüz ha." }
+      { "japanese": "いい天気ですね。", "hiragana": "いいてんきですね。", "romaji": "ii tenki desu ne.", "turkish": "Güzel hava, değil mi?" },
+      { "japanese": "この店は高いですね。", "hiragana": "このみせはたかいですね。", "romaji": "kono mise wa takai desu ne.", "turkish": "Bu dükkân pahalı, ha." },
+      { "japanese": "じゃあ、また明日ね。", "hiragana": "じゃあ、またあしたね。", "romaji": "jaa, mata ashita ne.", "turkish": "O zaman, yarın görüşürüz ha." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「おいしいですね」 ne anlatır?", "hint": null, "choices": ["Onay bekler: lezzetli, değil mi?", "Emir verir", "Soru sorar: lezzetli mi?", "Olumsuzdur"], "answer": "Onay bekler: lezzetli, değil mi?" },
@@ -509,9 +509,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "その映画はおもしろいですよ。", "romaji": "sono eiga wa omoshiroi desu yo.", "turkish": "O film ilginç, bak." },
-      { "japanese": "もう時間ですよ。", "romaji": "mou jikan desu yo.", "turkish": "Vakit geldi, haberin olsun." },
-      { "japanese": "あそこに駅がありますよ。", "romaji": "asoko ni eki ga arimasu yo.", "turkish": "Şurada istasyon var, biliyor musun." }
+      { "japanese": "その映画はおもしろいですよ。", "hiragana": "そのえいがはおもしろいですよ。", "romaji": "sono eiga wa omoshiroi desu yo.", "turkish": "O film ilginç, bak." },
+      { "japanese": "もう時間ですよ。", "hiragana": "もうじかんですよ。", "romaji": "mou jikan desu yo.", "turkish": "Vakit geldi, haberin olsun." },
+      { "japanese": "あそこに駅がありますよ。", "hiragana": "あそこにえきがありますよ。", "romaji": "asoko ni eki ga arimasu yo.", "turkish": "Şurada istasyon var, biliyor musun." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「ね」 ile 「よ」 farkı nedir?", "hint": null, "choices": ["よ yeni bilgi verir, ね onay arar", "İkisi aynı", "よ soru yapar", "ね geçmiş zaman yapar"], "answer": "よ yeni bilgi verir, ね onay arar" },
@@ -529,9 +529,9 @@
     "category": "particle",
     "difficulty": 3,
     "examples": [
-      { "japanese": "この町はきれいだなあ。", "romaji": "kono machi wa kirei da naa.", "turkish": "Bu kasaba ne güzelmiş ya." },
-      { "japanese": "お金がほしいなあ。", "romaji": "okane ga hoshii naa.", "turkish": "Keşke param olsa." },
-      { "japanese": "いい天気だなあ。", "romaji": "ii tenki da naa.", "turkish": "Ne güzel hava ya." }
+      { "japanese": "この町はきれいだなあ。", "hiragana": "このまちはきれいだなあ。", "romaji": "kono machi wa kirei da naa.", "turkish": "Bu kasaba ne güzelmiş ya." },
+      { "japanese": "お金がほしいなあ。", "hiragana": "おかねがほしいなあ。", "romaji": "okane ga hoshii naa.", "turkish": "Keşke param olsa." },
+      { "japanese": "いい天気だなあ。", "hiragana": "いいてんきだなあ。", "romaji": "ii tenki da naa.", "turkish": "Ne güzel hava ya." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「なあ」 kime yöneliktir?", "hint": null, "choices": ["Konuşanın kendi duygusuna", "Dinleyene soru olarak", "Bir emir olarak", "Resmî bir sunuma"], "answer": "Konuşanın kendi duygusuna" },
@@ -549,9 +549,9 @@
     "category": "particle",
     "difficulty": 2,
     "examples": [
-      { "japanese": "お名前は何ですか。", "romaji": "onamae wa nan desu ka.", "turkish": "Adınız nedir?" },
-      { "japanese": "お茶をどうぞ。", "romaji": "ocha o douzo.", "turkish": "Buyurun çay." },
-      { "japanese": "ご家族は元気ですか。", "romaji": "gokazoku wa genki desu ka.", "turkish": "Aileniz iyi mi?" }
+      { "japanese": "お名前は何ですか。", "hiragana": "おなまえはなんですか。", "romaji": "onamae wa nan desu ka.", "turkish": "Adınız nedir?" },
+      { "japanese": "お茶をどうぞ。", "hiragana": "おちゃをどうぞ。", "romaji": "ocha o douzo.", "turkish": "Buyurun çay." },
+      { "japanese": "ご家族は元気ですか。", "hiragana": "ごかぞくはげんきですか。", "romaji": "gokazoku wa genki desu ka.", "turkish": "Aileniz iyi mi?" }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "＿＿名前を教えてください。", "hint": "Adınızı söyler misiniz? (kibar)", "choices": ["お", "ご", "を", "に"], "answer": "お" },
@@ -569,9 +569,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "今日は学校に行かない。", "romaji": "kyou wa gakkou ni ikanai.", "turkish": "Bugün okula gitmiyorum." },
-      { "japanese": "肉を食べない。", "romaji": "niku o tabenai.", "turkish": "Et yemem." },
-      { "japanese": "時間がないから、行かない。", "romaji": "jikan ga nai kara, ikanai.", "turkish": "Vaktim yok, o yüzden gitmem." }
+      { "japanese": "今日は学校に行かない。", "hiragana": "きょうはがっこうにいかない。", "romaji": "kyou wa gakkou ni ikanai.", "turkish": "Bugün okula gitmiyorum." },
+      { "japanese": "肉を食べない。", "hiragana": "にくをたべない。", "romaji": "niku o tabenai.", "turkish": "Et yemem." },
+      { "japanese": "時間がないから、行かない。", "hiragana": "じかんがないから、いかない。", "romaji": "jikan ga nai kara, ikanai.", "turkish": "Vaktim yok, o yüzden gitmem." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「食べる」 fiilinin yalın olumsuzu nedir?", "hint": null, "choices": ["食べない", "食べます", "食べた", "食べて"], "answer": "食べない" },
@@ -589,9 +589,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "きのう映画を見た。", "romaji": "kinou eiga o mita.", "turkish": "Dün film izledim." },
-      { "japanese": "もうご飯を食べた。", "romaji": "mou gohan o tabeta.", "turkish": "Yemeği çoktan yedim." },
-      { "japanese": "友だちに会った。", "romaji": "tomodachi ni atta.", "turkish": "Arkadaşımla buluştum." }
+      { "japanese": "きのう映画を見た。", "hiragana": "きのうえいがをみた。", "romaji": "kinou eiga o mita.", "turkish": "Dün film izledim." },
+      { "japanese": "もうご飯を食べた。", "hiragana": "もうごはんをたべた。", "romaji": "mou gohan o tabeta.", "turkish": "Yemeği çoktan yedim." },
+      { "japanese": "友だちに会った。", "hiragana": "ともだちにあった。", "romaji": "tomodachi ni atta.", "turkish": "Arkadaşımla buluştum." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「飲む」 → yalın geçmiş?", "hint": null, "choices": ["飲んだ", "飲みた", "飲むた", "飲んた"], "answer": "飲んだ" },
@@ -609,9 +609,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "朝起きて、顔を洗います。", "romaji": "asa okite, kao o araimasu.", "turkish": "Sabah kalkıp yüzümü yıkarım." },
-      { "japanese": "家に帰って、晩ご飯を食べました。", "romaji": "ie ni kaette, bangohan o tabemashita.", "turkish": "Eve dönüp akşam yemeği yedim." },
-      { "japanese": "電車に乗って、会社へ行きます。", "romaji": "densha ni notte, kaisha e ikimasu.", "turkish": "Trene binip şirkete giderim." }
+      { "japanese": "朝起きて、顔を洗います。", "hiragana": "あさおきて、かおをあらいます。", "romaji": "asa okite, kao o araimasu.", "turkish": "Sabah kalkıp yüzümü yıkarım." },
+      { "japanese": "家に帰って、晩ご飯を食べました。", "hiragana": "いえにかえって、ばんごはんをたべました。", "romaji": "ie ni kaette, bangohan o tabemashita.", "turkish": "Eve dönüp akşam yemeği yedim." },
+      { "japanese": "電車に乗って、会社へ行きます。", "hiragana": "でんしゃにのって、かいしゃへいきます。", "romaji": "densha ni notte, kaisha e ikimasu.", "turkish": "Trene binip şirkete giderim." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「書く」 → te-biçimi?", "hint": null, "choices": ["書いて", "書きて", "書くて", "書けて"], "answer": "書いて" },
@@ -629,9 +629,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "宿題をしてから、テレビを見ます。", "romaji": "shukudai o shite kara, terebi o mimasu.", "turkish": "Ödevimi yaptıktan sonra televizyon izlerim." },
-      { "japanese": "手を洗ってから、ご飯を食べます。", "romaji": "te o aratte kara, gohan o tabemasu.", "turkish": "Ellerimi yıkadıktan sonra yemek yerim." },
-      { "japanese": "日本に来てから、3年になります。", "romaji": "Nihon ni kite kara, san-nen ni narimasu.", "turkish": "Japonya'ya geldikten sonra 3 yıl oldu." }
+      { "japanese": "宿題をしてから、テレビを見ます。", "hiragana": "しゅくだいをしてから、てれびをみます。", "romaji": "shukudai o shite kara, terebi o mimasu.", "turkish": "Ödevimi yaptıktan sonra televizyon izlerim." },
+      { "japanese": "手を洗ってから、ご飯を食べます。", "hiragana": "てをあらってから、ごはんをたべます。", "romaji": "te o aratte kara, gohan o tabemasu.", "turkish": "Ellerimi yıkadıktan sonra yemek yerim." },
+      { "japanese": "日本に来てから、3年になります。", "hiragana": "にほんにきてから、さんねんになります。", "romaji": "Nihon ni kite kara, san-nen ni narimasu.", "turkish": "Japonya'ya geldikten sonra 3 yıl oldu." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "映画を見て＿＿、レストランに行きました。", "hint": "Film izledikten sonra restorana gittik.", "choices": ["から", "まで", "ながら", "ので"], "answer": "から" },
@@ -649,9 +649,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "壁に絵がかけてあります。", "romaji": "kabe ni e ga kakete arimasu.", "turkish": "Duvara resim asılı (asılmış durumda)." },
-      { "japanese": "テーブルに料理が並べてあります。", "romaji": "teeburu ni ryouri ga narabete arimasu.", "turkish": "Masaya yemekler dizilmiş." },
-      { "japanese": "ドアが開けてあります。", "romaji": "doa ga akete arimasu.", "turkish": "Kapı açık bırakılmış." }
+      { "japanese": "壁に絵がかけてあります。", "hiragana": "かべにえがかけてあります。", "romaji": "kabe ni e ga kakete arimasu.", "turkish": "Duvara resim asılı (asılmış durumda)." },
+      { "japanese": "テーブルに料理が並べてあります。", "hiragana": "てえぶるにりょうりがならべてあります。", "romaji": "teeburu ni ryouri ga narabete arimasu.", "turkish": "Masaya yemekler dizilmiş." },
+      { "japanese": "ドアが開けてあります。", "hiragana": "どあがあけてあります。", "romaji": "doa ga akete arimasu.", "turkish": "Kapı açık bırakılmış." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「窓が開けてあります」 ne demek?", "hint": null, "choices": ["Pencere (biri tarafından) açık bırakılmış", "Pencere kendiliğinden açıldı", "Pencereyi açıyorum", "Pencere kapalı"], "answer": "Pencere (biri tarafından) açık bırakılmış" },
@@ -669,9 +669,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "ここでたばこを吸ってはいけません。", "romaji": "koko de tabako o sutte wa ikemasen.", "turkish": "Burada sigara içmek yasak." },
-      { "japanese": "授業中に話してはいけません。", "romaji": "jugyou-chuu ni hanashite wa ikemasen.", "turkish": "Ders sırasında konuşmak yasak." },
-      { "japanese": "この川で泳いではいけない。", "romaji": "kono kawa de oyoide wa ikenai.", "turkish": "Bu nehirde yüzmek yasak." }
+      { "japanese": "ここでたばこを吸ってはいけません。", "hiragana": "ここでたばこをすってはいけません。", "romaji": "koko de tabako o sutte wa ikemasen.", "turkish": "Burada sigara içmek yasak." },
+      { "japanese": "授業中に話してはいけません。", "hiragana": "じゅぎょうちゅうにはなしてはいけません。", "romaji": "jugyou-chuu ni hanashite wa ikemasen.", "turkish": "Ders sırasında konuşmak yasak." },
+      { "japanese": "この川で泳いではいけない。", "hiragana": "このかわでおよいではいけない。", "romaji": "kono kawa de oyoide wa ikenai.", "turkish": "Bu nehirde yüzmek yasak." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "ここに車を止めて＿＿。", "hint": "Buraya araba park etmek yasak.", "choices": ["はいけません", "もいいです", "ください", "います"], "answer": "はいけません" },
@@ -689,9 +689,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "ここに座ってもいいですか。", "romaji": "koko ni suwatte mo ii desu ka.", "turkish": "Buraya oturabilir miyim?" },
-      { "japanese": "写真を撮ってもいいです。", "romaji": "shashin o totte mo ii desu.", "turkish": "Fotoğraf çekebilirsin." },
-      { "japanese": "鉛筆で書いてもいいです。", "romaji": "enpitsu de kaite mo ii desu.", "turkish": "Kurşun kalemle yazabilirsin." }
+      { "japanese": "ここに座ってもいいですか。", "hiragana": "ここにすわってもいいですか。", "romaji": "koko ni suwatte mo ii desu ka.", "turkish": "Buraya oturabilir miyim?" },
+      { "japanese": "写真を撮ってもいいです。", "hiragana": "しゃしんをとってもいいです。", "romaji": "shashin o totte mo ii desu.", "turkish": "Fotoğraf çekebilirsin." },
+      { "japanese": "鉛筆で書いてもいいです。", "hiragana": "えんぴつでかいてもいいです。", "romaji": "enpitsu de kaite mo ii desu.", "turkish": "Kurşun kalemle yazabilirsin." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "この本を借りて＿＿か。", "hint": "Bu kitabı ödünç alabilir miyim?", "choices": ["もいいです", "はいけません", "ください", "います"], "answer": "もいいです" },
@@ -709,9 +709,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "朝ご飯を食べないで、学校に行きました。", "romaji": "asagohan o tabenai de, gakkou ni ikimashita.", "turkish": "Kahvaltı yapmadan okula gittim." },
-      { "japanese": "何も言わないで、帰りました。", "romaji": "nani mo iwanai de, kaerimashita.", "turkish": "Hiçbir şey söylemeden eve döndüm." },
-      { "japanese": "傘を持たないで、出かけました。", "romaji": "kasa o motanai de, dekakemashita.", "turkish": "Şemsiye almadan dışarı çıktım." }
+      { "japanese": "朝ご飯を食べないで、学校に行きました。", "hiragana": "あさごはんをたべないで、がっこうにいきました。", "romaji": "asagohan o tabenai de, gakkou ni ikimashita.", "turkish": "Kahvaltı yapmadan okula gittim." },
+      { "japanese": "何も言わないで、帰りました。", "hiragana": "なにもいわないで、かえりました。", "romaji": "nani mo iwanai de, kaerimashita.", "turkish": "Hiçbir şey söylemeden eve döndüm." },
+      { "japanese": "傘を持たないで、出かけました。", "hiragana": "かさをもたないで、でかけました。", "romaji": "kasa o motanai de, dekakemashita.", "turkish": "Şemsiye almadan dışarı çıktım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "辞書を使わ＿＿、読んでください。", "hint": "Sözlük kullanmadan okuyun.", "choices": ["ないで", "なくて", "ないと", "ながら"], "answer": "ないで" },
@@ -729,9 +729,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "ここで写真を撮らないでください。", "romaji": "koko de shashin o toranai de kudasai.", "turkish": "Lütfen burada fotoğraf çekmeyin." },
-      { "japanese": "心配しないでください。", "romaji": "shinpai shinai de kudasai.", "turkish": "Lütfen endişelenmeyin." },
-      { "japanese": "ドアを閉めないでください。", "romaji": "doa o shimenai de kudasai.", "turkish": "Lütfen kapıyı kapatmayın." }
+      { "japanese": "ここで写真を撮らないでください。", "hiragana": "ここでしゃしんをとらないでください。", "romaji": "koko de shashin o toranai de kudasai.", "turkish": "Lütfen burada fotoğraf çekmeyin." },
+      { "japanese": "心配しないでください。", "hiragana": "しんぱいしないでください。", "romaji": "shinpai shinai de kudasai.", "turkish": "Lütfen endişelenmeyin." },
+      { "japanese": "ドアを閉めないでください。", "hiragana": "どあをしめないでください。", "romaji": "doa o shimenai de kudasai.", "turkish": "Lütfen kapıyı kapatmayın." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "この部屋に入ら＿＿。", "hint": "Lütfen bu odaya girmeyin.", "choices": ["ないでください", "てください", "もいいです", "ました"], "answer": "ないでください" },
@@ -749,9 +749,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "図書館へ本を借りに行きます。", "romaji": "toshokan e hon o kari ni ikimasu.", "turkish": "Kütüphaneye kitap ödünç almaya giderim." },
-      { "japanese": "日本へ日本語を勉強しに来ました。", "romaji": "Nihon e nihongo o benkyou shi ni kimashita.", "turkish": "Japonya'ya Japonca öğrenmeye geldim." },
-      { "japanese": "デパートへ買い物に行きました。", "romaji": "depaato e kaimono ni ikimashita.", "turkish": "Mağazaya alışverişe gittim." }
+      { "japanese": "図書館へ本を借りに行きます。", "hiragana": "としょかんへほんをかりにいきます。", "romaji": "toshokan e hon o kari ni ikimasu.", "turkish": "Kütüphaneye kitap ödünç almaya giderim." },
+      { "japanese": "日本へ日本語を勉強しに来ました。", "hiragana": "にほんへにほんごをべんきょうしにきました。", "romaji": "Nihon e nihongo o benkyou shi ni kimashita.", "turkish": "Japonya'ya Japonca öğrenmeye geldim." },
+      { "japanese": "デパートへ買い物に行きました。", "hiragana": "でぱあとへかいものにいきました。", "romaji": "depaato e kaimono ni ikimashita.", "turkish": "Mağazaya alışverişe gittim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "レストランへ昼ご飯を食べ＿＿行きます。", "hint": "Restorana öğle yemeği yemeye giderim.", "choices": ["に", "で", "を", "へ"], "answer": "に" },
@@ -769,9 +769,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "私はコーヒーにします。", "romaji": "watashi wa koohii ni shimasu.", "turkish": "Ben kahve alayım." },
+      { "japanese": "私はコーヒーにします。", "hiragana": "わたしはこおひいにします。", "romaji": "watashi wa koohii ni shimasu.", "turkish": "Ben kahve alayım." },
       { "japanese": "どれにしますか。", "romaji": "dore ni shimasu ka.", "turkish": "Hangisini seçersiniz?" },
-      { "japanese": "旅行は来月にします。", "romaji": "ryokou wa raigetsu ni shimasu.", "turkish": "Seyahati gelecek aya alalım." }
+      { "japanese": "旅行は来月にします。", "hiragana": "りょこうはらいげつにします。", "romaji": "ryokou wa raigetsu ni shimasu.", "turkish": "Seyahati gelecek aya alalım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "デザートはアイスクリーム＿＿します。", "hint": "Tatlı olarak dondurma alayım.", "choices": ["に", "を", "が", "で"], "answer": "に" },
@@ -789,9 +789,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "週末は本を読んだり、音楽を聞いたりします。", "romaji": "shuumatsu wa hon o yondari, ongaku o kiitari shimasu.", "turkish": "Hafta sonu kitap okumak, müzik dinlemek gibi şeyler yaparım." },
-      { "japanese": "公園で走ったり、歩いたりしました。", "romaji": "kouen de hashittari, aruitari shimashita.", "turkish": "Parkta koşmak, yürümek gibi şeyler yaptım." },
-      { "japanese": "デパートで買い物したり、ご飯を食べたりします。", "romaji": "depaato de kaimono shitari, gohan o tabetari shimasu.", "turkish": "Mağazada alışveriş yapmak, yemek yemek gibi şeyler yaparım." }
+      { "japanese": "週末は本を読んだり、音楽を聞いたりします。", "hiragana": "しゅうまつはほんをよんだり、おんがくをきいたりします。", "romaji": "shuumatsu wa hon o yondari, ongaku o kiitari shimasu.", "turkish": "Hafta sonu kitap okumak, müzik dinlemek gibi şeyler yaparım." },
+      { "japanese": "公園で走ったり、歩いたりしました。", "hiragana": "こうえんではしったり、あるいたりしました。", "romaji": "kouen de hashittari, aruitari shimashita.", "turkish": "Parkta koşmak, yürümek gibi şeyler yaptım." },
+      { "japanese": "デパートで買い物したり、ご飯を食べたりします。", "hiragana": "でぱあとでかいものしたり、ごはんをたべたりします。", "romaji": "depaato de kaimono shitari, gohan o tabetari shimasu.", "turkish": "Mağazada alışveriş yapmak, yemek yemek gibi şeyler yaparım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "日曜日はそうじを＿＿、せんたくをしたりします。", "hint": "Pazar günü temizlik, çamaşır gibi şeyler yaparım.", "choices": ["したり", "して", "しないで", "しながら"], "answer": "したり" },
@@ -809,9 +809,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "荷物を持ちましょうか。", "romaji": "nimotsu o mochimashou ka.", "turkish": "Çantanı taşıyayım mı?" },
-      { "japanese": "窓を開けましょうか。", "romaji": "mado o akemashou ka.", "turkish": "Pencereyi açayım mı?" },
-      { "japanese": "そろそろ行きましょうか。", "romaji": "sorosoro ikimashou ka.", "turkish": "Artık gidelim mi?" }
+      { "japanese": "荷物を持ちましょうか。", "hiragana": "にもつをもちましょうか。", "romaji": "nimotsu o mochimashou ka.", "turkish": "Çantanı taşıyayım mı?" },
+      { "japanese": "窓を開けましょうか。", "hiragana": "まどをあけましょうか。", "romaji": "mado o akemashou ka.", "turkish": "Pencereyi açayım mı?" },
+      { "japanese": "そろそろ行きましょうか。", "hiragana": "そろそろいきましょうか。", "romaji": "sorosoro ikimashou ka.", "turkish": "Artık gidelim mi?" }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「手伝いましょうか」 ne demek?", "hint": null, "choices": ["Yardım edeyim mi?", "Yardım et!", "Yardım ettim", "Yardım etme"], "answer": "Yardım edeyim mi?" },
@@ -829,9 +829,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "明日は早く起きないといけません。", "romaji": "ashita wa hayaku okinai to ikemasen.", "turkish": "Yarın erken kalkmam lazım." },
-      { "japanese": "薬を飲まないといけない。", "romaji": "kusuri o nomanai to ikenai.", "turkish": "İlaç içmem lazım." },
-      { "japanese": "もう帰らないといけません。", "romaji": "mou kaeranai to ikemasen.", "turkish": "Artık gitmem lazım." }
+      { "japanese": "明日は早く起きないといけません。", "hiragana": "あしたははやくおきないといけません。", "romaji": "ashita wa hayaku okinai to ikemasen.", "turkish": "Yarın erken kalkmam lazım." },
+      { "japanese": "薬を飲まないといけない。", "hiragana": "くすりをのまないといけない。", "romaji": "kusuri o nomanai to ikenai.", "turkish": "İlaç içmem lazım." },
+      { "japanese": "もう帰らないといけません。", "hiragana": "もうかえらないといけません。", "romaji": "mou kaeranai to ikemasen.", "turkish": "Artık gitmem lazım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "レポートを出さ＿＿。", "hint": "Raporu teslim etmem lazım.", "choices": ["ないといけません", "てもいいです", "ないでください", "ましょう"], "answer": "ないといけません" },
@@ -849,9 +849,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "パスポートを見せなくてはいけません。", "romaji": "pasupooto o misenakute wa ikemasen.", "turkish": "Pasaportu göstermek zorundasınız." },
-      { "japanese": "毎日、花に水をやらなくてはいけない。", "romaji": "mainichi, hana ni mizu o yaranakute wa ikenai.", "turkish": "Her gün çiçekleri sulamak zorundayım." },
-      { "japanese": "宿題をしなくてはいけません。", "romaji": "shukudai o shinakute wa ikemasen.", "turkish": "Ödevi yapmak zorundayım." }
+      { "japanese": "パスポートを見せなくてはいけません。", "hiragana": "ぱすぽおとをみせなくてはいけません。", "romaji": "pasupooto o misenakute wa ikemasen.", "turkish": "Pasaportu göstermek zorundasınız." },
+      { "japanese": "毎日、花に水をやらなくてはいけない。", "hiragana": "まいにち、はなにみずをやらなくてはいけない。", "romaji": "mainichi, hana ni mizu o yaranakute wa ikenai.", "turkish": "Her gün çiçekleri sulamak zorundayım." },
+      { "japanese": "宿題をしなくてはいけません。", "hiragana": "しゅくだいをしなくてはいけません。", "romaji": "shukudai o shinakute wa ikemasen.", "turkish": "Ödevi yapmak zorundayım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "8時までに行か＿＿。", "hint": "8'e kadar gitmek zorundayım.", "choices": ["なくてはいけません", "てもいいです", "ないでください", "ましょうか"], "answer": "なくてはいけません" },
@@ -869,9 +869,9 @@
     "category": "verb",
     "difficulty": 2,
     "examples": [
-      { "japanese": "明日は来なくてもいいです。", "romaji": "ashita wa konakute mo ii desu.", "turkish": "Yarın gelmesen de olur." },
-      { "japanese": "お金を払わなくてもいいです。", "romaji": "okane o harawanakute mo ii desu.", "turkish": "Para ödemek zorunda değilsiniz." },
-      { "japanese": "全部食べなくてもいい。", "romaji": "zenbu tabenakute mo ii.", "turkish": "Hepsini yemek zorunda değilsin." }
+      { "japanese": "明日は来なくてもいいです。", "hiragana": "あしたはこなくてもいいです。", "romaji": "ashita wa konakute mo ii desu.", "turkish": "Yarın gelmesen de olur." },
+      { "japanese": "お金を払わなくてもいいです。", "hiragana": "おかねをはらわなくてもいいです。", "romaji": "okane o harawanakute mo ii desu.", "turkish": "Para ödemek zorunda değilsiniz." },
+      { "japanese": "全部食べなくてもいい。", "hiragana": "ぜんぶたべなくてもいい。", "romaji": "zenbu tabenakute mo ii.", "turkish": "Hepsini yemek zorunda değilsin." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "急がなくても＿＿。", "hint": "Acele etmesen de olur.", "choices": ["いいです", "いけません", "ください", "います"], "answer": "いいです" },
@@ -889,9 +889,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "もう行かなくちゃ。", "romaji": "mou ikanakucha.", "turkish": "Artık gitmem lazım." },
-      { "japanese": "買い物しなくちゃ。", "romaji": "kaimono shinakucha.", "turkish": "Alışveriş yapmam lazım." },
-      { "japanese": "明日までに終わらせなくちゃ。", "romaji": "ashita made ni owarasenakucha.", "turkish": "Yarına kadar bitirmem lazım." }
+      { "japanese": "もう行かなくちゃ。", "hiragana": "もういかなくちゃ。", "romaji": "mou ikanakucha.", "turkish": "Artık gitmem lazım." },
+      { "japanese": "買い物しなくちゃ。", "hiragana": "かいものしなくちゃ。", "romaji": "kaimono shinakucha.", "turkish": "Alışveriş yapmam lazım." },
+      { "japanese": "明日までに終わらせなくちゃ。", "hiragana": "あしたまでにおわらせなくちゃ。", "romaji": "ashita made ni owarasenakucha.", "turkish": "Yarına kadar bitirmem lazım." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「なくちゃ」 hangi kalıbın kısasıdır?", "hint": null, "choices": ["なくてはいけない", "なくてもいい", "てはいけない", "ないでください"], "answer": "なくてはいけない" },
@@ -909,9 +909,9 @@
     "category": "verb",
     "difficulty": 3,
     "examples": [
-      { "japanese": "ここで遊んじゃいけないよ。", "romaji": "koko de asonja ikenai yo.", "turkish": "Burada oynamak yok." },
-      { "japanese": "まだ食べちゃいけない。", "romaji": "mada tabecha ikenai.", "turkish": "Daha yeme (yasak)." },
-      { "japanese": "嘘をついちゃいけない。", "romaji": "uso o tsuicha ikenai.", "turkish": "Yalan söylemek yok." }
+      { "japanese": "ここで遊んじゃいけないよ。", "hiragana": "ここであそんじゃいけないよ。", "romaji": "koko de asonja ikenai yo.", "turkish": "Burada oynamak yok." },
+      { "japanese": "まだ食べちゃいけない。", "hiragana": "まだたべちゃいけない。", "romaji": "mada tabecha ikenai.", "turkish": "Daha yeme (yasak)." },
+      { "japanese": "嘘をついちゃいけない。", "hiragana": "うそをついちゃいけない。", "romaji": "uso o tsuicha ikenai.", "turkish": "Yalan söylemek yok." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「ちゃいけない」 hangi kalıbın kısasıdır?", "hint": null, "choices": ["てはいけない", "てもいい", "なくてはいけない", "てから"], "answer": "てはいけない" },
@@ -929,9 +929,9 @@
     "category": "conjunction",
     "difficulty": 2,
     "examples": [
-      { "japanese": "雨なので、行きません。", "romaji": "ame na node, ikimasen.", "turkish": "Yağmurlu olduğu için gitmiyorum." },
-      { "japanese": "お腹が痛いので、早退します。", "romaji": "onaka ga itai node, soutai shimasu.", "turkish": "Karnım ağrıdığı için erken çıkıyorum." },
-      { "japanese": "時間がないので、タクシーで行きます。", "romaji": "jikan ga nai node, takushii de ikimasu.", "turkish": "Vaktim olmadığı için taksiyle giderim." }
+      { "japanese": "雨なので、行きません。", "hiragana": "あめなので、いきません。", "romaji": "ame na node, ikimasen.", "turkish": "Yağmurlu olduğu için gitmiyorum." },
+      { "japanese": "お腹が痛いので、早退します。", "hiragana": "おなかがいたいので、そうたいします。", "romaji": "onaka ga itai node, soutai shimasu.", "turkish": "Karnım ağrıdığı için erken çıkıyorum." },
+      { "japanese": "時間がないので、タクシーで行きます。", "hiragana": "じかんがないので、たくしいでいきます。", "romaji": "jikan ga nai node, takushii de ikimasu.", "turkish": "Vaktim olmadığı için taksiyle giderim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "日本語がわからない＿＿、英語で話してください。", "hint": "Japonca bilmediğim için İngilizce konuşun.", "choices": ["ので", "のに", "でも", "が"], "answer": "ので" },
@@ -949,9 +949,9 @@
     "category": "conjunction",
     "difficulty": 2,
     "examples": [
-      { "japanese": "このカメラは高いけど、いいです。", "romaji": "kono kamera wa takai kedo, ii desu.", "turkish": "Bu fotoğraf makinesi pahalı ama iyi." },
-      { "japanese": "行きたいけれども、時間がありません。", "romaji": "ikitai keredomo, jikan ga arimasen.", "turkish": "Gitmek istiyorum ama vaktim yok." },
-      { "japanese": "勉強したけど、わかりませんでした。", "romaji": "benkyou shita kedo, wakarimasen deshita.", "turkish": "Çalıştım ama anlamadım." }
+      { "japanese": "このカメラは高いけど、いいです。", "hiragana": "このかめらはたかいけど、いいです。", "romaji": "kono kamera wa takai kedo, ii desu.", "turkish": "Bu fotoğraf makinesi pahalı ama iyi." },
+      { "japanese": "行きたいけれども、時間がありません。", "hiragana": "いきたいけれども、じかんがありません。", "romaji": "ikitai keredomo, jikan ga arimasen.", "turkish": "Gitmek istiyorum ama vaktim yok." },
+      { "japanese": "勉強したけど、わかりませんでした。", "hiragana": "べんきょうしたけど、わかりませんでした。", "romaji": "benkyou shita kedo, wakarimasen deshita.", "turkish": "Çalıştım ama anlamadım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "安い＿＿、おいしくないです。", "hint": "Ucuz ama lezzetli değil.", "choices": ["けど", "ので", "から", "し"], "answer": "けど" },
@@ -969,9 +969,9 @@
     "category": "conjunction",
     "difficulty": 1,
     "examples": [
-      { "japanese": "頭が痛いです。でも、会社に行きます。", "romaji": "atama ga itai desu. demo, kaisha ni ikimasu.", "turkish": "Başım ağrıyor. Ama işe gidiyorum." },
-      { "japanese": "この店は安いです。でも、あまりおいしくないです。", "romaji": "kono mise wa yasui desu. demo, amari oishikunai desu.", "turkish": "Bu dükkân ucuz. Ama pek lezzetli değil." },
-      { "japanese": "疲れました。でも、もう少しがんばります。", "romaji": "tsukaremashita. demo, mou sukoshi ganbarimasu.", "turkish": "Yoruldum. Ama biraz daha gayret edeceğim." }
+      { "japanese": "頭が痛いです。でも、会社に行きます。", "hiragana": "あたまがいたいです。でも、かいしゃにいきます。", "romaji": "atama ga itai desu. demo, kaisha ni ikimasu.", "turkish": "Başım ağrıyor. Ama işe gidiyorum." },
+      { "japanese": "この店は安いです。でも、あまりおいしくないです。", "hiragana": "このみせはやすいです。でも、あまりおいしくないです。", "romaji": "kono mise wa yasui desu. demo, amari oishikunai desu.", "turkish": "Bu dükkân ucuz. Ama pek lezzetli değil." },
+      { "japanese": "疲れました。でも、もう少しがんばります。", "hiragana": "つかれました。でも、もうすこしがんばります。", "romaji": "tsukaremashita. demo, mou sukoshi ganbarimasu.", "turkish": "Yoruldum. Ama biraz daha gayret edeceğim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "日本語はむずかしいです。＿＿、おもしろいです。", "hint": "Japonca zor. Ama ilginç.", "choices": ["でも", "だから", "そして", "それから"], "answer": "でも" },
@@ -989,9 +989,9 @@
     "category": "conjunction",
     "difficulty": 2,
     "examples": [
-      { "japanese": "練習しました。しかし、勝てませんでした。", "romaji": "renshuu shimashita. shikashi, katemasen deshita.", "turkish": "Antrenman yaptık. Fakat kazanamadık." },
-      { "japanese": "この薬はよく効きます。しかし、高いです。", "romaji": "kono kusuri wa yoku kikimasu. shikashi, takai desu.", "turkish": "Bu ilaç iyi etki ediyor. Fakat pahalı." },
-      { "japanese": "雨が降っていました。しかし、試合は続きました。", "romaji": "ame ga futte imashita. shikashi, shiai wa tsuzukimashita.", "turkish": "Yağmur yağıyordu. Fakat maç devam etti." }
+      { "japanese": "練習しました。しかし、勝てませんでした。", "hiragana": "れんしゅうしました。しかし、かてませんでした。", "romaji": "renshuu shimashita. shikashi, katemasen deshita.", "turkish": "Antrenman yaptık. Fakat kazanamadık." },
+      { "japanese": "この薬はよく効きます。しかし、高いです。", "hiragana": "このくすりはよくききます。しかし、たかいです。", "romaji": "kono kusuri wa yoku kikimasu. shikashi, takai desu.", "turkish": "Bu ilaç iyi etki ediyor. Fakat pahalı." },
+      { "japanese": "雨が降っていました。しかし、試合は続きました。", "hiragana": "あめがふっていました。しかし、しあいはつづきました。", "romaji": "ame ga futte imashita. shikashi, shiai wa tsuzukimashita.", "turkish": "Yağmur yağıyordu. Fakat maç devam etti." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「しかし」 ile 「でも」 arasındaki fark nedir?", "hint": null, "choices": ["しかし daha resmî", "でも daha resmî", "しかし olumlu bağlar", "İkisi de soru yapar"], "answer": "しかし daha resmî" },
@@ -1009,9 +1009,9 @@
     "category": "conjunction",
     "difficulty": 1,
     "examples": [
-      { "japanese": "朝ご飯を食べました。それから、学校へ行きました。", "romaji": "asagohan o tabemashita. sorekara, gakkou e ikimashita.", "turkish": "Kahvaltı yaptım. Sonra okula gittim." },
-      { "japanese": "パンを買いました。それから、牛乳も買いました。", "romaji": "pan o kaimashita. sorekara, gyuunyuu mo kaimashita.", "turkish": "Ekmek aldım. Bir de süt aldım." },
-      { "japanese": "宿題をします。それから、寝ます。", "romaji": "shukudai o shimasu. sorekara, nemasu.", "turkish": "Ödev yaparım. Sonra uyurum." }
+      { "japanese": "朝ご飯を食べました。それから、学校へ行きました。", "hiragana": "あさごはんをたべました。それから、がっこうへいきました。", "romaji": "asagohan o tabemashita. sorekara, gakkou e ikimashita.", "turkish": "Kahvaltı yaptım. Sonra okula gittim." },
+      { "japanese": "パンを買いました。それから、牛乳も買いました。", "hiragana": "ぱんをかいました。それから、ぎゅうにゅうもかいました。", "romaji": "pan o kaimashita. sorekara, gyuunyuu mo kaimashita.", "turkish": "Ekmek aldım. Bir de süt aldım." },
+      { "japanese": "宿題をします。それから、寝ます。", "hiragana": "しゅくだいをします。それから、ねます。", "romaji": "shukudai o shimasu. sorekara, nemasu.", "turkish": "Ödev yaparım. Sonra uyurum." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "顔を洗いました。＿＿、朝ご飯を食べました。", "hint": "Yüzümü yıkadım. Sonra kahvaltı yaptım.", "choices": ["それから", "でも", "しかし", "けど"], "answer": "それから" },
@@ -1029,9 +1029,9 @@
     "category": "conjunction",
     "difficulty": 1,
     "examples": [
-      { "japanese": "京都へ行きました。そして、お寺を見ました。", "romaji": "Kyouto e ikimashita. soshite, otera o mimashita.", "turkish": "Kyoto'ya gittim. Ve tapınakları gezdim." },
-      { "japanese": "彼は親切です。そして、まじめです。", "romaji": "kare wa shinsetsu desu. soshite, majime desu.", "turkish": "O kibardır. Ve ciddidir." },
-      { "japanese": "掃除をしました。そして、洗濯もしました。", "romaji": "souji o shimashita. soshite, sentaku mo shimashita.", "turkish": "Temizlik yaptım. Ve çamaşır da yıkadım." }
+      { "japanese": "京都へ行きました。そして、お寺を見ました。", "hiragana": "きょうとへいきました。そして、おてらをみました。", "romaji": "Kyouto e ikimashita. soshite, otera o mimashita.", "turkish": "Kyoto'ya gittim. Ve tapınakları gezdim." },
+      { "japanese": "彼は親切です。そして、まじめです。", "hiragana": "かれはしんせつです。そして、まじめです。", "romaji": "kare wa shinsetsu desu. soshite, majime desu.", "turkish": "O kibardır. Ve ciddidir." },
+      { "japanese": "掃除をしました。そして、洗濯もしました。", "hiragana": "そうじをしました。そして、せんたくもしました。", "romaji": "souji o shimashita. soshite, sentaku mo shimashita.", "turkish": "Temizlik yaptım. Ve çamaşır da yıkadım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "田中さんは頭がいいです。＿＿、やさしいです。", "hint": "Tanaka akıllıdır. Ve naziktir.", "choices": ["そして", "でも", "しかし", "けれども"], "answer": "そして" },
@@ -1049,9 +1049,9 @@
     "category": "conjunction",
     "difficulty": 2,
     "examples": [
-      { "japanese": "すみませんが、道を教えてください。", "romaji": "sumimasen ga, michi o oshiete kudasai.", "turkish": "Kusura bakmayın ama yolu tarif eder misiniz?" },
-      { "japanese": "この部屋は狭いですが、きれいです。", "romaji": "kono heya wa semai desu ga, kirei desu.", "turkish": "Bu oda dar ama temiz." },
-      { "japanese": "電話しましたが、だれも出ませんでした。", "romaji": "denwa shimashita ga, dare mo demasen deshita.", "turkish": "Telefon ettim ama kimse açmadı." }
+      { "japanese": "すみませんが、道を教えてください。", "hiragana": "すみませんが、みちをおしえてください。", "romaji": "sumimasen ga, michi o oshiete kudasai.", "turkish": "Kusura bakmayın ama yolu tarif eder misiniz?" },
+      { "japanese": "この部屋は狭いですが、きれいです。", "hiragana": "このへやはせまいですが、きれいです。", "romaji": "kono heya wa semai desu ga, kirei desu.", "turkish": "Bu oda dar ama temiz." },
+      { "japanese": "電話しましたが、だれも出ませんでした。", "hiragana": "でんわしましたが、だれもでませんでした。", "romaji": "denwa shimashita ga, dare mo demasen deshita.", "turkish": "Telefon ettim ama kimse açmadı." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "行きたいです＿＿、時間がありません。", "hint": "Gitmek istiyorum ama vaktim yok.", "choices": ["が", "ので", "から", "し"], "answer": "が" },
@@ -1069,9 +1069,9 @@
     "category": "conjunction",
     "difficulty": 2,
     "examples": [
-      { "japanese": "日本へ行くとき、カメラを買いました。", "romaji": "Nihon e iku toki, kamera o kaimashita.", "turkish": "Japonya'ya giderken (gitmeden önce) fotoğraf makinesi aldım." },
-      { "japanese": "子どものとき、よく泳ぎました。", "romaji": "kodomo no toki, yoku oyogimashita.", "turkish": "Çocukken sık sık yüzerdim." },
-      { "japanese": "暇なとき、映画を見ます。", "romaji": "hima na toki, eiga o mimasu.", "turkish": "Boş olduğumda film izlerim." }
+      { "japanese": "日本へ行くとき、カメラを買いました。", "hiragana": "にほんへいくとき、かめらをかいました。", "romaji": "Nihon e iku toki, kamera o kaimashita.", "turkish": "Japonya'ya giderken (gitmeden önce) fotoğraf makinesi aldım." },
+      { "japanese": "子どものとき、よく泳ぎました。", "hiragana": "こどものとき、よくおよぎました。", "romaji": "kodomo no toki, yoku oyogimashita.", "turkish": "Çocukken sık sık yüzerdim." },
+      { "japanese": "暇なとき、映画を見ます。", "hiragana": "ひまなとき、えいがをみます。", "romaji": "hima na toki, eiga o mimasu.", "turkish": "Boş olduğumda film izlerim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "国へ帰る＿＿、おみやげを買います。", "hint": "Ülkeme dönerken hediye alırım.", "choices": ["とき", "まえ", "あと", "ながら"], "answer": "とき" },
@@ -1089,9 +1089,9 @@
     "category": "conjunction",
     "difficulty": 2,
     "examples": [
-      { "japanese": "寝るまえに、歯をみがきます。", "romaji": "neru mae ni, ha o migakimasu.", "turkish": "Yatmadan önce dişlerimi fırçalarım." },
-      { "japanese": "食事のまえに、手を洗います。", "romaji": "shokuji no mae ni, te o araimasu.", "turkish": "Yemekten önce ellerimi yıkarım." },
-      { "japanese": "3年まえに、日本に来ました。", "romaji": "san-nen mae ni, Nihon ni kimashita.", "turkish": "3 yıl önce Japonya'ya geldim." }
+      { "japanese": "寝るまえに、歯をみがきます。", "hiragana": "ねるまえに、はをみがきます。", "romaji": "neru mae ni, ha o migakimasu.", "turkish": "Yatmadan önce dişlerimi fırçalarım." },
+      { "japanese": "食事のまえに、手を洗います。", "hiragana": "しょくじのまえに、てをあらいます。", "romaji": "shokuji no mae ni, te o araimasu.", "turkish": "Yemekten önce ellerimi yıkarım." },
+      { "japanese": "3年まえに、日本に来ました。", "hiragana": "さんねんまえに、にほんにきました。", "romaji": "san-nen mae ni, Nihon ni kimashita.", "turkish": "3 yıl önce Japonya'ya geldim." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "出かける＿＿、天気を調べます。", "hint": "Çıkmadan önce havaya bakarım.", "choices": ["まえに", "あとで", "とき", "から"], "answer": "まえに" },
@@ -1109,9 +1109,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "新しい車がほしいです。", "romaji": "atarashii kuruma ga hoshii desu.", "turkish": "Yeni bir araba istiyorum." },
-      { "japanese": "何がほしいですか。", "romaji": "nani ga hoshii desu ka.", "turkish": "Ne istiyorsun?" },
-      { "japanese": "今は何もほしくないです。", "romaji": "ima wa nani mo hoshikunai desu.", "turkish": "Şu an hiçbir şey istemiyorum." }
+      { "japanese": "新しい車がほしいです。", "hiragana": "あたらしいくるまがほしいです。", "romaji": "atarashii kuruma ga hoshii desu.", "turkish": "Yeni bir araba istiyorum." },
+      { "japanese": "何がほしいですか。", "hiragana": "なにがほしいですか。", "romaji": "nani ga hoshii desu ka.", "turkish": "Ne istiyorsun?" },
+      { "japanese": "今は何もほしくないです。", "hiragana": "いまはなにもほしくないです。", "romaji": "ima wa nani mo hoshikunai desu.", "turkish": "Şu an hiçbir şey istemiyorum." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "私は新しいかばん＿＿ほしいです。", "hint": "Yeni bir çanta istiyorum.", "choices": ["が", "を", "に", "で"], "answer": "が" },
@@ -1129,9 +1129,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "早く寝たほうがいいですよ。", "romaji": "hayaku neta hou ga ii desu yo.", "turkish": "Erken yatsan iyi olur." },
-      { "japanese": "薬を飲んだほうがいいです。", "romaji": "kusuri o nonda hou ga ii desu.", "turkish": "İlaç içsen iyi olur." },
-      { "japanese": "今日は出かけないほうがいいです。", "romaji": "kyou wa dekakenai hou ga ii desu.", "turkish": "Bugün dışarı çıkmasan iyi olur." }
+      { "japanese": "早く寝たほうがいいですよ。", "hiragana": "はやくねたほうがいいですよ。", "romaji": "hayaku neta hou ga ii desu yo.", "turkish": "Erken yatsan iyi olur." },
+      { "japanese": "薬を飲んだほうがいいです。", "hiragana": "くすりをのんだほうがいいです。", "romaji": "kusuri o nonda hou ga ii desu.", "turkish": "İlaç içsen iyi olur." },
+      { "japanese": "今日は出かけないほうがいいです。", "hiragana": "きょうはでかけないほうがいいです。", "romaji": "kyou wa dekakenai hou ga ii desu.", "turkish": "Bugün dışarı çıkmasan iyi olur." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "つかれているなら、休んだ＿＿がいいですよ。", "hint": "Yorgunsan dinlensen iyi olur.", "choices": ["ほう", "こと", "もの", "とき"], "answer": "ほう" },
@@ -1149,9 +1149,9 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "富士山は日本でいちばん高い山です。", "romaji": "Fuji-san wa Nihon de ichiban takai yama desu.", "turkish": "Fuji, Japonya'nın en yüksek dağıdır." },
-      { "japanese": "この店のケーキがいちばんおいしいです。", "romaji": "kono mise no keeki ga ichiban oishii desu.", "turkish": "Bu dükkânın pastası en lezzetlisi." },
-      { "japanese": "どの季節がいちばん好きですか。", "romaji": "dono kisetsu ga ichiban suki desu ka.", "turkish": "En çok hangi mevsimi seversin?" }
+      { "japanese": "富士山は日本でいちばん高い山です。", "hiragana": "ふじさんはにほんでいちばんたかいやまです。", "romaji": "Fuji-san wa Nihon de ichiban takai yama desu.", "turkish": "Fuji, Japonya'nın en yüksek dağıdır." },
+      { "japanese": "この店のケーキがいちばんおいしいです。", "hiragana": "このみせのけえきがいちばんおいしいです。", "romaji": "kono mise no keeki ga ichiban oishii desu.", "turkish": "Bu dükkânın pastası en lezzetlisi." },
+      { "japanese": "どの季節がいちばん好きですか。", "hiragana": "どのきせつがいちばんすきですか。", "romaji": "dono kisetsu ga ichiban suki desu ka.", "turkish": "En çok hangi mevsimi seversin?" }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "クラスで田中さん＿＿いちばん背が高いです。", "hint": "Sınıfta en uzun boylu Tanaka.", "choices": ["が", "を", "に", "も"], "answer": "が" },
@@ -1169,9 +1169,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "スポーツの中で、サッカーがいちばん好きです。", "romaji": "supootsu no naka de, sakkaa ga ichiban suki desu.", "turkish": "Sporlar arasında en çok futbolu severim." },
-      { "japanese": "家族の中で、父がいちばん背が高いです。", "romaji": "kazoku no naka de, chichi ga ichiban se ga takai desu.", "turkish": "Ailede en uzun boylu babam." },
-      { "japanese": "クラスの中で、だれがいちばん歌が上手ですか。", "romaji": "kurasu no naka de, dare ga ichiban uta ga jouzu desu ka.", "turkish": "Sınıfta en iyi şarkı söyleyen kim?" }
+      { "japanese": "スポーツの中で、サッカーがいちばん好きです。", "hiragana": "すぽおつのなかで、さっかあがいちばんすきです。", "romaji": "supootsu no naka de, sakkaa ga ichiban suki desu.", "turkish": "Sporlar arasında en çok futbolu severim." },
+      { "japanese": "家族の中で、父がいちばん背が高いです。", "hiragana": "かぞくのなかで、ちちがいちばんせがたかいです。", "romaji": "kazoku no naka de, chichi ga ichiban se ga takai desu.", "turkish": "Ailede en uzun boylu babam." },
+      { "japanese": "クラスの中で、だれがいちばん歌が上手ですか。", "hiragana": "くらすのなかで、だれがいちばんうたがじょうずですか。", "romaji": "kurasu no naka de, dare ga ichiban uta ga jouzu desu ka.", "turkish": "Sınıfta en iyi şarkı söyleyen kim?" }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "くだもの＿＿中で、りんごがいちばん好きです。", "hint": "Meyveler arasında en çok elmayı severim.", "choices": ["の", "が", "を", "で"], "answer": "の" },
@@ -1189,9 +1189,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "東京は大阪より大きいです。", "romaji": "Toukyou wa Oosaka yori ookii desu.", "turkish": "Tokyo, Osaka'dan büyüktür." },
-      { "japanese": "今日は昨日より寒いです。", "romaji": "kyou wa kinou yori samui desu.", "turkish": "Bugün dünden soğuk." },
-      { "japanese": "電車は車より速いです。", "romaji": "densha wa kuruma yori hayai desu.", "turkish": "Tren, arabadan hızlıdır." }
+      { "japanese": "東京は大阪より大きいです。", "hiragana": "とうきょうはおおさかよりおおきいです。", "romaji": "Toukyou wa Oosaka yori ookii desu.", "turkish": "Tokyo, Osaka'dan büyüktür." },
+      { "japanese": "今日は昨日より寒いです。", "hiragana": "きょうはきのうよりさむいです。", "romaji": "kyou wa kinou yori samui desu.", "turkish": "Bugün dünden soğuk." },
+      { "japanese": "電車は車より速いです。", "hiragana": "でんしゃはくるまよりはやいです。", "romaji": "densha wa kuruma yori hayai desu.", "turkish": "Tren, arabadan hızlıdır." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "夏は冬＿＿暑いです。", "hint": "Yaz kıştan sıcaktır.", "choices": ["より", "から", "まで", "ほど"], "answer": "より" },
@@ -1209,9 +1209,9 @@
     "category": "expression",
     "difficulty": 3,
     "examples": [
-      { "japanese": "バスより電車のほうが速いです。", "romaji": "basu yori densha no hou ga hayai desu.", "turkish": "Otobüse kıyasla tren daha hızlı." },
-      { "japanese": "肉より魚のほうが好きです。", "romaji": "niku yori sakana no hou ga suki desu.", "turkish": "Ete kıyasla balığı daha çok severim." },
-      { "japanese": "コーヒーと紅茶と、どちらのほうが好きですか。", "romaji": "koohii to koucha to, dochira no hou ga suki desu ka.", "turkish": "Kahve mi çay mı, hangisini daha çok seversin?" }
+      { "japanese": "バスより電車のほうが速いです。", "hiragana": "ばすよりでんしゃのほうがはやいです。", "romaji": "basu yori densha no hou ga hayai desu.", "turkish": "Otobüse kıyasla tren daha hızlı." },
+      { "japanese": "肉より魚のほうが好きです。", "hiragana": "にくよりさかなのほうがすきです。", "romaji": "niku yori sakana no hou ga suki desu.", "turkish": "Ete kıyasla balığı daha çok severim." },
+      { "japanese": "コーヒーと紅茶と、どちらのほうが好きですか。", "hiragana": "こおひいとこうちゃと、どちらのほうがすきですか。", "romaji": "koohii to koucha to, dochira no hou ga suki desu ka.", "turkish": "Kahve mi çay mı, hangisini daha çok seversin?" }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "きのうより今日＿＿ほうが暑いです。", "hint": "Düne kıyasla bugün daha sıcak.", "choices": ["の", "が", "は", "を"], "answer": "の" },
@@ -1229,8 +1229,8 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "新しい仕事はどうですか。", "romaji": "atarashii shigoto wa dou desu ka.", "turkish": "Yeni iş nasıl?" },
-      { "japanese": "日曜日はどうですか。", "romaji": "nichiyoubi wa dou desu ka.", "turkish": "Pazar günü nasıl olur? (öneri)" },
+      { "japanese": "新しい仕事はどうですか。", "hiragana": "あたらしいしごとはどうですか。", "romaji": "atarashii shigoto wa dou desu ka.", "turkish": "Yeni iş nasıl?" },
+      { "japanese": "日曜日はどうですか。", "hiragana": "にちようびはどうですか。", "romaji": "nichiyoubi wa dou desu ka.", "turkish": "Pazar günü nasıl olur? (öneri)" },
       { "japanese": "コーヒーはどうですか。", "romaji": "koohii wa dou desu ka.", "turkish": "Kahve ister misin?" }
     ],
     "questions": [
@@ -1249,9 +1249,9 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "いっしょに帰りましょう。", "romaji": "issho ni kaerimashou.", "turkish": "Birlikte dönelim." },
-      { "japanese": "友だちといっしょに映画を見ました。", "romaji": "tomodachi to issho ni eiga o mimashita.", "turkish": "Arkadaşımla birlikte film izledim." },
-      { "japanese": "家族といっしょに住んでいます。", "romaji": "kazoku to issho ni sunde imasu.", "turkish": "Ailemle birlikte yaşıyorum." }
+      { "japanese": "いっしょに帰りましょう。", "hiragana": "いっしょにかえりましょう。", "romaji": "issho ni kaerimashou.", "turkish": "Birlikte dönelim." },
+      { "japanese": "友だちといっしょに映画を見ました。", "hiragana": "ともだちといっしょにえいがをみました。", "romaji": "tomodachi to issho ni eiga o mimashita.", "turkish": "Arkadaşımla birlikte film izledim." },
+      { "japanese": "家族といっしょに住んでいます。", "hiragana": "かぞくといっしょにすんでいます。", "romaji": "kazoku to issho ni sunde imasu.", "turkish": "Ailemle birlikte yaşıyorum." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "昼ご飯を＿＿食べませんか。", "hint": "Birlikte öğle yemeği yemez misin?", "choices": ["いっしょに", "ひとりで", "たいてい", "あまり"], "answer": "いっしょに" },
@@ -1269,8 +1269,8 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "私はいつも7時に起きます。", "romaji": "watashi wa itsumo shichi-ji ni okimasu.", "turkish": "Ben her zaman 7'de kalkarım." },
-      { "japanese": "彼はいつも元気です。", "romaji": "kare wa itsumo genki desu.", "turkish": "O her zaman neşelidir." },
+      { "japanese": "私はいつも7時に起きます。", "hiragana": "わたしはいつもしちじにおきます。", "romaji": "watashi wa itsumo shichi-ji ni okimasu.", "turkish": "Ben her zaman 7'de kalkarım." },
+      { "japanese": "彼はいつも元気です。", "hiragana": "かれはいつもげんきです。", "romaji": "kare wa itsumo genki desu.", "turkish": "O her zaman neşelidir." },
       { "japanese": "いつもありがとうございます。", "romaji": "itsumo arigatou gozaimasu.", "turkish": "Her zaman teşekkür ederim." }
     ],
     "questions": [
@@ -1289,9 +1289,9 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "もう昼ご飯を食べました。", "romaji": "mou hirugohan o tabemashita.", "turkish": "Öğle yemeğini çoktan yedim." },
-      { "japanese": "もうお金がありません。", "romaji": "mou okane ga arimasen.", "turkish": "Artık param yok." },
-      { "japanese": "彼はもうここにいません。", "romaji": "kare wa mou koko ni imasen.", "turkish": "O artık burada değil." }
+      { "japanese": "もう昼ご飯を食べました。", "hiragana": "もうひるごはんをたべました。", "romaji": "mou hirugohan o tabemashita.", "turkish": "Öğle yemeğini çoktan yedim." },
+      { "japanese": "もうお金がありません。", "hiragana": "もうおかねがありません。", "romaji": "mou okane ga arimasen.", "turkish": "Artık param yok." },
+      { "japanese": "彼はもうここにいません。", "hiragana": "かれはもうここにいません。", "romaji": "kare wa mou koko ni imasen.", "turkish": "O artık burada değil." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「もう帰りました」 ne demek?", "hint": null, "choices": ["Çoktan eve döndü", "Henüz dönmedi", "Artık dönmüyor", "Dönecek"], "answer": "Çoktan eve döndü" },
@@ -1309,9 +1309,9 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "まだ雨が降っています。", "romaji": "mada ame ga futte imasu.", "turkish": "Hâlâ yağmur yağıyor." },
-      { "japanese": "まだ宿題をしていません。", "romaji": "mada shukudai o shite imasen.", "turkish": "Henüz ödevimi yapmadım." },
-      { "japanese": "まだ時間がありますよ。", "romaji": "mada jikan ga arimasu yo.", "turkish": "Hâlâ vaktimiz var." }
+      { "japanese": "まだ雨が降っています。", "hiragana": "まだあめがふっています。", "romaji": "mada ame ga futte imasu.", "turkish": "Hâlâ yağmur yağıyor." },
+      { "japanese": "まだ宿題をしていません。", "hiragana": "まだしゅくだいをしていません。", "romaji": "mada shukudai o shite imasen.", "turkish": "Henüz ödevimi yapmadım." },
+      { "japanese": "まだ時間がありますよ。", "hiragana": "まだじかんがありますよ。", "romaji": "mada jikan ga arimasu yo.", "turkish": "Hâlâ vaktimiz var." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「まだ来ていません」 ne demek?", "hint": null, "choices": ["Henüz gelmedi", "Çoktan geldi", "Artık gelmiyor", "Şimdi geliyor"], "answer": "Henüz gelmedi" },
@@ -1329,9 +1329,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "まだ昼ご飯を食べていません。", "romaji": "mada hirugohan o tabete imasen.", "turkish": "Henüz öğle yemeği yemedim." },
-      { "japanese": "その映画はまだ見ていません。", "romaji": "sono eiga wa mada mite imasen.", "turkish": "O filmi henüz izlemedim." },
-      { "japanese": "田中さんはまだ来ていません。", "romaji": "Tanaka-san wa mada kite imasen.", "turkish": "Tanaka henüz gelmedi." }
+      { "japanese": "まだ昼ご飯を食べていません。", "hiragana": "まだひるごはんをたべていません。", "romaji": "mada hirugohan o tabete imasen.", "turkish": "Henüz öğle yemeği yemedim." },
+      { "japanese": "その映画はまだ見ていません。", "hiragana": "そのえいがはまだみていません。", "romaji": "sono eiga wa mada mite imasen.", "turkish": "O filmi henüz izlemedim." },
+      { "japanese": "田中さんはまだ来ていません。", "hiragana": "たなかさんはまだきていません。", "romaji": "Tanaka-san wa mada kite imasen.", "turkish": "Tanaka henüz gelmedi." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「もう宿題をしましたか」 sorusuna 'henüz yapmadım' nasıl denir?", "hint": null, "choices": ["いいえ、まだしていません", "いいえ、しませんでした", "はい、しました", "もうしました"], "answer": "いいえ、まだしていません" },
@@ -1349,9 +1349,9 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "この料理はとてもおいしいです。", "romaji": "kono ryouri wa totemo oishii desu.", "turkish": "Bu yemek çok lezzetli." },
-      { "japanese": "今日はとても寒いです。", "romaji": "kyou wa totemo samui desu.", "turkish": "Bugün çok soğuk." },
-      { "japanese": "日本語はとてもおもしろいです。", "romaji": "nihongo wa totemo omoshiroi desu.", "turkish": "Japonca çok ilginç." }
+      { "japanese": "この料理はとてもおいしいです。", "hiragana": "このりょうりはとてもおいしいです。", "romaji": "kono ryouri wa totemo oishii desu.", "turkish": "Bu yemek çok lezzetli." },
+      { "japanese": "今日はとても寒いです。", "hiragana": "きょうはとてもさむいです。", "romaji": "kyou wa totemo samui desu.", "turkish": "Bugün çok soğuk." },
+      { "japanese": "日本語はとてもおもしろいです。", "hiragana": "にほんごはとてもおもしろいです。", "romaji": "nihongo wa totemo omoshiroi desu.", "turkish": "Japonca çok ilginç." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "このかばんは＿＿高いです。", "hint": "Bu çanta çok pahalı.", "choices": ["とても", "あまり", "ぜんぜん", "まだ"], "answer": "とても" },
@@ -1369,9 +1369,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "この店はあまり高くないです。", "romaji": "kono mise wa amari takakunai desu.", "turkish": "Bu dükkân pek pahalı değil." },
-      { "japanese": "肉はあまり食べません。", "romaji": "niku wa amari tabemasen.", "turkish": "Et pek yemem." },
-      { "japanese": "昨日はあまり寝ませんでした。", "romaji": "kinou wa amari nemasen deshita.", "turkish": "Dün pek uyumadım." }
+      { "japanese": "この店はあまり高くないです。", "hiragana": "このみせはあまりたかくないです。", "romaji": "kono mise wa amari takakunai desu.", "turkish": "Bu dükkân pek pahalı değil." },
+      { "japanese": "肉はあまり食べません。", "hiragana": "にくはあまりたべません。", "romaji": "niku wa amari tabemasen.", "turkish": "Et pek yemem." },
+      { "japanese": "昨日はあまり寝ませんでした。", "hiragana": "きのうはあまりねませんでした。", "romaji": "kinou wa amari nemasen deshita.", "turkish": "Dün pek uyumadım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "その映画は＿＿おもしろくなかったです。", "hint": "O film pek ilginç değildi.", "choices": ["あまり", "とても", "もう", "いつも"], "answer": "あまり" },
@@ -1389,9 +1389,9 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "どんな音楽が好きですか。", "romaji": "donna ongaku ga suki desu ka.", "turkish": "Ne tür müzik seversin?" },
-      { "japanese": "どんな人ですか。", "romaji": "donna hito desu ka.", "turkish": "Nasıl biri?" },
-      { "japanese": "どんな町に住みたいですか。", "romaji": "donna machi ni sumitai desu ka.", "turkish": "Nasıl bir kasabada yaşamak istersin?" }
+      { "japanese": "どんな音楽が好きですか。", "hiragana": "どんなおんがくがすきですか。", "romaji": "donna ongaku ga suki desu ka.", "turkish": "Ne tür müzik seversin?" },
+      { "japanese": "どんな人ですか。", "hiragana": "どんなひとですか。", "romaji": "donna hito desu ka.", "turkish": "Nasıl biri?" },
+      { "japanese": "どんな町に住みたいですか。", "hiragana": "どんなまちにすみたいですか。", "romaji": "donna machi ni sumitai desu ka.", "turkish": "Nasıl bir kasabada yaşamak istersin?" }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "＿＿映画を見ましたか。", "hint": "Ne tür film izledin?", "choices": ["どんな", "どこ", "どう", "いつ"], "answer": "どんな" },
@@ -1409,9 +1409,9 @@
     "category": "expression",
     "difficulty": 1,
     "examples": [
-      { "japanese": "どうして遅れましたか。", "romaji": "doushite okuremashita ka.", "turkish": "Neden geciktin?" },
-      { "japanese": "どうして日本語を勉強していますか。", "romaji": "doushite nihongo o benkyou shite imasu ka.", "turkish": "Neden Japonca öğreniyorsun?" },
-      { "japanese": "どうして食べないんですか。", "romaji": "doushite tabenai n desu ka.", "turkish": "Neden yemiyorsun?" }
+      { "japanese": "どうして遅れましたか。", "hiragana": "どうしておくれましたか。", "romaji": "doushite okuremashita ka.", "turkish": "Neden geciktin?" },
+      { "japanese": "どうして日本語を勉強していますか。", "hiragana": "どうしてにほんごをべんきょうしていますか。", "romaji": "doushite nihongo o benkyou shite imasu ka.", "turkish": "Neden Japonca öğreniyorsun?" },
+      { "japanese": "どうして食べないんですか。", "hiragana": "どうしてたべないんですか。", "romaji": "doushite tabenai n desu ka.", "turkish": "Neden yemiyorsun?" }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「どうして」 sorusuna nasıl cevap verilir?", "hint": null, "choices": ["～からです / ～のでです", "～ませんか", "～ましょう", "～たいです"], "answer": "～からです / ～のでです" },
@@ -1429,9 +1429,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "駅までどうやって行きますか。", "romaji": "eki made douyatte ikimasu ka.", "turkish": "İstasyona nasıl gidilir?" },
-      { "japanese": "このパソコンはどうやって使いますか。", "romaji": "kono pasokon wa douyatte tsukaimasu ka.", "turkish": "Bu bilgisayar nasıl kullanılır?" },
-      { "japanese": "漢字はどうやって覚えましたか。", "romaji": "kanji wa douyatte oboemashita ka.", "turkish": "Kanjiyi nasıl ezberledin?" }
+      { "japanese": "駅までどうやって行きますか。", "hiragana": "えきまでどうやっていきますか。", "romaji": "eki made douyatte ikimasu ka.", "turkish": "İstasyona nasıl gidilir?" },
+      { "japanese": "このパソコンはどうやって使いますか。", "hiragana": "このぱそこんはどうやってつかいますか。", "romaji": "kono pasokon wa douyatte tsukaimasu ka.", "turkish": "Bu bilgisayar nasıl kullanılır?" },
+      { "japanese": "漢字はどうやって覚えましたか。", "hiragana": "かんじはどうやっておぼえましたか。", "romaji": "kanji wa douyatte oboemashita ka.", "turkish": "Kanjiyi nasıl ezberledin?" }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「どうやって」 neyi sorar?", "hint": null, "choices": ["Yöntem / hangi yolla", "Sebep", "Zaman", "Miktar"], "answer": "Yöntem / hangi yolla" },
@@ -1449,9 +1449,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "この漢字の読みかたを教えてください。", "romaji": "kono kanji no yomikata o oshiete kudasai.", "turkish": "Bu kanjinin okunuşunu öğretir misiniz?" },
-      { "japanese": "はしの使いかたが難しいです。", "romaji": "hashi no tsukaikata ga muzukashii desu.", "turkish": "Çubukları kullanma şekli zor." },
-      { "japanese": "駅への行きかたを知っていますか。", "romaji": "eki e no ikikata o shitte imasu ka.", "turkish": "İstasyona nasıl gidileceğini biliyor musun?" }
+      { "japanese": "この漢字の読みかたを教えてください。", "hiragana": "このかんじのよみかたをおしえてください。", "romaji": "kono kanji no yomikata o oshiete kudasai.", "turkish": "Bu kanjinin okunuşunu öğretir misiniz?" },
+      { "japanese": "はしの使いかたが難しいです。", "hiragana": "はしのつかいかたがむずかしいです。", "romaji": "hashi no tsukaikata ga muzukashii desu.", "turkish": "Çubukları kullanma şekli zor." },
+      { "japanese": "駅への行きかたを知っていますか。", "hiragana": "えきへのいきかたをしっていますか。", "romaji": "eki e no ikikata o shitte imasu ka.", "turkish": "İstasyona nasıl gidileceğini biliyor musun?" }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "この機械の使い＿＿がわかりません。", "hint": "Bu makinenin kullanımını bilmiyorum.", "choices": ["かた", "こと", "もの", "ほう"], "answer": "かた" },
@@ -1469,9 +1469,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "春になりました。", "romaji": "haru ni narimashita.", "turkish": "Bahar geldi (oldu)." },
-      { "japanese": "日本語が上手になりました。", "romaji": "nihongo ga jouzu ni narimashita.", "turkish": "Japoncam iyileşti." },
-      { "japanese": "もう暗くなりました。", "romaji": "mou kuraku narimashita.", "turkish": "Hava karardı bile." }
+      { "japanese": "春になりました。", "hiragana": "はるになりました。", "romaji": "haru ni narimashita.", "turkish": "Bahar geldi (oldu)." },
+      { "japanese": "日本語が上手になりました。", "hiragana": "にほんごがじょうずになりました。", "romaji": "nihongo ga jouzu ni narimashita.", "turkish": "Japoncam iyileşti." },
+      { "japanese": "もう暗くなりました。", "hiragana": "もうくらくなりました。", "romaji": "mou kuraku narimashita.", "turkish": "Hava karardı bile." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "さいきん、寒く＿＿。", "hint": "Son zamanlarda hava soğudu.", "choices": ["なりました", "しました", "いました", "ありました"], "answer": "なりました" },
@@ -1489,9 +1489,9 @@
     "category": "expression",
     "difficulty": 3,
     "examples": [
-      { "japanese": "昨日は食べすぎました。", "romaji": "kinou wa tabesugimashita.", "turkish": "Dün çok fazla yedim." },
-      { "japanese": "このコートは高すぎます。", "romaji": "kono kooto wa takasugimasu.", "turkish": "Bu palto çok pahalı." },
-      { "japanese": "部屋が静かすぎて、こわいです。", "romaji": "heya ga shizukasugite, kowai desu.", "turkish": "Oda fazla sessiz, korkutucu." }
+      { "japanese": "昨日は食べすぎました。", "hiragana": "きのうはたべすぎました。", "romaji": "kinou wa tabesugimashita.", "turkish": "Dün çok fazla yedim." },
+      { "japanese": "このコートは高すぎます。", "hiragana": "このこおとはたかすぎます。", "romaji": "kono kooto wa takasugimasu.", "turkish": "Bu palto çok pahalı." },
+      { "japanese": "部屋が静かすぎて、こわいです。", "hiragana": "へやがしずかすぎて、こわいです。", "romaji": "heya ga shizukasugite, kowai desu.", "turkish": "Oda fazla sessiz, korkutucu." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "このスープは辛＿＿、食べられません。", "hint": "Bu çorba çok acı, yiyemiyorum.", "choices": ["すぎて", "くて", "たり", "ながら"], "answer": "すぎて" },
@@ -1509,9 +1509,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "夏休みに国へ帰るつもりです。", "romaji": "natsuyasumi ni kuni e kaeru tsumori desu.", "turkish": "Yaz tatilinde ülkeme dönmeyi düşünüyorum." },
-      { "japanese": "今日は何もしないつもりです。", "romaji": "kyou wa nani mo shinai tsumori desu.", "turkish": "Bugün hiçbir şey yapmamayı düşünüyorum." },
-      { "japanese": "来年、日本語能力試験を受けるつもりです。", "romaji": "rainen, nihongo nouryoku shiken o ukeru tsumori desu.", "turkish": "Gelecek yıl JLPT'ye girmeyi düşünüyorum." }
+      { "japanese": "夏休みに国へ帰るつもりです。", "hiragana": "なつやすみにくにへかえるつもりです。", "romaji": "natsuyasumi ni kuni e kaeru tsumori desu.", "turkish": "Yaz tatilinde ülkeme dönmeyi düşünüyorum." },
+      { "japanese": "今日は何もしないつもりです。", "hiragana": "きょうはなにもしないつもりです。", "romaji": "kyou wa nani mo shinai tsumori desu.", "turkish": "Bugün hiçbir şey yapmamayı düşünüyorum." },
+      { "japanese": "来年、日本語能力試験を受けるつもりです。", "hiragana": "らいねん、にほんごのうりょくしけんをうけるつもりです。", "romaji": "rainen, nihongo nouryoku shiken o ukeru tsumori desu.", "turkish": "Gelecek yıl JLPT'ye girmeyi düşünüyorum." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "週末、映画を見る＿＿です。", "hint": "Hafta sonu film izlemeyi düşünüyorum.", "choices": ["つもり", "ながら", "ほう", "こと"], "answer": "つもり" },
@@ -1529,9 +1529,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "日本へ行ったことがあります。", "romaji": "Nihon e itta koto ga arimasu.", "turkish": "Japonya'ya gitmişliğim var." },
-      { "japanese": "すしを食べたことがありますか。", "romaji": "sushi o tabeta koto ga arimasu ka.", "turkish": "Hiç suşi yedin mi?" },
-      { "japanese": "富士山に登ったことがありません。", "romaji": "Fuji-san ni nobotta koto ga arimasen.", "turkish": "Fuji'ye hiç tırmanmadım." }
+      { "japanese": "日本へ行ったことがあります。", "hiragana": "にほんへいったことがあります。", "romaji": "Nihon e itta koto ga arimasu.", "turkish": "Japonya'ya gitmişliğim var." },
+      { "japanese": "すしを食べたことがありますか。", "hiragana": "すしをたべたことがありますか。", "romaji": "sushi o tabeta koto ga arimasu ka.", "turkish": "Hiç suşi yedin mi?" },
+      { "japanese": "富士山に登ったことがありません。", "hiragana": "ふじさんにのぼったことがありません。", "romaji": "Fuji-san ni nobotta koto ga arimasen.", "turkish": "Fuji'ye hiç tırmanmadım." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "馬に乗った＿＿ありますか。", "hint": "Hiç ata bindin mi?", "choices": ["ことが", "ことを", "ものが", "ときが"], "answer": "ことが" },
@@ -1549,9 +1549,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "明日は雨でしょう。", "romaji": "ashita wa ame deshou.", "turkish": "Yarın herhalde yağmur yağar." },
-      { "japanese": "彼はもう帰っただろう。", "romaji": "kare wa mou kaetta darou.", "turkish": "O herhalde gitti bile." },
-      { "japanese": "この問題は難しいでしょう。", "romaji": "kono mondai wa muzukashii deshou.", "turkish": "Bu soru zordur herhalde." }
+      { "japanese": "明日は雨でしょう。", "hiragana": "あしたはあめでしょう。", "romaji": "ashita wa ame deshou.", "turkish": "Yarın herhalde yağmur yağar." },
+      { "japanese": "彼はもう帰っただろう。", "hiragana": "かれはもうかえっただろう。", "romaji": "kare wa mou kaetta darou.", "turkish": "O herhalde gitti bile." },
+      { "japanese": "この問題は難しいでしょう。", "hiragana": "このもんだいはむずかしいでしょう。", "romaji": "kono mondai wa muzukashii deshou.", "turkish": "Bu soru zordur herhalde." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「あしたは晴れるでしょう」 ne demek?", "hint": null, "choices": ["Yarın herhalde açar", "Yarın kesin açacak", "Yarın açmadı", "Yarın açar mı?"], "answer": "Yarın herhalde açar" },
@@ -1569,9 +1569,9 @@
     "category": "expression",
     "difficulty": 3,
     "examples": [
-      { "japanese": "どうして遅れたんですか。", "romaji": "doushite okureta n desu ka.", "turkish": "Neden geciktin (açıkla)?" },
-      { "japanese": "頭が痛いんです。", "romaji": "atama ga itai n desu.", "turkish": "Başım ağrıyor (o yüzden...)." },
-      { "japanese": "日本語を勉強しているんです。", "romaji": "nihongo o benkyou shite iru n desu.", "turkish": "Japonca öğreniyorum (durum bu)." }
+      { "japanese": "どうして遅れたんですか。", "hiragana": "どうしておくれたんですか。", "romaji": "doushite okureta n desu ka.", "turkish": "Neden geciktin (açıkla)?" },
+      { "japanese": "頭が痛いんです。", "hiragana": "あたまがいたいんです。", "romaji": "atama ga itai n desu.", "turkish": "Başım ağrıyor (o yüzden...)." },
+      { "japanese": "日本語を勉強しているんです。", "hiragana": "にほんごをべんきょうしているんです。", "romaji": "nihongo o benkyou shite iru n desu.", "turkish": "Japonca öğreniyorum (durum bu)." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「んです」 ne işe yarar?", "hint": null, "choices": ["Açıklama / gerekçe / vurgu katar", "Geçmiş zaman yapar", "Yasak koyar", "Emir yapar"], "answer": "Açıklama / gerekçe / vurgu katar" },
@@ -1589,9 +1589,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "これは私の本だ。", "romaji": "kore wa watashi no hon da.", "turkish": "Bu benim kitabım." },
-      { "japanese": "彼は学生だ。", "romaji": "kare wa gakusei da.", "turkish": "O öğrenci." },
-      { "japanese": "今日は休みだ。", "romaji": "kyou wa yasumi da.", "turkish": "Bugün tatil." }
+      { "japanese": "これは私の本だ。", "hiragana": "これはわたしのほんだ。", "romaji": "kore wa watashi no hon da.", "turkish": "Bu benim kitabım." },
+      { "japanese": "彼は学生だ。", "hiragana": "かれはがくせいだ。", "romaji": "kare wa gakusei da.", "turkish": "O öğrenci." },
+      { "japanese": "今日は休みだ。", "hiragana": "きょうはやすみだ。", "romaji": "kyou wa yasumi da.", "turkish": "Bugün tatil." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「です」 nin yalın hâli nedir?", "hint": null, "choices": ["だ", "ます", "ない", "た"], "answer": "だ" },
@@ -1609,9 +1609,9 @@
     "category": "expression",
     "difficulty": 2,
     "examples": [
-      { "japanese": "これは私のかばんじゃない。", "romaji": "kore wa watashi no kaban janai.", "turkish": "Bu benim çantam değil." },
-      { "japanese": "彼は先生じゃない。", "romaji": "kare wa sensei janai.", "turkish": "O öğretmen değil." },
-      { "japanese": "この問題は簡単じゃない。", "romaji": "kono mondai wa kantan janai.", "turkish": "Bu soru kolay değil." }
+      { "japanese": "これは私のかばんじゃない。", "hiragana": "これはわたしのかばんじゃない。", "romaji": "kore wa watashi no kaban janai.", "turkish": "Bu benim çantam değil." },
+      { "japanese": "彼は先生じゃない。", "hiragana": "かれはせんせいじゃない。", "romaji": "kare wa sensei janai.", "turkish": "O öğretmen değil." },
+      { "japanese": "この問題は簡単じゃない。", "hiragana": "このもんだいはかんたんじゃない。", "romaji": "kono mondai wa kantan janai.", "turkish": "Bu soru kolay değil." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「じゃありません」 nin yalın hâli nedir?", "hint": null, "choices": ["じゃない", "じゃなかった", "じゃないです", "ではありません"], "answer": "じゃない" },
@@ -1630,8 +1630,8 @@
     "difficulty": 1,
     "examples": [
       { "japanese": "このケーキはおいしかったです。", "romaji": "kono keeki wa oishikatta desu.", "turkish": "Bu pasta lezzetliydi." },
-      { "japanese": "きのうは寒くなかったです。", "romaji": "kinou wa samukunakatta desu.", "turkish": "Dün soğuk değildi." },
-      { "japanese": "その映画はよかったです。", "romaji": "sono eiga wa yokatta desu.", "turkish": "O film iyiydi." }
+      { "japanese": "きのうは寒くなかったです。", "hiragana": "きのうはさむくなかったです。", "romaji": "kinou wa samukunakatta desu.", "turkish": "Dün soğuk değildi." },
+      { "japanese": "その映画はよかったです。", "hiragana": "そのえいがはよかったです。", "romaji": "sono eiga wa yokatta desu.", "turkish": "O film iyiydi." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「高い」 nın geçmiş hâli nedir?", "hint": null, "choices": ["高かった", "高いだった", "高くだ", "高いでした"], "answer": "高かった" },
@@ -1649,9 +1649,9 @@
     "category": "adjective",
     "difficulty": 2,
     "examples": [
-      { "japanese": "きのうは暇でした。", "romaji": "kinou wa hima deshita.", "turkish": "Dün boştum." },
-      { "japanese": "この町は静かじゃありません。", "romaji": "kono machi wa shizuka ja arimasen.", "turkish": "Bu kasaba sessiz değil." },
-      { "japanese": "子どものとき、体が丈夫じゃありませんでした。", "romaji": "kodomo no toki, karada ga joubu ja arimasen deshita.", "turkish": "Çocukken sağlığım pek iyi değildi." }
+      { "japanese": "きのうは暇でした。", "hiragana": "きのうはひまでした。", "romaji": "kinou wa hima deshita.", "turkish": "Dün boştum." },
+      { "japanese": "この町は静かじゃありません。", "hiragana": "このまちはしずかじゃありません。", "romaji": "kono machi wa shizuka ja arimasen.", "turkish": "Bu kasaba sessiz değil." },
+      { "japanese": "子どものとき、体が丈夫じゃありませんでした。", "hiragana": "こどものとき、からだがじょうぶじゃありませんでした。", "romaji": "kodomo no toki, karada ga joubu ja arimasen deshita.", "turkish": "Çocukken sağlığım pek iyi değildi." }
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「元気」 (na-sıfat) nın geçmiş hâli nedir?", "hint": null, "choices": ["元気でした", "元気かった", "元気いだ", "元気くない"], "answer": "元気でした" },
@@ -1669,9 +1669,9 @@
     "category": "adjective",
     "difficulty": 2,
     "examples": [
-      { "japanese": "早く起きてください。", "romaji": "hayaku okite kudasai.", "turkish": "Lütfen erken kalkın." },
-      { "japanese": "字をきれいに書きます。", "romaji": "ji o kirei ni kakimasu.", "turkish": "Yazıyı güzelce yazarım." },
-      { "japanese": "日本語を上手に話します。", "romaji": "nihongo o jouzu ni hanashimasu.", "turkish": "Japoncayı ustaca konuşur." }
+      { "japanese": "早く起きてください。", "hiragana": "はやくおきてください。", "romaji": "hayaku okite kudasai.", "turkish": "Lütfen erken kalkın." },
+      { "japanese": "字をきれいに書きます。", "hiragana": "じをきれいにかきます。", "romaji": "ji o kirei ni kakimasu.", "turkish": "Yazıyı güzelce yazarım." },
+      { "japanese": "日本語を上手に話します。", "hiragana": "にほんごをじょうずにはなします。", "romaji": "nihongo o jouzu ni hanashimasu.", "turkish": "Japoncayı ustaca konuşur." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "もっと大き＿＿声で話してください。", "hint": "Daha yüksek sesle konuşun.", "choices": ["く", "に", "な", "の"], "answer": "く" },
@@ -1689,9 +1689,9 @@
     "category": "adjective",
     "difficulty": 2,
     "examples": [
-      { "japanese": "この店は安くておいしいです。", "romaji": "kono mise wa yasukute oishii desu.", "turkish": "Bu dükkân ucuz ve lezzetli." },
-      { "japanese": "彼女はきれいで親切です。", "romaji": "kanojo wa kirei de shinsetsu desu.", "turkish": "O güzel ve nazik." },
-      { "japanese": "この部屋は広くて明るいです。", "romaji": "kono heya wa hirokute akarui desu.", "turkish": "Bu oda geniş ve aydınlık." }
+      { "japanese": "この店は安くておいしいです。", "hiragana": "このみせはやすくておいしいです。", "romaji": "kono mise wa yasukute oishii desu.", "turkish": "Bu dükkân ucuz ve lezzetli." },
+      { "japanese": "彼女はきれいで親切です。", "hiragana": "かのじょはきれいでしんせつです。", "romaji": "kanojo wa kirei de shinsetsu desu.", "turkish": "O güzel ve nazik." },
+      { "japanese": "この部屋は広くて明るいです。", "hiragana": "このへやはひろくてあかるいです。", "romaji": "kono heya wa hirokute akarui desu.", "turkish": "Bu oda geniş ve aydınlık." }
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "このかばんは軽＿＿、便利です。", "hint": "Bu çanta hafif ve kullanışlı.", "choices": ["くて", "くで", "いで", "だって"], "answer": "くて" },

@@ -32,10 +32,12 @@ enum GrammarCategory: String, Codable, CaseIterable {
     }
 }
 
-/// Bir gramer konusuna ait örnek cümle. Ders ekranında üç satır olarak gösterilir:
-/// Japonca (büyük) · romaji (gri) · Türkçe.
+/// Bir gramer konusuna ait örnek cümle. Ders ekranında dört satır olarak gösterilir:
+/// Japonca (büyük) · hiragana okunuşu (küçük/gri altyazı) · romaji · Türkçe.
+/// `hiragana` yalnızca kanji içeren cümlelerde doludur (saf kana cümlelerde gereksiz).
 struct GrammarExample: Codable, Hashable {
     let japanese: String
+    let hiragana: String?
     let romaji: String
     let turkish: String
 }

@@ -80,11 +80,17 @@ struct GrammarLessonView: View {
                             .fixedSize(horizontal: false, vertical: true)
                         Spacer(minLength: 0)
                         Button {
-                            AudioService.shared.speak(example.japanese)
+                            AudioService.shared.speak(example.hiragana ?? example.japanese)
                         } label: {
                             Image(systemName: "speaker.wave.2.fill")
                                 .foregroundStyle(Theme.accent)
                         }
+                    }
+                    if let hiragana = example.hiragana, !hiragana.isEmpty {
+                        Text(hiragana)
+                            .font(.system(size: 13))
+                            .foregroundStyle(Color(uiColor: .tertiaryLabel))
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                     Text(example.romaji)
                         .font(.subheadline)
@@ -107,7 +113,7 @@ struct GrammarLessonView: View {
             key: "demo", pattern: "～は～です", romaji: "~ wa ~ desu", title: "A wa B desu",
             explanation: "En temel cümle yapısı.", formula: "[A] + は + [B] + です",
             category: .particle, difficulty: 1,
-            examples: [GrammarExample(japanese: "私は学生です。", romaji: "watashi wa gakusei desu.", turkish: "Ben öğrenciyim.")],
+            examples: [GrammarExample(japanese: "私は学生です。", hiragana: "わたしはがくせいです。", romaji: "watashi wa gakusei desu.", turkish: "Ben öğrenciyim.")],
             questions: []
         ))
     }
