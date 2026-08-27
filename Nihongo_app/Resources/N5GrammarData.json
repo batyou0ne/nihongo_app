@@ -318,5 +318,245 @@
       { "kind": "multipleChoice", "prompt": "「高いから、買いません」 ne demek?", "hint": null, "choices": ["Pahalı olduğu için almıyorum", "Pahalı ama alıyorum", "Ucuz olduğu için alıyorum", "Pahalı mı diye soruyorum"], "answer": "Pahalı olduğu için almıyorum" },
       { "kind": "wordOrder", "prompt": "Meşgul olduğum için gitmiyorum.", "hint": "いそがしい / から / 行きません", "choices": ["いそがしい", "から", "行きません"], "answer": "いそがしいから行きません", "answerTokens": ["いそがしい", "から", "行きません"] }
     ]
+  },
+  {
+    "key": "ga_subject",
+    "pattern": "～が",
+    "romaji": "~ ga",
+    "title": "Özne edatı が",
+    "explanation": "が cümlenin öznesini işaretler. Yeni bilgi, 'hangisi?' seçimi ve varlık/duygu cümlelerinde (あります/います, 好き, 上手, わかる) kullanılır. Konu zaten biliniyorsa は tercih edilir.",
+    "formula": "[Özne] + が + [yüklem]",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "雨が降っています。", "romaji": "ame ga futte imasu.", "turkish": "Yağmur yağıyor." },
+      { "japanese": "だれが来ましたか。", "romaji": "dare ga kimashita ka.", "turkish": "Kim geldi?" },
+      { "japanese": "私は犬が好きです。", "romaji": "watashi wa inu ga suki desu.", "turkish": "Ben köpekleri severim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "だれ＿＿この本を書きましたか。", "hint": "Bu kitabı kim yazdı?", "choices": ["が", "は", "を", "に"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「私は日本語＿＿わかります」 boşluğa ne gelir?", "hint": null, "choices": ["が", "を", "は", "で"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「猫がいます」 ne demek?", "hint": null, "choices": ["Bir kedi var", "Kedi yok", "Kedi geldi", "Kedileri severim"], "answer": "Bir kedi var" }
+    ]
+  },
+  {
+    "key": "to_and_with",
+    "pattern": "～と",
+    "romaji": "~ to",
+    "title": "Bağlama edatı と",
+    "explanation": "İki ismi tam olarak bağlar ('A ve B'). Ayrıca 'ile birlikte' (biriyle bir şey yapmak) ve karşılıklı eylem 'ile' (buluşmak, konuşmak) anlamı taşır.",
+    "formula": "[İsim] + と + [İsim]   /   [kişi] + と + [fiil]",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "パンとたまごを買いました。", "romaji": "pan to tamago o kaimashita.", "turkish": "Ekmek ve yumurta aldım." },
+      { "japanese": "友だちと映画を見ます。", "romaji": "tomodachi to eiga o mimasu.", "turkish": "Arkadaşımla film izlerim." },
+      { "japanese": "母と話しました。", "romaji": "haha to hanashimashita.", "turkish": "Annemle konuştum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "コーヒー＿＿ケーキをください。", "hint": "Kahve ve pasta alayım.", "choices": ["と", "も", "を", "で"], "answer": "と" },
+      { "kind": "fillBlank", "prompt": "きのう先生＿＿会いました。", "hint": "Dün öğretmenle buluştum.", "choices": ["と", "を", "が", "へ"], "answer": "と" },
+      { "kind": "wordOrder", "prompt": "Kardeşimle oyun oynarım.", "hint": "弟 / と / ゲーム / を / します", "choices": ["弟", "と", "ゲーム", "を", "します"], "answer": "弟とゲームをします", "answerTokens": ["弟", "と", "ゲーム", "を", "します"] }
+    ]
+  },
+  {
+    "key": "ya_and_etc",
+    "pattern": "～や",
+    "romaji": "~ ya",
+    "title": "Örnek sayan や",
+    "explanation": "İki veya daha çok ismi 'gibi şeyler' anlamında bağlar; liste eksiktir (と ise tam listedir). Genelde など ('vb.') ile birlikte gelir.",
+    "formula": "[İsim] + や + [İsim] (+ など)",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "つくえの上に本やペンがあります。", "romaji": "tsukue no ue ni hon ya pen ga arimasu.", "turkish": "Masanın üstünde kitap, kalem gibi şeyler var." },
+      { "japanese": "週末は買い物や掃除をします。", "romaji": "shuumatsu wa kaimono ya souji o shimasu.", "turkish": "Hafta sonu alışveriş, temizlik gibi şeyler yaparım." },
+      { "japanese": "京都や大阪へ行きました。", "romaji": "Kyouto ya Oosaka e ikimashita.", "turkish": "Kyoto, Osaka gibi yerlere gittim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "かばんの中にさいふ＿＿かぎがあります。", "hint": "Çantada cüzdan, anahtar gibi şeyler var.", "choices": ["や", "と", "を", "へ"], "answer": "や" },
+      { "kind": "multipleChoice", "prompt": "「や」 ile 「と」 arasındaki fark nedir?", "hint": null, "choices": ["や eksik liste, と tam liste", "İkisi aynı", "や sadece kişiler için", "と sadece yerler için"], "answer": "や eksik liste, と tam liste" },
+      { "kind": "multipleChoice", "prompt": "「ノートやえんぴつなどを買います」 ne demek?", "hint": null, "choices": ["Defter, kalem gibi şeyler alırım", "Sadece defter alırım", "Defter alamam", "Defterle kalem aynı"], "answer": "Defter, kalem gibi şeyler alırım" }
+    ]
+  },
+  {
+    "key": "ka_question",
+    "pattern": "～か",
+    "romaji": "~ ka",
+    "title": "Soru eki か",
+    "explanation": "Cümlenin sonuna gelerek onu kibar soruya çevirir; yazıda çoğu zaman '?' yerine geçer. Yükselen tonlama gerekmez.",
+    "formula": "[cümle] + か",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "あなたは学生ですか。", "romaji": "anata wa gakusei desu ka.", "turkish": "Sen öğrenci misin?" },
+      { "japanese": "もう昼ご飯を食べましたか。", "romaji": "mou hirugohan o tabemashita ka.", "turkish": "Öğle yemeğini yedin mi?" },
+      { "japanese": "トイレはどこですか。", "romaji": "toire wa doko desu ka.", "turkish": "Tuvalet nerede?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "これはあなたのかばんです＿＿。", "hint": "Bu senin çantan mı?", "choices": ["か", "ね", "よ", "の"], "answer": "か" },
+      { "kind": "multipleChoice", "prompt": "「か」 cümlenin sonuna gelince ne olur?", "hint": null, "choices": ["Cümle soru olur", "Cümle olumsuz olur", "Cümle geçmiş olur", "Cümle emir olur"], "answer": "Cümle soru olur" },
+      { "kind": "wordOrder", "prompt": "Bu ne?", "hint": "これ / は / 何 / です / か", "choices": ["これ", "は", "何", "です", "か"], "answer": "これは何ですか", "answerTokens": ["これ", "は", "何", "です", "か"] }
+    ]
+  },
+  {
+    "key": "ka_ka_or",
+    "pattern": "～か～か",
+    "romaji": "~ ka ~ ka",
+    "title": "Seçenek: か～か",
+    "explanation": "İki seçenek arasında 'ya ... ya da' sunar. Konuşmada ikinci か genellikle düşürülür (コーヒーかお茶).",
+    "formula": "[A] + か + [B] + (か)",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "コーヒーかお茶を飲みます。", "romaji": "koohii ka ocha o nomimasu.", "turkish": "Ya kahve ya çay içerim." },
+      { "japanese": "土曜日か日曜日に行きます。", "romaji": "doyoubi ka nichiyoubi ni ikimasu.", "turkish": "Ya cumartesi ya pazar giderim." },
+      { "japanese": "ペンかえんぴつで書いてください。", "romaji": "pen ka enpitsu de kaite kudasai.", "turkish": "Ya kalemle ya kurşun kalemle yazın." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "バス＿＿電車で行きます。", "hint": "Ya otobüsle ya trenle giderim.", "choices": ["か", "と", "や", "も"], "answer": "か" },
+      { "kind": "multipleChoice", "prompt": "「肉か魚を食べます」 ne demek?", "hint": null, "choices": ["Ya et ya balık yerim", "Hem et hem balık yerim", "Et de balık da yemem", "Etle balık aynı"], "answer": "Ya et ya balık yerim" },
+      { "kind": "wordOrder", "prompt": "Ya bugün ya yarın.", "hint": "今日 / か / あした", "choices": ["今日", "か", "あした"], "answer": "今日かあした", "answerTokens": ["今日", "か", "あした"] }
+    ]
+  },
+  {
+    "key": "made_until",
+    "pattern": "～まで",
+    "romaji": "~ made",
+    "title": "Sınır: ～まで",
+    "explanation": "Bir eylemin veya durumun bittiği zaman ya da yer sınırını gösterir: '...e kadar'. Başlangıç için から ile eşleşir (9時から5時まで).",
+    "formula": "[Zaman / Yer] + まで",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "5時まで働きます。", "romaji": "go-ji made hatarakimasu.", "turkish": "Saat 5'e kadar çalışırım." },
+      { "japanese": "駅まで歩きました。", "romaji": "eki made arukimashita.", "turkish": "İstasyona kadar yürüdüm." },
+      { "japanese": "月曜日から金曜日まで学校があります。", "romaji": "getsuyoubi kara kinyoubi made gakkou ga arimasu.", "turkish": "Pazartesiden cumaya kadar okul var." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "9時から6時＿＿会社にいます。", "hint": "9'dan 6'ya kadar iş yerindeyim.", "choices": ["まで", "から", "に", "で"], "answer": "まで" },
+      { "kind": "fillBlank", "prompt": "うち＿＿バスで帰ります。", "hint": "Eve kadar otobüsle dönerim.", "choices": ["まで", "でも", "しか", "だけ"], "answer": "まで" },
+      { "kind": "multipleChoice", "prompt": "「夜まで」 ne demek?", "hint": null, "choices": ["Geceye kadar", "Geceden beri", "Gece için", "Gece hariç"], "answer": "Geceye kadar" }
+    ]
+  },
+  {
+    "key": "kara_from",
+    "pattern": "～から (başlangıç)",
+    "romaji": "~ kara (from)",
+    "title": "Başlangıç: ～から",
+    "explanation": "Bir eylemin başladığı zamanı veya yeri gösterir: '...den itibaren'. Bitiş için まで ile eşleşir. (から ayrıca 'çünkü' bağlacıdır — bkz. ～から sebep.)",
+    "formula": "[Zaman / Yer] + から",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "9時から授業が始まります。", "romaji": "ku-ji kara jugyou ga hajimarimasu.", "turkish": "Ders 9'dan itibaren başlar." },
+      { "japanese": "日本から手紙が来ました。", "romaji": "Nihon kara tegami ga kimashita.", "turkish": "Japonya'dan mektup geldi." },
+      { "japanese": "家から駅まで10分です。", "romaji": "ie kara eki made juppun desu.", "turkish": "Evden istasyona 10 dakika." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "銀行は何時＿＿ですか。", "hint": "Banka saat kaçtan itibaren açık?", "choices": ["から", "まで", "に", "で"], "answer": "から" },
+      { "kind": "fillBlank", "prompt": "田中さん＿＿電話がありました。", "hint": "Tanaka'dan telefon geldi.", "choices": ["から", "まで", "へ", "を"], "answer": "から" },
+      { "kind": "multipleChoice", "prompt": "「うちから」 ne demek?", "hint": null, "choices": ["Evden", "Eve", "Evde", "Ev için"], "answer": "Evden" }
+    ]
+  },
+  {
+    "key": "dake_only",
+    "pattern": "～だけ",
+    "romaji": "~ dake",
+    "title": "Yalnızca: ～だけ",
+    "explanation": "'Sadece, yalnızca' anlamı verir; isimden, sayıdan veya fiilden sonra gelir. Genelde を ve は gibi kısa edatlar だけ'den sonra düşer.",
+    "formula": "[İsim / sayı] + だけ",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "水だけ飲みます。", "romaji": "mizu dake nomimasu.", "turkish": "Sadece su içerim." },
+      { "japanese": "一人だけ来ました。", "romaji": "hitori dake kimashita.", "turkish": "Sadece bir kişi geldi." },
+      { "japanese": "日曜日だけ休みます。", "romaji": "nichiyoubi dake yasumimasu.", "turkish": "Sadece pazar dinlenirim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "少し＿＿食べました。", "hint": "Sadece biraz yedim.", "choices": ["だけ", "まで", "から", "と"], "answer": "だけ" },
+      { "kind": "multipleChoice", "prompt": "「これだけです」 ne demek?", "hint": null, "choices": ["Sadece bu kadar", "Bu hariç hepsi", "Bu değil", "Çok var"], "answer": "Sadece bu kadar" },
+      { "kind": "wordOrder", "prompt": "Sadece Japonca konuşuyorum.", "hint": "日本語 / だけ / 話します", "choices": ["日本語", "だけ", "話します"], "answer": "日本語だけ話します", "answerTokens": ["日本語", "だけ", "話します"] }
+    ]
+  },
+  {
+    "key": "ne_particle",
+    "pattern": "～ね",
+    "romaji": "~ ne",
+    "title": "Onay edatı ね",
+    "explanation": "Cümle sonu edatı. Onay/uzlaşma arar ('...değil mi?', 'ha') ya da hafif bir yumuşaklık katar. Dinleyenin de aynı fikirde olacağı varsayılır.",
+    "formula": "[cümle] + ね",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "いい天気ですね。", "romaji": "ii tenki desu ne.", "turkish": "Güzel hava, değil mi?" },
+      { "japanese": "この店は高いですね。", "romaji": "kono mise wa takai desu ne.", "turkish": "Bu dükkân pahalı, ha." },
+      { "japanese": "じゃあ、また明日ね。", "romaji": "jaa, mata ashita ne.", "turkish": "O zaman, yarın görüşürüz ha." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「おいしいですね」 ne anlatır?", "hint": null, "choices": ["Onay bekler: lezzetli, değil mi?", "Emir verir", "Soru sorar: lezzetli mi?", "Olumsuzdur"], "answer": "Onay bekler: lezzetli, değil mi?" },
+      { "kind": "fillBlank", "prompt": "きょうは寒いです＿＿。", "hint": "Bugün soğuk, değil mi?", "choices": ["ね", "か", "を", "が"], "answer": "ね" },
+      { "kind": "multipleChoice", "prompt": "「ね」 kimin bilgisini paylaştığını varsayar?", "hint": null, "choices": ["Hem konuşanın hem dinleyenin", "Sadece konuşanın", "Sadece dinleyenin", "Kimsenin"], "answer": "Hem konuşanın hem dinleyenin" }
+    ]
+  },
+  {
+    "key": "yo_particle",
+    "pattern": "～よ",
+    "romaji": "~ yo",
+    "title": "Vurgu edatı よ",
+    "explanation": "Cümle sonu edatı. Dinleyenin bilmediği yeni bir bilgiyi vurgular ya da bir görüşü öne çıkarır ('...biliyor musun', 'bak'). ね'nin tersine ortak bilgi varsaymaz.",
+    "formula": "[cümle] + よ",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "その映画はおもしろいですよ。", "romaji": "sono eiga wa omoshiroi desu yo.", "turkish": "O film ilginç, bak." },
+      { "japanese": "もう時間ですよ。", "romaji": "mou jikan desu yo.", "turkish": "Vakit geldi, haberin olsun." },
+      { "japanese": "あそこに駅がありますよ。", "romaji": "asoko ni eki ga arimasu yo.", "turkish": "Şurada istasyon var, biliyor musun." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「ね」 ile 「よ」 farkı nedir?", "hint": null, "choices": ["よ yeni bilgi verir, ね onay arar", "İkisi aynı", "よ soru yapar", "ね geçmiş zaman yapar"], "answer": "よ yeni bilgi verir, ね onay arar" },
+      { "kind": "fillBlank", "prompt": "気をつけて。車が来ます＿＿。", "hint": "Dikkat et. Araba geliyor, bak!", "choices": ["よ", "ね", "か", "の"], "answer": "よ" },
+      { "kind": "multipleChoice", "prompt": "「この店は安いですよ」 ne anlatır?", "hint": null, "choices": ["Dinleyenin bilmediği bir bilgiyi vurgular", "Dinleyenle aynı fikirde olduğunu varsayar", "Soru sorar", "Emir verir"], "answer": "Dinleyenin bilmediği bir bilgiyi vurgular" }
+    ]
+  },
+  {
+    "key": "naa_particle",
+    "pattern": "～なあ",
+    "romaji": "~ naa",
+    "title": "Duygu edatı なあ",
+    "explanation": "Gayrıresmî cümle sonu edatı. Konuşanın kendi duygusunu dile getirir: hayranlık, istek, iç geçirme ('...ya', 'keşke'). Genelde yalın biçimle kullanılır.",
+    "formula": "[yalın cümle] + なあ",
+    "category": "particle",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "この町はきれいだなあ。", "romaji": "kono machi wa kirei da naa.", "turkish": "Bu kasaba ne güzelmiş ya." },
+      { "japanese": "お金がほしいなあ。", "romaji": "okane ga hoshii naa.", "turkish": "Keşke param olsa." },
+      { "japanese": "いい天気だなあ。", "romaji": "ii tenki da naa.", "turkish": "Ne güzel hava ya." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「なあ」 kime yöneliktir?", "hint": null, "choices": ["Konuşanın kendi duygusuna", "Dinleyene soru olarak", "Bir emir olarak", "Resmî bir sunuma"], "answer": "Konuşanın kendi duygusuna" },
+      { "kind": "multipleChoice", "prompt": "「行きたいなあ」 ne demek?", "hint": null, "choices": ["Keşke gidebilsem ya", "Gitme", "Gitti mi?", "Gidelim mi?"], "answer": "Keşke gidebilsem ya" },
+      { "kind": "fillBlank", "prompt": "今日は疲れた＿＿。", "hint": "Bugün çok yoruldum ya.", "choices": ["なあ", "か", "を", "へ"], "answer": "なあ" }
+    ]
+  },
+  {
+    "key": "o_go_prefix",
+    "pattern": "お／ご",
+    "romaji": "o / go",
+    "title": "Kibarlık öneki お・ご",
+    "explanation": "İsmin başına gelerek nezaket katar. Genelde Japonca kökenli sözcüklerde お (お茶, お金, お名前), Çince kökenli sözcüklerde ご (ご家族, ご住所).",
+    "formula": "お / ご + [isim]",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "お名前は何ですか。", "romaji": "onamae wa nan desu ka.", "turkish": "Adınız nedir?" },
+      { "japanese": "お茶をどうぞ。", "romaji": "ocha o douzo.", "turkish": "Buyurun çay." },
+      { "japanese": "ご家族は元気ですか。", "romaji": "gokazoku wa genki desu ka.", "turkish": "Aileniz iyi mi?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "＿＿名前を教えてください。", "hint": "Adınızı söyler misiniz? (kibar)", "choices": ["お", "ご", "を", "に"], "answer": "お" },
+      { "kind": "multipleChoice", "prompt": "「ご」 genelde ne tür sözcüklerle kullanılır?", "hint": null, "choices": ["Çince kökenli sözcüklerle", "Sadece fiillerle", "Sadece sayılarla", "Yabancı sözcüklerle"], "answer": "Çince kökenli sözcüklerle" },
+      { "kind": "multipleChoice", "prompt": "Hangisi doğru?", "hint": null, "choices": ["お金", "ご金", "お家族", "を茶"], "answer": "お金" }
+    ]
   }
 ]
