@@ -32,7 +32,7 @@ struct ProgressOverviewView: View {
                     progressRow(title: "Katakana", kind: .katakanaCharacter, total: 46)
                     progressRow(title: "Kanji (N5)", kind: .kanji, total: 80)
                     progressRow(title: "Kelimeler (N5)", kind: .vocabularyWord, total: 675)
-                    progressRow(title: "Gramer (N5)", kind: .grammar, total: 16)
+                    progressRow(title: "Gramer (N5)", kind: .grammar, total: 85)
                 }
             }
             .padding(20)

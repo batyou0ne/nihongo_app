@@ -45,7 +45,7 @@ struct GrammarLevelSelectionView: View {
                 Text("\(level) Gramer")
                     .font(Theme.heading(19))
                     .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
-                Text(isAvailable ? "16 konu · 5 kategori" : "Yakında")
+                Text(isAvailable ? "85 konu · 5 kategori" : "Yakında")
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }

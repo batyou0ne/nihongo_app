@@ -73,7 +73,7 @@ struct HomeView: View {
                         } label: {
                             ModuleCard(
                                 title: "Gramer",
-                                subtitle: "N5 · 16 konu",
+                                subtitle: "N5 · 85 konu",
                                 systemImage: "text.alignleft"
                             )
                         }
