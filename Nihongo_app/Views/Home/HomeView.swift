@@ -69,6 +69,16 @@ struct HomeView: View {
                         }
 
                         NavigationLink {
+                            GrammarLevelSelectionView()
+                        } label: {
+                            ModuleCard(
+                                title: "Gramer",
+                                subtitle: "N5 · 16 konu",
+                                systemImage: "text.alignleft"
+                            )
+                        }
+
+                        NavigationLink {
                             ReviewListView()
                         } label: {
                             ModuleCard(

@@ -19,6 +19,10 @@ enum ContentStore {
         load("\(level)VocabularyData") ?? []
     }
 
+    static func loadGrammar(level: String = "N5") -> [GrammarPoint] {
+        load("\(level)GrammarData") ?? []
+    }
+
     private static func load<T: Decodable>(_ fileName: String) -> T? {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
               let data = try? Data(contentsOf: url) else {

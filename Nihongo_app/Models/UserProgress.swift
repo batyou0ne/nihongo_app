@@ -9,6 +9,7 @@ enum LearnableItemKind: String, Codable {
     case katakanaCharacter
     case vocabularyWord // N5 kelime modülü (VocabularyWord) tarafından kullanılır
     case kanji
+    case grammar // N5 gramer modülü (GrammarPoint) tarafından kullanılır
 
     var displayName: String {
         switch self {
@@ -16,6 +17,7 @@ enum LearnableItemKind: String, Codable {
         case .katakanaCharacter: return "Katakana"
         case .vocabularyWord: return "Kelimeler"
         case .kanji: return "Kanji"
+        case .grammar: return "Gramer"
         }
     }
 }

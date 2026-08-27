@@ -14,6 +14,7 @@ struct ReviewListView: View {
     @State private var katakana: [JapaneseCharacter] = []
     @State private var kanji: [Kanji] = []
     @State private var vocabulary: [VocabularyWord] = []
+    @State private var grammar: [GrammarPoint] = []
 
     var body: some View {
         ScrollView {
@@ -25,6 +26,7 @@ struct ReviewListView: View {
                     moduleSection(kind: .katakanaCharacter, allModuleItems: katakana)
                     moduleSection(kind: .kanji, allModuleItems: kanji)
                     moduleSection(kind: .vocabularyWord, allModuleItems: vocabulary)
+                    grammarSection()
                 }
             }
             .padding(20)
@@ -38,6 +40,7 @@ struct ReviewListView: View {
             katakana = ContentStore.loadCharacters(.katakana)
             kanji = ContentStore.loadKanji()
             vocabulary = ContentStore.loadVocabulary()
+            grammar = ContentStore.loadGrammar()
         }
     }
 
@@ -122,6 +125,63 @@ struct ReviewListView: View {
         }
         .padding(12)
         .inkBordered()
+    }
+
+    /// Gramer konuları FlashcardItem değil (ders + pratik akışı farklı), bu yüzden
+    /// kendi bölümü var. "Bunlarla çalış" işaretli konuların pratiğini art arda açar.
+    @ViewBuilder
+    private func grammarSection() -> some View {
+        let ids = reviewIDs(for: .grammar)
+        let points = grammar.filter { ids.contains($0.id) }
+
+        if !points.isEmpty {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(alignment: .firstTextBaseline) {
+                    Text("Gramer (\(points.count))")
+                        .font(Theme.display(24))
+                        .foregroundStyle(Theme.ink)
+                    Spacer()
+                    NavigationLink {
+                        GrammarPracticeView(points: points, title: "Tekrar: Gramer")
+                    } label: {
+                        Text("Bunlarla çalış →")
+                            .font(.system(size: 15, weight: .heavy))
+                            .foregroundStyle(Theme.accent)
+                    }
+                }
+
+                ForEach(points) { point in
+                    HStack(spacing: 14) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(point.pattern)
+                                .font(Theme.heading(20))
+                                .foregroundStyle(Theme.accent)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.5)
+                            Text(point.title)
+                                .font(.subheadline)
+                                .foregroundStyle(Theme.secondaryInk)
+                                .lineLimit(1)
+                        }
+
+                        Spacer()
+
+                        Button {
+                            markAsLearned(kind: .grammar, itemID: point.id)
+                        } label: {
+                            Text("Öğrendim ✓")
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundStyle(Theme.paper)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 8)
+                                .background(Theme.ink)
+                        }
+                    }
+                    .padding(12)
+                    .inkBordered()
+                }
+            }
+        }
     }
 
     private func markAsLearned(kind: LearnableItemKind, itemID: String) {
