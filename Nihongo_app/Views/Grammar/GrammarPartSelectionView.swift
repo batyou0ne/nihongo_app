@@ -65,8 +65,11 @@ struct GrammarPartSelectionView: View {
         learnedIDs = Set(all.filter { $0.itemKind == .grammar && $0.repetitionCount >= 1 }.map(\.itemID))
     }
 
+    /// Tamamlanan konularda kutu çok hafif yeşile boyanır ve sağda onay tiki görünür.
     private func topicRow(_ point: GrammarPoint) -> some View {
-        HStack(spacing: 14) {
+        let done = learnedIDs.contains(point.id)
+
+        return HStack(spacing: 14) {
             Text(point.pattern)
                 .font(Theme.heading(20))
                 .foregroundStyle(Theme.accent)
@@ -87,9 +90,9 @@ struct GrammarPartSelectionView: View {
 
             Spacer()
 
-            if learnedIDs.contains(point.id) {
+            if done {
                 Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(Theme.accent)
+                    .foregroundStyle(.green)
             } else {
                 Image(systemName: "arrow.right")
                     .font(.system(size: 15, weight: .bold))
@@ -97,7 +100,8 @@ struct GrammarPartSelectionView: View {
             }
         }
         .padding()
-        .inkBordered()
+        .background(done ? Color.green.opacity(0.12) : Theme.paper)
+        .overlay(Rectangle().strokeBorder(Theme.ink, lineWidth: 2))
     }
 }
 
