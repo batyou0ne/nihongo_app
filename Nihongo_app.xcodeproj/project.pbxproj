@@ -18,22 +18,9 @@
 		4730F895303C69FD0074D0BD /* Nihongo_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nihongo_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4717F602303F5D60007B41F9 /* Exceptions for "Nihongo_app" folder in "Nihongo_app" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Nihongo-app-Info.plist",
-			);
-			target = 4730F894303C69FD0074D0BD /* Nihongo_app */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4730F897303C69FD0074D0BD /* Nihongo_app */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				4717F602303F5D60007B41F9 /* Exceptions for "Nihongo_app" folder in "Nihongo_app" target */,
-			);
 			path = Nihongo_app;
 			sourceTree = "<group>";
 		};
@@ -290,11 +277,13 @@
 				CODE_SIGN_ENTITLEMENTS = Nihongo_app/Nihongo_app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PLNYDSS638;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nihongo-app-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Kaimon;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -334,11 +323,13 @@
 				CODE_SIGN_ENTITLEMENTS = Nihongo_app/Nihongo_app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PLNYDSS638;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Nihongo-app-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Kaimon;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

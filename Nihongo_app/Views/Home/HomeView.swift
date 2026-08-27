@@ -124,10 +124,10 @@ struct HomeView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("日本語")
+            Text("開門")
                 .font(Theme.display(56))
                 .foregroundStyle(Theme.accent)
-            Text("Nihongo")
+            Text("Kaimon")
                 .font(Theme.heading(22))
                 .foregroundStyle(Theme.ink)
         }

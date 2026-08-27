@@ -42,7 +42,7 @@ struct SignInView: View {
                 .padding(.top, 24)
                 .padding(.bottom, 28)
 
-                Text("日本語")
+                Text("開門")
                     .font(Theme.display(48))
                     .foregroundStyle(Theme.accent)
                     .padding(.bottom, 10)
