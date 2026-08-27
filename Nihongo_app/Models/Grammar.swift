@@ -63,12 +63,16 @@ struct GrammarQuestion: Codable, Hashable {
     /// İsteğe bağlı ipucu / Türkçe çeviri.
     let hint: String?
 
+    /// `prompt` içindeki Japonca cümlenin hiragana okunuşu (kanji içeren fillBlank ve
+    /// alıntılı multipleChoice sorularında dolu). Soru metninin altında küçük/gri gösterilir.
+    let promptReading: String?
+
     let choices: [String]
     let answer: String
     let answerTokens: [String]?
 
     private enum CodingKeys: String, CodingKey {
-        case kind, prompt, hint, choices, answer, answerTokens
+        case kind, prompt, hint, promptReading, choices, answer, answerTokens
     }
 
     init(from decoder: Decoder) throws {
@@ -76,15 +80,17 @@ struct GrammarQuestion: Codable, Hashable {
         kind = try c.decode(GrammarQuestionKind.self, forKey: .kind)
         prompt = try c.decode(String.self, forKey: .prompt)
         hint = try c.decodeIfPresent(String.self, forKey: .hint)
+        promptReading = try c.decodeIfPresent(String.self, forKey: .promptReading)
         choices = try c.decodeIfPresent([String].self, forKey: .choices) ?? []
         answer = try c.decode(String.self, forKey: .answer)
         answerTokens = try c.decodeIfPresent([String].self, forKey: .answerTokens)
     }
 
-    init(kind: GrammarQuestionKind, prompt: String, hint: String? = nil, choices: [String] = [], answer: String, answerTokens: [String]? = nil) {
+    init(kind: GrammarQuestionKind, prompt: String, hint: String? = nil, promptReading: String? = nil, choices: [String] = [], answer: String, answerTokens: [String]? = nil) {
         self.kind = kind
         self.prompt = prompt
         self.hint = hint
+        self.promptReading = promptReading
         self.choices = choices
         self.answer = answer
         self.answerTokens = answerTokens

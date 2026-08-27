@@ -14,7 +14,7 @@
       { "japanese": "田中さんは先生です。", "hiragana": "たなかさんはせんせいです。", "romaji": "Tanaka-san wa sensei desu.", "turkish": "Tanaka öğretmendir." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "私＿＿日本人です。", "hint": "Ben Japon'um.", "choices": ["は", "を", "に", "が"], "answer": "は" },
+      { "kind": "fillBlank", "prompt": "私＿＿日本人です。", "hint": "Ben Japon'um.", "promptReading": "わたし＿＿にほんじんです。", "choices": ["は", "を", "に", "が"], "answer": "は" },
       { "kind": "wordOrder", "prompt": "Bu bir kalem.", "hint": "これ / は / ペン / です", "choices": ["これ", "は", "ペン", "です"], "answer": "これはペンです", "answerTokens": ["これ", "は", "ペン", "です"] },
       { "kind": "multipleChoice", "prompt": "は edatı bu cümlede ne yapar?", "hint": null, "choices": ["Konuyu işaretler", "Nesneyi işaretler", "Yeri bildirir", "Soru sorar"], "answer": "Konuyu işaretler" }
     ]
@@ -34,8 +34,8 @@
       { "japanese": "田中さんは学生ではありません。", "hiragana": "たなかさんはがくせいではありません。", "romaji": "Tanaka-san wa gakusei dewa arimasen.", "turkish": "Tanaka öğrenci değil." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "私は医者＿＿。", "hint": "Ben doktor değilim.", "choices": ["じゃありません", "です", "ます", "でした"], "answer": "じゃありません" },
-      { "kind": "multipleChoice", "prompt": "「これは私のかばんじゃありません」 ne demek?", "hint": null, "choices": ["Bu benim çantam değil", "Bu benim çantam", "Bu çanta yeni", "Çanta orada değil"], "answer": "Bu benim çantam değil" },
+      { "kind": "fillBlank", "prompt": "私は医者＿＿。", "hint": "Ben doktor değilim.", "promptReading": "わたしはいしゃ＿＿。", "choices": ["じゃありません", "です", "ます", "でした"], "answer": "じゃありません" },
+      { "kind": "multipleChoice", "prompt": "「これは私のかばんじゃありません」 ne demek?", "hint": null, "promptReading": "「これはわたしのかばんじゃありません」 ne demek?", "choices": ["Bu benim çantam değil", "Bu benim çantam", "Bu çanta yeni", "Çanta orada değil"], "answer": "Bu benim çantam değil" },
       { "kind": "wordOrder", "prompt": "O kişi Japon değil.", "hint": "あの人 / は / 日本人 / じゃありません", "choices": ["あの人", "は", "日本人", "じゃありません"], "answer": "あの人は日本人じゃありません", "answerTokens": ["あの人", "は", "日本人", "じゃありません"] }
     ]
   },
@@ -54,8 +54,8 @@
       { "japanese": "本を読みます。", "hiragana": "ほんをよみます。", "romaji": "hon o yomimasu.", "turkish": "Kitap okurum." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "コーヒー＿＿飲みます。", "hint": "Kahve içerim.", "choices": ["を", "は", "に", "で"], "answer": "を" },
-      { "kind": "fillBlank", "prompt": "映画＿＿見ます。", "hint": "Film izlerim.", "choices": ["を", "が", "へ", "と"], "answer": "を" },
+      { "kind": "fillBlank", "prompt": "コーヒー＿＿飲みます。", "hint": "Kahve içerim.", "promptReading": "コーヒー＿＿のみます。", "choices": ["を", "は", "に", "で"], "answer": "を" },
+      { "kind": "fillBlank", "prompt": "映画＿＿見ます。", "hint": "Film izlerim.", "promptReading": "えいが＿＿みます。", "choices": ["を", "が", "へ", "と"], "answer": "を" },
       { "kind": "multipleChoice", "prompt": "を edatı neyi işaretler?", "hint": null, "choices": ["Fiilin nesnesini", "Cümlenin konusunu", "Hareketin yerini", "Kullanılan aracı"], "answer": "Fiilin nesnesini" }
     ]
   },
@@ -74,9 +74,9 @@
       { "japanese": "はしで食べます。", "hiragana": "はしでたべます。", "romaji": "hashi de tabemasu.", "turkish": "Çubuklarla yerim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "レストラン＿＿昼ご飯を食べます。", "hint": "Restoranda öğle yemeği yerim.", "choices": ["で", "に", "を", "へ"], "answer": "で" },
-      { "kind": "fillBlank", "prompt": "電車＿＿会社に行きます。", "hint": "Trenle şirkete giderim.", "choices": ["で", "を", "が", "も"], "answer": "で" },
-      { "kind": "multipleChoice", "prompt": "「うちで映画を見ます」 ne demek?", "hint": null, "choices": ["Evde film izlerim", "Eve film getiririm", "Evden çıkarım", "Ev filmi çekerim"], "answer": "Evde film izlerim" }
+      { "kind": "fillBlank", "prompt": "レストラン＿＿昼ご飯を食べます。", "hint": "Restoranda öğle yemeği yerim.", "promptReading": "レストラン＿＿ひるごはんをたべます。", "choices": ["で", "に", "を", "へ"], "answer": "で" },
+      { "kind": "fillBlank", "prompt": "電車＿＿会社に行きます。", "hint": "Trenle şirkete giderim.", "promptReading": "でんしゃ＿＿かいしゃにいきます。", "choices": ["で", "を", "が", "も"], "answer": "で" },
+      { "kind": "multipleChoice", "prompt": "「うちで映画を見ます」 ne demek?", "hint": null, "promptReading": "「うちでえいがをみます」 ne demek?", "choices": ["Evde film izlerim", "Eve film getiririm", "Evden çıkarım", "Ev filmi çekerim"], "answer": "Evde film izlerim" }
     ]
   },
   {
@@ -94,9 +94,9 @@
       { "japanese": "うちに帰ります。", "hiragana": "うちにかえります。", "romaji": "uchi ni kaerimasu.", "turkish": "Eve dönerim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "来週、京都＿＿行きます。", "hint": "Gelecek hafta Kyoto'ya giderim.", "choices": ["に", "で", "を", "が"], "answer": "に" },
+      { "kind": "fillBlank", "prompt": "来週、京都＿＿行きます。", "hint": "Gelecek hafta Kyoto'ya giderim.", "promptReading": "らいしゅう、きょうと＿＿いきます。", "choices": ["に", "で", "を", "が"], "answer": "に" },
       { "kind": "wordOrder", "prompt": "Yarın okula gideceğim.", "hint": "あした / 学校 / に / 行きます", "choices": ["あした", "学校", "に", "行きます"], "answer": "あした学校に行きます", "answerTokens": ["あした", "学校", "に", "行きます"] },
-      { "kind": "multipleChoice", "prompt": "「駅に行きます」 cümlesinde に neyi gösterir?", "hint": null, "choices": ["Gidilen hedefi", "Eylemin yapıldığı yeri", "Kullanılan aracı", "Zamanı"], "answer": "Gidilen hedefi" }
+      { "kind": "multipleChoice", "prompt": "「駅に行きます」 cümlesinde に neyi gösterir?", "hint": null, "promptReading": "「えきにいきます」 cümlesinde に neyi gösterir?", "choices": ["Gidilen hedefi", "Eylemin yapıldığı yeri", "Kullanılan aracı", "Zamanı"], "answer": "Gidilen hedefi" }
     ]
   },
   {
@@ -114,9 +114,9 @@
       { "japanese": "3月に日本へ行きます。", "hiragana": "さんがつににほんへいきます。", "romaji": "san-gatsu ni Nihon e ikimasu.", "turkish": "Mart'ta Japonya'ya giderim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "8時半＿＿会社に行きます。", "hint": "8:30'da şirkete giderim.", "choices": ["に", "で", "を", "へ"], "answer": "に" },
+      { "kind": "fillBlank", "prompt": "8時半＿＿会社に行きます。", "hint": "8:30'da şirkete giderim.", "promptReading": "8じはん＿＿かいしゃにいきます。", "choices": ["に", "で", "を", "へ"], "answer": "に" },
       { "kind": "multipleChoice", "prompt": "Hangi cümle doğru?", "hint": null, "choices": ["月曜日に働きます", "あしたに働きます", "今に働きます", "毎日に働きます"], "answer": "月曜日に働きます" },
-      { "kind": "fillBlank", "prompt": "土曜日＿＿友だちに会います。", "hint": "Cumartesi arkadaşımla buluşurum.", "choices": ["に", "が", "は", "も"], "answer": "に" }
+      { "kind": "fillBlank", "prompt": "土曜日＿＿友だちに会います。", "hint": "Cumartesi arkadaşımla buluşurum.", "promptReading": "どようび＿＿ともだちにあいます。", "choices": ["に", "が", "は", "も"], "answer": "に" }
     ]
   },
   {
@@ -134,8 +134,8 @@
       { "japanese": "田中さんも来ます。", "hiragana": "たなかさんもきます。", "romaji": "Tanaka-san mo kimasu.", "turkish": "Tanaka da geliyor." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "A: 私は日本人です。 B: 私＿＿日本人です。", "hint": "Ben de Japon'um.", "choices": ["も", "は", "を", "に"], "answer": "も" },
-      { "kind": "multipleChoice", "prompt": "「パンも食べます」 ne demek?", "hint": null, "choices": ["Ekmek de yerim", "Sadece ekmek yerim", "Ekmek yemem", "Ekmek isterim"], "answer": "Ekmek de yerim" },
+      { "kind": "fillBlank", "prompt": "A: 私は日本人です。 B: 私＿＿日本人です。", "hint": "Ben de Japon'um.", "promptReading": "A: わたしはにほんじんです。 B: わたし＿＿にほんじんです。", "choices": ["も", "は", "を", "に"], "answer": "も" },
+      { "kind": "multipleChoice", "prompt": "「パンも食べます」 ne demek?", "hint": null, "promptReading": "「パンもたべます」 ne demek?", "choices": ["Ekmek de yerim", "Sadece ekmek yerim", "Ekmek yemem", "Ekmek isterim"], "answer": "Ekmek de yerim" },
       { "kind": "wordOrder", "prompt": "O da öğretmen.", "hint": "あの人 / も / 先生 / です", "choices": ["あの人", "も", "先生", "です"], "answer": "あの人も先生です", "answerTokens": ["あの人", "も", "先生", "です"] }
     ]
   },
@@ -154,9 +154,9 @@
       { "japanese": "これは田中さんのかばんです。", "hiragana": "これはたなかさんのかばんです。", "romaji": "kore wa Tanaka-san no kaban desu.", "turkish": "Bu Tanaka'nın çantası." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "これは友だち＿＿車です。", "hint": "Bu arkadaşımın arabası.", "choices": ["の", "は", "を", "で"], "answer": "の" },
+      { "kind": "fillBlank", "prompt": "これは友だち＿＿車です。", "hint": "Bu arkadaşımın arabası.", "promptReading": "これはともだち＿＿くるまです。", "choices": ["の", "は", "を", "で"], "answer": "の" },
       { "kind": "wordOrder", "prompt": "Bu benim telefonum.", "hint": "これ / は / 私 / の / 電話 / です", "choices": ["これ", "は", "私", "の", "電話", "です"], "answer": "これは私の電話です", "answerTokens": ["これ", "は", "私", "の", "電話", "です"] },
-      { "kind": "multipleChoice", "prompt": "「アメリカの映画」 ne demek?", "hint": null, "choices": ["Amerikan filmi", "Amerika'ya film", "Filmli Amerika", "Amerika film izler"], "answer": "Amerikan filmi" }
+      { "kind": "multipleChoice", "prompt": "「アメリカの映画」 ne demek?", "hint": null, "promptReading": "「アメリカのえいが」 ne demek?", "choices": ["Amerikan filmi", "Amerika'ya film", "Filmli Amerika", "Amerika film izler"], "answer": "Amerikan filmi" }
     ]
   },
   {
@@ -174,8 +174,8 @@
       { "japanese": "教室に学生がいます。", "hiragana": "きょうしつにがくせいがいます。", "romaji": "kyoushitsu ni gakusei ga imasu.", "turkish": "Sınıfta öğrenciler var." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "部屋にテレビ＿＿あります。", "hint": "Odada televizyon var.", "choices": ["が", "を", "は", "で"], "answer": "が" },
-      { "kind": "fillBlank", "prompt": "庭に猫が＿＿。", "hint": "Bahçede bir kedi var.", "choices": ["います", "あります", "です", "します"], "answer": "います" },
+      { "kind": "fillBlank", "prompt": "部屋にテレビ＿＿あります。", "hint": "Odada televizyon var.", "promptReading": "へやにテレビ＿＿あります。", "choices": ["が", "を", "は", "で"], "answer": "が" },
+      { "kind": "fillBlank", "prompt": "庭に猫が＿＿。", "hint": "Bahçede bir kedi var.", "promptReading": "にわにねこが＿＿。", "choices": ["います", "あります", "です", "します"], "answer": "います" },
       { "kind": "multipleChoice", "prompt": "Hangisi doğru?", "hint": null, "choices": ["いすの下に本があります", "いすの下に本がいます", "いすの下で本があります", "いすの下を本があります"], "answer": "いすの下に本があります" }
     ]
   },
@@ -195,8 +195,8 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「きのう」 (dün) ile hangi çekim uyar: 映画を見＿＿", "hint": null, "choices": ["ました", "ます", "ません", "ましょう"], "answer": "ました" },
-      { "kind": "fillBlank", "prompt": "今日は雨です。だから、どこも行き＿＿。", "hint": "Bugün yağmurlu, o yüzden hiçbir yere gitmiyorum.", "choices": ["ません", "ます", "ました", "ましょう"], "answer": "ません" },
-      { "kind": "multipleChoice", "prompt": "「食べませんでした」 ne demek?", "hint": null, "choices": ["Yemedim", "Yemem", "Yiyeceğim", "Yiyelim"], "answer": "Yemedim" }
+      { "kind": "fillBlank", "prompt": "今日は雨です。だから、どこも行き＿＿。", "hint": "Bugün yağmurlu, o yüzden hiçbir yere gitmiyorum.", "promptReading": "きょうはあめです。だから、どこもいき＿＿。", "choices": ["ません", "ます", "ました", "ましょう"], "answer": "ません" },
+      { "kind": "multipleChoice", "prompt": "「食べませんでした」 ne demek?", "hint": null, "promptReading": "「たべませんでした」 ne demek?", "choices": ["Yemedim", "Yemem", "Yiyeceğim", "Yiyelim"], "answer": "Yemedim" }
     ]
   },
   {
@@ -214,8 +214,8 @@
       { "japanese": "もう一度言ってください。", "hiragana": "もういちどいってください。", "romaji": "mou ichido itte kudasai.", "turkish": "Lütfen bir daha söyleyin." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "すみません、写真を撮って＿＿。", "hint": "Affedersiniz, lütfen fotoğraf çekin.", "choices": ["ください", "います", "ました", "ましょう"], "answer": "ください" },
-      { "kind": "multipleChoice", "prompt": "「座ってください」 ne demek?", "hint": null, "choices": ["Lütfen oturun", "Oturmayın", "Oturdum", "Oturalım"], "answer": "Lütfen oturun" },
+      { "kind": "fillBlank", "prompt": "すみません、写真を撮って＿＿。", "hint": "Affedersiniz, lütfen fotoğraf çekin.", "promptReading": "すみません、しゃしんをとって＿＿。", "choices": ["ください", "います", "ました", "ましょう"], "answer": "ください" },
+      { "kind": "multipleChoice", "prompt": "「座ってください」 ne demek?", "hint": null, "promptReading": "「すわってください」 ne demek?", "choices": ["Lütfen oturun", "Oturmayın", "Oturdum", "Oturalım"], "answer": "Lütfen oturun" },
       { "kind": "wordOrder", "prompt": "Lütfen kapıyı açın.", "hint": "ドア / を / 開けて / ください", "choices": ["ドア", "を", "開けて", "ください"], "answer": "ドアを開けてください", "answerTokens": ["ドア", "を", "開けて", "ください"] }
     ]
   },
@@ -234,8 +234,8 @@
       { "japanese": "姉は銀行で働いています。", "hiragana": "あねはぎんこうではたらいています。", "romaji": "ane wa ginkou de hataraite imasu.", "turkish": "Ablam bankada çalışıyor." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "父は今、テレビを見て＿＿。", "hint": "Babam şu an televizyon izliyor.", "choices": ["います", "ください", "ました", "ません"], "answer": "います" },
-      { "kind": "multipleChoice", "prompt": "「日本語を勉強しています」 hangi anlamı verMEZ?", "hint": null, "choices": ["Japonca çalışacağım (gelecek)", "Şu an Japonca çalışıyorum", "Bir süredir Japonca çalışıyorum", "Japonca öğreniyorum"], "answer": "Japonca çalışacağım (gelecek)" },
+      { "kind": "fillBlank", "prompt": "父は今、テレビを見て＿＿。", "hint": "Babam şu an televizyon izliyor.", "promptReading": "ちちはいま、テレビをみて＿＿。", "choices": ["います", "ください", "ました", "ません"], "answer": "います" },
+      { "kind": "multipleChoice", "prompt": "「日本語を勉強しています」 hangi anlamı verMEZ?", "hint": null, "promptReading": "「にほんごをべんきょうしています」 hangi anlamı verMEZ?", "choices": ["Japonca çalışacağım (gelecek)", "Şu an Japonca çalışıyorum", "Bir süredir Japonca çalışıyorum", "Japonca öğreniyorum"], "answer": "Japonca çalışacağım (gelecek)" },
       { "kind": "wordOrder", "prompt": "Osaka'da yaşıyorum.", "hint": "大阪 / に / 住んで / います", "choices": ["大阪", "に", "住んで", "います"], "answer": "大阪に住んでいます", "answerTokens": ["大阪", "に", "住んで", "います"] }
     ]
   },
@@ -254,9 +254,9 @@
       { "japanese": "今日は何もしたくないです。", "hiragana": "きょうはなにもしたくないです。", "romaji": "kyou wa nani mo shitakunai desu.", "turkish": "Bugün hiçbir şey yapmak istemiyorum." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "つかれました。少し休み＿＿です。", "hint": "Yoruldum. Biraz dinlenmek istiyorum.", "choices": ["たい", "ます", "てください", "ています"], "answer": "たい" },
-      { "kind": "multipleChoice", "prompt": "「寿司が食べたいです」 ne demek?", "hint": null, "choices": ["Suşi yemek istiyorum", "Suşi yiyorum", "Suşi yedim", "Suşi yeme"], "answer": "Suşi yemek istiyorum" },
-      { "kind": "multipleChoice", "prompt": "「行きたくないです」 ne demek?", "hint": null, "choices": ["Gitmek istemiyorum", "Gitmek istiyorum", "Gitmedim", "Gidelim"], "answer": "Gitmek istemiyorum" }
+      { "kind": "fillBlank", "prompt": "つかれました。少し休み＿＿です。", "hint": "Yoruldum. Biraz dinlenmek istiyorum.", "promptReading": "つかれました。すこしやすみ＿＿です。", "choices": ["たい", "ます", "てください", "ています"], "answer": "たい" },
+      { "kind": "multipleChoice", "prompt": "「寿司が食べたいです」 ne demek?", "hint": null, "promptReading": "「すしがたべたいです」 ne demek?", "choices": ["Suşi yemek istiyorum", "Suşi yiyorum", "Suşi yedim", "Suşi yeme"], "answer": "Suşi yemek istiyorum" },
+      { "kind": "multipleChoice", "prompt": "「行きたくないです」 ne demek?", "hint": null, "promptReading": "「いきたくないです」 ne demek?", "choices": ["Gitmek istemiyorum", "Gitmek istiyorum", "Gitmedim", "Gidelim"], "answer": "Gitmek istemiyorum" }
     ]
   },
   {
@@ -274,8 +274,8 @@
       { "japanese": "ちょっと休みましょう。", "hiragana": "ちょっとやすみましょう。", "romaji": "chotto yasumimashou.", "turkish": "Biraz dinlenelim." }
     ],
     "questions": [
-      { "kind": "multipleChoice", "prompt": "「コーヒーを飲みませんか」 ne demek?", "hint": null, "choices": ["Kahve içmez misiniz? (davet)", "Kahve içmiyor musun? (kızgın)", "Kahve içmedim", "Kahve içeceğim"], "answer": "Kahve içmez misiniz? (davet)" },
-      { "kind": "fillBlank", "prompt": "つかれましたね。少し休み＿＿。", "hint": "Yorulduk, değil mi? Biraz dinlenelim.", "choices": ["ましょう", "ました", "ません", "たい"], "answer": "ましょう" },
+      { "kind": "multipleChoice", "prompt": "「コーヒーを飲みませんか」 ne demek?", "hint": null, "promptReading": "「コーヒーをのみませんか」 ne demek?", "choices": ["Kahve içmez misiniz? (davet)", "Kahve içmiyor musun? (kızgın)", "Kahve içmedim", "Kahve içeceğim"], "answer": "Kahve içmez misiniz? (davet)" },
+      { "kind": "fillBlank", "prompt": "つかれましたね。少し休み＿＿。", "hint": "Yorulduk, değil mi? Biraz dinlenelim.", "promptReading": "つかれましたね。すこしやすみ＿＿。", "choices": ["ましょう", "ました", "ません", "たい"], "answer": "ましょう" },
       { "kind": "wordOrder", "prompt": "Birlikte gidelim.", "hint": "一緒に / 行き / ましょう", "choices": ["一緒に", "行き", "ましょう"], "answer": "一緒に行きましょう", "answerTokens": ["一緒に", "行き", "ましょう"] }
     ]
   },
@@ -294,9 +294,9 @@
       { "japanese": "この本は高くないです。", "hiragana": "このほんはたかくないです。", "romaji": "kono hon wa takakunai desu.", "turkish": "Bu kitap pahalı değil." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "きれい＿＿部屋ですね。", "hint": "Temiz bir oda, değil mi?", "choices": ["な", "い", "の", "を"], "answer": "な" },
+      { "kind": "fillBlank", "prompt": "きれい＿＿部屋ですね。", "hint": "Temiz bir oda, değil mi?", "promptReading": "きれい＿＿へやですね。", "choices": ["な", "い", "の", "を"], "answer": "な" },
       { "kind": "multipleChoice", "prompt": "Hangisi doğru?", "hint": null, "choices": ["小さいかばん", "小さいなかばん", "小さなのかばん", "かばん小さい"], "answer": "小さいかばん" },
-      { "kind": "multipleChoice", "prompt": "「この店は有名じゃありません」 ne demek?", "hint": null, "choices": ["Bu dükkân ünlü değil", "Bu dükkân ünlü", "Bu dükkân yeni", "Bu dükkân kapalı"], "answer": "Bu dükkân ünlü değil" }
+      { "kind": "multipleChoice", "prompt": "「この店は有名じゃありません」 ne demek?", "hint": null, "promptReading": "「このみせはゆうめいじゃありません」 ne demek?", "choices": ["Bu dükkân ünlü değil", "Bu dükkân ünlü", "Bu dükkân yeni", "Bu dükkân kapalı"], "answer": "Bu dükkân ünlü değil" }
     ]
   },
   {
@@ -314,8 +314,8 @@
       { "japanese": "あした試験があるから、今日は勉強します。", "hiragana": "あしたしけんがあるから、きょうはべんきょうします。", "romaji": "ashita shiken ga aru kara, kyou wa benkyou shimasu.", "turkish": "Yarın sınavım olduğu için bugün çalışıyorum." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "あたまがいたい＿＿、うちに帰ります。", "hint": "Başım ağrıdığı için eve dönüyorum.", "choices": ["から", "でも", "が", "と"], "answer": "から" },
-      { "kind": "multipleChoice", "prompt": "「高いから、買いません」 ne demek?", "hint": null, "choices": ["Pahalı olduğu için almıyorum", "Pahalı ama alıyorum", "Ucuz olduğu için alıyorum", "Pahalı mı diye soruyorum"], "answer": "Pahalı olduğu için almıyorum" },
+      { "kind": "fillBlank", "prompt": "あたまがいたい＿＿、うちに帰ります。", "hint": "Başım ağrıdığı için eve dönüyorum.", "promptReading": "あたまがいたい＿＿、うちにかえります。", "choices": ["から", "でも", "が", "と"], "answer": "から" },
+      { "kind": "multipleChoice", "prompt": "「高いから、買いません」 ne demek?", "hint": null, "promptReading": "「たかいから、かいません」 ne demek?", "choices": ["Pahalı olduğu için almıyorum", "Pahalı ama alıyorum", "Ucuz olduğu için alıyorum", "Pahalı mı diye soruyorum"], "answer": "Pahalı olduğu için almıyorum" },
       { "kind": "wordOrder", "prompt": "Meşgul olduğum için gitmiyorum.", "hint": "いそがしい / から / 行きません", "choices": ["いそがしい", "から", "行きません"], "answer": "いそがしいから行きません", "answerTokens": ["いそがしい", "から", "行きません"] }
     ]
   },
@@ -334,9 +334,9 @@
       { "japanese": "私は犬が好きです。", "hiragana": "わたしはいぬがすきです。", "romaji": "watashi wa inu ga suki desu.", "turkish": "Ben köpekleri severim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "だれ＿＿この本を書きましたか。", "hint": "Bu kitabı kim yazdı?", "choices": ["が", "は", "を", "に"], "answer": "が" },
-      { "kind": "multipleChoice", "prompt": "「私は日本語＿＿わかります」 boşluğa ne gelir?", "hint": null, "choices": ["が", "を", "は", "で"], "answer": "が" },
-      { "kind": "multipleChoice", "prompt": "「猫がいます」 ne demek?", "hint": null, "choices": ["Bir kedi var", "Kedi yok", "Kedi geldi", "Kedileri severim"], "answer": "Bir kedi var" }
+      { "kind": "fillBlank", "prompt": "だれ＿＿この本を書きましたか。", "hint": "Bu kitabı kim yazdı?", "promptReading": "だれ＿＿このほんをかきましたか。", "choices": ["が", "は", "を", "に"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「私は日本語＿＿わかります」 boşluğa ne gelir?", "hint": null, "promptReading": "「わたしはにほんご＿＿わかります」 boşluğa ne gelir?", "choices": ["が", "を", "は", "で"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「猫がいます」 ne demek?", "hint": null, "promptReading": "「ねこがいます」 ne demek?", "choices": ["Bir kedi var", "Kedi yok", "Kedi geldi", "Kedileri severim"], "answer": "Bir kedi var" }
     ]
   },
   {
@@ -355,7 +355,7 @@
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "コーヒー＿＿ケーキをください。", "hint": "Kahve ve pasta alayım.", "choices": ["と", "も", "を", "で"], "answer": "と" },
-      { "kind": "fillBlank", "prompt": "きのう先生＿＿会いました。", "hint": "Dün öğretmenle buluştum.", "choices": ["と", "を", "が", "へ"], "answer": "と" },
+      { "kind": "fillBlank", "prompt": "きのう先生＿＿会いました。", "hint": "Dün öğretmenle buluştum.", "promptReading": "きのうせんせい＿＿あいました。", "choices": ["と", "を", "が", "へ"], "answer": "と" },
       { "kind": "wordOrder", "prompt": "Kardeşimle oyun oynarım.", "hint": "弟 / と / ゲーム / を / します", "choices": ["弟", "と", "ゲーム", "を", "します"], "answer": "弟とゲームをします", "answerTokens": ["弟", "と", "ゲーム", "を", "します"] }
     ]
   },
@@ -374,9 +374,9 @@
       { "japanese": "京都や大阪へ行きました。", "hiragana": "きょうとやおおさかへいきました。", "romaji": "Kyouto ya Oosaka e ikimashita.", "turkish": "Kyoto, Osaka gibi yerlere gittim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "かばんの中にさいふ＿＿かぎがあります。", "hint": "Çantada cüzdan, anahtar gibi şeyler var.", "choices": ["や", "と", "を", "へ"], "answer": "や" },
+      { "kind": "fillBlank", "prompt": "かばんの中にさいふ＿＿かぎがあります。", "hint": "Çantada cüzdan, anahtar gibi şeyler var.", "promptReading": "かばんのなかにさいふ＿＿かぎがあります。", "choices": ["や", "と", "を", "へ"], "answer": "や" },
       { "kind": "multipleChoice", "prompt": "「や」 ile 「と」 arasındaki fark nedir?", "hint": null, "choices": ["や eksik liste, と tam liste", "İkisi aynı", "や sadece kişiler için", "と sadece yerler için"], "answer": "や eksik liste, と tam liste" },
-      { "kind": "multipleChoice", "prompt": "「ノートやえんぴつなどを買います」 ne demek?", "hint": null, "choices": ["Defter, kalem gibi şeyler alırım", "Sadece defter alırım", "Defter alamam", "Defterle kalem aynı"], "answer": "Defter, kalem gibi şeyler alırım" }
+      { "kind": "multipleChoice", "prompt": "「ノートやえんぴつなどを買います」 ne demek?", "hint": null, "promptReading": "「ノートやえんぴつなどをかいます」 ne demek?", "choices": ["Defter, kalem gibi şeyler alırım", "Sadece defter alırım", "Defter alamam", "Defterle kalem aynı"], "answer": "Defter, kalem gibi şeyler alırım" }
     ]
   },
   {
@@ -414,8 +414,8 @@
       { "japanese": "ペンかえんぴつで書いてください。", "hiragana": "ぺんかえんぴつでかいてください。", "romaji": "pen ka enpitsu de kaite kudasai.", "turkish": "Ya kalemle ya kurşun kalemle yazın." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "バス＿＿電車で行きます。", "hint": "Ya otobüsle ya trenle giderim.", "choices": ["か", "と", "や", "も"], "answer": "か" },
-      { "kind": "multipleChoice", "prompt": "「肉か魚を食べます」 ne demek?", "hint": null, "choices": ["Ya et ya balık yerim", "Hem et hem balık yerim", "Et de balık da yemem", "Etle balık aynı"], "answer": "Ya et ya balık yerim" },
+      { "kind": "fillBlank", "prompt": "バス＿＿電車で行きます。", "hint": "Ya otobüsle ya trenle giderim.", "promptReading": "バス＿＿でんしゃでいきます。", "choices": ["か", "と", "や", "も"], "answer": "か" },
+      { "kind": "multipleChoice", "prompt": "「肉か魚を食べます」 ne demek?", "hint": null, "promptReading": "「にくかさかなをたべます」 ne demek?", "choices": ["Ya et ya balık yerim", "Hem et hem balık yerim", "Et de balık da yemem", "Etle balık aynı"], "answer": "Ya et ya balık yerim" },
       { "kind": "wordOrder", "prompt": "Ya bugün ya yarın.", "hint": "今日 / か / あした", "choices": ["今日", "か", "あした"], "answer": "今日かあした", "answerTokens": ["今日", "か", "あした"] }
     ]
   },
@@ -434,8 +434,8 @@
       { "japanese": "月曜日から金曜日まで学校があります。", "hiragana": "げつようびからきんようびまでがっこうがあります。", "romaji": "getsuyoubi kara kinyoubi made gakkou ga arimasu.", "turkish": "Pazartesiden cumaya kadar okul var." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "9時から6時＿＿会社にいます。", "hint": "9'dan 6'ya kadar iş yerindeyim.", "choices": ["まで", "から", "に", "で"], "answer": "まで" },
-      { "kind": "fillBlank", "prompt": "うち＿＿バスで帰ります。", "hint": "Eve kadar otobüsle dönerim.", "choices": ["まで", "でも", "しか", "だけ"], "answer": "まで" },
+      { "kind": "fillBlank", "prompt": "9時から6時＿＿会社にいます。", "hint": "9'dan 6'ya kadar iş yerindeyim.", "promptReading": "9じから6じ＿＿かいしゃにいます。", "choices": ["まで", "から", "に", "で"], "answer": "まで" },
+      { "kind": "fillBlank", "prompt": "うち＿＿バスで帰ります。", "hint": "Eve kadar otobüsle dönerim.", "promptReading": "うち＿＿バスでかえります。", "choices": ["まで", "でも", "しか", "だけ"], "answer": "まで" },
       { "kind": "multipleChoice", "prompt": "「夜まで」 ne demek?", "hint": null, "choices": ["Geceye kadar", "Geceden beri", "Gece için", "Gece hariç"], "answer": "Geceye kadar" }
     ]
   },
@@ -454,8 +454,8 @@
       { "japanese": "家から駅まで10分です。", "hiragana": "いえからえきまでじゅっぷんです。", "romaji": "ie kara eki made juppun desu.", "turkish": "Evden istasyona 10 dakika." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "銀行は何時＿＿ですか。", "hint": "Banka saat kaçtan itibaren açık?", "choices": ["から", "まで", "に", "で"], "answer": "から" },
-      { "kind": "fillBlank", "prompt": "田中さん＿＿電話がありました。", "hint": "Tanaka'dan telefon geldi.", "choices": ["から", "まで", "へ", "を"], "answer": "から" },
+      { "kind": "fillBlank", "prompt": "銀行は何時＿＿ですか。", "hint": "Banka saat kaçtan itibaren açık?", "promptReading": "ぎんこうはなんじ＿＿ですか。", "choices": ["から", "まで", "に", "で"], "answer": "から" },
+      { "kind": "fillBlank", "prompt": "田中さん＿＿電話がありました。", "hint": "Tanaka'dan telefon geldi.", "promptReading": "たなかさん＿＿でんわがありました。", "choices": ["から", "まで", "へ", "を"], "answer": "から" },
       { "kind": "multipleChoice", "prompt": "「うちから」 ne demek?", "hint": null, "choices": ["Evden", "Eve", "Evde", "Ev için"], "answer": "Evden" }
     ]
   },
@@ -474,7 +474,7 @@
       { "japanese": "日曜日だけ休みます。", "hiragana": "にちようびだけやすみます。", "romaji": "nichiyoubi dake yasumimasu.", "turkish": "Sadece pazar dinlenirim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "少し＿＿食べました。", "hint": "Sadece biraz yedim.", "choices": ["だけ", "まで", "から", "と"], "answer": "だけ" },
+      { "kind": "fillBlank", "prompt": "少し＿＿食べました。", "hint": "Sadece biraz yedim.", "promptReading": "すこし＿＿たべました。", "choices": ["だけ", "まで", "から", "と"], "answer": "だけ" },
       { "kind": "multipleChoice", "prompt": "「これだけです」 ne demek?", "hint": null, "choices": ["Sadece bu kadar", "Bu hariç hepsi", "Bu değil", "Çok var"], "answer": "Sadece bu kadar" },
       { "kind": "wordOrder", "prompt": "Sadece Japonca konuşuyorum.", "hint": "日本語 / だけ / 話します", "choices": ["日本語", "だけ", "話します"], "answer": "日本語だけ話します", "answerTokens": ["日本語", "だけ", "話します"] }
     ]
@@ -495,7 +495,7 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「おいしいですね」 ne anlatır?", "hint": null, "choices": ["Onay bekler: lezzetli, değil mi?", "Emir verir", "Soru sorar: lezzetli mi?", "Olumsuzdur"], "answer": "Onay bekler: lezzetli, değil mi?" },
-      { "kind": "fillBlank", "prompt": "きょうは寒いです＿＿。", "hint": "Bugün soğuk, değil mi?", "choices": ["ね", "か", "を", "が"], "answer": "ね" },
+      { "kind": "fillBlank", "prompt": "きょうは寒いです＿＿。", "hint": "Bugün soğuk, değil mi?", "promptReading": "きょうはさむいです＿＿。", "choices": ["ね", "か", "を", "が"], "answer": "ね" },
       { "kind": "multipleChoice", "prompt": "「ね」 kimin bilgisini paylaştığını varsayar?", "hint": null, "choices": ["Hem konuşanın hem dinleyenin", "Sadece konuşanın", "Sadece dinleyenin", "Kimsenin"], "answer": "Hem konuşanın hem dinleyenin" }
     ]
   },
@@ -515,8 +515,8 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「ね」 ile 「よ」 farkı nedir?", "hint": null, "choices": ["よ yeni bilgi verir, ね onay arar", "İkisi aynı", "よ soru yapar", "ね geçmiş zaman yapar"], "answer": "よ yeni bilgi verir, ね onay arar" },
-      { "kind": "fillBlank", "prompt": "気をつけて。車が来ます＿＿。", "hint": "Dikkat et. Araba geliyor, bak!", "choices": ["よ", "ね", "か", "の"], "answer": "よ" },
-      { "kind": "multipleChoice", "prompt": "「この店は安いですよ」 ne anlatır?", "hint": null, "choices": ["Dinleyenin bilmediği bir bilgiyi vurgular", "Dinleyenle aynı fikirde olduğunu varsayar", "Soru sorar", "Emir verir"], "answer": "Dinleyenin bilmediği bir bilgiyi vurgular" }
+      { "kind": "fillBlank", "prompt": "気をつけて。車が来ます＿＿。", "hint": "Dikkat et. Araba geliyor, bak!", "promptReading": "きをつけて。くるまがきます＿＿。", "choices": ["よ", "ね", "か", "の"], "answer": "よ" },
+      { "kind": "multipleChoice", "prompt": "「この店は安いですよ」 ne anlatır?", "hint": null, "promptReading": "「このみせはやすいですよ」 ne anlatır?", "choices": ["Dinleyenin bilmediği bir bilgiyi vurgular", "Dinleyenle aynı fikirde olduğunu varsayar", "Soru sorar", "Emir verir"], "answer": "Dinleyenin bilmediği bir bilgiyi vurgular" }
     ]
   },
   {
@@ -535,8 +535,8 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「なあ」 kime yöneliktir?", "hint": null, "choices": ["Konuşanın kendi duygusuna", "Dinleyene soru olarak", "Bir emir olarak", "Resmî bir sunuma"], "answer": "Konuşanın kendi duygusuna" },
-      { "kind": "multipleChoice", "prompt": "「行きたいなあ」 ne demek?", "hint": null, "choices": ["Keşke gidebilsem ya", "Gitme", "Gitti mi?", "Gidelim mi?"], "answer": "Keşke gidebilsem ya" },
-      { "kind": "fillBlank", "prompt": "今日は疲れた＿＿。", "hint": "Bugün çok yoruldum ya.", "choices": ["なあ", "か", "を", "へ"], "answer": "なあ" }
+      { "kind": "multipleChoice", "prompt": "「行きたいなあ」 ne demek?", "hint": null, "promptReading": "「いきたいなあ」 ne demek?", "choices": ["Keşke gidebilsem ya", "Gitme", "Gitti mi?", "Gidelim mi?"], "answer": "Keşke gidebilsem ya" },
+      { "kind": "fillBlank", "prompt": "今日は疲れた＿＿。", "hint": "Bugün çok yoruldum ya.", "promptReading": "きょうはつかれた＿＿。", "choices": ["なあ", "か", "を", "へ"], "answer": "なあ" }
     ]
   },
   {
@@ -554,7 +554,7 @@
       { "japanese": "ご家族は元気ですか。", "hiragana": "ごかぞくはげんきですか。", "romaji": "gokazoku wa genki desu ka.", "turkish": "Aileniz iyi mi?" }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "＿＿名前を教えてください。", "hint": "Adınızı söyler misiniz? (kibar)", "choices": ["お", "ご", "を", "に"], "answer": "お" },
+      { "kind": "fillBlank", "prompt": "＿＿名前を教えてください。", "hint": "Adınızı söyler misiniz? (kibar)", "promptReading": "＿＿なまえをおしえてください。", "choices": ["お", "ご", "を", "に"], "answer": "お" },
       { "kind": "multipleChoice", "prompt": "「ご」 genelde ne tür sözcüklerle kullanılır?", "hint": null, "choices": ["Çince kökenli sözcüklerle", "Sadece fiillerle", "Sadece sayılarla", "Yabancı sözcüklerle"], "answer": "Çince kökenli sözcüklerle" },
       { "kind": "multipleChoice", "prompt": "Hangisi doğru?", "hint": null, "choices": ["お金", "ご金", "お家族", "を茶"], "answer": "お金" }
     ]
@@ -576,7 +576,7 @@
     "questions": [
       { "kind": "multipleChoice", "prompt": "「食べる」 fiilinin yalın olumsuzu nedir?", "hint": null, "choices": ["食べない", "食べます", "食べた", "食べて"], "answer": "食べない" },
       { "kind": "multipleChoice", "prompt": "「行く」 → yalın olumsuz?", "hint": null, "choices": ["行かない", "行きない", "行くない", "行けない"], "answer": "行かない" },
-      { "kind": "fillBlank", "prompt": "お金がないから、何も買わ＿＿。", "hint": "Param yok, o yüzden hiçbir şey almam.", "choices": ["ない", "ます", "たい", "ました"], "answer": "ない" }
+      { "kind": "fillBlank", "prompt": "お金がないから、何も買わ＿＿。", "hint": "Param yok, o yüzden hiçbir şey almam.", "promptReading": "おかねがないから、なにもかわ＿＿。", "choices": ["ない", "ます", "たい", "ました"], "answer": "ない" }
     ]
   },
   {
@@ -595,8 +595,8 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「飲む」 → yalın geçmiş?", "hint": null, "choices": ["飲んだ", "飲みた", "飲むた", "飲んた"], "answer": "飲んだ" },
-      { "kind": "multipleChoice", "prompt": "「見ました」 nın yalın hali nedir?", "hint": null, "choices": ["見た", "見て", "見ない", "見る"], "answer": "見た" },
-      { "kind": "fillBlank", "prompt": "きのうは早く寝＿＿。", "hint": "Dün erken yattım.", "choices": ["た", "る", "ない", "ます"], "answer": "た" }
+      { "kind": "multipleChoice", "prompt": "「見ました」 nın yalın hali nedir?", "hint": null, "promptReading": "「みました」 nın yalın hali nedir?", "choices": ["見た", "見て", "見ない", "見る"], "answer": "見た" },
+      { "kind": "fillBlank", "prompt": "きのうは早く寝＿＿。", "hint": "Dün erken yattım.", "promptReading": "きのうははやくね＿＿。", "choices": ["た", "る", "ない", "ます"], "answer": "た" }
     ]
   },
   {
@@ -615,7 +615,7 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「書く」 → te-biçimi?", "hint": null, "choices": ["書いて", "書きて", "書くて", "書けて"], "answer": "書いて" },
-      { "kind": "multipleChoice", "prompt": "「起きて、食べます」 ne demek?", "hint": null, "choices": ["Kalkıp yerim", "Kalkmadan yerim", "Yiyip kalkarım", "Kalkarken yerim"], "answer": "Kalkıp yerim" },
+      { "kind": "multipleChoice", "prompt": "「起きて、食べます」 ne demek?", "hint": null, "promptReading": "「おきて、たべます」 ne demek?", "choices": ["Kalkıp yerim", "Kalkmadan yerim", "Yiyip kalkarım", "Kalkarken yerim"], "answer": "Kalkıp yerim" },
       { "kind": "wordOrder", "prompt": "Eve dönüp uyudum.", "hint": "家 / に / 帰って / 寝ました", "choices": ["家", "に", "帰って", "寝ました"], "answer": "家に帰って寝ました", "answerTokens": ["家", "に", "帰って", "寝ました"] }
     ]
   },
@@ -634,8 +634,8 @@
       { "japanese": "日本に来てから、3年になります。", "hiragana": "にほんにきてから、さんねんになります。", "romaji": "Nihon ni kite kara, san-nen ni narimasu.", "turkish": "Japonya'ya geldikten sonra 3 yıl oldu." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "映画を見て＿＿、レストランに行きました。", "hint": "Film izledikten sonra restorana gittik.", "choices": ["から", "まで", "ながら", "ので"], "answer": "から" },
-      { "kind": "multipleChoice", "prompt": "「食べてから」 ne demek?", "hint": null, "choices": ["Yedikten sonra", "Yemeden önce", "Yerken", "Yediği için"], "answer": "Yedikten sonra" },
+      { "kind": "fillBlank", "prompt": "映画を見て＿＿、レストランに行きました。", "hint": "Film izledikten sonra restorana gittik.", "promptReading": "えいがをみて＿＿、レストランにいきました。", "choices": ["から", "まで", "ながら", "ので"], "answer": "から" },
+      { "kind": "multipleChoice", "prompt": "「食べてから」 ne demek?", "hint": null, "promptReading": "「たべてから」 ne demek?", "choices": ["Yedikten sonra", "Yemeden önce", "Yerken", "Yediği için"], "answer": "Yedikten sonra" },
       { "kind": "wordOrder", "prompt": "Ders çalıştıktan sonra uyudum.", "hint": "勉強して / から / 寝ました", "choices": ["勉強して", "から", "寝ました"], "answer": "勉強してから寝ました", "answerTokens": ["勉強して", "から", "寝ました"] }
     ]
   },
@@ -654,9 +654,9 @@
       { "japanese": "ドアが開けてあります。", "hiragana": "どあがあけてあります。", "romaji": "doa ga akete arimasu.", "turkish": "Kapı açık bırakılmış." }
     ],
     "questions": [
-      { "kind": "multipleChoice", "prompt": "「窓が開けてあります」 ne demek?", "hint": null, "choices": ["Pencere (biri tarafından) açık bırakılmış", "Pencere kendiliğinden açıldı", "Pencereyi açıyorum", "Pencere kapalı"], "answer": "Pencere (biri tarafından) açık bırakılmış" },
+      { "kind": "multipleChoice", "prompt": "「窓が開けてあります」 ne demek?", "hint": null, "promptReading": "「まどがあけてあります」 ne demek?", "choices": ["Pencere (biri tarafından) açık bırakılmış", "Pencere kendiliğinden açıldı", "Pencereyi açıyorum", "Pencere kapalı"], "answer": "Pencere (biri tarafından) açık bırakılmış" },
       { "kind": "multipleChoice", "prompt": "「てある」 hangi fiillerle kullanılır?", "hint": null, "choices": ["Geçişli fiillerle", "Geçişsiz fiillerle", "Sadece する ile", "Sadece 来る ile"], "answer": "Geçişli fiillerle" },
-      { "kind": "fillBlank", "prompt": "ノートに名前が書いて＿＿。", "hint": "Deftere isim yazılmış.", "choices": ["あります", "います", "おきます", "みます"], "answer": "あります" }
+      { "kind": "fillBlank", "prompt": "ノートに名前が書いて＿＿。", "hint": "Deftere isim yazılmış.", "promptReading": "ノートになまえがかいて＿＿。", "choices": ["あります", "います", "おきます", "みます"], "answer": "あります" }
     ]
   },
   {
@@ -674,8 +674,8 @@
       { "japanese": "この川で泳いではいけない。", "hiragana": "このかわでおよいではいけない。", "romaji": "kono kawa de oyoide wa ikenai.", "turkish": "Bu nehirde yüzmek yasak." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "ここに車を止めて＿＿。", "hint": "Buraya araba park etmek yasak.", "choices": ["はいけません", "もいいです", "ください", "います"], "answer": "はいけません" },
-      { "kind": "multipleChoice", "prompt": "「食べてはいけません」 ne demek?", "hint": null, "choices": ["Yemek yasak", "Yiyebilirsin", "Yemelisin", "Yedin mi?"], "answer": "Yemek yasak" },
+      { "kind": "fillBlank", "prompt": "ここに車を止めて＿＿。", "hint": "Buraya araba park etmek yasak.", "promptReading": "ここにくるまをとめて＿＿。", "choices": ["はいけません", "もいいです", "ください", "います"], "answer": "はいけません" },
+      { "kind": "multipleChoice", "prompt": "「食べてはいけません」 ne demek?", "hint": null, "promptReading": "「たべてはいけません」 ne demek?", "choices": ["Yemek yasak", "Yiyebilirsin", "Yemelisin", "Yedin mi?"], "answer": "Yemek yasak" },
       { "kind": "multipleChoice", "prompt": "「てはいけない」 konuşmada neye kısalır?", "hint": null, "choices": ["ちゃいけない", "てもいい", "ています", "てから"], "answer": "ちゃいけない" }
     ]
   },
@@ -694,8 +694,8 @@
       { "japanese": "鉛筆で書いてもいいです。", "hiragana": "えんぴつでかいてもいいです。", "romaji": "enpitsu de kaite mo ii desu.", "turkish": "Kurşun kalemle yazabilirsin." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "この本を借りて＿＿か。", "hint": "Bu kitabı ödünç alabilir miyim?", "choices": ["もいいです", "はいけません", "ください", "います"], "answer": "もいいです" },
-      { "kind": "multipleChoice", "prompt": "「帰ってもいいですよ」 ne demek?", "hint": null, "choices": ["Eve gidebilirsin", "Eve gitme", "Eve git!", "Eve gitti mi?"], "answer": "Eve gidebilirsin" },
+      { "kind": "fillBlank", "prompt": "この本を借りて＿＿か。", "hint": "Bu kitabı ödünç alabilir miyim?", "promptReading": "このほんをかりて＿＿か。", "choices": ["もいいです", "はいけません", "ください", "います"], "answer": "もいいです" },
+      { "kind": "multipleChoice", "prompt": "「帰ってもいいですよ」 ne demek?", "hint": null, "promptReading": "「かえってもいいですよ」 ne demek?", "choices": ["Eve gidebilirsin", "Eve gitme", "Eve git!", "Eve gitti mi?"], "answer": "Eve gidebilirsin" },
       { "kind": "wordOrder", "prompt": "İçeri girebilir miyim?", "hint": "入って / も / いいです / か", "choices": ["入って", "も", "いいです", "か"], "answer": "入ってもいいですか", "answerTokens": ["入って", "も", "いいです", "か"] }
     ]
   },
@@ -714,8 +714,8 @@
       { "japanese": "傘を持たないで、出かけました。", "hiragana": "かさをもたないで、でかけました。", "romaji": "kasa o motanai de, dekakemashita.", "turkish": "Şemsiye almadan dışarı çıktım." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "辞書を使わ＿＿、読んでください。", "hint": "Sözlük kullanmadan okuyun.", "choices": ["ないで", "なくて", "ないと", "ながら"], "answer": "ないで" },
-      { "kind": "multipleChoice", "prompt": "「寝ないで勉強しました」 ne demek?", "hint": null, "choices": ["Uyumadan ders çalıştım", "Uyuyup ders çalıştım", "Uyumak için çalıştım", "Çalışmadan uyudum"], "answer": "Uyumadan ders çalıştım" },
+      { "kind": "fillBlank", "prompt": "辞書を使わ＿＿、読んでください。", "hint": "Sözlük kullanmadan okuyun.", "promptReading": "じしょをつかわ＿＿、よんでください。", "choices": ["ないで", "なくて", "ないと", "ながら"], "answer": "ないで" },
+      { "kind": "multipleChoice", "prompt": "「寝ないで勉強しました」 ne demek?", "hint": null, "promptReading": "「ねないでべんきょうしました」 ne demek?", "choices": ["Uyumadan ders çalıştım", "Uyuyup ders çalıştım", "Uyumak için çalıştım", "Çalışmadan uyudum"], "answer": "Uyumadan ders çalıştım" },
       { "kind": "wordOrder", "prompt": "Yemek yemeden çıktım.", "hint": "ご飯 / を / 食べないで / 出ました", "choices": ["ご飯", "を", "食べないで", "出ました"], "answer": "ご飯を食べないで出ました", "answerTokens": ["ご飯", "を", "食べないで", "出ました"] }
     ]
   },
@@ -734,8 +734,8 @@
       { "japanese": "ドアを閉めないでください。", "hiragana": "どあをしめないでください。", "romaji": "doa o shimenai de kudasai.", "turkish": "Lütfen kapıyı kapatmayın." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "この部屋に入ら＿＿。", "hint": "Lütfen bu odaya girmeyin.", "choices": ["ないでください", "てください", "もいいです", "ました"], "answer": "ないでください" },
-      { "kind": "multipleChoice", "prompt": "「忘れないでください」 ne demek?", "hint": null, "choices": ["Lütfen unutmayın", "Lütfen unutun", "Unuttum", "Unutur musun?"], "answer": "Lütfen unutmayın" },
+      { "kind": "fillBlank", "prompt": "この部屋に入ら＿＿。", "hint": "Lütfen bu odaya girmeyin.", "promptReading": "このへやにはいら＿＿。", "choices": ["ないでください", "てください", "もいいです", "ました"], "answer": "ないでください" },
+      { "kind": "multipleChoice", "prompt": "「忘れないでください」 ne demek?", "hint": null, "promptReading": "「わすれないでください」 ne demek?", "choices": ["Lütfen unutmayın", "Lütfen unutun", "Unuttum", "Unutur musun?"], "answer": "Lütfen unutmayın" },
       { "kind": "wordOrder", "prompt": "Lütfen gürültü yapmayın.", "hint": "うるさく / しないで / ください", "choices": ["うるさく", "しないで", "ください"], "answer": "うるさくしないでください", "answerTokens": ["うるさく", "しないで", "ください"] }
     ]
   },
@@ -754,8 +754,8 @@
       { "japanese": "デパートへ買い物に行きました。", "hiragana": "でぱあとへかいものにいきました。", "romaji": "depaato e kaimono ni ikimashita.", "turkish": "Mağazaya alışverişe gittim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "レストランへ昼ご飯を食べ＿＿行きます。", "hint": "Restorana öğle yemeği yemeye giderim.", "choices": ["に", "で", "を", "へ"], "answer": "に" },
-      { "kind": "multipleChoice", "prompt": "「映画を見に行きます」 ne demek?", "hint": null, "choices": ["Film izlemeye giderim", "Film izlerken giderim", "Filmden sonra giderim", "Film izleyemem"], "answer": "Film izlemeye giderim" },
+      { "kind": "fillBlank", "prompt": "レストランへ昼ご飯を食べ＿＿行きます。", "hint": "Restorana öğle yemeği yemeye giderim.", "promptReading": "レストランへひるごはんをたべ＿＿いきます。", "choices": ["に", "で", "を", "へ"], "answer": "に" },
+      { "kind": "multipleChoice", "prompt": "「映画を見に行きます」 ne demek?", "hint": null, "promptReading": "「えいがをみにいきます」 ne demek?", "choices": ["Film izlemeye giderim", "Film izlerken giderim", "Filmden sonra giderim", "Film izleyemem"], "answer": "Film izlemeye giderim" },
       { "kind": "wordOrder", "prompt": "Balık tutmaya gittim.", "hint": "魚 / を / つりに / 行きました", "choices": ["魚", "を", "つりに", "行きました"], "answer": "魚をつりに行きました", "answerTokens": ["魚", "を", "つりに", "行きました"] }
     ]
   },
@@ -775,7 +775,7 @@
     ],
     "questions": [
       { "kind": "fillBlank", "prompt": "デザートはアイスクリーム＿＿します。", "hint": "Tatlı olarak dondurma alayım.", "choices": ["に", "を", "が", "で"], "answer": "に" },
-      { "kind": "fillBlank", "prompt": "お飲み物はお茶＿＿します。", "hint": "İçecek olarak çay alayım.", "choices": ["に", "を", "へ", "で"], "answer": "に" },
+      { "kind": "fillBlank", "prompt": "お飲み物はお茶＿＿します。", "hint": "İçecek olarak çay alayım.", "promptReading": "おのみものはおちゃ＿＿します。", "choices": ["に", "を", "へ", "で"], "answer": "に" },
       { "kind": "multipleChoice", "prompt": "「これにします」 ne demek?", "hint": null, "choices": ["Bunu seçiyorum", "Bunu yapamam", "Bu değil", "Bunu yaptım"], "answer": "Bunu seçiyorum" }
     ]
   },
@@ -794,9 +794,9 @@
       { "japanese": "デパートで買い物したり、ご飯を食べたりします。", "hiragana": "でぱあとでかいものしたり、ごはんをたべたりします。", "romaji": "depaato de kaimono shitari, gohan o tabetari shimasu.", "turkish": "Mağazada alışveriş yapmak, yemek yemek gibi şeyler yaparım." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "日曜日はそうじを＿＿、せんたくをしたりします。", "hint": "Pazar günü temizlik, çamaşır gibi şeyler yaparım.", "choices": ["したり", "して", "しないで", "しながら"], "answer": "したり" },
+      { "kind": "fillBlank", "prompt": "日曜日はそうじを＿＿、せんたくをしたりします。", "hint": "Pazar günü temizlik, çamaşır gibi şeyler yaparım.", "promptReading": "にちようびはそうじを＿＿、せんたくをしたりします。", "choices": ["したり", "して", "しないで", "しながら"], "answer": "したり" },
       { "kind": "multipleChoice", "prompt": "「たり～たり」 ne anlatır?", "hint": null, "choices": ["Örnek olarak birkaç eylem", "Kesin bir sıra", "Yasak", "Zorunluluk"], "answer": "Örnek olarak birkaç eylem" },
-      { "kind": "multipleChoice", "prompt": "「食べたり飲んだりしました」 ne demek?", "hint": null, "choices": ["Yemek, içmek gibi şeyler yaptım", "Yiyip içtim (bu sırayla)", "Yemeden içtim", "Ne yedim ne içtim"], "answer": "Yemek, içmek gibi şeyler yaptım" }
+      { "kind": "multipleChoice", "prompt": "「食べたり飲んだりしました」 ne demek?", "hint": null, "promptReading": "「たべたりのんだりしました」 ne demek?", "choices": ["Yemek, içmek gibi şeyler yaptım", "Yiyip içtim (bu sırayla)", "Yemeden içtim", "Ne yedim ne içtim"], "answer": "Yemek, içmek gibi şeyler yaptım" }
     ]
   },
   {
@@ -814,8 +814,8 @@
       { "japanese": "そろそろ行きましょうか。", "hiragana": "そろそろいきましょうか。", "romaji": "sorosoro ikimashou ka.", "turkish": "Artık gidelim mi?" }
     ],
     "questions": [
-      { "kind": "multipleChoice", "prompt": "「手伝いましょうか」 ne demek?", "hint": null, "choices": ["Yardım edeyim mi?", "Yardım et!", "Yardım ettim", "Yardım etme"], "answer": "Yardım edeyim mi?" },
-      { "kind": "fillBlank", "prompt": "重そうですね。持ち＿＿か。", "hint": "Ağır görünüyor. Taşıyayım mı?", "choices": ["ましょう", "ました", "ません", "たい"], "answer": "ましょう" },
+      { "kind": "multipleChoice", "prompt": "「手伝いましょうか」 ne demek?", "hint": null, "promptReading": "「てつだいましょうか」 ne demek?", "choices": ["Yardım edeyim mi?", "Yardım et!", "Yardım ettim", "Yardım etme"], "answer": "Yardım edeyim mi?" },
+      { "kind": "fillBlank", "prompt": "重そうですね。持ち＿＿か。", "hint": "Ağır görünüyor. Taşıyayım mı?", "promptReading": "おもそうですね。もち＿＿か。", "choices": ["ましょう", "ました", "ません", "たい"], "answer": "ましょう" },
       { "kind": "multipleChoice", "prompt": "「ましょうか」 ile 「ましょう」 farkı?", "hint": null, "choices": ["ましょうか daha kibar; öneri/soru sunar", "İkisi aynı", "ましょうか geçmiş zamandır", "ましょう olumsuzdur"], "answer": "ましょうか daha kibar; öneri/soru sunar" }
     ]
   },
@@ -834,8 +834,8 @@
       { "japanese": "もう帰らないといけません。", "hiragana": "もうかえらないといけません。", "romaji": "mou kaeranai to ikemasen.", "turkish": "Artık gitmem lazım." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "レポートを出さ＿＿。", "hint": "Raporu teslim etmem lazım.", "choices": ["ないといけません", "てもいいです", "ないでください", "ましょう"], "answer": "ないといけません" },
-      { "kind": "multipleChoice", "prompt": "「勉強しないといけない」 ne demek?", "hint": null, "choices": ["Ders çalışmam lazım", "Ders çalışmasam da olur", "Ders çalışma", "Ders çalıştım"], "answer": "Ders çalışmam lazım" },
+      { "kind": "fillBlank", "prompt": "レポートを出さ＿＿。", "hint": "Raporu teslim etmem lazım.", "promptReading": "レポートをださ＿＿。", "choices": ["ないといけません", "てもいいです", "ないでください", "ましょう"], "answer": "ないといけません" },
+      { "kind": "multipleChoice", "prompt": "「勉強しないといけない」 ne demek?", "hint": null, "promptReading": "「べんきょうしないといけない」 ne demek?", "choices": ["Ders çalışmam lazım", "Ders çalışmasam da olur", "Ders çalışma", "Ders çalıştım"], "answer": "Ders çalışmam lazım" },
       { "kind": "multipleChoice", "prompt": "「ないといけない」 konuşmada neye kısalır?", "hint": null, "choices": ["ないと", "ないで", "なくて", "ながら"], "answer": "ないと" }
     ]
   },
@@ -854,9 +854,9 @@
       { "japanese": "宿題をしなくてはいけません。", "hiragana": "しゅくだいをしなくてはいけません。", "romaji": "shukudai o shinakute wa ikemasen.", "turkish": "Ödevi yapmak zorundayım." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "8時までに行か＿＿。", "hint": "8'e kadar gitmek zorundayım.", "choices": ["なくてはいけません", "てもいいです", "ないでください", "ましょうか"], "answer": "なくてはいけません" },
+      { "kind": "fillBlank", "prompt": "8時までに行か＿＿。", "hint": "8'e kadar gitmek zorundayım.", "promptReading": "8じまでにいか＿＿。", "choices": ["なくてはいけません", "てもいいです", "ないでください", "ましょうか"], "answer": "なくてはいけません" },
       { "kind": "multipleChoice", "prompt": "「なくてはいけない」 konuşmada neye kısalır?", "hint": null, "choices": ["なくちゃ", "ないで", "なくて", "ながら"], "answer": "なくちゃ" },
-      { "kind": "multipleChoice", "prompt": "「食べなくてはいけません」 ne demek?", "hint": null, "choices": ["Yemek zorundayım", "Yememem lazım", "Yesem de olur", "Yedim"], "answer": "Yemek zorundayım" }
+      { "kind": "multipleChoice", "prompt": "「食べなくてはいけません」 ne demek?", "hint": null, "promptReading": "「たべなくてはいけません」 ne demek?", "choices": ["Yemek zorundayım", "Yememem lazım", "Yesem de olur", "Yedim"], "answer": "Yemek zorundayım" }
     ]
   },
   {
@@ -874,8 +874,8 @@
       { "japanese": "全部食べなくてもいい。", "hiragana": "ぜんぶたべなくてもいい。", "romaji": "zenbu tabenakute mo ii.", "turkish": "Hepsini yemek zorunda değilsin." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "急がなくても＿＿。", "hint": "Acele etmesen de olur.", "choices": ["いいです", "いけません", "ください", "います"], "answer": "いいです" },
-      { "kind": "multipleChoice", "prompt": "「来なくてもいいです」 ne demek?", "hint": null, "choices": ["Gelmesen de olur", "Gelmek zorundasın", "Gelme!", "Geldin mi?"], "answer": "Gelmesen de olur" },
+      { "kind": "fillBlank", "prompt": "急がなくても＿＿。", "hint": "Acele etmesen de olur.", "promptReading": "いそがなくても＿＿。", "choices": ["いいです", "いけません", "ください", "います"], "answer": "いいです" },
+      { "kind": "multipleChoice", "prompt": "「来なくてもいいです」 ne demek?", "hint": null, "promptReading": "「こなくてもいいです」 ne demek?", "choices": ["Gelmesen de olur", "Gelmek zorundasın", "Gelme!", "Geldin mi?"], "answer": "Gelmesen de olur" },
       { "kind": "multipleChoice", "prompt": "「なくてもいい」 hangisinin karşıtıdır?", "hint": null, "choices": ["なくてはいけない", "てもいい", "てはいけない", "たい"], "answer": "なくてはいけない" }
     ]
   },
@@ -895,7 +895,7 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「なくちゃ」 hangi kalıbın kısasıdır?", "hint": null, "choices": ["なくてはいけない", "なくてもいい", "てはいけない", "ないでください"], "answer": "なくてはいけない" },
-      { "kind": "multipleChoice", "prompt": "「寝なくちゃ」 ne demek?", "hint": null, "choices": ["Uyumam lazım", "Uyumasam da olur", "Uyuma", "Uyudum"], "answer": "Uyumam lazım" },
+      { "kind": "multipleChoice", "prompt": "「寝なくちゃ」 ne demek?", "hint": null, "promptReading": "「ねなくちゃ」 ne demek?", "choices": ["Uyumam lazım", "Uyumasam da olur", "Uyuma", "Uyudum"], "answer": "Uyumam lazım" },
       { "kind": "multipleChoice", "prompt": "「なくちゃ」 hangi durumda uygundur?", "hint": null, "choices": ["Samimi, günlük konuşma", "Resmî sunum", "Yazılı rapor", "Haber bülteni"], "answer": "Samimi, günlük konuşma" }
     ]
   },
@@ -915,8 +915,8 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「ちゃいけない」 hangi kalıbın kısasıdır?", "hint": null, "choices": ["てはいけない", "てもいい", "なくてはいけない", "てから"], "answer": "てはいけない" },
-      { "kind": "multipleChoice", "prompt": "「入っちゃいけない」 ne demek?", "hint": null, "choices": ["Girmek yok", "Girebilirsin", "Gir!", "Girdim"], "answer": "Girmek yok" },
-      { "kind": "fillBlank", "prompt": "ここで写真をとっ＿＿いけないよ。", "hint": "Burada fotoğraf çekmek yok.", "choices": ["ちゃ", "ても", "てから", "たり"], "answer": "ちゃ" }
+      { "kind": "multipleChoice", "prompt": "「入っちゃいけない」 ne demek?", "hint": null, "promptReading": "「はいっちゃいけない」 ne demek?", "choices": ["Girmek yok", "Girebilirsin", "Gir!", "Girdim"], "answer": "Girmek yok" },
+      { "kind": "fillBlank", "prompt": "ここで写真をとっ＿＿いけないよ。", "hint": "Burada fotoğraf çekmek yok.", "promptReading": "ここでしゃしんをとっ＿＿いけないよ。", "choices": ["ちゃ", "ても", "てから", "たり"], "answer": "ちゃ" }
     ]
   },
   {
@@ -934,9 +934,9 @@
       { "japanese": "時間がないので、タクシーで行きます。", "hiragana": "じかんがないので、たくしいでいきます。", "romaji": "jikan ga nai node, takushii de ikimasu.", "turkish": "Vaktim olmadığı için taksiyle giderim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "日本語がわからない＿＿、英語で話してください。", "hint": "Japonca bilmediğim için İngilizce konuşun.", "choices": ["ので", "のに", "でも", "が"], "answer": "ので" },
+      { "kind": "fillBlank", "prompt": "日本語がわからない＿＿、英語で話してください。", "hint": "Japonca bilmediğim için İngilizce konuşun.", "promptReading": "にほんごがわからない＿＿、えいごではなしてください。", "choices": ["ので", "のに", "でも", "が"], "answer": "ので" },
       { "kind": "multipleChoice", "prompt": "「から」 ile 「ので」 farkı nedir?", "hint": null, "choices": ["ので daha nazik/nesnel", "から daha nazik", "İkisi tam zıt", "ので geçmiş zamandır"], "answer": "ので daha nazik/nesnel" },
-      { "kind": "multipleChoice", "prompt": "「病気＿＿ので、休みます」 boşluğa ne gelir?", "hint": null, "choices": ["な", "だ", "の", "を"], "answer": "な" }
+      { "kind": "multipleChoice", "prompt": "「病気＿＿ので、休みます」 boşluğa ne gelir?", "hint": null, "promptReading": "「びょうき＿＿ので、やすみます」 boşluğa ne gelir?", "choices": ["な", "だ", "の", "を"], "answer": "な" }
     ]
   },
   {
@@ -954,9 +954,9 @@
       { "japanese": "勉強したけど、わかりませんでした。", "hiragana": "べんきょうしたけど、わかりませんでした。", "romaji": "benkyou shita kedo, wakarimasen deshita.", "turkish": "Çalıştım ama anlamadım." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "安い＿＿、おいしくないです。", "hint": "Ucuz ama lezzetli değil.", "choices": ["けど", "ので", "から", "し"], "answer": "けど" },
+      { "kind": "fillBlank", "prompt": "安い＿＿、おいしくないです。", "hint": "Ucuz ama lezzetli değil.", "promptReading": "やすい＿＿、おいしくないです。", "choices": ["けど", "ので", "から", "し"], "answer": "けど" },
       { "kind": "multipleChoice", "prompt": "En gündelik olanı hangisi?", "hint": null, "choices": ["けど", "けれども", "けれど", "しかし"], "answer": "けど" },
-      { "kind": "multipleChoice", "prompt": "「食べたいけど、お金がない」 ne demek?", "hint": null, "choices": ["Yemek istiyorum ama param yok", "Param olmadığı için yemek istemiyorum", "Param olduğu için yemek istiyorum", "Yedim ve param yok"], "answer": "Yemek istiyorum ama param yok" }
+      { "kind": "multipleChoice", "prompt": "「食べたいけど、お金がない」 ne demek?", "hint": null, "promptReading": "「たべたいけど、おかねがない」 ne demek?", "choices": ["Yemek istiyorum ama param yok", "Param olmadığı için yemek istemiyorum", "Param olduğu için yemek istiyorum", "Yedim ve param yok"], "answer": "Yemek istiyorum ama param yok" }
     ]
   },
   {
@@ -974,9 +974,9 @@
       { "japanese": "疲れました。でも、もう少しがんばります。", "hiragana": "つかれました。でも、もうすこしがんばります。", "romaji": "tsukaremashita. demo, mou sukoshi ganbarimasu.", "turkish": "Yoruldum. Ama biraz daha gayret edeceğim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "日本語はむずかしいです。＿＿、おもしろいです。", "hint": "Japonca zor. Ama ilginç.", "choices": ["でも", "だから", "そして", "それから"], "answer": "でも" },
+      { "kind": "fillBlank", "prompt": "日本語はむずかしいです。＿＿、おもしろいです。", "hint": "Japonca zor. Ama ilginç.", "promptReading": "にほんごはむずかしいです。＿＿、おもしろいです。", "choices": ["でも", "だから", "そして", "それから"], "answer": "でも" },
       { "kind": "multipleChoice", "prompt": "「でも」 cümlede nerede durur?", "hint": null, "choices": ["Yeni cümlenin başında", "Cümlenin sonunda", "İki ismin arasında", "Fiilin önünde"], "answer": "Yeni cümlenin başında" },
-      { "kind": "multipleChoice", "prompt": "「高いです。でも、買います。」 ne demek?", "hint": null, "choices": ["Pahalı. Ama alacağım.", "Pahalı olduğu için almayacağım.", "Ucuz, o yüzden alacağım.", "Pahalı mı?"], "answer": "Pahalı. Ama alacağım." }
+      { "kind": "multipleChoice", "prompt": "「高いです。でも、買います。」 ne demek?", "hint": null, "promptReading": "「たかいです。でも、かいます。」 ne demek?", "choices": ["Pahalı. Ama alacağım.", "Pahalı olduğu için almayacağım.", "Ucuz, o yüzden alacağım.", "Pahalı mı?"], "answer": "Pahalı. Ama alacağım." }
     ]
   },
   {
@@ -995,7 +995,7 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「しかし」 ile 「でも」 arasındaki fark nedir?", "hint": null, "choices": ["しかし daha resmî", "でも daha resmî", "しかし olumlu bağlar", "İkisi de soru yapar"], "answer": "しかし daha resmî" },
-      { "kind": "fillBlank", "prompt": "たくさん食べました。＿＿、まだお腹がすいています。", "hint": "Çok yedim. Fakat hâlâ açım.", "choices": ["しかし", "だから", "そして", "または"], "answer": "しかし" },
+      { "kind": "fillBlank", "prompt": "たくさん食べました。＿＿、まだお腹がすいています。", "hint": "Çok yedim. Fakat hâlâ açım.", "promptReading": "たくさんたべました。＿＿、まだおなかがすいています。", "choices": ["しかし", "だから", "そして", "または"], "answer": "しかし" },
       { "kind": "multipleChoice", "prompt": "「しかし」 nerede kullanılır?", "hint": null, "choices": ["Resmî yazı ve sunumlarda", "Sadece arkadaşlar arası", "Sadece sorularda", "Sadece cümle sonunda"], "answer": "Resmî yazı ve sunumlarda" }
     ]
   },
@@ -1014,7 +1014,7 @@
       { "japanese": "宿題をします。それから、寝ます。", "hiragana": "しゅくだいをします。それから、ねます。", "romaji": "shukudai o shimasu. sorekara, nemasu.", "turkish": "Ödev yaparım. Sonra uyurum." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "顔を洗いました。＿＿、朝ご飯を食べました。", "hint": "Yüzümü yıkadım. Sonra kahvaltı yaptım.", "choices": ["それから", "でも", "しかし", "けど"], "answer": "それから" },
+      { "kind": "fillBlank", "prompt": "顔を洗いました。＿＿、朝ご飯を食べました。", "hint": "Yüzümü yıkadım. Sonra kahvaltı yaptım.", "promptReading": "かおをあらいました。＿＿、あさごはんをたべました。", "choices": ["それから", "でも", "しかし", "けど"], "answer": "それから" },
       { "kind": "multipleChoice", "prompt": "「それから」 ne anlatır?", "hint": null, "choices": ["Ondan sonra / bir de", "Ama", "Çünkü", "Eğer"], "answer": "Ondan sonra / bir de" },
       { "kind": "multipleChoice", "prompt": "「コーヒー、それからケーキをください」 ne demek?", "hint": null, "choices": ["Kahve, bir de pasta alayım", "Kahve yerine pasta", "Kahveden sonra pasta gelsin", "Sadece kahve"], "answer": "Kahve, bir de pasta alayım" }
     ]
@@ -1034,9 +1034,9 @@
       { "japanese": "掃除をしました。そして、洗濯もしました。", "hiragana": "そうじをしました。そして、せんたくもしました。", "romaji": "souji o shimashita. soshite, sentaku mo shimashita.", "turkish": "Temizlik yaptım. Ve çamaşır da yıkadım." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "田中さんは頭がいいです。＿＿、やさしいです。", "hint": "Tanaka akıllıdır. Ve naziktir.", "choices": ["そして", "でも", "しかし", "けれども"], "answer": "そして" },
+      { "kind": "fillBlank", "prompt": "田中さんは頭がいいです。＿＿、やさしいです。", "hint": "Tanaka akıllıdır. Ve naziktir.", "promptReading": "たなかさんはあたまがいいです。＿＿、やさしいです。", "choices": ["そして", "でも", "しかし", "けれども"], "answer": "そして" },
       { "kind": "multipleChoice", "prompt": "「そして」 hangi tür bilgileri bağlar?", "hint": null, "choices": ["Olumlu, art arda gelen bilgileri", "Zıt bilgileri", "Sebep-sonucu", "Koşulu"], "answer": "Olumlu, art arda gelen bilgileri" },
-      { "kind": "multipleChoice", "prompt": "「ご飯を食べました。そして、寝ました。」 ne demek?", "hint": null, "choices": ["Yemek yedim. Ve uyudum.", "Yemek yedim ama uyumadım.", "Uyudum çünkü yedim.", "Yemeden uyudum."], "answer": "Yemek yedim. Ve uyudum." }
+      { "kind": "multipleChoice", "prompt": "「ご飯を食べました。そして、寝ました。」 ne demek?", "hint": null, "promptReading": "「ごはんをたべました。そして、ねました。」 ne demek?", "choices": ["Yemek yedim. Ve uyudum.", "Yemek yedim ama uyumadım.", "Uyudum çünkü yedim.", "Yemeden uyudum."], "answer": "Yemek yedim. Ve uyudum." }
     ]
   },
   {
@@ -1054,9 +1054,9 @@
       { "japanese": "電話しましたが、だれも出ませんでした。", "hiragana": "でんわしましたが、だれもでませんでした。", "romaji": "denwa shimashita ga, dare mo demasen deshita.", "turkish": "Telefon ettim ama kimse açmadı." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "行きたいです＿＿、時間がありません。", "hint": "Gitmek istiyorum ama vaktim yok.", "choices": ["が", "ので", "から", "し"], "answer": "が" },
+      { "kind": "fillBlank", "prompt": "行きたいです＿＿、時間がありません。", "hint": "Gitmek istiyorum ama vaktim yok.", "promptReading": "いきたいです＿＿、じかんがありません。", "choices": ["が", "ので", "から", "し"], "answer": "が" },
       { "kind": "multipleChoice", "prompt": "Cümle içindeki 「が」 ile 「けど」 arasındaki fark nedir?", "hint": null, "choices": ["が daha kibar/yazılı", "けど daha kibar", "が sadece soru yapar", "İkisi tam zıt anlamlı"], "answer": "が daha kibar/yazılı" },
-      { "kind": "multipleChoice", "prompt": "「安いですが、おいしいです」 ne demek?", "hint": null, "choices": ["Ucuz ama lezzetli", "Ucuz olduğu için lezzetli", "Ne ucuz ne lezzetli", "Pahalı ve lezzetli"], "answer": "Ucuz ama lezzetli" }
+      { "kind": "multipleChoice", "prompt": "「安いですが、おいしいです」 ne demek?", "hint": null, "promptReading": "「やすいですが、おいしいです」 ne demek?", "choices": ["Ucuz ama lezzetli", "Ucuz olduğu için lezzetli", "Ne ucuz ne lezzetli", "Pahalı ve lezzetli"], "answer": "Ucuz ama lezzetli" }
     ]
   },
   {
@@ -1074,9 +1074,9 @@
       { "japanese": "暇なとき、映画を見ます。", "hiragana": "ひまなとき、えいがをみます。", "romaji": "hima na toki, eiga o mimasu.", "turkish": "Boş olduğumda film izlerim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "国へ帰る＿＿、おみやげを買います。", "hint": "Ülkeme dönerken hediye alırım.", "choices": ["とき", "まえ", "あと", "ながら"], "answer": "とき" },
-      { "kind": "fillBlank", "prompt": "子ども＿＿とき、東京に住んでいました。", "hint": "Çocukken Tokyo'da yaşıyordum.", "choices": ["の", "な", "だ", "を"], "answer": "の" },
-      { "kind": "multipleChoice", "prompt": "「食べたとき」 ile 「食べるとき」 farkı nedir?", "hint": null, "choices": ["食べたとき: yedikten sonra; 食べるとき: yemeden önce/sırasında", "İkisi aynı", "食べたとき: gelecek", "食べるとき: geçmiş"], "answer": "食べたとき: yedikten sonra; 食べるとき: yemeden önce/sırasında" }
+      { "kind": "fillBlank", "prompt": "国へ帰る＿＿、おみやげを買います。", "hint": "Ülkeme dönerken hediye alırım.", "promptReading": "くにへかえる＿＿、おみやげをかいます。", "choices": ["とき", "まえ", "あと", "ながら"], "answer": "とき" },
+      { "kind": "fillBlank", "prompt": "子ども＿＿とき、東京に住んでいました。", "hint": "Çocukken Tokyo'da yaşıyordum.", "promptReading": "こども＿＿とき、とうきょうにすんでいました。", "choices": ["の", "な", "だ", "を"], "answer": "の" },
+      { "kind": "multipleChoice", "prompt": "「食べたとき」 ile 「食べるとき」 farkı nedir?", "hint": null, "promptReading": "「たべたとき」 ile 「たべるとき」 farkı nedir?", "choices": ["食べたとき: yedikten sonra; 食べるとき: yemeden önce/sırasında", "İkisi aynı", "食べたとき: gelecek", "食べるとき: geçmiş"], "answer": "食べたとき: yedikten sonra; 食べるとき: yemeden önce/sırasında" }
     ]
   },
   {
@@ -1094,8 +1094,8 @@
       { "japanese": "3年まえに、日本に来ました。", "hiragana": "さんねんまえに、にほんにきました。", "romaji": "san-nen mae ni, Nihon ni kimashita.", "turkish": "3 yıl önce Japonya'ya geldim." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "出かける＿＿、天気を調べます。", "hint": "Çıkmadan önce havaya bakarım.", "choices": ["まえに", "あとで", "とき", "から"], "answer": "まえに" },
-      { "kind": "fillBlank", "prompt": "テスト＿＿まえに、よく寝てください。", "hint": "Sınavdan önce iyi uyuyun.", "choices": ["の", "な", "を", "に"], "answer": "の" },
+      { "kind": "fillBlank", "prompt": "出かける＿＿、天気を調べます。", "hint": "Çıkmadan önce havaya bakarım.", "promptReading": "でかける＿＿、てんきをしらべます。", "choices": ["まえに", "あとで", "とき", "から"], "answer": "まえに" },
+      { "kind": "fillBlank", "prompt": "テスト＿＿まえに、よく寝てください。", "hint": "Sınavdan önce iyi uyuyun.", "promptReading": "テスト＿＿まえに、よくねてください。", "choices": ["の", "な", "を", "に"], "answer": "の" },
       { "kind": "wordOrder", "prompt": "Yemekten önce ellerini yıka.", "hint": "ご飯 / の / まえに / 手を / 洗って", "choices": ["ご飯", "の", "まえに", "手を", "洗って"], "answer": "ご飯のまえに手を洗って", "answerTokens": ["ご飯", "の", "まえに", "手を", "洗って"] }
     ]
   },
@@ -1114,9 +1114,9 @@
       { "japanese": "今は何もほしくないです。", "hiragana": "いまはなにもほしくないです。", "romaji": "ima wa nani mo hoshikunai desu.", "turkish": "Şu an hiçbir şey istemiyorum." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "私は新しいかばん＿＿ほしいです。", "hint": "Yeni bir çanta istiyorum.", "choices": ["が", "を", "に", "で"], "answer": "が" },
+      { "kind": "fillBlank", "prompt": "私は新しいかばん＿＿ほしいです。", "hint": "Yeni bir çanta istiyorum.", "promptReading": "わたしはあたらしいかばん＿＿ほしいです。", "choices": ["が", "を", "に", "で"], "answer": "が" },
       { "kind": "multipleChoice", "prompt": "「ほしい」 ile 「たい」 farkı nedir?", "hint": null, "choices": ["ほしい isim, たい fiil isteği", "İkisi aynı", "ほしい fiil, たい isim", "ほしい geçmiş zaman"], "answer": "ほしい isim, たい fiil isteği" },
-      { "kind": "multipleChoice", "prompt": "「時間がほしいです」 ne demek?", "hint": null, "choices": ["Zaman istiyorum", "Zamanım var", "Zamanım yok", "Zaman geçti"], "answer": "Zaman istiyorum" }
+      { "kind": "multipleChoice", "prompt": "「時間がほしいです」 ne demek?", "hint": null, "promptReading": "「じかんがほしいです」 ne demek?", "choices": ["Zaman istiyorum", "Zamanım var", "Zamanım yok", "Zaman geçti"], "answer": "Zaman istiyorum" }
     ]
   },
   {
@@ -1134,8 +1134,8 @@
       { "japanese": "今日は出かけないほうがいいです。", "hiragana": "きょうはでかけないほうがいいです。", "romaji": "kyou wa dekakenai hou ga ii desu.", "turkish": "Bugün dışarı çıkmasan iyi olur." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "つかれているなら、休んだ＿＿がいいですよ。", "hint": "Yorgunsan dinlensen iyi olur.", "choices": ["ほう", "こと", "もの", "とき"], "answer": "ほう" },
-      { "kind": "multipleChoice", "prompt": "「行かないほうがいい」 ne demek?", "hint": null, "choices": ["Gitmesen iyi olur", "Gitsen iyi olur", "Gitmelisin", "Gitmek yasak"], "answer": "Gitmesen iyi olur" },
+      { "kind": "fillBlank", "prompt": "つかれているなら、休んだ＿＿がいいですよ。", "hint": "Yorgunsan dinlensen iyi olur.", "promptReading": "つかれているなら、やすんだ＿＿がいいですよ。", "choices": ["ほう", "こと", "もの", "とき"], "answer": "ほう" },
+      { "kind": "multipleChoice", "prompt": "「行かないほうがいい」 ne demek?", "hint": null, "promptReading": "「いかないほうがいい」 ne demek?", "choices": ["Gitmesen iyi olur", "Gitsen iyi olur", "Gitmelisin", "Gitmek yasak"], "answer": "Gitmesen iyi olur" },
       { "kind": "multipleChoice", "prompt": "Tavsiye verirken olumlu fiil hangi biçimde olur?", "hint": null, "choices": ["た-biçimi", "sözlük biçimi", "ます-biçimi", "て-biçimi"], "answer": "た-biçimi" }
     ]
   },
@@ -1154,8 +1154,8 @@
       { "japanese": "どの季節がいちばん好きですか。", "hiragana": "どのきせつがいちばんすきですか。", "romaji": "dono kisetsu ga ichiban suki desu ka.", "turkish": "En çok hangi mevsimi seversin?" }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "クラスで田中さん＿＿いちばん背が高いです。", "hint": "Sınıfta en uzun boylu Tanaka.", "choices": ["が", "を", "に", "も"], "answer": "が" },
-      { "kind": "multipleChoice", "prompt": "「いちばん安い」 ne demek?", "hint": null, "choices": ["En ucuz", "Daha ucuz", "Biraz ucuz", "Ucuz değil"], "answer": "En ucuz" },
+      { "kind": "fillBlank", "prompt": "クラスで田中さん＿＿いちばん背が高いです。", "hint": "Sınıfta en uzun boylu Tanaka.", "promptReading": "クラスでたなかさん＿＿いちばんせがたかいです。", "choices": ["が", "を", "に", "も"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「いちばん安い」 ne demek?", "hint": null, "promptReading": "「いちばんやすい」 ne demek?", "choices": ["En ucuz", "Daha ucuz", "Biraz ucuz", "Ucuz değil"], "answer": "En ucuz" },
       { "kind": "wordOrder", "prompt": "En çok yazı severim.", "hint": "夏 / が / いちばん / 好きです", "choices": ["夏", "が", "いちばん", "好きです"], "answer": "夏がいちばん好きです", "answerTokens": ["夏", "が", "いちばん", "好きです"] }
     ]
   },
@@ -1174,9 +1174,9 @@
       { "japanese": "クラスの中で、だれがいちばん歌が上手ですか。", "hiragana": "くらすのなかで、だれがいちばんうたがじょうずですか。", "romaji": "kurasu no naka de, dare ga ichiban uta ga jouzu desu ka.", "turkish": "Sınıfta en iyi şarkı söyleyen kim?" }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "くだもの＿＿中で、りんごがいちばん好きです。", "hint": "Meyveler arasında en çok elmayı severim.", "choices": ["の", "が", "を", "で"], "answer": "の" },
+      { "kind": "fillBlank", "prompt": "くだもの＿＿中で、りんごがいちばん好きです。", "hint": "Meyveler arasında en çok elmayı severim.", "promptReading": "くだもの＿＿なかで、りんごがいちばんすきです。", "choices": ["の", "が", "を", "で"], "answer": "の" },
       { "kind": "wordOrder", "prompt": "Aile içinde en çok ben yerim.", "hint": "家族 / の中で / 私 / が / いちばん / 食べます", "choices": ["家族", "の中で", "私", "が", "いちばん", "食べます"], "answer": "家族の中で私がいちばん食べます", "answerTokens": ["家族", "の中で", "私", "が", "いちばん", "食べます"] },
-      { "kind": "multipleChoice", "prompt": "「一年で夏がいちばん暑いです」 ne demek?", "hint": null, "choices": ["Yılın en sıcak mevsimi yazdır", "Yaz en soğuk mevsimdir", "Yazın hiç sıcak olmaz", "Yaz bir yıl sürer"], "answer": "Yılın en sıcak mevsimi yazdır" }
+      { "kind": "multipleChoice", "prompt": "「一年で夏がいちばん暑いです」 ne demek?", "hint": null, "promptReading": "「いちねんでなつがいちばんあついです」 ne demek?", "choices": ["Yılın en sıcak mevsimi yazdır", "Yaz en soğuk mevsimdir", "Yazın hiç sıcak olmaz", "Yaz bir yıl sürer"], "answer": "Yılın en sıcak mevsimi yazdır" }
     ]
   },
   {
@@ -1194,8 +1194,8 @@
       { "japanese": "電車は車より速いです。", "hiragana": "でんしゃはくるまよりはやいです。", "romaji": "densha wa kuruma yori hayai desu.", "turkish": "Tren, arabadan hızlıdır." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "夏は冬＿＿暑いです。", "hint": "Yaz kıştan sıcaktır.", "choices": ["より", "から", "まで", "ほど"], "answer": "より" },
-      { "kind": "multipleChoice", "prompt": "「A は B より高いです」 ne demek?", "hint": null, "choices": ["A, B'den pahalıdır", "B, A'dan pahalıdır", "A ile B aynı fiyat", "A ucuzdur"], "answer": "A, B'den pahalıdır" },
+      { "kind": "fillBlank", "prompt": "夏は冬＿＿暑いです。", "hint": "Yaz kıştan sıcaktır.", "promptReading": "なつはふゆ＿＿あついです。", "choices": ["より", "から", "まで", "ほど"], "answer": "より" },
+      { "kind": "multipleChoice", "prompt": "「A は B より高いです」 ne demek?", "hint": null, "promptReading": "「A は B よりたかいです」 ne demek?", "choices": ["A, B'den pahalıdır", "B, A'dan pahalıdır", "A ile B aynı fiyat", "A ucuzdur"], "answer": "A, B'den pahalıdır" },
       { "kind": "wordOrder", "prompt": "Bu kitap o kitaptan ilginç.", "hint": "この本 / は / その本 / より / おもしろいです", "choices": ["この本", "は", "その本", "より", "おもしろいです"], "answer": "この本はその本よりおもしろいです", "answerTokens": ["この本", "は", "その本", "より", "おもしろいです"] }
     ]
   },
@@ -1214,8 +1214,8 @@
       { "japanese": "コーヒーと紅茶と、どちらのほうが好きですか。", "hiragana": "こおひいとこうちゃと、どちらのほうがすきですか。", "romaji": "koohii to koucha to, dochira no hou ga suki desu ka.", "turkish": "Kahve mi çay mı, hangisini daha çok seversin?" }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "きのうより今日＿＿ほうが暑いです。", "hint": "Düne kıyasla bugün daha sıcak.", "choices": ["の", "が", "は", "を"], "answer": "の" },
-      { "kind": "multipleChoice", "prompt": "「犬より猫のほうが好きです」 ne demek?", "hint": null, "choices": ["Köpeğe kıyasla kediyi daha çok severim", "Kediye kıyasla köpeği daha çok severim", "İkisini de sevmem", "İkisini eşit severim"], "answer": "Köpeğe kıyasla kediyi daha çok severim" },
+      { "kind": "fillBlank", "prompt": "きのうより今日＿＿ほうが暑いです。", "hint": "Düne kıyasla bugün daha sıcak.", "promptReading": "きのうよりきょう＿＿ほうがあついです。", "choices": ["の", "が", "は", "を"], "answer": "の" },
+      { "kind": "multipleChoice", "prompt": "「犬より猫のほうが好きです」 ne demek?", "hint": null, "promptReading": "「いぬよりねこのほうがすきです」 ne demek?", "choices": ["Köpeğe kıyasla kediyi daha çok severim", "Kediye kıyasla köpeği daha çok severim", "İkisini de sevmem", "İkisini eşit severim"], "answer": "Köpeğe kıyasla kediyi daha çok severim" },
       { "kind": "multipleChoice", "prompt": "Karşılaştırmada 'hangisi?' nasıl sorulur?", "hint": null, "choices": ["どちらのほうが", "なにのほうが", "どこのほうが", "いつのほうが"], "answer": "どちらのほうが" }
     ]
   },
@@ -1234,9 +1234,9 @@
       { "japanese": "コーヒーはどうですか。", "romaji": "koohii wa dou desu ka.", "turkish": "Kahve ister misin?" }
     ],
     "questions": [
-      { "kind": "multipleChoice", "prompt": "(Buluşma ayarlarken) 「土曜日はどうですか」 ne demek?", "hint": null, "choices": ["Cumartesi nasıl olur? (öneri)", "Cumartesi nasıl geçti?", "Cumartesi neredesin?", "Cumartesi kim var?"], "answer": "Cumartesi nasıl olur? (öneri)" },
-      { "kind": "fillBlank", "prompt": "この赤いセーター＿＿どうですか。", "hint": "Bu kırmızı kazak nasıl?", "choices": ["は", "を", "が", "に"], "answer": "は" },
-      { "kind": "multipleChoice", "prompt": "「お茶はどうですか」 ne anlatabilir?", "hint": null, "choices": ["Çay ikram etme / önerme", "Çayın fiyatını sorma", "Çayın nerede olduğunu sorma", "Çayı yasaklama"], "answer": "Çay ikram etme / önerme" }
+      { "kind": "multipleChoice", "prompt": "(Buluşma ayarlarken) 「土曜日はどうですか」 ne demek?", "hint": null, "promptReading": "(Buluşma ayarlarken) 「どようびはどうですか」 ne demek?", "choices": ["Cumartesi nasıl olur? (öneri)", "Cumartesi nasıl geçti?", "Cumartesi neredesin?", "Cumartesi kim var?"], "answer": "Cumartesi nasıl olur? (öneri)" },
+      { "kind": "fillBlank", "prompt": "この赤いセーター＿＿どうですか。", "hint": "Bu kırmızı kazak nasıl?", "promptReading": "このあかいセーター＿＿どうですか。", "choices": ["は", "を", "が", "に"], "answer": "は" },
+      { "kind": "multipleChoice", "prompt": "「お茶はどうですか」 ne anlatabilir?", "hint": null, "promptReading": "「おちゃはどうですか」 ne anlatabilir?", "choices": ["Çay ikram etme / önerme", "Çayın fiyatını sorma", "Çayın nerede olduğunu sorma", "Çayı yasaklama"], "answer": "Çay ikram etme / önerme" }
     ]
   },
   {
@@ -1254,8 +1254,8 @@
       { "japanese": "家族といっしょに住んでいます。", "hiragana": "かぞくといっしょにすんでいます。", "romaji": "kazoku to issho ni sunde imasu.", "turkish": "Ailemle birlikte yaşıyorum." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "昼ご飯を＿＿食べませんか。", "hint": "Birlikte öğle yemeği yemez misin?", "choices": ["いっしょに", "ひとりで", "たいてい", "あまり"], "answer": "いっしょに" },
-      { "kind": "fillBlank", "prompt": "母＿＿いっしょに買い物に行きました。", "hint": "Annemle birlikte alışverişe gittim.", "choices": ["と", "に", "を", "へ"], "answer": "と" },
+      { "kind": "fillBlank", "prompt": "昼ご飯を＿＿食べませんか。", "hint": "Birlikte öğle yemeği yemez misin?", "promptReading": "ひるごはんを＿＿たべませんか。", "choices": ["いっしょに", "ひとりで", "たいてい", "あまり"], "answer": "いっしょに" },
+      { "kind": "fillBlank", "prompt": "母＿＿いっしょに買い物に行きました。", "hint": "Annemle birlikte alışverişe gittim.", "promptReading": "はは＿＿いっしょにかいものにいきました。", "choices": ["と", "に", "を", "へ"], "answer": "と" },
       { "kind": "multipleChoice", "prompt": "「いっしょに」 ne demek?", "hint": null, "choices": ["Birlikte", "Yalnız", "Bazen", "Asla"], "answer": "Birlikte" }
     ]
   },
@@ -1275,7 +1275,7 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "Sıklık sırası doğru mu: いつも > よく > ときどき > あまり", "hint": null, "choices": ["Evet, doğru", "Hayır, ters", "あまり en sık", "ときどき en sık"], "answer": "Evet, doğru" },
-      { "kind": "fillBlank", "prompt": "父は＿＿新聞を読みます。", "hint": "Babam her zaman gazete okur.", "choices": ["いつも", "あまり", "ぜんぜん", "たぶん"], "answer": "いつも" },
+      { "kind": "fillBlank", "prompt": "父は＿＿新聞を読みます。", "hint": "Babam her zaman gazete okur.", "promptReading": "ちちは＿＿しんぶんをよみます。", "choices": ["いつも", "あまり", "ぜんぜん", "たぶん"], "answer": "いつも" },
       { "kind": "multipleChoice", "prompt": "「いつも」 ne demek?", "hint": null, "choices": ["Her zaman", "Bazen", "Nadiren", "Asla"], "answer": "Her zaman" }
     ]
   },
@@ -1294,9 +1294,9 @@
       { "japanese": "彼はもうここにいません。", "hiragana": "かれはもうここにいません。", "romaji": "kare wa mou koko ni imasen.", "turkish": "O artık burada değil." }
     ],
     "questions": [
-      { "kind": "multipleChoice", "prompt": "「もう帰りました」 ne demek?", "hint": null, "choices": ["Çoktan eve döndü", "Henüz dönmedi", "Artık dönmüyor", "Dönecek"], "answer": "Çoktan eve döndü" },
-      { "kind": "multipleChoice", "prompt": "「もう飲みません」 ne demek?", "hint": null, "choices": ["Artık içmiyorum", "Çoktan içtim", "Henüz içmedim", "İçeceğim"], "answer": "Artık içmiyorum" },
-      { "kind": "fillBlank", "prompt": "宿題は＿＿終わりました。", "hint": "Ödev çoktan bitti.", "choices": ["もう", "まだ", "これから", "たぶん"], "answer": "もう" }
+      { "kind": "multipleChoice", "prompt": "「もう帰りました」 ne demek?", "hint": null, "promptReading": "「もうかえりました」 ne demek?", "choices": ["Çoktan eve döndü", "Henüz dönmedi", "Artık dönmüyor", "Dönecek"], "answer": "Çoktan eve döndü" },
+      { "kind": "multipleChoice", "prompt": "「もう飲みません」 ne demek?", "hint": null, "promptReading": "「もうのみません」 ne demek?", "choices": ["Artık içmiyorum", "Çoktan içtim", "Henüz içmedim", "İçeceğim"], "answer": "Artık içmiyorum" },
+      { "kind": "fillBlank", "prompt": "宿題は＿＿終わりました。", "hint": "Ödev çoktan bitti.", "promptReading": "しゅくだいは＿＿おわりました。", "choices": ["もう", "まだ", "これから", "たぶん"], "answer": "もう" }
     ]
   },
   {
@@ -1314,8 +1314,8 @@
       { "japanese": "まだ時間がありますよ。", "hiragana": "まだじかんがありますよ。", "romaji": "mada jikan ga arimasu yo.", "turkish": "Hâlâ vaktimiz var." }
     ],
     "questions": [
-      { "kind": "multipleChoice", "prompt": "「まだ来ていません」 ne demek?", "hint": null, "choices": ["Henüz gelmedi", "Çoktan geldi", "Artık gelmiyor", "Şimdi geliyor"], "answer": "Henüz gelmedi" },
-      { "kind": "fillBlank", "prompt": "＿＿時間がありますから、ゆっくりしましょう。", "hint": "Hâlâ vaktimiz var, acele etmeyelim.", "choices": ["まだ", "もう", "そろそろ", "たぶん"], "answer": "まだ" },
+      { "kind": "multipleChoice", "prompt": "「まだ来ていません」 ne demek?", "hint": null, "promptReading": "「まだきていません」 ne demek?", "choices": ["Henüz gelmedi", "Çoktan geldi", "Artık gelmiyor", "Şimdi geliyor"], "answer": "Henüz gelmedi" },
+      { "kind": "fillBlank", "prompt": "＿＿時間がありますから、ゆっくりしましょう。", "hint": "Hâlâ vaktimiz var, acele etmeyelim.", "promptReading": "＿＿じかんがありますから、ゆっくりしましょう。", "choices": ["まだ", "もう", "そろそろ", "たぶん"], "answer": "まだ" },
       { "kind": "multipleChoice", "prompt": "「もう」 ile 「まだ」 ilişkisi nedir?", "hint": null, "choices": ["Birbirinin karşıtı", "Aynı anlam", "İkisi de soru eki", "İkisi de bağlaç"], "answer": "Birbirinin karşıtı" }
     ]
   },
@@ -1334,9 +1334,9 @@
       { "japanese": "田中さんはまだ来ていません。", "hiragana": "たなかさんはまだきていません。", "romaji": "Tanaka-san wa mada kite imasen.", "turkish": "Tanaka henüz gelmedi." }
     ],
     "questions": [
-      { "kind": "multipleChoice", "prompt": "「もう宿題をしましたか」 sorusuna 'henüz yapmadım' nasıl denir?", "hint": null, "choices": ["いいえ、まだしていません", "いいえ、しませんでした", "はい、しました", "もうしました"], "answer": "いいえ、まだしていません" },
-      { "kind": "fillBlank", "prompt": "その本はまだ読ん＿＿。", "hint": "O kitabı henüz okumadım.", "choices": ["でいません", "でいます", "でした", "でください"], "answer": "でいません" },
-      { "kind": "multipleChoice", "prompt": "「まだ食べていません」 ne demek?", "hint": null, "choices": ["Henüz yemedim", "Artık yemiyorum", "Hâlâ yiyorum", "Çoktan yedim"], "answer": "Henüz yemedim" }
+      { "kind": "multipleChoice", "prompt": "「もう宿題をしましたか」 sorusuna 'henüz yapmadım' nasıl denir?", "hint": null, "promptReading": "「もうしゅくだいをしましたか」 sorusuna 'henüz yapmadım' nasıl denir?", "choices": ["いいえ、まだしていません", "いいえ、しませんでした", "はい、しました", "もうしました"], "answer": "いいえ、まだしていません" },
+      { "kind": "fillBlank", "prompt": "その本はまだ読ん＿＿。", "hint": "O kitabı henüz okumadım.", "promptReading": "そのほんはまだよん＿＿。", "choices": ["でいません", "でいます", "でした", "でください"], "answer": "でいません" },
+      { "kind": "multipleChoice", "prompt": "「まだ食べていません」 ne demek?", "hint": null, "promptReading": "「まだたべていません」 ne demek?", "choices": ["Henüz yemedim", "Artık yemiyorum", "Hâlâ yiyorum", "Çoktan yedim"], "answer": "Henüz yemedim" }
     ]
   },
   {
@@ -1354,7 +1354,7 @@
       { "japanese": "日本語はとてもおもしろいです。", "hiragana": "にほんごはとてもおもしろいです。", "romaji": "nihongo wa totemo omoshiroi desu.", "turkish": "Japonca çok ilginç." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "このかばんは＿＿高いです。", "hint": "Bu çanta çok pahalı.", "choices": ["とても", "あまり", "ぜんぜん", "まだ"], "answer": "とても" },
+      { "kind": "fillBlank", "prompt": "このかばんは＿＿高いです。", "hint": "Bu çanta çok pahalı.", "promptReading": "このかばんは＿＿たかいです。", "choices": ["とても", "あまり", "ぜんぜん", "まだ"], "answer": "とても" },
       { "kind": "multipleChoice", "prompt": "「とても」 hangi cümlelerde kullanılır?", "hint": null, "choices": ["Olumlu cümlelerde", "Sadece olumsuz cümlelerde", "Sadece sorularda", "Sadece emir cümlelerinde"], "answer": "Olumlu cümlelerde" },
       { "kind": "multipleChoice", "prompt": "「とても」 ne demek?", "hint": null, "choices": ["Çok", "Az", "Hiç", "Bazen"], "answer": "Çok" }
     ]
@@ -1374,7 +1374,7 @@
       { "japanese": "昨日はあまり寝ませんでした。", "hiragana": "きのうはあまりねませんでした。", "romaji": "kinou wa amari nemasen deshita.", "turkish": "Dün pek uyumadım." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "その映画は＿＿おもしろくなかったです。", "hint": "O film pek ilginç değildi.", "choices": ["あまり", "とても", "もう", "いつも"], "answer": "あまり" },
+      { "kind": "fillBlank", "prompt": "その映画は＿＿おもしろくなかったです。", "hint": "O film pek ilginç değildi.", "promptReading": "そのえいがは＿＿おもしろくなかったです。", "choices": ["あまり", "とても", "もう", "いつも"], "answer": "あまり" },
       { "kind": "multipleChoice", "prompt": "「あまり」 hangi biçimle kullanılır?", "hint": null, "choices": ["Olumsuz fiil/sıfatla", "Olumlu fiille", "Sadece isimle", "Sadece soruyla"], "answer": "Olumsuz fiil/sıfatla" },
       { "kind": "multipleChoice", "prompt": "「あまり」 ile 「ぜんぜん」 farkı nedir?", "hint": null, "choices": ["ぜんぜん daha güçlü: 'hiç'; あまり: 'pek değil'", "İkisi aynı", "あまり 'hiç' demek", "ぜんぜん olumlu kullanılır"], "answer": "ぜんぜん daha güçlü: 'hiç'; あまり: 'pek değil'" }
     ]
@@ -1394,9 +1394,9 @@
       { "japanese": "どんな町に住みたいですか。", "hiragana": "どんなまちにすみたいですか。", "romaji": "donna machi ni sumitai desu ka.", "turkish": "Nasıl bir kasabada yaşamak istersin?" }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "＿＿映画を見ましたか。", "hint": "Ne tür film izledin?", "choices": ["どんな", "どこ", "どう", "いつ"], "answer": "どんな" },
+      { "kind": "fillBlank", "prompt": "＿＿映画を見ましたか。", "hint": "Ne tür film izledin?", "promptReading": "＿＿えいがをみましたか。", "choices": ["どんな", "どこ", "どう", "いつ"], "answer": "どんな" },
       { "kind": "multipleChoice", "prompt": "「どんな」 ile 「どう」 farkı nedir?", "hint": null, "choices": ["どんな ismi niteler, どう yüklem sorar", "İkisi aynı", "どんな zaman sorar", "どう yer sorar"], "answer": "どんな ismi niteler, どう yüklem sorar" },
-      { "kind": "multipleChoice", "prompt": "「どんな本」 ne demek?", "hint": null, "choices": ["Nasıl bir kitap", "Kitap nerede", "Kitap ne zaman", "Kaç kitap"], "answer": "Nasıl bir kitap" }
+      { "kind": "multipleChoice", "prompt": "「どんな本」 ne demek?", "hint": null, "promptReading": "「どんなほん」 ne demek?", "choices": ["Nasıl bir kitap", "Kitap nerede", "Kitap ne zaman", "Kaç kitap"], "answer": "Nasıl bir kitap" }
     ]
   },
   {
@@ -1415,7 +1415,7 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「どうして」 sorusuna nasıl cevap verilir?", "hint": null, "choices": ["～からです / ～のでです", "～ませんか", "～ましょう", "～たいです"], "answer": "～からです / ～のでです" },
-      { "kind": "fillBlank", "prompt": "＿＿学校を休みましたか。", "hint": "Neden okula gelmedin?", "choices": ["どうして", "どうやって", "どこで", "だれと"], "answer": "どうして" },
+      { "kind": "fillBlank", "prompt": "＿＿学校を休みましたか。", "hint": "Neden okula gelmedin?", "promptReading": "＿＿がっこうをやすみましたか。", "choices": ["どうして", "どうやって", "どこで", "だれと"], "answer": "どうして" },
       { "kind": "multipleChoice", "prompt": "「どうして」 ne demek?", "hint": null, "choices": ["Neden", "Nasıl", "Nerede", "Ne zaman"], "answer": "Neden" }
     ]
   },
@@ -1435,8 +1435,8 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「どうやって」 neyi sorar?", "hint": null, "choices": ["Yöntem / hangi yolla", "Sebep", "Zaman", "Miktar"], "answer": "Yöntem / hangi yolla" },
-      { "kind": "fillBlank", "prompt": "この料理は＿＿作りますか。", "hint": "Bu yemek nasıl yapılır?", "choices": ["どうやって", "どうして", "どんな", "どこ"], "answer": "どうやって" },
-      { "kind": "multipleChoice", "prompt": "「駅までどうやって行きますか」 sorusunun cevabı ne olabilir?", "hint": null, "choices": ["バスで行きます", "おいしいです", "3時です", "高いです"], "answer": "バスで行きます" }
+      { "kind": "fillBlank", "prompt": "この料理は＿＿作りますか。", "hint": "Bu yemek nasıl yapılır?", "promptReading": "このりょうりは＿＿つくりますか。", "choices": ["どうやって", "どうして", "どんな", "どこ"], "answer": "どうやって" },
+      { "kind": "multipleChoice", "prompt": "「駅までどうやって行きますか」 sorusunun cevabı ne olabilir?", "hint": null, "promptReading": "「えきまでどうやっていきますか」 sorusunun cevabı ne olabilir?", "choices": ["バスで行きます", "おいしいです", "3時です", "高いです"], "answer": "バスで行きます" }
     ]
   },
   {
@@ -1454,9 +1454,9 @@
       { "japanese": "駅への行きかたを知っていますか。", "hiragana": "えきへのいきかたをしっていますか。", "romaji": "eki e no ikikata o shitte imasu ka.", "turkish": "İstasyona nasıl gidileceğini biliyor musun?" }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "この機械の使い＿＿がわかりません。", "hint": "Bu makinenin kullanımını bilmiyorum.", "choices": ["かた", "こと", "もの", "ほう"], "answer": "かた" },
-      { "kind": "multipleChoice", "prompt": "「作りかた」 ne demek?", "hint": null, "choices": ["Yapma şekli / tarifi", "Yaptığı şey", "Yapan kişi", "Yapıldığı yer"], "answer": "Yapma şekli / tarifi" },
-      { "kind": "multipleChoice", "prompt": "「漢字＿＿書きかた」 boşluğa ne gelir?", "hint": null, "choices": ["の", "を", "が", "に"], "answer": "の" }
+      { "kind": "fillBlank", "prompt": "この機械の使い＿＿がわかりません。", "hint": "Bu makinenin kullanımını bilmiyorum.", "promptReading": "このきかいのつかい＿＿がわかりません。", "choices": ["かた", "こと", "もの", "ほう"], "answer": "かた" },
+      { "kind": "multipleChoice", "prompt": "「作りかた」 ne demek?", "hint": null, "promptReading": "「つくりかた」 ne demek?", "choices": ["Yapma şekli / tarifi", "Yaptığı şey", "Yapan kişi", "Yapıldığı yer"], "answer": "Yapma şekli / tarifi" },
+      { "kind": "multipleChoice", "prompt": "「漢字＿＿書きかた」 boşluğa ne gelir?", "hint": null, "promptReading": "「かんじ＿＿かきかた」 boşluğa ne gelir?", "choices": ["の", "を", "が", "に"], "answer": "の" }
     ]
   },
   {
@@ -1474,8 +1474,8 @@
       { "japanese": "もう暗くなりました。", "hiragana": "もうくらくなりました。", "romaji": "mou kuraku narimashita.", "turkish": "Hava karardı bile." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "さいきん、寒く＿＿。", "hint": "Son zamanlarda hava soğudu.", "choices": ["なりました", "しました", "いました", "ありました"], "answer": "なりました" },
-      { "kind": "fillBlank", "prompt": "姉は先生＿＿なりました。", "hint": "Ablam öğretmen oldu.", "choices": ["に", "を", "が", "で"], "answer": "に" },
+      { "kind": "fillBlank", "prompt": "さいきん、寒く＿＿。", "hint": "Son zamanlarda hava soğudu.", "promptReading": "さいきん、さむく＿＿。", "choices": ["なりました", "しました", "いました", "ありました"], "answer": "なりました" },
+      { "kind": "fillBlank", "prompt": "姉は先生＿＿なりました。", "hint": "Ablam öğretmen oldu.", "promptReading": "あねはせんせい＿＿なりました。", "choices": ["に", "を", "が", "で"], "answer": "に" },
       { "kind": "multipleChoice", "prompt": "い-sıfat + なる nasıl olur? (ör. 高い)", "hint": null, "choices": ["高くなる", "高いになる", "高になる", "高くになる"], "answer": "高くなる" }
     ]
   },
@@ -1494,9 +1494,9 @@
       { "japanese": "部屋が静かすぎて、こわいです。", "hiragana": "へやがしずかすぎて、こわいです。", "romaji": "heya ga shizukasugite, kowai desu.", "turkish": "Oda fazla sessiz, korkutucu." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "このスープは辛＿＿、食べられません。", "hint": "Bu çorba çok acı, yiyemiyorum.", "choices": ["すぎて", "くて", "たり", "ながら"], "answer": "すぎて" },
-      { "kind": "multipleChoice", "prompt": "「飲みすぎました」 ne demek?", "hint": null, "choices": ["Çok fazla içtim", "Az içtim", "İçmedim", "İçeceğim"], "answer": "Çok fazla içtim" },
-      { "kind": "multipleChoice", "prompt": "「高すぎる」 hangi nüansı taşır?", "hint": null, "choices": ["Olumsuz: gereğinden fazla pahalı", "Olumlu: güzelce pahalı", "Biraz pahalı", "Ucuz"], "answer": "Olumsuz: gereğinden fazla pahalı" }
+      { "kind": "fillBlank", "prompt": "このスープは辛＿＿、食べられません。", "hint": "Bu çorba çok acı, yiyemiyorum.", "promptReading": "このスープはから＿＿、たべられません。", "choices": ["すぎて", "くて", "たり", "ながら"], "answer": "すぎて" },
+      { "kind": "multipleChoice", "prompt": "「飲みすぎました」 ne demek?", "hint": null, "promptReading": "「のみすぎました」 ne demek?", "choices": ["Çok fazla içtim", "Az içtim", "İçmedim", "İçeceğim"], "answer": "Çok fazla içtim" },
+      { "kind": "multipleChoice", "prompt": "「高すぎる」 hangi nüansı taşır?", "hint": null, "promptReading": "「たかすぎる」 hangi nüansı taşır?", "choices": ["Olumsuz: gereğinden fazla pahalı", "Olumlu: güzelce pahalı", "Biraz pahalı", "Ucuz"], "answer": "Olumsuz: gereğinden fazla pahalı" }
     ]
   },
   {
@@ -1514,8 +1514,8 @@
       { "japanese": "来年、日本語能力試験を受けるつもりです。", "hiragana": "らいねん、にほんごのうりょくしけんをうけるつもりです。", "romaji": "rainen, nihongo nouryoku shiken o ukeru tsumori desu.", "turkish": "Gelecek yıl JLPT'ye girmeyi düşünüyorum." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "週末、映画を見る＿＿です。", "hint": "Hafta sonu film izlemeyi düşünüyorum.", "choices": ["つもり", "ながら", "ほう", "こと"], "answer": "つもり" },
-      { "kind": "multipleChoice", "prompt": "「行かないつもりです」 ne demek?", "hint": null, "choices": ["Gitmemeyi düşünüyorum", "Gitmeyi düşünüyorum", "Gitmedim", "Gitmek zorundayım"], "answer": "Gitmemeyi düşünüyorum" },
+      { "kind": "fillBlank", "prompt": "週末、映画を見る＿＿です。", "hint": "Hafta sonu film izlemeyi düşünüyorum.", "promptReading": "しゅうまつ、えいがをみる＿＿です。", "choices": ["つもり", "ながら", "ほう", "こと"], "answer": "つもり" },
+      { "kind": "multipleChoice", "prompt": "「行かないつもりです」 ne demek?", "hint": null, "promptReading": "「いかないつもりです」 ne demek?", "choices": ["Gitmemeyi düşünüyorum", "Gitmeyi düşünüyorum", "Gitmedim", "Gitmek zorundayım"], "answer": "Gitmemeyi düşünüyorum" },
       { "kind": "multipleChoice", "prompt": "「つもり」 öncesinde fiil hangi biçimdedir?", "hint": null, "choices": ["Sözlük biçimi (veya ない-biçimi)", "ます-biçimi", "て-biçimi", "た-biçimi"], "answer": "Sözlük biçimi (veya ない-biçimi)" }
     ]
   },
@@ -1534,8 +1534,8 @@
       { "japanese": "富士山に登ったことがありません。", "hiragana": "ふじさんにのぼったことがありません。", "romaji": "Fuji-san ni nobotta koto ga arimasen.", "turkish": "Fuji'ye hiç tırmanmadım." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "馬に乗った＿＿ありますか。", "hint": "Hiç ata bindin mi?", "choices": ["ことが", "ことを", "ものが", "ときが"], "answer": "ことが" },
-      { "kind": "multipleChoice", "prompt": "「見たことがあります」 ne demek?", "hint": null, "choices": ["Daha önce görmüşlüğüm var", "Şimdi görüyorum", "Göreceğim", "Hiç görmedim"], "answer": "Daha önce görmüşlüğüm var" },
+      { "kind": "fillBlank", "prompt": "馬に乗った＿＿ありますか。", "hint": "Hiç ata bindin mi?", "promptReading": "うまにのった＿＿ありますか。", "choices": ["ことが", "ことを", "ものが", "ときが"], "answer": "ことが" },
+      { "kind": "multipleChoice", "prompt": "「見たことがあります」 ne demek?", "hint": null, "promptReading": "「みたことがあります」 ne demek?", "choices": ["Daha önce görmüşlüğüm var", "Şimdi görüyorum", "Göreceğim", "Hiç görmedim"], "answer": "Daha önce görmüşlüğüm var" },
       { "kind": "multipleChoice", "prompt": "「ことがある」 öncesinde fiil hangi biçimdedir?", "hint": null, "choices": ["た-biçimi", "sözlük biçimi", "て-biçimi", "ない-biçimi"], "answer": "た-biçimi" }
     ]
   },
@@ -1554,9 +1554,9 @@
       { "japanese": "この問題は難しいでしょう。", "hiragana": "このもんだいはむずかしいでしょう。", "romaji": "kono mondai wa muzukashii deshou.", "turkish": "Bu soru zordur herhalde." }
     ],
     "questions": [
-      { "kind": "multipleChoice", "prompt": "「あしたは晴れるでしょう」 ne demek?", "hint": null, "choices": ["Yarın herhalde açar", "Yarın kesin açacak", "Yarın açmadı", "Yarın açar mı?"], "answer": "Yarın herhalde açar" },
+      { "kind": "multipleChoice", "prompt": "「あしたは晴れるでしょう」 ne demek?", "hint": null, "promptReading": "「あしたははれるでしょう」 ne demek?", "choices": ["Yarın herhalde açar", "Yarın kesin açacak", "Yarın açmadı", "Yarın açar mı?"], "answer": "Yarın herhalde açar" },
       { "kind": "multipleChoice", "prompt": "でしょう ile だろう farkı nedir?", "hint": null, "choices": ["でしょう kibar, だろう yalın", "İkisi aynı derecede resmî", "だろう kibar", "でしょう geçmiş zamandır"], "answer": "でしょう kibar, だろう yalın" },
-      { "kind": "fillBlank", "prompt": "田中さんは来ない＿＿。", "hint": "Tanaka herhalde gelmez.", "choices": ["でしょう", "ください", "ましょう", "ませんか"], "answer": "でしょう" }
+      { "kind": "fillBlank", "prompt": "田中さんは来ない＿＿。", "hint": "Tanaka herhalde gelmez.", "promptReading": "たなかさんはこない＿＿。", "choices": ["でしょう", "ください", "ましょう", "ませんか"], "answer": "でしょう" }
     ]
   },
   {
@@ -1575,8 +1575,8 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「んです」 ne işe yarar?", "hint": null, "choices": ["Açıklama / gerekçe / vurgu katar", "Geçmiş zaman yapar", "Yasak koyar", "Emir yapar"], "answer": "Açıklama / gerekçe / vurgu katar" },
-      { "kind": "fillBlank", "prompt": "少し熱がある＿＿。", "hint": "Biraz ateşim var (durum bu).", "choices": ["んです", "ました", "ましょう", "ください"], "answer": "んです" },
-      { "kind": "multipleChoice", "prompt": "「病気＿＿んです」 boşluğa ne gelir?", "hint": null, "choices": ["な", "だ", "の", "を"], "answer": "な" }
+      { "kind": "fillBlank", "prompt": "少し熱がある＿＿。", "hint": "Biraz ateşim var (durum bu).", "promptReading": "すこしねつがある＿＿。", "choices": ["んです", "ました", "ましょう", "ください"], "answer": "んです" },
+      { "kind": "multipleChoice", "prompt": "「病気＿＿んです」 boşluğa ne gelir?", "hint": null, "promptReading": "「びょうき＿＿んです」 boşluğa ne gelir?", "choices": ["な", "だ", "の", "を"], "answer": "な" }
     ]
   },
   {
@@ -1596,7 +1596,7 @@
     "questions": [
       { "kind": "multipleChoice", "prompt": "「です」 nin yalın hâli nedir?", "hint": null, "choices": ["だ", "ます", "ない", "た"], "answer": "だ" },
       { "kind": "multipleChoice", "prompt": "「学生だ」 hangi durumda uygundur?", "hint": null, "choices": ["Samimi, günlük konuşma", "Resmî sunum", "Yabancılarla ilk tanışma", "İş toplantısı"], "answer": "Samimi, günlük konuşma" },
-      { "kind": "fillBlank", "prompt": "あしたは日曜日＿＿。", "hint": "Yarın pazar. (yalın)", "choices": ["だ", "を", "が", "に"], "answer": "だ" }
+      { "kind": "fillBlank", "prompt": "あしたは日曜日＿＿。", "hint": "Yarın pazar. (yalın)", "promptReading": "あしたはにちようび＿＿。", "choices": ["だ", "を", "が", "に"], "answer": "だ" }
     ]
   },
   {
@@ -1615,8 +1615,8 @@
     ],
     "questions": [
       { "kind": "multipleChoice", "prompt": "「じゃありません」 nin yalın hâli nedir?", "hint": null, "choices": ["じゃない", "じゃなかった", "じゃないです", "ではありません"], "answer": "じゃない" },
-      { "kind": "fillBlank", "prompt": "それは本当＿＿。", "hint": "O doğru değil. (yalın)", "choices": ["じゃない", "じゃある", "くない", "ないだ"], "answer": "じゃない" },
-      { "kind": "multipleChoice", "prompt": "「学生じゃない」 ne demek?", "hint": null, "choices": ["Öğrenci değil", "Öğrenci", "Öğrenci miydi?", "Öğrenci ol"], "answer": "Öğrenci değil" }
+      { "kind": "fillBlank", "prompt": "それは本当＿＿。", "hint": "O doğru değil. (yalın)", "promptReading": "それはほんとう＿＿。", "choices": ["じゃない", "じゃある", "くない", "ないだ"], "answer": "じゃない" },
+      { "kind": "multipleChoice", "prompt": "「学生じゃない」 ne demek?", "hint": null, "promptReading": "「がくせいじゃない」 ne demek?", "choices": ["Öğrenci değil", "Öğrenci", "Öğrenci miydi?", "Öğrenci ol"], "answer": "Öğrenci değil" }
     ]
   },
   {
@@ -1636,7 +1636,7 @@
     "questions": [
       { "kind": "multipleChoice", "prompt": "「高い」 nın geçmiş hâli nedir?", "hint": null, "choices": ["高かった", "高いだった", "高くだ", "高いでした"], "answer": "高かった" },
       { "kind": "multipleChoice", "prompt": "「おいしい」 nın olumsuzu nedir?", "hint": null, "choices": ["おいしくない", "おいしいない", "おいしじゃない", "おいしくじゃない"], "answer": "おいしくない" },
-      { "kind": "fillBlank", "prompt": "きのうのパーティーは楽し＿＿です。", "hint": "Dünkü parti eğlenceliydi.", "choices": ["かった", "い", "くない", "だった"], "answer": "かった" }
+      { "kind": "fillBlank", "prompt": "きのうのパーティーは楽し＿＿です。", "hint": "Dünkü parti eğlenceliydi.", "promptReading": "きのうのパーティーはたのし＿＿です。", "choices": ["かった", "い", "くない", "だった"], "answer": "かった" }
     ]
   },
   {
@@ -1656,7 +1656,7 @@
     "questions": [
       { "kind": "multipleChoice", "prompt": "「元気」 (na-sıfat) nın geçmiş hâli nedir?", "hint": null, "choices": ["元気でした", "元気かった", "元気いだ", "元気くない"], "answer": "元気でした" },
       { "kind": "multipleChoice", "prompt": "「静か」 nın olumsuzu nedir?", "hint": null, "choices": ["静かじゃありません", "静くない", "静かくない", "静かないです"], "answer": "静かじゃありません" },
-      { "kind": "fillBlank", "prompt": "先週の試験は簡単＿＿。", "hint": "Geçen haftaki sınav kolaydı.", "choices": ["でした", "かった", "くない", "だったです"], "answer": "でした" }
+      { "kind": "fillBlank", "prompt": "先週の試験は簡単＿＿。", "hint": "Geçen haftaki sınav kolaydı.", "promptReading": "せんしゅうのしけんはかんたん＿＿。", "choices": ["でした", "かった", "くない", "だったです"], "answer": "でした" }
     ]
   },
   {
@@ -1674,7 +1674,7 @@
       { "japanese": "日本語を上手に話します。", "hiragana": "にほんごをじょうずにはなします。", "romaji": "nihongo o jouzu ni hanashimasu.", "turkish": "Japoncayı ustaca konuşur." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "もっと大き＿＿声で話してください。", "hint": "Daha yüksek sesle konuşun.", "choices": ["く", "に", "な", "の"], "answer": "く" },
+      { "kind": "fillBlank", "prompt": "もっと大き＿＿声で話してください。", "hint": "Daha yüksek sesle konuşun.", "promptReading": "もっとおおき＿＿こえではなしてください。", "choices": ["く", "に", "な", "の"], "answer": "く" },
       { "kind": "fillBlank", "prompt": "しずか＿＿してください。", "hint": "Sessiz olun / sessizce yapın.", "choices": ["に", "く", "な", "と"], "answer": "に" },
       { "kind": "multipleChoice", "prompt": "「早い」 sıfatı fiili nitelemek için nasıl olur?", "hint": null, "choices": ["早く", "早に", "早いに", "早くに"], "answer": "早く" }
     ]
@@ -1694,8 +1694,8 @@
       { "japanese": "この部屋は広くて明るいです。", "hiragana": "このへやはひろくてあかるいです。", "romaji": "kono heya wa hirokute akarui desu.", "turkish": "Bu oda geniş ve aydınlık." }
     ],
     "questions": [
-      { "kind": "fillBlank", "prompt": "このかばんは軽＿＿、便利です。", "hint": "Bu çanta hafif ve kullanışlı.", "choices": ["くて", "くで", "いで", "だって"], "answer": "くて" },
-      { "kind": "fillBlank", "prompt": "町はしずか＿＿、きれいです。", "hint": "Kasaba sessiz ve temiz.", "choices": ["で", "くて", "に", "と"], "answer": "で" },
+      { "kind": "fillBlank", "prompt": "このかばんは軽＿＿、便利です。", "hint": "Bu çanta hafif ve kullanışlı.", "promptReading": "このかばんはかる＿＿、べんりです。", "choices": ["くて", "くで", "いで", "だって"], "answer": "くて" },
+      { "kind": "fillBlank", "prompt": "町はしずか＿＿、きれいです。", "hint": "Kasaba sessiz ve temiz.", "promptReading": "まちはしずか＿＿、きれいです。", "choices": ["で", "くて", "に", "と"], "answer": "で" },
       { "kind": "multipleChoice", "prompt": "「高い」 + 「まずい」 nasıl birleşir?", "hint": null, "choices": ["高くてまずい", "高いてまずい", "高でまずい", "高くまずい"], "answer": "高くてまずい" }
     ]
   }

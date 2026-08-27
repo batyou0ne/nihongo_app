@@ -262,6 +262,13 @@ struct GrammarPracticeView: View {
                 .foregroundStyle(Theme.ink)
                 .fixedSize(horizontal: false, vertical: true)
 
+            if let reading = question.promptReading, !reading.isEmpty {
+                Text(reading)
+                    .font(.system(size: 13))
+                    .foregroundStyle(Color(uiColor: .tertiaryLabel))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
             if let hint = question.hint {
                 Text(hint)
                     .font(.subheadline)
