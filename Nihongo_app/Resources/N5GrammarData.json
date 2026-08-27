@@ -1098,5 +1098,285 @@
       { "kind": "fillBlank", "prompt": "テスト＿＿まえに、よく寝てください。", "hint": "Sınavdan önce iyi uyuyun.", "choices": ["の", "な", "を", "に"], "answer": "の" },
       { "kind": "wordOrder", "prompt": "Yemekten önce ellerini yıka.", "hint": "ご飯 / の / まえに / 手を / 洗って", "choices": ["ご飯", "の", "まえに", "手を", "洗って"], "answer": "ご飯のまえに手を洗って", "answerTokens": ["ご飯", "の", "まえに", "手を", "洗って"] }
     ]
+  },
+  {
+    "key": "ga_hoshii",
+    "pattern": "～がほしい",
+    "romaji": "~ ga hoshii",
+    "title": "İstemek (isim): ～がほしい",
+    "explanation": "'... istiyorum' (isim için). İstenen şey が ile işaretlenir. Yalnızca 1./2. tekil şahıs için kullanılır. ～たい fiil isteği içindir, ほしい isim içindir.",
+    "formula": "[İsim] + が + ほしい / ほしいです",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "新しい車がほしいです。", "romaji": "atarashii kuruma ga hoshii desu.", "turkish": "Yeni bir araba istiyorum." },
+      { "japanese": "何がほしいですか。", "romaji": "nani ga hoshii desu ka.", "turkish": "Ne istiyorsun?" },
+      { "japanese": "今は何もほしくないです。", "romaji": "ima wa nani mo hoshikunai desu.", "turkish": "Şu an hiçbir şey istemiyorum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "私は新しいかばん＿＿ほしいです。", "hint": "Yeni bir çanta istiyorum.", "choices": ["が", "を", "に", "で"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「ほしい」 ile 「たい」 farkı nedir?", "hint": null, "choices": ["ほしい isim, たい fiil isteği", "İkisi aynı", "ほしい fiil, たい isim", "ほしい geçmiş zaman"], "answer": "ほしい isim, たい fiil isteği" },
+      { "kind": "multipleChoice", "prompt": "「時間がほしいです」 ne demek?", "hint": null, "choices": ["Zaman istiyorum", "Zamanım var", "Zamanım yok", "Zaman geçti"], "answer": "Zaman istiyorum" }
+    ]
+  },
+  {
+    "key": "hou_ga_ii",
+    "pattern": "～ほうがいい",
+    "romaji": "~ hou ga ii",
+    "title": "Tavsiye: ～ほうがいい",
+    "explanation": "'... yapsan iyi olur / yapmalısın'. Olumlu için た-biçimi + ほうがいい, olumsuz için ない-biçimi + ほうがいい.",
+    "formula": "[fiil た-biçimi] + ほうがいい   /   [fiil ない-biçimi] + ほうがいい",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "早く寝たほうがいいですよ。", "romaji": "hayaku neta hou ga ii desu yo.", "turkish": "Erken yatsan iyi olur." },
+      { "japanese": "薬を飲んだほうがいいです。", "romaji": "kusuri o nonda hou ga ii desu.", "turkish": "İlaç içsen iyi olur." },
+      { "japanese": "今日は出かけないほうがいいです。", "romaji": "kyou wa dekakenai hou ga ii desu.", "turkish": "Bugün dışarı çıkmasan iyi olur." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "つかれているなら、休んだ＿＿がいいですよ。", "hint": "Yorgunsan dinlensen iyi olur.", "choices": ["ほう", "こと", "もの", "とき"], "answer": "ほう" },
+      { "kind": "multipleChoice", "prompt": "「行かないほうがいい」 ne demek?", "hint": null, "choices": ["Gitmesen iyi olur", "Gitsen iyi olur", "Gitmelisin", "Gitmek yasak"], "answer": "Gitmesen iyi olur" },
+      { "kind": "multipleChoice", "prompt": "Tavsiye verirken olumlu fiil hangi biçimde olur?", "hint": null, "choices": ["た-biçimi", "sözlük biçimi", "ます-biçimi", "て-biçimi"], "answer": "た-biçimi" }
+    ]
+  },
+  {
+    "key": "ichiban",
+    "pattern": "いちばん",
+    "romaji": "ichiban",
+    "title": "En...: いちばん",
+    "explanation": "'En ...' — üstünlük derecesi. Sıfat/zarftan önce gelir (いちばん高い = en pahalı). Bir grup içinde 'en'i belirtmek için の中で ... がいちばん yapısıyla kullanılır.",
+    "formula": "いちばん + [sıfat]   /   [İsim] + がいちばん + [sıfat]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "富士山は日本でいちばん高い山です。", "romaji": "Fuji-san wa Nihon de ichiban takai yama desu.", "turkish": "Fuji, Japonya'nın en yüksek dağıdır." },
+      { "japanese": "この店のケーキがいちばんおいしいです。", "romaji": "kono mise no keeki ga ichiban oishii desu.", "turkish": "Bu dükkânın pastası en lezzetlisi." },
+      { "japanese": "どの季節がいちばん好きですか。", "romaji": "dono kisetsu ga ichiban suki desu ka.", "turkish": "En çok hangi mevsimi seversin?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "クラスで田中さん＿＿いちばん背が高いです。", "hint": "Sınıfta en uzun boylu Tanaka.", "choices": ["が", "を", "に", "も"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「いちばん安い」 ne demek?", "hint": null, "choices": ["En ucuz", "Daha ucuz", "Biraz ucuz", "Ucuz değil"], "answer": "En ucuz" },
+      { "kind": "wordOrder", "prompt": "En çok yazı severim.", "hint": "夏 / が / いちばん / 好きです", "choices": ["夏", "が", "いちばん", "好きです"], "answer": "夏がいちばん好きです", "answerTokens": ["夏", "が", "いちばん", "好きです"] }
+    ]
+  },
+  {
+    "key": "no_naka_de_ichiban",
+    "pattern": "～の中で〜がいちばん",
+    "romaji": "~ no naka de ~ ga ichiban",
+    "title": "Grup içinde en: ～の中で〜がいちばん",
+    "explanation": "Belirli bir grup/aralık içinde 'en'i belirtir. [Grup] の中で [X] が いちばん [sıfat]. Grup zaman/yer ise で olur (一年で).",
+    "formula": "[Grup] + の中で + [X] + が + いちばん + [sıfat]",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "スポーツの中で、サッカーがいちばん好きです。", "romaji": "supootsu no naka de, sakkaa ga ichiban suki desu.", "turkish": "Sporlar arasında en çok futbolu severim." },
+      { "japanese": "家族の中で、父がいちばん背が高いです。", "romaji": "kazoku no naka de, chichi ga ichiban se ga takai desu.", "turkish": "Ailede en uzun boylu babam." },
+      { "japanese": "クラスの中で、だれがいちばん歌が上手ですか。", "romaji": "kurasu no naka de, dare ga ichiban uta ga jouzu desu ka.", "turkish": "Sınıfta en iyi şarkı söyleyen kim?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "くだもの＿＿中で、りんごがいちばん好きです。", "hint": "Meyveler arasında en çok elmayı severim.", "choices": ["の", "が", "を", "で"], "answer": "の" },
+      { "kind": "wordOrder", "prompt": "Aile içinde en çok ben yerim.", "hint": "家族 / の中で / 私 / が / いちばん / 食べます", "choices": ["家族", "の中で", "私", "が", "いちばん", "食べます"], "answer": "家族の中で私がいちばん食べます", "answerTokens": ["家族", "の中で", "私", "が", "いちばん", "食べます"] },
+      { "kind": "multipleChoice", "prompt": "「一年で夏がいちばん暑いです」 ne demek?", "hint": null, "choices": ["Yılın en sıcak mevsimi yazdır", "Yaz en soğuk mevsimdir", "Yazın hiç sıcak olmaz", "Yaz bir yıl sürer"], "answer": "Yılın en sıcak mevsimi yazdır" }
+    ]
+  },
+  {
+    "key": "wa_yori",
+    "pattern": "～は〜より",
+    "romaji": "~ wa ~ yori",
+    "title": "–den daha: ～は〜より",
+    "explanation": "İki şeyi karşılaştırır: '[A], [B]'den daha [sıfat]'. より 'den' anlamındaki karşılaştırma edatıdır.",
+    "formula": "[A] + は + [B] + より + [sıfat]",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "東京は大阪より大きいです。", "romaji": "Toukyou wa Oosaka yori ookii desu.", "turkish": "Tokyo, Osaka'dan büyüktür." },
+      { "japanese": "今日は昨日より寒いです。", "romaji": "kyou wa kinou yori samui desu.", "turkish": "Bugün dünden soğuk." },
+      { "japanese": "電車は車より速いです。", "romaji": "densha wa kuruma yori hayai desu.", "turkish": "Tren, arabadan hızlıdır." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "夏は冬＿＿暑いです。", "hint": "Yaz kıştan sıcaktır.", "choices": ["より", "から", "まで", "ほど"], "answer": "より" },
+      { "kind": "multipleChoice", "prompt": "「A は B より高いです」 ne demek?", "hint": null, "choices": ["A, B'den pahalıdır", "B, A'dan pahalıdır", "A ile B aynı fiyat", "A ucuzdur"], "answer": "A, B'den pahalıdır" },
+      { "kind": "wordOrder", "prompt": "Bu kitap o kitaptan ilginç.", "hint": "この本 / は / その本 / より / おもしろいです", "choices": ["この本", "は", "その本", "より", "おもしろいです"], "answer": "この本はその本よりおもしろいです", "answerTokens": ["この本", "は", "その本", "より", "おもしろいです"] }
+    ]
+  },
+  {
+    "key": "yori_hou_ga",
+    "pattern": "～より〜ほうが",
+    "romaji": "~ yori ~ hou ga",
+    "title": "–e kıyasla daha: ～より〜ほうが",
+    "explanation": "Karşılaştırmada bir tarafı öne çıkarır: '[B]'ye kıyasla [A] daha [sıfat]'. Soru: [A] と [B] と どちらのほうが ...?",
+    "formula": "[B] + より + [A] + のほうが + [sıfat]",
+    "category": "expression",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "バスより電車のほうが速いです。", "romaji": "basu yori densha no hou ga hayai desu.", "turkish": "Otobüse kıyasla tren daha hızlı." },
+      { "japanese": "肉より魚のほうが好きです。", "romaji": "niku yori sakana no hou ga suki desu.", "turkish": "Ete kıyasla balığı daha çok severim." },
+      { "japanese": "コーヒーと紅茶と、どちらのほうが好きですか。", "romaji": "koohii to koucha to, dochira no hou ga suki desu ka.", "turkish": "Kahve mi çay mı, hangisini daha çok seversin?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "きのうより今日＿＿ほうが暑いです。", "hint": "Düne kıyasla bugün daha sıcak.", "choices": ["の", "が", "は", "を"], "answer": "の" },
+      { "kind": "multipleChoice", "prompt": "「犬より猫のほうが好きです」 ne demek?", "hint": null, "choices": ["Köpeğe kıyasla kediyi daha çok severim", "Kediye kıyasla köpeği daha çok severim", "İkisini de sevmem", "İkisini eşit severim"], "answer": "Köpeğe kıyasla kediyi daha çok severim" },
+      { "kind": "multipleChoice", "prompt": "Karşılaştırmada 'hangisi?' nasıl sorulur?", "hint": null, "choices": ["どちらのほうが", "なにのほうが", "どこのほうが", "いつのほうが"], "answer": "どちらのほうが" }
+    ]
+  },
+  {
+    "key": "wa_dou_desu_ka",
+    "pattern": "～はどうですか",
+    "romaji": "~ wa dou desu ka",
+    "title": "... nasıl? / ne dersin?: ～はどうですか",
+    "explanation": "İki kullanımı: (1) bir şeyin durumunu sormak ('... nasıl?'), (2) öneri sunmak ('... e ne dersin?'). はどうですか kibar, どう? gündelik.",
+    "formula": "[İsim] + はどうですか",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "新しい仕事はどうですか。", "romaji": "atarashii shigoto wa dou desu ka.", "turkish": "Yeni iş nasıl?" },
+      { "japanese": "日曜日はどうですか。", "romaji": "nichiyoubi wa dou desu ka.", "turkish": "Pazar günü nasıl olur? (öneri)" },
+      { "japanese": "コーヒーはどうですか。", "romaji": "koohii wa dou desu ka.", "turkish": "Kahve ister misin?" }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "(Buluşma ayarlarken) 「土曜日はどうですか」 ne demek?", "hint": null, "choices": ["Cumartesi nasıl olur? (öneri)", "Cumartesi nasıl geçti?", "Cumartesi neredesin?", "Cumartesi kim var?"], "answer": "Cumartesi nasıl olur? (öneri)" },
+      { "kind": "fillBlank", "prompt": "この赤いセーター＿＿どうですか。", "hint": "Bu kırmızı kazak nasıl?", "choices": ["は", "を", "が", "に"], "answer": "は" },
+      { "kind": "multipleChoice", "prompt": "「お茶はどうですか」 ne anlatabilir?", "hint": null, "choices": ["Çay ikram etme / önerme", "Çayın fiyatını sorma", "Çayın nerede olduğunu sorma", "Çayı yasaklama"], "answer": "Çay ikram etme / önerme" }
+    ]
+  },
+  {
+    "key": "issho_ni",
+    "pattern": "いっしょに",
+    "romaji": "issho ni",
+    "title": "Birlikte: いっしょに",
+    "explanation": "'Birlikte, beraber'. Fiilden önce gelir. Kiminle olduğu [kişi] と ile belirtilir: 友だちといっしょに.",
+    "formula": "([kişi] + と) + いっしょに + [fiil]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "いっしょに帰りましょう。", "romaji": "issho ni kaerimashou.", "turkish": "Birlikte dönelim." },
+      { "japanese": "友だちといっしょに映画を見ました。", "romaji": "tomodachi to issho ni eiga o mimashita.", "turkish": "Arkadaşımla birlikte film izledim." },
+      { "japanese": "家族といっしょに住んでいます。", "romaji": "kazoku to issho ni sunde imasu.", "turkish": "Ailemle birlikte yaşıyorum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "昼ご飯を＿＿食べませんか。", "hint": "Birlikte öğle yemeği yemez misin?", "choices": ["いっしょに", "ひとりで", "たいてい", "あまり"], "answer": "いっしょに" },
+      { "kind": "fillBlank", "prompt": "母＿＿いっしょに買い物に行きました。", "hint": "Annemle birlikte alışverişe gittim.", "choices": ["と", "に", "を", "へ"], "answer": "と" },
+      { "kind": "multipleChoice", "prompt": "「いっしょに」 ne demek?", "hint": null, "choices": ["Birlikte", "Yalnız", "Bazen", "Asla"], "answer": "Birlikte" }
+    ]
+  },
+  {
+    "key": "itsumo",
+    "pattern": "いつも",
+    "romaji": "itsumo",
+    "title": "Her zaman: いつも",
+    "explanation": "Sıklık zarfı: 'her zaman, hep'. Fiilden önce serbestçe durur. Sıklık sırası: いつも > よく > ときどき > あまり〜ない > ぜんぜん〜ない.",
+    "formula": "いつも + [fiil]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "私はいつも7時に起きます。", "romaji": "watashi wa itsumo shichi-ji ni okimasu.", "turkish": "Ben her zaman 7'de kalkarım." },
+      { "japanese": "彼はいつも元気です。", "romaji": "kare wa itsumo genki desu.", "turkish": "O her zaman neşelidir." },
+      { "japanese": "いつもありがとうございます。", "romaji": "itsumo arigatou gozaimasu.", "turkish": "Her zaman teşekkür ederim." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "Sıklık sırası doğru mu: いつも > よく > ときどき > あまり", "hint": null, "choices": ["Evet, doğru", "Hayır, ters", "あまり en sık", "ときどき en sık"], "answer": "Evet, doğru" },
+      { "kind": "fillBlank", "prompt": "父は＿＿新聞を読みます。", "hint": "Babam her zaman gazete okur.", "choices": ["いつも", "あまり", "ぜんぜん", "たぶん"], "answer": "いつも" },
+      { "kind": "multipleChoice", "prompt": "「いつも」 ne demek?", "hint": null, "choices": ["Her zaman", "Bazen", "Nadiren", "Asla"], "answer": "Her zaman" }
+    ]
+  },
+  {
+    "key": "mou_already",
+    "pattern": "もう",
+    "romaji": "mou",
+    "title": "Artık / zaten: もう",
+    "explanation": "İki kullanımı: (1) olumlu geçmişle 'çoktan, zaten' (もう食べました), (2) olumsuzla 'artık ...değil' (もういません).",
+    "formula": "もう + [olumlu geçmiş] = zaten   /   もう + [olumsuz] = artık ...değil",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "もう昼ご飯を食べました。", "romaji": "mou hirugohan o tabemashita.", "turkish": "Öğle yemeğini çoktan yedim." },
+      { "japanese": "もうお金がありません。", "romaji": "mou okane ga arimasen.", "turkish": "Artık param yok." },
+      { "japanese": "彼はもうここにいません。", "romaji": "kare wa mou koko ni imasen.", "turkish": "O artık burada değil." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「もう帰りました」 ne demek?", "hint": null, "choices": ["Çoktan eve döndü", "Henüz dönmedi", "Artık dönmüyor", "Dönecek"], "answer": "Çoktan eve döndü" },
+      { "kind": "multipleChoice", "prompt": "「もう飲みません」 ne demek?", "hint": null, "choices": ["Artık içmiyorum", "Çoktan içtim", "Henüz içmedim", "İçeceğim"], "answer": "Artık içmiyorum" },
+      { "kind": "fillBlank", "prompt": "宿題は＿＿終わりました。", "hint": "Ödev çoktan bitti.", "choices": ["もう", "まだ", "これから", "たぶん"], "answer": "もう" }
+    ]
+  },
+  {
+    "key": "mada",
+    "pattern": "まだ",
+    "romaji": "mada",
+    "title": "Hâlâ / henüz değil: まだ",
+    "explanation": "İki kullanımı: (1) olumluyla 'hâlâ' (まだ食べています), (2) olumsuzla 'henüz ...değil' (まだ食べていません). もう'nun karşıtı.",
+    "formula": "まだ + [olumlu] = hâlâ   /   まだ + [olumsuz] = henüz ...değil",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "まだ雨が降っています。", "romaji": "mada ame ga futte imasu.", "turkish": "Hâlâ yağmur yağıyor." },
+      { "japanese": "まだ宿題をしていません。", "romaji": "mada shukudai o shite imasen.", "turkish": "Henüz ödevimi yapmadım." },
+      { "japanese": "まだ時間がありますよ。", "romaji": "mada jikan ga arimasu yo.", "turkish": "Hâlâ vaktimiz var." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「まだ来ていません」 ne demek?", "hint": null, "choices": ["Henüz gelmedi", "Çoktan geldi", "Artık gelmiyor", "Şimdi geliyor"], "answer": "Henüz gelmedi" },
+      { "kind": "fillBlank", "prompt": "＿＿時間がありますから、ゆっくりしましょう。", "hint": "Hâlâ vaktimiz var, acele etmeyelim.", "choices": ["まだ", "もう", "そろそろ", "たぶん"], "answer": "まだ" },
+      { "kind": "multipleChoice", "prompt": "「もう」 ile 「まだ」 ilişkisi nedir?", "hint": null, "choices": ["Birbirinin karşıtı", "Aynı anlam", "İkisi de soru eki", "İkisi de bağlaç"], "answer": "Birbirinin karşıtı" }
+    ]
+  },
+  {
+    "key": "mada_te_imasen",
+    "pattern": "まだ～ていません",
+    "romaji": "mada ~ te imasen",
+    "title": "Henüz ...medi: まだ～ていません",
+    "explanation": "'Henüz ... yapmadı' — beklenen ama henüz gerçekleşmemiş bir eylem. まだ〜ませんでした değil, まだ〜ていません kullanılır (çünkü hâlâ olabilir).",
+    "formula": "まだ + [fiil te-biçimi] + いません",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "まだ昼ご飯を食べていません。", "romaji": "mada hirugohan o tabete imasen.", "turkish": "Henüz öğle yemeği yemedim." },
+      { "japanese": "その映画はまだ見ていません。", "romaji": "sono eiga wa mada mite imasen.", "turkish": "O filmi henüz izlemedim." },
+      { "japanese": "田中さんはまだ来ていません。", "romaji": "Tanaka-san wa mada kite imasen.", "turkish": "Tanaka henüz gelmedi." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「もう宿題をしましたか」 sorusuna 'henüz yapmadım' nasıl denir?", "hint": null, "choices": ["いいえ、まだしていません", "いいえ、しませんでした", "はい、しました", "もうしました"], "answer": "いいえ、まだしていません" },
+      { "kind": "fillBlank", "prompt": "その本はまだ読ん＿＿。", "hint": "O kitabı henüz okumadım.", "choices": ["でいません", "でいます", "でした", "でください"], "answer": "でいません" },
+      { "kind": "multipleChoice", "prompt": "「まだ食べていません」 ne demek?", "hint": null, "choices": ["Henüz yemedim", "Artık yemiyorum", "Hâlâ yiyorum", "Çoktan yedim"], "answer": "Henüz yemedim" }
+    ]
+  },
+  {
+    "key": "totemo",
+    "pattern": "とても",
+    "romaji": "totemo",
+    "title": "Çok: とても",
+    "explanation": "Derece zarfı: 'çok, pek'. Sıfat veya zarftan önce gelir. Olumlu cümlelerde kullanılır; olumsuzla 'あまり〜ない' tercih edilir.",
+    "formula": "とても + [sıfat]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "この料理はとてもおいしいです。", "romaji": "kono ryouri wa totemo oishii desu.", "turkish": "Bu yemek çok lezzetli." },
+      { "japanese": "今日はとても寒いです。", "romaji": "kyou wa totemo samui desu.", "turkish": "Bugün çok soğuk." },
+      { "japanese": "日本語はとてもおもしろいです。", "romaji": "nihongo wa totemo omoshiroi desu.", "turkish": "Japonca çok ilginç." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "このかばんは＿＿高いです。", "hint": "Bu çanta çok pahalı.", "choices": ["とても", "あまり", "ぜんぜん", "まだ"], "answer": "とても" },
+      { "kind": "multipleChoice", "prompt": "「とても」 hangi cümlelerde kullanılır?", "hint": null, "choices": ["Olumlu cümlelerde", "Sadece olumsuz cümlelerde", "Sadece sorularda", "Sadece emir cümlelerinde"], "answer": "Olumlu cümlelerde" },
+      { "kind": "multipleChoice", "prompt": "「とても」 ne demek?", "hint": null, "choices": ["Çok", "Az", "Hiç", "Bazen"], "answer": "Çok" }
+    ]
+  },
+  {
+    "key": "amari_nai",
+    "pattern": "あまり～ない",
+    "romaji": "amari ~ nai",
+    "title": "Pek ... değil: あまり～ない",
+    "explanation": "Derece: 'pek ... değil, o kadar ... değil'. Her zaman olumsuz fiil/sıfatla kullanılır. ぜんぜん〜ない ise 'hiç ...değil' (daha güçlü).",
+    "formula": "あまり + [sıfat/fiil olumsuz]",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "この店はあまり高くないです。", "romaji": "kono mise wa amari takakunai desu.", "turkish": "Bu dükkân pek pahalı değil." },
+      { "japanese": "肉はあまり食べません。", "romaji": "niku wa amari tabemasen.", "turkish": "Et pek yemem." },
+      { "japanese": "昨日はあまり寝ませんでした。", "romaji": "kinou wa amari nemasen deshita.", "turkish": "Dün pek uyumadım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "その映画は＿＿おもしろくなかったです。", "hint": "O film pek ilginç değildi.", "choices": ["あまり", "とても", "もう", "いつも"], "answer": "あまり" },
+      { "kind": "multipleChoice", "prompt": "「あまり」 hangi biçimle kullanılır?", "hint": null, "choices": ["Olumsuz fiil/sıfatla", "Olumlu fiille", "Sadece isimle", "Sadece soruyla"], "answer": "Olumsuz fiil/sıfatla" },
+      { "kind": "multipleChoice", "prompt": "「あまり」 ile 「ぜんぜん」 farkı nedir?", "hint": null, "choices": ["ぜんぜん daha güçlü: 'hiç'; あまり: 'pek değil'", "İkisi aynı", "あまり 'hiç' demek", "ぜんぜん olumlu kullanılır"], "answer": "ぜんぜん daha güçlü: 'hiç'; あまり: 'pek değil'" }
+    ]
   }
 ]
