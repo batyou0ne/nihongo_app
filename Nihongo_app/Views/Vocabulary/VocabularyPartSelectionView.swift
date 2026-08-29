@@ -9,13 +9,10 @@ struct VocabularyPartSelectionView: View {
 
     @State private var allWords: [VocabularyWord] = []
 
-    private let partSize = 25
-
+    /// Bölümleme ContentStore'da; ana ekrandaki "Kaldığın yer" kartı da aynı
+    /// fonksiyonu kullanıyor ki iki taraf aynı kartlara işaret etsin.
     private var parts: [[VocabularyWord]] {
-        guard !allWords.isEmpty else { return [] }
-        return stride(from: 0, to: allWords.count, by: partSize).map {
-            Array(allWords[$0..<min($0 + partSize, allWords.count)])
-        }
+        allWords.isEmpty ? [] : ContentStore.vocabularyParts(level: level)
     }
 
     var body: some View {

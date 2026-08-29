@@ -128,6 +128,9 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             modelContext.insert(session)
         }
 
+        // Ana ekrandaki "Kaldığın yer" kartı en son açılan oturumu bu damgaya göre seçer.
+        session.lastOpenedAt = .now
+
         // Öğe seti değişmiş olabilir (ör. "Tekrar Çalış" oturumlarında liste küçülür);
         // artık geçerli olmayan id'ler temizlenir ki tur boş kartlarla açılmasın.
         let validIDs = Set(allItems.map(\.id))

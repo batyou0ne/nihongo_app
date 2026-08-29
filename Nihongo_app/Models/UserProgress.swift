@@ -20,6 +20,28 @@ enum LearnableItemKind: String, Codable {
         case .grammar: return "Gramer"
         }
     }
+
+    /// Modüldeki toplam öğe sayısı (Resources/*.json içerikleriyle eşleşir).
+    /// HomeView ve ProgressOverviewView aynı kaynağı kullansın diye burada tutulur.
+    var totalCount: Int {
+        switch self {
+        case .hiraganaCharacter, .katakanaCharacter: return 46
+        case .kanji: return 80
+        case .vocabularyWord: return 675
+        case .grammar: return 85
+        }
+    }
+
+    /// Ana ekranda ikon yerine gösterilen Japonca karakter.
+    var symbol: String {
+        switch self {
+        case .hiraganaCharacter: return "あ"
+        case .katakanaCharacter: return "ア"
+        case .kanji: return "漢"
+        case .vocabularyWord: return "語"
+        case .grammar: return "文"
+        }
+    }
 }
 
 /// Tek bir öğrenilebilir öğenin (karakter/kanji) spaced-repetition durumu.
@@ -93,6 +115,12 @@ final class LearningSessionState {
     /// (itemID → yanlış sayısı). Özet ekranındaki liste bundan üretilir.
     var wrongAnswerCounts: [String: Int] = [:]
 
+    /// Bu oturumun en son ne zaman açıldığı. Ana ekrandaki "Kaldığın yer" kartı,
+    /// en son açılan oturumu bulmak için bu alana göre sıralar.
+    /// Varsayılanı `.distantPast` — böylece bu alan eklenmeden önce oluşmuş
+    /// kayıtlar (SwiftData migration) "hiç açılmamış" sayılıp kartta çıkmaz.
+    var lastOpenedAt: Date = Date.distantPast
+
     init(
         moduleType: String,
         remainingItemIDs: [String],
@@ -100,7 +128,8 @@ final class LearningSessionState {
         isCompleted: Bool = false,
         currentCardID: String? = nil,
         totalAnswerCount: Int = 0,
-        wrongAnswerCounts: [String: Int] = [:]
+        wrongAnswerCounts: [String: Int] = [:],
+        lastOpenedAt: Date = .distantPast
     ) {
         self.moduleType = moduleType
         self.remainingItemIDs = remainingItemIDs
@@ -109,6 +138,7 @@ final class LearningSessionState {
         self.currentCardID = currentCardID
         self.totalAnswerCount = totalAnswerCount
         self.wrongAnswerCounts = wrongAnswerCounts
+        self.lastOpenedAt = lastOpenedAt
     }
 }
 
@@ -135,6 +165,39 @@ final class UserProgress {
         self.lastStudyDate = lastStudyDate
         self.totalItemsLearned = totalItemsLearned
         self.createdAt = createdAt
+    }
+
+    /// Gösterime uygun seri sayısı. `currentStreak` ancak bir sonraki çalışmada
+    /// sıfırlandığı için (bkz. recordStudySession), araya gün girmişse alanda hâlâ
+    /// eski değer durur. Seri bugün ya da dün çalışıldıysa canlıdır; daha eskiyse
+    /// kopmuştur ve 0 gösterilir.
+    var activeStreak: Int {
+        guard let last = lastStudyDate, currentStreak > 0 else { return 0 }
+        let calendar = Calendar.current
+        let days = calendar.dateComponents(
+            [.day],
+            from: calendar.startOfDay(for: last),
+            to: calendar.startOfDay(for: .now)
+        ).day ?? 0
+        return days <= 1 ? currentStreak : 0
+    }
+
+    /// `daysAgo` gün önce çalışılmış mı? (0 = bugün). Ayrı bir "çalışılan günler"
+    /// tablosu tutmuyoruz; seri kesintisiz günlerden oluştuğu için son çalışma
+    /// tarihi + seri uzunluğu bu bilgiyi vermeye yeter. Ana ekrandaki 7 günlük
+    /// seri şeridi bunu kullanır.
+    func didStudy(daysAgo: Int, now: Date = .now) -> Bool {
+        guard let last = lastStudyDate, currentStreak > 0 else { return false }
+        let calendar = Calendar.current
+        guard let day = calendar.date(byAdding: .day, value: -daysAgo, to: now) else { return false }
+
+        let dayStart = calendar.startOfDay(for: day)
+        let lastStart = calendar.startOfDay(for: last)
+        // Serinin bittiği günden sonrası (ör. bugün henüz çalışılmadıysa bugün) dolu değildir.
+        guard dayStart <= lastStart else { return false }
+
+        let distance = calendar.dateComponents([.day], from: dayStart, to: lastStart).day ?? 0
+        return distance < currentStreak
     }
 
     /// Bugün çalışıldığında çağrılır. Streak'i güncel tutar; bir gün atlanırsa sıfırlar.

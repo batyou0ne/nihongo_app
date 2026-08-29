@@ -9,13 +9,10 @@ struct KanjiPartSelectionView: View {
 
     @State private var allKanji: [Kanji] = []
 
+    /// Bölümleme ContentStore'da; ana ekrandaki "Kaldığın yer" kartı da aynı
+    /// fonksiyonu kullanıyor ki iki taraf aynı kartlara işaret etsin.
     private var parts: [[Kanji]] {
-        guard !allKanji.isEmpty else { return [] }
-        let partCount = 4
-        let size = Int(ceil(Double(allKanji.count) / Double(partCount)))
-        return stride(from: 0, to: allKanji.count, by: size).map {
-            Array(allKanji[$0..<min($0 + size, allKanji.count)])
-        }
+        allKanji.isEmpty ? [] : ContentStore.kanjiParts(level: level)
     }
 
     var body: some View {

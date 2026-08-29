@@ -28,11 +28,11 @@ struct ProgressOverviewView: View {
 
                 VStack(alignment: .leading, spacing: 14) {
                     sectionTitle("Öğrenilenler")
-                    progressRow(title: "Hiragana", kind: .hiraganaCharacter, total: 46)
-                    progressRow(title: "Katakana", kind: .katakanaCharacter, total: 46)
-                    progressRow(title: "Kanji (N5)", kind: .kanji, total: 80)
-                    progressRow(title: "Kelimeler (N5)", kind: .vocabularyWord, total: 675)
-                    progressRow(title: "Gramer (N5)", kind: .grammar, total: 85)
+                    progressRow(title: "Hiragana", kind: .hiraganaCharacter)
+                    progressRow(title: "Katakana", kind: .katakanaCharacter)
+                    progressRow(title: "Kanji (N5)", kind: .kanji)
+                    progressRow(title: "Kelimeler (N5)", kind: .vocabularyWord)
+                    progressRow(title: "Gramer (N5)", kind: .grammar)
                 }
             }
             .padding(20)
@@ -55,7 +55,7 @@ struct ProgressOverviewView: View {
             HStack(spacing: 10) {
                 Image(systemName: "flame.fill")
                     .foregroundStyle(Theme.accent)
-                Text("\(userProgress.currentStreak) günlük seri")
+                Text("\(userProgress.activeStreak) günlük seri")
                     .font(.system(size: 17, weight: .heavy))
                     .foregroundStyle(Theme.ink)
                 Spacer()
@@ -68,7 +68,8 @@ struct ProgressOverviewView: View {
         }
     }
 
-    private func progressRow(title: String, kind: LearnableItemKind, total: Int) -> some View {
+    private func progressRow(title: String, kind: LearnableItemKind) -> some View {
+        let total = kind.totalCount
         let learned = learnedCount(kind)
         let mastered = masteredCount(kind)
 
