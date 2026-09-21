@@ -43,7 +43,6 @@ struct HomeView: View {
                         resumeCard(resume)
                     }
 
-                    learnSection
                     reviewSection
                 }
                 .padding(20)
@@ -114,10 +113,10 @@ struct HomeView: View {
             HStack(spacing: 5) {
                 ForEach((0..<7).reversed(), id: \.self) { daysAgo in
                     let studied = userProgress.didStudy(daysAgo: daysAgo)
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 4)
                         .fill(studied ? Theme.accent : Theme.paper)
                         .frame(width: 13, height: 13)
-                        .overlay(Rectangle().strokeBorder(studied ? Theme.accent : Theme.secondaryInk, lineWidth: 1.5))
+                        .overlay(RoundedRectangle(cornerRadius: 4).strokeBorder(studied ? Theme.accent : Theme.secondaryInk, lineWidth: 1.5))
                 }
             }
         }
@@ -196,45 +195,7 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Öğrenme modülleri
 
-    private var learnSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            SectionLabel("ÖĞREN")
-
-            VStack(spacing: 12) {
-                NavigationLink {
-                    LearningView(characterType: .hiragana)
-                } label: {
-                    ModuleCard(kind: .hiraganaCharacter, subtitle: "あいうえお", learned: learnedCount(.hiraganaCharacter))
-                }
-
-                NavigationLink {
-                    LearningView(characterType: .katakana)
-                } label: {
-                    ModuleCard(kind: .katakanaCharacter, subtitle: "アイウエオ", learned: learnedCount(.katakanaCharacter))
-                }
-
-                NavigationLink {
-                    KanjiLevelSelectionView()
-                } label: {
-                    ModuleCard(kind: .kanji, subtitle: "N5 · 4 bölüm", learned: learnedCount(.kanji))
-                }
-
-                NavigationLink {
-                    VocabularyLevelSelectionView()
-                } label: {
-                    ModuleCard(kind: .vocabularyWord, subtitle: "N5 · 27 bölüm", learned: learnedCount(.vocabularyWord))
-                }
-
-                NavigationLink {
-                    GrammarLevelSelectionView()
-                } label: {
-                    ModuleCard(kind: .grammar, subtitle: "N5 · 5 kategori", learned: learnedCount(.grammar))
-                }
-            }
-        }
-    }
 
     // MARK: - Tekrar & ilerleme
 
@@ -366,81 +327,6 @@ struct ResumeTarget: Hashable {
 
 // MARK: - Ortak parçalar
 
-/// Bölüm başlığı: küçük, harf aralıklı, ikincil renkte.
-private struct SectionLabel: View {
-    let text: String
-
-    init(_ text: String) { self.text = text }
-
-    var body: some View {
-        Text(text)
-            .font(.system(size: 12, weight: .heavy))
-            .tracking(1.2)
-            .foregroundStyle(Theme.secondaryInk)
-    }
-}
-
-/// Keskin köşeli, siyah kenarlıklı ilerleme çubuğu — dolu kısım vermilyon.
-private struct ProgressBar: View {
-    let fraction: Double
-
-    var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .leading) {
-                Rectangle().fill(Theme.paper)
-                Rectangle()
-                    .fill(Theme.accent)
-                    .frame(width: geometry.size.width * min(max(fraction, 0), 1))
-            }
-            .overlay(Rectangle().strokeBorder(Theme.ink, lineWidth: 2))
-        }
-        .frame(height: 10)
-    }
-}
-
-/// Öğrenme modülü kartı: solda büyük vermilyon Japonca karakter, sağda ad,
-/// alt satırda öğrenilen oranı ve ilerleme çubuğu.
-private struct ModuleCard: View {
-    let kind: LearnableItemKind
-    let subtitle: String
-    let learned: Int
-
-    private var total: Int { kind.totalCount }
-
-    var body: some View {
-        HStack(spacing: 16) {
-            Text(kind.symbol)
-                .font(Theme.display(30))
-                .foregroundStyle(Theme.accent)
-                .frame(width: 46)
-
-            VStack(alignment: .leading, spacing: 6) {
-                HStack(alignment: .firstTextBaseline) {
-                    Text(kind.displayName)
-                        .font(Theme.heading(19))
-                        .foregroundStyle(Theme.ink)
-                    Spacer(minLength: 8)
-                    Text("\(learned)/\(total)")
-                        .font(.system(size: 14, weight: .bold))
-                        .foregroundStyle(Theme.secondaryInk)
-                }
-
-                ProgressBar(fraction: total > 0 ? Double(learned) / Double(total) : 0)
-
-                Text(subtitle)
-                    .font(.caption)
-                    .foregroundStyle(Theme.secondaryInk)
-            }
-
-            Image(systemName: "arrow.right")
-                .font(.system(size: 15, weight: .bold))
-                .foregroundStyle(Theme.ink)
-        }
-        .padding()
-        .inkBordered()
-    }
-}
-
 /// Tekrar Çalış / İlerleme kartı: içerik modüllerinden ayrışsın diye ilerleme
 /// çubuğu yok ve daha alçak. `isHighlighted` ise vermilyon zeminle öne çıkar.
 private struct UtilityCard: View {
@@ -472,8 +358,12 @@ private struct UtilityCard: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 14)
-        .background(isHighlighted ? Theme.accent : Theme.paper)
-        .overlay(Rectangle().strokeBorder(Theme.ink, lineWidth: 2))
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(isHighlighted ? Theme.accent : Theme.paper)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Theme.ink, lineWidth: 2))
     }
 }
 

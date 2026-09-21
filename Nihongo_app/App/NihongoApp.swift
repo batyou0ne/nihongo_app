@@ -25,7 +25,7 @@ struct NihongoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            MainTabView()
                 .task {
                     // Oturum yoksa sessizce anonim oturum aç; kullanıcı daha
                     // sonra hesap bağladığında uid korunur.
