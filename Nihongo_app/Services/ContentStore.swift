@@ -23,6 +23,10 @@ enum ContentStore {
         load("\(level)GrammarData") ?? []
     }
 
+    static func loadStories(level: String = "N5") -> [Story] {
+        load("\(level)StoriesData") ?? []
+    }
+
     // MARK: - Bölümler (part)
 
     /// Kanji seviyesini eşit 4 parçaya böler. Hem KanjiPartSelectionView hem de ana
