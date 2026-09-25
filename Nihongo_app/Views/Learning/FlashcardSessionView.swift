@@ -207,6 +207,14 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         guard let session = sessionState else { return }
         session.totalAnswerCount += 1
         session.remainingItemIDs.removeAll { $0 == item.id }
+        
+        let isRetry = session.wrongAnswerCounts[item.id] != nil
+        if !isRetry {
+            if let progress = progressByID[item.id] {
+                SpacedRepetitionService.shared.updateProgress(for: progress, correct: correct)
+            }
+        }
+
         if correct {
             session.wrongItemIDs.removeAll { $0 == item.id }
         } else {
@@ -380,7 +388,16 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             withAnimation(.easeInOut(duration: 0.2)) {
                 vm.submitAnswer(option)
             }
-            recordAnswer(for: item, correct: vm.isAnswerCorrect == true)
+            let isCorrect = (vm.isAnswerCorrect == true)
+            recordAnswer(for: item, correct: isCorrect)
+            
+            // Haptic & Sound Feedback
+            if isCorrect {
+                FeedbackManager.shared.playSuccess()
+            } else {
+                FeedbackManager.shared.playError()
+            }
+            
             autoAdvanceTask = Task {
                 try? await Task.sleep(for: .seconds(0.7))
                 guard !Task.isCancelled else { return }

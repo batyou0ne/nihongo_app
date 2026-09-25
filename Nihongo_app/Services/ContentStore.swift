@@ -23,6 +23,10 @@ enum ContentStore {
         load("\(level)GrammarData") ?? []
     }
 
+    static func loadGrammarSyllabus(level: String = "N5") -> [GrammarUnit] {
+        load("\(level)GrammarSyllabus") ?? []
+    }
+
     static func loadStories(level: String = "N5") -> [Story] {
         load("\(level)StoriesData") ?? []
     }

@@ -7,8 +7,12 @@ import SwiftData
 /// "Bunlarla çalış" ile sadece o gruptaki öğelerle mini bir flashcard oturumu açılır.
 struct ReviewListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(filter: #Predicate<LearningItemProgress> { $0.needsReview == true })
-    private var reviewProgress: [LearningItemProgress]
+    @Query private var allProgress: [LearningItemProgress]
+
+    private var reviewProgress: [LearningItemProgress] {
+        let now = Date()
+        return allProgress.filter { $0.needsReview || ($0.isLearned && $0.dueDate <= now) }
+    }
 
     @State private var hiragana: [JapaneseCharacter] = []
     @State private var katakana: [JapaneseCharacter] = []
@@ -188,7 +192,7 @@ struct ReviewListView: View {
         guard let progress = reviewProgress.first(where: { $0.itemKind == kind && $0.itemID == itemID }) else {
             return
         }
-        progress.needsReview = false
+        SpacedRepetitionService.shared.updateProgress(for: progress, correct: true)
         try? modelContext.save()
     }
 }

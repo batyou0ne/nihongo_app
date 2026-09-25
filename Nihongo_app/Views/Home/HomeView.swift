@@ -8,8 +8,11 @@ struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var userProgressRecords: [UserProgress]
     @Query private var allProgress: [LearningItemProgress]
-    @Query(filter: #Predicate<LearningItemProgress> { $0.needsReview == true })
-    private var reviewItems: [LearningItemProgress]
+    
+    private var reviewItems: [LearningItemProgress] {
+        let now = Date()
+        return allProgress.filter { $0.needsReview || ($0.isLearned && $0.dueDate <= now) }
+    }
     /// En son açılan oturum başta; "Kaldığın yer" kartı bunun ilkini kullanır.
     @Query(sort: \LearningSessionState.lastOpenedAt, order: .reverse)
     private var sessions: [LearningSessionState]

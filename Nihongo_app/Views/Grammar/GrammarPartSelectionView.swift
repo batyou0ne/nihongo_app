@@ -1,42 +1,45 @@
 import SwiftUI
 import SwiftData
 
-/// Seçilen JLPT seviyesinin gramer konularını kategoriye göre gruplar
-/// ("Edatlar", "Fiiller"...). Her satır bir konu; seçilince o konunun ders
-/// ekranı (GrammarLessonView) açılır. Öğrenilen konularda küçük bir onay işareti gösterilir.
+/// Seçilen JLPT seviyesinin gramer konularını bir "Learning Path" (öğrenme yolu) olarak
+/// ünitelere böler. Kullanıcı bu ekranı yukarıdan aşağıya takip eder.
 struct GrammarPartSelectionView: View {
     let level: String
 
     @Environment(\.modelContext) private var modelContext
 
-    @State private var points: [GrammarPoint] = []
+    @State private var syllabus: [GrammarUnit] = []
+    @State private var pointsDict: [String: GrammarPoint] = [:]
     @State private var learnedIDs: Set<String> = []
-
-    /// Kategori sırası GrammarCategory.order ile; kategori içi difficulty'ye göre.
-    private var groups: [(category: GrammarCategory, points: [GrammarPoint])] {
-        Dictionary(grouping: points, by: \.category)
-            .map { (category: $0.key, points: $0.value.sorted { $0.difficulty < $1.difficulty }) }
-            .sorted { $0.category.order < $1.category.order }
-    }
 
     var body: some View {
         Group {
-            if points.isEmpty {
+            if syllabus.isEmpty {
                 SwiftUI.ProgressView()
             } else {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 28) {
-                        ForEach(groups, id: \.category) { group in
+                    VStack(alignment: .leading, spacing: 36) {
+                        ForEach(syllabus) { unit in
                             VStack(alignment: .leading, spacing: 12) {
-                                Text(group.category.displayName)
-                                    .font(Theme.display(24))
-                                    .foregroundStyle(Theme.ink)
+                                VStack(alignment: .leading, spacing: 6) {
+                                    Text("Ünite \(unit.id): \(unit.title)")
+                                        .font(Theme.display(24))
+                                        .foregroundStyle(Theme.ink)
+                                    Text(unit.description)
+                                        .font(.subheadline)
+                                        .foregroundStyle(Theme.secondaryInk)
+                                        .lineSpacing(4)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
+                                .padding(.bottom, 8)
 
-                                ForEach(group.points) { point in
-                                    NavigationLink {
-                                        GrammarLessonView(point: point)
-                                    } label: {
-                                        topicRow(point)
+                                ForEach(unit.grammarKeys, id: \.self) { key in
+                                    if let point = pointsDict[key] {
+                                        NavigationLink {
+                                            GrammarLessonView(point: point)
+                                        } label: {
+                                            topicRow(point)
+                                        }
                                     }
                                 }
                             }
@@ -50,22 +53,20 @@ struct GrammarPartSelectionView: View {
         }
         .navigationTitle("\(level) Gramer")
         .onAppear {
-            if points.isEmpty {
-                points = ContentStore.loadGrammar(level: level)
+            if syllabus.isEmpty {
+                syllabus = ContentStore.loadGrammarSyllabus(level: level)
+                let points = ContentStore.loadGrammar(level: level)
+                pointsDict = Dictionary(uniqueKeysWithValues: points.map { ($0.key, $0) })
             }
             refreshLearned()
         }
     }
 
-    /// Hangi konuların en az bir kez doğru bilindiğini (repetitionCount >= 1) bellekte hesaplar.
-    /// #Predicate ile enum karşılaştırması SwiftData'da desteklenmediği için tüm kayıtlar
-    /// çekilip türe göre burada filtrelenir (bkz. FlashcardSessionView.syncProgress).
     private func refreshLearned() {
         let all = (try? modelContext.fetch(FetchDescriptor<LearningItemProgress>())) ?? []
         learnedIDs = Set(all.filter { $0.itemKind == .grammar && $0.repetitionCount >= 1 }.map(\.itemID))
     }
 
-    /// Tamamlanan konularda kutu çok hafif yeşile boyanır ve sağda onay tiki görünür.
     private func topicRow(_ point: GrammarPoint) -> some View {
         let done = learnedIDs.contains(point.id)
 

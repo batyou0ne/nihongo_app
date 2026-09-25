@@ -1,13 +1,13 @@
 import SwiftUI
-import SwiftData
 
 struct VocabularyMainView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var allProgress: [LearningItemProgress]
-
-    private func learnedCount(_ kind: LearnableItemKind) -> Int {
-        allProgress.filter { $0.itemKind == kind && $0.repetitionCount >= 1 }.count
-    }
+    private let levels: [(level: String, isAvailable: Bool)] = [
+        ("N5", true),
+        ("N4", false),
+        ("N3", false),
+        ("N2", false),
+        ("N1", false)
+    ]
 
     var body: some View {
         NavigationStack {
@@ -18,27 +18,62 @@ struct VocabularyMainView: View {
                         .foregroundStyle(Theme.ink)
                         .padding(.top, 10)
                         
-                    SectionLabel("ÖĞREN")
-
-                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
-                        NavigationLink {
-                            VocabularyLevelSelectionView()
-                        } label: {
-                            ModuleCard(kind: .vocabularyWord, subtitle: "N5 · 27 bölüm", learned: learnedCount(.vocabularyWord))
+                    VStack(spacing: 14) {
+                        ForEach(levels, id: \.level) { entry in
+                            if entry.isAvailable {
+                                NavigationLink {
+                                    VocabularyPartSelectionView(level: entry.level)
+                                } label: {
+                                    levelRow(entry.level, isAvailable: true)
+                                }
+                            } else {
+                                levelRow(entry.level, isAvailable: false)
+                            }
                         }
                     }
                 }
                 .padding(20)
                 .padding(.bottom, 80)
             }
+            .scrollIndicators(.hidden)
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
         }
         .tint(Theme.accent)
     }
+
+    private func levelRow(_ level: String, isAvailable: Bool) -> some View {
+        HStack(spacing: 16) {
+            Image(systemName: "character.bubble.fill")
+                .font(.title2)
+                .foregroundStyle(isAvailable ? Theme.accent : Theme.secondaryInk)
+                .frame(width: 44, height: 44)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("\(level) Kelimeler")
+                    .font(Theme.heading(19))
+                    .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
+                Text(isAvailable ? "675 kelime · 27 bölüm" : "Yakında")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.secondaryInk)
+            }
+
+            Spacer()
+            if isAvailable {
+                Image(systemName: "arrow.right")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(Theme.ink)
+            } else {
+                Image(systemName: "lock.fill")
+                    .foregroundStyle(Theme.secondaryInk)
+            }
+        }
+        .padding()
+        .inkBordered()
+        .opacity(isAvailable ? 1 : 0.5)
+    }
 }
 
 #Preview {
     VocabularyMainView()
-        .modelContainer(for: LearningItemProgress.self, inMemory: true)
 }

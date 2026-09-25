@@ -115,3 +115,11 @@ struct GrammarPoint: Codable, Identifiable, Hashable {
     let examples: [GrammarExample]
     let questions: [GrammarQuestion]
 }
+
+/// N5GrammarSyllabus.json içindeki ünite yapısını temsil eder.
+struct GrammarUnit: Codable, Identifiable {
+    let id: Int
+    let title: String
+    let description: String
+    let grammarKeys: [String]
+}
