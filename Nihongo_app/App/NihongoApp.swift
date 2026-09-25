@@ -13,7 +13,8 @@ struct NihongoApp: App {
         let schema = Schema([
             LearningItemProgress.self,
             UserProgress.self,
-            LearningSessionState.self
+            LearningSessionState.self,
+            DailyActivity.self
         ])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {

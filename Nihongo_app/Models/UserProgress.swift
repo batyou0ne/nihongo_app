@@ -168,7 +168,7 @@ final class UserProgress {
     var longestStreak: Int
     var lastStudyDate: Date?
     var totalItemsLearned: Int
-    var totalXP: Int
+    var totalXP: Int = 0
     var createdAt: Date
 
     init(
