@@ -3,6 +3,8 @@ import SwiftData
 
 struct MainTabView: View {
     @State private var selectedTab: Int = 0
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -33,6 +35,13 @@ struct MainTabView: View {
             }
 
             floatingTabBar
+        }
+        .onChange(of: scenePhase) { oldPhase, newPhase in
+            if newPhase == .active {
+                TimeTrackingService.shared.appDidBecomeActive()
+            } else if oldPhase == .active && (newPhase == .inactive || newPhase == .background) {
+                TimeTrackingService.shared.appWillResignActive(context: modelContext)
+            }
         }
     }
 

@@ -149,13 +149,15 @@ final class DailyActivity {
     @Attribute(.unique) var dateString: String
     var xpEarned: Int
     var itemsReviewed: Int
+    var timeSpentSeconds: Int = 0
     
-    init(date: Date = .now, xpEarned: Int = 0, itemsReviewed: Int = 0) {
+    init(date: Date = .now, xpEarned: Int = 0, itemsReviewed: Int = 0, timeSpentSeconds: Int = 0) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         self.dateString = formatter.string(from: date)
         self.xpEarned = xpEarned
         self.itemsReviewed = itemsReviewed
+        self.timeSpentSeconds = timeSpentSeconds
     }
 }
 

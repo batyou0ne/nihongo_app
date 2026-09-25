@@ -27,7 +27,8 @@ struct ProgressOverviewView: View {
             VStack(alignment: .leading, spacing: 28) {
                 if let userProgress = userProgressRecords.first {
                     streakSection(userProgress)
-                    xpChartSection(userProgress)
+                    xpBarSection(userProgress)
+                    timeChartSection()
                 }
 
                 VStack(alignment: .leading, spacing: 14) {
@@ -72,13 +73,36 @@ struct ProgressOverviewView: View {
         }
     }
     
-    private struct DailyChartData: Identifiable {
+    private struct DailyTimeData: Identifiable {
         let id = UUID()
         let date: Date
-        let xp: Int
+        let minutes: Int
     }
     
-    private func xpChartSection(_ userProgress: UserProgress) -> some View {
+    private func xpBarSection(_ userProgress: UserProgress) -> some View {
+        let total = userProgress.totalXP
+        let level = (total / 500) + 1
+        let currentXP = total % 500
+        let nextXP = 500
+        
+        return VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .bottom) {
+                Text("Seviye \(level)")
+                    .font(Theme.display(28))
+                    .foregroundStyle(Theme.ink)
+                Spacer()
+                Text("\(currentXP) / \(nextXP) XP")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(Theme.secondaryInk)
+            }
+            
+            progressBar(fraction: Double(currentXP) / Double(nextXP))
+        }
+        .padding()
+        .inkBordered()
+    }
+    
+    private func timeChartSection() -> some View {
         let calendar = Calendar.current
         var last7Days: [Date] = []
         let today = calendar.startOfDay(for: .now)
@@ -91,17 +115,23 @@ struct ProgressOverviewView: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        let data: [DailyChartData] = last7Days.map { date in
+        let data: [DailyTimeData] = last7Days.map { date in
             let dateStr = formatter.string(from: date)
             let activity = dailyActivities.first(where: { $0.dateString == dateStr })
-            return DailyChartData(date: date, xp: activity?.xpEarned ?? 0)
+            let minutes = (activity?.timeSpentSeconds ?? 0) / 60
+            return DailyTimeData(date: date, minutes: minutes)
         }
+        
+        let totalMinutesThisWeek = data.reduce(0) { $0 + $1.minutes }
+        let hours = totalMinutesThisWeek / 60
+        let mins = totalMinutesThisWeek % 60
+        let timeStr = hours > 0 ? "\(hours) sa \(mins) dk" : "\(mins) dk"
         
         return VStack(alignment: .leading, spacing: 14) {
             HStack(alignment: .firstTextBaseline) {
-                sectionTitle("Haftalık XP")
+                sectionTitle("Çalışma Süresi")
                 Spacer()
-                Text("Toplam \(userProgress.totalXP) XP")
+                Text(timeStr)
                     .font(.subheadline.weight(.bold))
                     .foregroundStyle(Theme.accent)
             }
@@ -109,7 +139,7 @@ struct ProgressOverviewView: View {
             Chart(data) { item in
                 BarMark(
                     x: .value("Gün", item.date, unit: .day),
-                    y: .value("XP", item.xp)
+                    y: .value("Dakika", item.minutes)
                 )
                 .foregroundStyle(Theme.accent.gradient)
             }
