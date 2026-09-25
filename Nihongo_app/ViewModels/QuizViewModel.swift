@@ -122,11 +122,6 @@ final class QuizViewModel<Item: QuizItem> {
         let correct = answer == question.correctAnswer
         isAnswerCorrect = correct
         if correct { score += 1 }
-
-        if let progress = progressLookup(question.id) {
-            SpacedRepetitionService.schedule(progress, quality: correct ? .good : .again)
-            try? modelContext.save()
-        }
     }
 
     func moveToNext() {

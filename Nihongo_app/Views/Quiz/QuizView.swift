@@ -101,8 +101,19 @@ struct QuizView<Item: QuizItem>: View {
         let showResult = viewModel.selectedAnswer != nil
 
         return Button {
+            guard viewModel.selectedAnswer == nil, let item = viewModel.currentQuestion else { return }
             withAnimation(.easeInOut(duration: 0.2)) {
                 viewModel.submitAnswer(option)
+            }
+            
+            let correct = (option == item.correctAnswer)
+            if let progress = progressLookup(item.id) {
+                let wasLearned = progress.isLearned
+                SpacedRepetitionService.shared.updateProgress(for: progress, correct: correct)
+                if correct {
+                    XPManager.shared.addXP(action: wasLearned ? .cardReviewed : .newCardLearned, context: modelContext)
+                }
+                try? modelContext.save()
             }
         } label: {
             HStack {
