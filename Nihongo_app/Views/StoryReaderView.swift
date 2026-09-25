@@ -4,6 +4,7 @@ struct StoryReaderView: View {
     let story: Story
     @State private var selectedSentence: StorySentence?
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     
     var continuousText: AttributedString {
         var result = AttributedString()
@@ -64,6 +65,20 @@ struct StoryReaderView: View {
                             .foregroundStyle(Theme.ink)
                     }
                 }
+                
+                Button {
+                    XPManager.shared.addXP(action: .storyCompleted, context: modelContext)
+                    dismiss()
+                } label: {
+                    Text("Hikayeyi Tamamla")
+                        .font(.system(size: 17, weight: .bold))
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(Theme.accent)
+                        .foregroundStyle(Theme.paper)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                .padding(.top, 16)
             }
             .padding(24)
             .padding(.bottom, 80)

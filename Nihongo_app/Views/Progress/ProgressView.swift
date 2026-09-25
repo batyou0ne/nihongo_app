@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import Charts
 
 /// İlerleme ekranı. Struct adı bilerek `ProgressOverviewView` — SwiftUI'nin kendi
 /// `ProgressView` (spinner) tipiyle isim çakışmasını önlemek için. Dosya adı klasör
@@ -7,6 +8,8 @@ import SwiftData
 struct ProgressOverviewView: View {
     @Query private var allProgress: [LearningItemProgress]
     @Query private var userProgressRecords: [UserProgress]
+    @Query(sort: \DailyActivity.dateString, order: .reverse)
+    private var dailyActivities: [DailyActivity]
 
     /// "Öğrenildi" = son cevabı doğru olan öğe (yanlış cevap sayacı sıfırladığı için
     /// repetitionCount >= 1 bunu garanti eder). SM-2'nin uzun vadeli `isLearned`
@@ -24,6 +27,7 @@ struct ProgressOverviewView: View {
             VStack(alignment: .leading, spacing: 28) {
                 if let userProgress = userProgressRecords.first {
                     streakSection(userProgress)
+                    xpChartSection(userProgress)
                 }
 
                 VStack(alignment: .leading, spacing: 14) {
@@ -63,6 +67,58 @@ struct ProgressOverviewView: View {
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }
+            .padding()
+            .inkBordered()
+        }
+    }
+    
+    private struct DailyChartData: Identifiable {
+        let id = UUID()
+        let date: Date
+        let xp: Int
+    }
+    
+    private func xpChartSection(_ userProgress: UserProgress) -> some View {
+        let calendar = Calendar.current
+        var last7Days: [Date] = []
+        let today = calendar.startOfDay(for: .now)
+        for i in (0..<7).reversed() {
+            if let d = calendar.date(byAdding: .day, value: -i, to: today) {
+                last7Days.append(d)
+            }
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let data: [DailyChartData] = last7Days.map { date in
+            let dateStr = formatter.string(from: date)
+            let activity = dailyActivities.first(where: { $0.dateString == dateStr })
+            return DailyChartData(date: date, xp: activity?.xpEarned ?? 0)
+        }
+        
+        return VStack(alignment: .leading, spacing: 14) {
+            HStack(alignment: .firstTextBaseline) {
+                sectionTitle("Haftalık XP")
+                Spacer()
+                Text("Toplam \(userProgress.totalXP) XP")
+                    .font(.subheadline.weight(.bold))
+                    .foregroundStyle(Theme.accent)
+            }
+            
+            Chart(data) { item in
+                BarMark(
+                    x: .value("Gün", item.date, unit: .day),
+                    y: .value("XP", item.xp)
+                )
+                .foregroundStyle(Theme.accent.gradient)
+            }
+            .chartXAxis {
+                AxisMarks(values: .stride(by: .day)) { _ in
+                    AxisValueLabel(format: .dateTime.weekday(.abbreviated))
+                }
+            }
+            .frame(height: 180)
             .padding()
             .inkBordered()
         }

@@ -211,7 +211,12 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         let isRetry = session.wrongAnswerCounts[item.id] != nil
         if !isRetry {
             if let progress = progressByID[item.id] {
+                let wasLearned = progress.isLearned
                 SpacedRepetitionService.shared.updateProgress(for: progress, correct: correct)
+                
+                if correct {
+                    XPManager.shared.addXP(action: wasLearned ? .cardReviewed : .newCardLearned, context: modelContext)
+                }
             }
         }
 

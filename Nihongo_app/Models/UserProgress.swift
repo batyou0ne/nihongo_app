@@ -142,6 +142,23 @@ final class LearningSessionState {
     }
 }
 
+/// Günlük kazanılan XP ve çalışılan öğe sayısını tutar (Swift Charts için).
+/// `dateString` alanı "YYYY-MM-DD" formatında tutulur ki her gün için tek bir eşsiz kayıt oluşsun.
+@Model
+final class DailyActivity {
+    @Attribute(.unique) var dateString: String
+    var xpEarned: Int
+    var itemsReviewed: Int
+    
+    init(date: Date = .now, xpEarned: Int = 0, itemsReviewed: Int = 0) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        self.dateString = formatter.string(from: date)
+        self.xpEarned = xpEarned
+        self.itemsReviewed = itemsReviewed
+    }
+}
+
 /// Kullanıcının genel ilerlemesi: günlük streak takibi için tek bir kayıt yeterli,
 /// bu yüzden uygulama boyunca tek bir `UserProgress` nesnesi tutulur (bkz. HomeView/LearningViewModel
 /// içindeki "fetch veya oluştur" deseni).
@@ -151,6 +168,7 @@ final class UserProgress {
     var longestStreak: Int
     var lastStudyDate: Date?
     var totalItemsLearned: Int
+    var totalXP: Int
     var createdAt: Date
 
     init(
@@ -158,12 +176,14 @@ final class UserProgress {
         longestStreak: Int = 0,
         lastStudyDate: Date? = nil,
         totalItemsLearned: Int = 0,
+        totalXP: Int = 0,
         createdAt: Date = .now
     ) {
         self.currentStreak = currentStreak
         self.longestStreak = longestStreak
         self.lastStudyDate = lastStudyDate
         self.totalItemsLearned = totalItemsLearned
+        self.totalXP = totalXP
         self.createdAt = createdAt
     }
 

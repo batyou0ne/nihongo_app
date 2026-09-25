@@ -167,7 +167,14 @@ struct GrammarPracticeView: View {
 
     private func finalizePoint(_ point: GrammarPoint) {
         guard let progress = progressByID[point.id] else { return }
-        SpacedRepetitionService.schedule(progress, quality: pointWrongCount == 0 ? .good : .again)
+        let wasLearned = progress.isLearned
+        let isCorrect = pointWrongCount == 0
+        
+        SpacedRepetitionService.shared.updateProgress(for: progress, correct: isCorrect)
+        if isCorrect {
+            XPManager.shared.addXP(action: wasLearned ? .cardReviewed : .grammarCompleted, context: modelContext)
+        }
+        
         if pointWrongCount > 0 {
             progress.needsReview = true
         }
