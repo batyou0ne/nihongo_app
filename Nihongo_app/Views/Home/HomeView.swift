@@ -18,6 +18,7 @@ struct HomeView: View {
     private var sessions: [LearningSessionState]
 
     @State private var showSignIn = false
+    @State private var showChat = false
     /// İçerik JSON'larından üretilir; body içinde dosya okumamak için onAppear'da hesaplanır.
     @State private var resume: ResumeTarget?
 
@@ -75,6 +76,11 @@ struct HomeView: View {
                     AccountView()
                 } else {
                     SignInView()
+                }
+            }
+            .fullScreenCover(isPresented: $showChat) {
+                NavigationStack {
+                    ChatView()
                 }
             }
             .onAppear {
@@ -241,8 +247,8 @@ struct HomeView: View {
         VStack(alignment: .leading, spacing: 12) {
             SectionLabel("YAPAY ZEKA PRATİĞİ")
             
-            NavigationLink {
-                ChatView()
+            Button {
+                showChat = true
             } label: {
                 UtilityCard(
                     systemImage: "message.fill",

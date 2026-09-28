@@ -74,6 +74,13 @@ struct ChatView: View {
         }
         .navigationTitle("AI Pratik")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Kapat") {
+                    dismiss()
+                }
+            }
+        }
         .background(Theme.paper)
     }
 }
