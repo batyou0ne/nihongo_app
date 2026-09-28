@@ -13,3 +13,6 @@ DerivedData/
 
 # Firebase (proje bilgilerini public repoda paylaşmamak için)
 GoogleService-Info.plist
+
+# Secrets
+Secrets.swift
