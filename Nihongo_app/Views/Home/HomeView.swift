@@ -200,18 +200,8 @@ struct HomeView: View {
                     title: target.title
                 )
             }
-        case .vocabulary(let level, let index):
-            let parts = ContentStore.vocabularyParts(level: level)
-            if parts.indices.contains(index) {
-                FlashcardSessionView(
-                    sessionKey: target.sessionKey,
-                    itemKind: .vocabularyWord,
-                    allItems: parts[index],
-                    distractorPool: ContentStore.loadVocabulary(level: level),
-                    accentColor: Theme.accent,
-                    title: target.title
-                )
-            }
+        case .vocabulary(let level):
+            VocabularySessionView(level: level)
         }
     }
 
@@ -294,7 +284,7 @@ struct ResumeTarget: Hashable {
         case hiragana
         case katakana
         case kanji(level: String, index: Int)
-        case vocabulary(level: String, index: Int)
+        case vocabulary(level: String)
     }
 
     let sessionKey: String
@@ -339,12 +329,12 @@ struct ResumeTarget: Hashable {
             module = .kanji(level: level, index: index)
             title = "\(level) Kanji's Part \(index + 1)"
             total = parts[index].count
-        } else if let (level, index) = Self.parsePart(key, prefix: "vocab_") {
-            let parts = ContentStore.vocabularyParts(level: level)
-            guard parts.indices.contains(index) else { return nil }
-            module = .vocabulary(level: level, index: index)
-            title = "\(level) Kelimeler Part \(index + 1)"
-            total = parts[index].count
+        } else if key.hasPrefix("vocab_") && key.hasSuffix("_auto") {
+            let level = key.replacingOccurrences(of: "vocab_", with: "").replacingOccurrences(of: "_auto", with: "")
+            module = .vocabulary(level: level)
+            title = "\(level) Kelimeler"
+            // We don't have a fixed total for auto sessions in the same way, but let's assume 20 max
+            total = 20
         } else {
             return nil // review_* ve tanınmayan anahtarlar
         }
