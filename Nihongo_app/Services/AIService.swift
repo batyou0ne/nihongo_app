@@ -59,7 +59,8 @@ final class AIService {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("Bearer \(Secrets.aiAPIKey)", forHTTPHeaderField: "Authorization")
+        let safeKey = Secrets.aiAPIKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        request.addValue("Bearer \(safeKey)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let body: [String: Any] = [
@@ -86,9 +87,10 @@ final class AIService {
     
     // MARK: - Gemini Implementation
     private func sendToGemini() async throws -> String {
-        let urlString = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(Secrets.aiAPIKey)"
+        let safeKey = Secrets.aiAPIKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        let urlString = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(safeKey)"
         guard let url = URL(string: urlString) else {
-            throw AIError.invalidURL
+            throw AIError.apiError("Geçersiz URL")
         }
         
         var request = URLRequest(url: url)
