@@ -97,7 +97,7 @@ final class AIService {
     private func sendToGemini() async throws -> String {
         let safeKey = Secrets.aiAPIKey.trimmingCharacters(in: .whitespacesAndNewlines)
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? Secrets.aiAPIKey
-        let urlString = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(safeKey)"
+        let urlString = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=\(safeKey)"
         guard let url = URL(string: urlString) else {
             throw AIError.apiError("Geçersiz URL: \(urlString)")
         }
