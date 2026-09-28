@@ -8,6 +8,8 @@ struct VocabularyPartSelectionView: View {
     let level: String
 
     @State private var allWords: [VocabularyWord] = []
+    @State private var selectedPartIndex: Int?
+    @State private var isShowingSession = false
 
     /// Bölümleme ContentStore'da; ana ekrandaki "Kaldığın yer" kartı da aynı
     /// fonksiyonu kullanıyor ki iki taraf aynı kartlara işaret etsin.
@@ -23,15 +25,9 @@ struct VocabularyPartSelectionView: View {
                 ScrollView {
                     VStack(spacing: 14) {
                         ForEach(Array(parts.enumerated()), id: \.offset) { index, part in
-                            NavigationLink {
-                                FlashcardSessionView(
-                                    sessionKey: "vocab_\(level)_part\(index + 1)",
-                                    itemKind: .vocabularyWord,
-                                    allItems: part,
-                                    distractorPool: allWords,
-                                    accentColor: Theme.accent,
-                                    title: "\(level) Kelimeler Part \(index + 1)"
-                                )
+                            Button {
+                                selectedPartIndex = index
+                                isShowingSession = true
                             } label: {
                                 partRow(index: index, count: part.count)
                             }
@@ -44,6 +40,20 @@ struct VocabularyPartSelectionView: View {
             }
         }
         .navigationTitle("\(level) Kelimeler")
+        .fullScreenCover(isPresented: $isShowingSession) {
+            if let index = selectedPartIndex {
+                NavigationStack {
+                    FlashcardSessionView(
+                        sessionKey: "vocab_\(level)_part\(index + 1)",
+                        itemKind: .vocabularyWord,
+                        allItems: parts[index],
+                        distractorPool: allWords,
+                        accentColor: Theme.accent,
+                        title: "\(level) Kelimeler Part \(index + 1)"
+                    )
+                }
+            }
+        }
         .onAppear {
             guard allWords.isEmpty else { return }
             guard let url = Bundle.main.url(forResource: "\(level)VocabularyData", withExtension: "json"),

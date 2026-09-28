@@ -90,9 +90,7 @@ struct GrammarLessonView: View {
             ForEach(point.examples, id: \.japanese) { example in
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(alignment: .firstTextBaseline, spacing: 10) {
-                        Text(example.japanese)
-                            .font(Theme.heading(20))
-                            .foregroundStyle(Theme.ink)
+                        FuriganaText(text: example.japanese, font: Theme.heading(20), color: Theme.ink)
                             .fixedSize(horizontal: false, vertical: true)
                         Spacer(minLength: 0)
                         Button {
@@ -101,12 +99,6 @@ struct GrammarLessonView: View {
                             Image(systemName: "speaker.wave.2.fill")
                                 .foregroundStyle(Theme.accent)
                         }
-                    }
-                    if let hiragana = example.hiragana, !hiragana.isEmpty {
-                        Text(hiragana)
-                            .font(.system(size: 13))
-                            .foregroundStyle(Color(uiColor: .tertiaryLabel))
-                            .fixedSize(horizontal: false, vertical: true)
                     }
                     Text(example.romaji)
                         .font(.subheadline)

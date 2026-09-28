@@ -94,9 +94,7 @@ struct MessageBubble: View {
                 Spacer(minLength: 40)
             }
             
-            Text(message.text)
-                .font(.system(size: 16, weight: .regular))
-                .foregroundStyle(message.isUser ? Theme.paper : Theme.ink)
+            FuriganaText(text: message.text, font: .system(size: 16, weight: .regular), color: message.isUser ? Theme.paper : Theme.ink)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
                 .background(message.isUser ? Theme.accent : Theme.paper)

@@ -8,6 +8,8 @@ struct KanjiPartSelectionView: View {
     let level: String
 
     @State private var allKanji: [Kanji] = []
+    @State private var selectedPartIndex: Int?
+    @State private var isShowingSession = false
 
     /// Bölümleme ContentStore'da; ana ekrandaki "Kaldığın yer" kartı da aynı
     /// fonksiyonu kullanıyor ki iki taraf aynı kartlara işaret etsin.
@@ -23,15 +25,9 @@ struct KanjiPartSelectionView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         ForEach(Array(parts.enumerated()), id: \.offset) { index, part in
-                            NavigationLink {
-                                FlashcardSessionView(
-                                    sessionKey: "kanji_\(level)_part\(index + 1)",
-                                    itemKind: .kanji,
-                                    allItems: part,
-                                    distractorPool: allKanji,
-                                    accentColor: Theme.accent,
-                                    title: "\(level) Kanji's Part \(index + 1)"
-                                )
+                            Button {
+                                selectedPartIndex = index
+                                isShowingSession = true
                             } label: {
                                 partRow(index: index, count: part.count)
                             }
@@ -44,6 +40,20 @@ struct KanjiPartSelectionView: View {
             }
         }
         .navigationTitle("\(level) Kanji's")
+        .fullScreenCover(isPresented: $isShowingSession) {
+            if let index = selectedPartIndex {
+                NavigationStack {
+                    FlashcardSessionView(
+                        sessionKey: "kanji_\(level)_part\(index + 1)",
+                        itemKind: .kanji,
+                        allItems: parts[index],
+                        distractorPool: allKanji,
+                        accentColor: Theme.accent,
+                        title: "\(level) Kanji's Part \(index + 1)"
+                    )
+                }
+            }
+        }
         .onAppear {
             guard allKanji.isEmpty else { return }
             guard let url = Bundle.main.url(forResource: "\(level)KanjiData", withExtension: "json"),

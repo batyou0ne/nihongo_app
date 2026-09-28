@@ -19,6 +19,8 @@ struct HomeView: View {
 
     @State private var showSignIn = false
     @State private var showChat = false
+    @State private var selectedResumeTarget: ResumeTarget?
+    @State private var isShowingResumeTarget = false
     /// İçerik JSON'larından üretilir; body içinde dosya okumamak için onAppear'da hesaplanır.
     @State private var resume: ResumeTarget?
 
@@ -68,8 +70,12 @@ struct HomeView: View {
                     }
                 }
             }
-            .navigationDestination(for: ResumeTarget.self) { target in
-                resumeDestination(target)
+            .fullScreenCover(isPresented: $isShowingResumeTarget) {
+                if let target = selectedResumeTarget {
+                    NavigationStack {
+                        resumeDestination(target)
+                    }
+                }
             }
             .sheet(isPresented: $showSignIn) {
                 if AuthService.shared.hasAccount {
@@ -138,7 +144,10 @@ struct HomeView: View {
     // MARK: - Kaldığın yer
 
     private func resumeCard(_ target: ResumeTarget) -> some View {
-        NavigationLink(value: target) {
+        Button {
+            selectedResumeTarget = target
+            isShowingResumeTarget = true
+        } label: {
             VStack(alignment: .leading, spacing: 10) {
                 Text("KALDIĞIN YER")
                     .font(.caption.weight(.heavy))
@@ -245,17 +254,30 @@ struct HomeView: View {
     
     private var practiceSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionLabel("YAPAY ZEKA PRATİĞİ")
+            SectionLabel("KONUŞMA PRATİĞİ")
             
-            Button {
-                showChat = true
-            } label: {
-                UtilityCard(
-                    systemImage: "message.fill",
-                    title: "AI ile Sohbet",
-                    subtitle: "Öğrendiklerini gerçekçi senaryolarda kullan",
-                    isHighlighted: true
-                )
+            VStack(spacing: 12) {
+                NavigationLink {
+                    ScenarioListView()
+                } label: {
+                    UtilityCard(
+                        systemImage: "person.2.fill",
+                        title: "Sohbet Pratiği",
+                        subtitle: nil,
+                        isHighlighted: false
+                    )
+                }
+                
+                Button {
+                    showChat = true
+                } label: {
+                    UtilityCard(
+                        systemImage: "message.fill",
+                        title: "AI ile Sohbet",
+                        subtitle: nil,
+                        isHighlighted: false
+                    )
+                }
             }
         }
     }
@@ -360,7 +382,7 @@ struct ResumeTarget: Hashable {
 private struct UtilityCard: View {
     let systemImage: String
     let title: String
-    let subtitle: String
+    let subtitle: String?
     let isHighlighted: Bool
 
     var body: some View {
@@ -374,9 +396,11 @@ private struct UtilityCard: View {
                 Text(title)
                     .font(Theme.heading(17))
                     .foregroundStyle(isHighlighted ? Theme.paper : Theme.ink)
-                Text(subtitle)
-                    .font(.subheadline)
-                    .foregroundStyle(isHighlighted ? Theme.paper.opacity(0.85) : Theme.secondaryInk)
+                if let subtitle {
+                    Text(subtitle)
+                        .font(.subheadline)
+                        .foregroundStyle(isHighlighted ? Theme.paper.opacity(0.85) : Theme.secondaryInk)
+                }
             }
 
             Spacer()

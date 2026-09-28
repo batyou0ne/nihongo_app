@@ -36,6 +36,17 @@ struct GrammarSessionView: View {
         }
         .onAppear(perform: loadSession)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(Theme.secondaryInk)
+                        .font(.title3)
+                }
+            }
+        }
     }
 
     private func loadSession() {

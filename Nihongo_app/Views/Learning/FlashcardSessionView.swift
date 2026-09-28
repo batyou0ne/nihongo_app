@@ -63,6 +63,15 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         .background(Theme.paper)
         .navigationTitle(title)
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(Theme.secondaryInk)
+                        .font(.title3)
+                }
+            }
             ToolbarItem(placement: .primaryAction) {
                 Button("Hızlı Quiz") {
                     isPresentingQuiz = true
@@ -338,9 +347,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
                     }
-                    Text(item.prompt)
-                        .font(Theme.display(80))
-                        .foregroundStyle(Theme.ink)
+                    FuriganaText(text: item.prompt, font: Theme.display(80), color: Theme.ink)
                         .minimumScaleFactor(0.3)
                         .lineLimit(1)
                     Button {

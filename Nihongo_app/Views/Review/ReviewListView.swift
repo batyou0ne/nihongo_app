@@ -19,6 +19,20 @@ struct ReviewListView: View {
     @State private var kanji: [Kanji] = []
     @State private var vocabulary: [VocabularyWord] = []
     @State private var grammar: [GrammarPoint] = []
+    
+    @State private var selectedSessionParams: SessionParams?
+    @State private var isShowingSession = false
+    
+    struct SessionParams: Identifiable {
+        let id = UUID()
+        let kind: LearnableItemKind
+        let allItems: [Any]
+        let distractorPool: [Any]
+        let title: String
+    }
+    
+    @State private var selectedGrammarPoints: [GrammarPoint]?
+    @State private var isShowingGrammarPractice = false
 
     var body: some View {
         ScrollView {
@@ -38,6 +52,51 @@ struct ReviewListView: View {
         .scrollIndicators(.hidden)
         .background(Theme.paper)
         .navigationTitle("Tekrar Çalış")
+        .fullScreenCover(item: $selectedSessionParams) { params in
+            NavigationStack {
+                if params.kind == .hiraganaCharacter || params.kind == .katakanaCharacter {
+                    let items = params.allItems as? [JapaneseCharacter] ?? []
+                    let distractors = params.distractorPool as? [JapaneseCharacter] ?? []
+                    FlashcardSessionView(
+                        sessionKey: "review_\(params.kind.rawValue)",
+                        itemKind: params.kind,
+                        allItems: items,
+                        distractorPool: distractors,
+                        accentColor: Theme.accent,
+                        title: params.title
+                    )
+                } else if params.kind == .kanji {
+                    let items = params.allItems as? [Kanji] ?? []
+                    let distractors = params.distractorPool as? [Kanji] ?? []
+                    FlashcardSessionView(
+                        sessionKey: "review_\(params.kind.rawValue)",
+                        itemKind: params.kind,
+                        allItems: items,
+                        distractorPool: distractors,
+                        accentColor: Theme.accent,
+                        title: params.title
+                    )
+                } else if params.kind == .vocabularyWord {
+                    let items = params.allItems as? [VocabularyWord] ?? []
+                    let distractors = params.distractorPool as? [VocabularyWord] ?? []
+                    FlashcardSessionView(
+                        sessionKey: "review_\(params.kind.rawValue)",
+                        itemKind: params.kind,
+                        allItems: items,
+                        distractorPool: distractors,
+                        accentColor: Theme.accent,
+                        title: params.title
+                    )
+                }
+            }
+        }
+        .fullScreenCover(isPresented: $isShowingGrammarPractice) {
+            if let points = selectedGrammarPoints {
+                NavigationStack {
+                    GrammarPracticeView(points: points, title: "Tekrar: Gramer")
+                }
+            }
+        }
         .onAppear {
             guard hiragana.isEmpty else { return }
             hiragana = ContentStore.loadCharacters(.hiragana)
@@ -78,13 +137,11 @@ struct ReviewListView: View {
                         .font(Theme.display(24))
                         .foregroundStyle(Theme.ink)
                     Spacer()
-                    NavigationLink {
-                        FlashcardSessionView(
-                            sessionKey: "review_\(kind.rawValue)",
-                            itemKind: kind,
+                    Button {
+                        selectedSessionParams = SessionParams(
+                            kind: kind,
                             allItems: items,
                             distractorPool: allModuleItems,
-                            accentColor: Theme.accent,
                             title: "Tekrar: \(kind.displayName)"
                         )
                     } label: {
@@ -145,8 +202,9 @@ struct ReviewListView: View {
                         .font(Theme.display(24))
                         .foregroundStyle(Theme.ink)
                     Spacer()
-                    NavigationLink {
-                        GrammarPracticeView(points: points, title: "Tekrar: Gramer")
+                    Button {
+                        selectedGrammarPoints = points
+                        isShowingGrammarPractice = true
                     } label: {
                         Text("Bunlarla çalış →")
                             .font(.system(size: 15, weight: .heavy))

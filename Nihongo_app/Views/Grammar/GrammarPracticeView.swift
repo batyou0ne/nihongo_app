@@ -91,6 +91,21 @@ struct GrammarPracticeView: View {
         .background(Theme.paper)
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    if let onFinish {
+                        onFinish()
+                    } else {
+                        dismiss()
+                    }
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(Theme.secondaryInk)
+                        .font(.title3)
+                }
+            }
+        }
         .onAppear(perform: setup)
     }
 
@@ -265,17 +280,8 @@ struct GrammarPracticeView: View {
                 .font(.caption.weight(.heavy))
                 .foregroundStyle(Theme.secondaryInk)
 
-            Text(question.prompt)
-                .font(Theme.heading(22))
-                .foregroundStyle(Theme.ink)
+            FuriganaText(text: question.prompt, font: Theme.heading(22), color: Theme.ink)
                 .fixedSize(horizontal: false, vertical: true)
-
-            if let reading = question.promptReading, !reading.isEmpty {
-                Text(reading)
-                    .font(.system(size: 13))
-                    .foregroundStyle(Color(uiColor: .tertiaryLabel))
-                    .fixedSize(horizontal: false, vertical: true)
-            }
 
             if let hint = question.hint {
                 Text(hint)
@@ -338,9 +344,7 @@ struct GrammarPracticeView: View {
                 .font(.caption.weight(.heavy))
                 .foregroundStyle(Theme.secondaryInk)
 
-            Text(question.prompt)
-                .font(Theme.heading(20))
-                .foregroundStyle(Theme.ink)
+            FuriganaText(text: question.prompt, font: Theme.heading(20), color: Theme.ink)
                 .fixedSize(horizontal: false, vertical: true)
 
             // Kurulan cevap

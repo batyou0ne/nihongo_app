@@ -5,6 +5,9 @@ struct AlphabetMainView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var allProgress: [LearningItemProgress]
 
+    @State private var selectedCharacterType: CharacterType?
+    @State private var isShowingLearning = false
+
     private func learnedCount(_ kind: LearnableItemKind) -> Int {
         allProgress.filter { $0.itemKind == kind && $0.repetitionCount >= 1 }.count
     }
@@ -21,14 +24,16 @@ struct AlphabetMainView: View {
                     SectionLabel("ÖĞREN")
 
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
-                        NavigationLink {
-                            LearningView(characterType: .hiragana)
+                        Button {
+                            selectedCharacterType = .hiragana
+                            isShowingLearning = true
                         } label: {
                             ModuleCard(kind: .hiraganaCharacter, subtitle: "あいうえお", learned: learnedCount(.hiraganaCharacter))
                         }
 
-                        NavigationLink {
-                            LearningView(characterType: .katakana)
+                        Button {
+                            selectedCharacterType = .katakana
+                            isShowingLearning = true
                         } label: {
                             ModuleCard(kind: .katakanaCharacter, subtitle: "アイウエオ", learned: learnedCount(.katakanaCharacter))
                         }
@@ -46,6 +51,13 @@ struct AlphabetMainView: View {
             }
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
+            .fullScreenCover(isPresented: $isShowingLearning) {
+                if let type = selectedCharacterType {
+                    NavigationStack {
+                        LearningView(characterType: type)
+                    }
+                }
+            }
         }
         .tint(Theme.accent)
     }
