@@ -1,9 +1,17 @@
 import Foundation
 
-enum AIError: Error {
+enum AIError: LocalizedError {
     case invalidURL
     case invalidResponse
     case apiError(String)
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL: return "Geçersiz URL."
+        case .invalidResponse: return "Sunucudan geçersiz bir yanıt geldi."
+        case .apiError(let message): return message
+        }
+    }
 }
 
 final class AIService {
@@ -88,9 +96,10 @@ final class AIService {
     // MARK: - Gemini Implementation
     private func sendToGemini() async throws -> String {
         let safeKey = Secrets.aiAPIKey.trimmingCharacters(in: .whitespacesAndNewlines)
+            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? Secrets.aiAPIKey
         let urlString = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\(safeKey)"
         guard let url = URL(string: urlString) else {
-            throw AIError.apiError("Geçersiz URL")
+            throw AIError.apiError("Geçersiz URL: \(urlString)")
         }
         
         var request = URLRequest(url: url)
