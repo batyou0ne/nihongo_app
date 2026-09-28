@@ -46,6 +46,8 @@ struct HomeView: View {
                         resumeCard(resume)
                     }
 
+                    practiceSection
+                    
                     reviewSection
                 }
                 .padding(20)
@@ -231,6 +233,23 @@ struct HomeView: View {
                         isHighlighted: false
                     )
                 }
+            }
+        }
+    }
+    
+    private var practiceSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SectionLabel("YAPAY ZEKA PRATİĞİ")
+            
+            NavigationLink {
+                ChatView()
+            } label: {
+                UtilityCard(
+                    systemImage: "message.fill",
+                    title: "AI ile Sohbet",
+                    subtitle: "Öğrendiklerini gerçekçi senaryolarda kullan",
+                    isHighlighted: true
+                )
             }
         }
     }
