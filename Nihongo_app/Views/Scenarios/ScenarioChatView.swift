@@ -89,13 +89,6 @@ struct ScenarioChatView: View {
             
             VStack(alignment: msg.isBot ? .leading : .trailing, spacing: 4) {
                 FuriganaText(text: msg.text, font: .system(size: 16, weight: .medium), color: msg.isBot ? Theme.ink : Theme.paper)
-                
-                if let trans = msg.translation {
-                    Text(trans)
-                        .font(.caption)
-                        .foregroundStyle(msg.isBot ? Theme.secondaryInk : Theme.paper.opacity(0.8))
-                }
-                
                 if let isSuccess = msg.isSuccessFeedback {
                     if isSuccess {
                         Text("Doğru!")

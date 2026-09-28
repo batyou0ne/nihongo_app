@@ -121,21 +121,20 @@ struct FuriganaText: View {
     var body: some View {
         FlowLayout(alignment: .leading, spacing: 0) {
             ForEach(tokens) { token in
-                if let reading = token.reading {
-                    VStack(spacing: 0) {
-                        Text(token.kanji)
-                            .font(font)
-                            .foregroundStyle(color)
-                        Text(reading)
-                            .font(readingFont)
-                            .foregroundStyle(color.opacity(0.7))
-                    }
-                    .alignmentGuide(.lastTextBaseline) { d in d[.bottom] }
-                } else {
+                VStack(spacing: 0) {
                     Text(token.kanji)
                         .font(font)
                         .foregroundStyle(color)
-                        .alignmentGuide(.lastTextBaseline) { d in d[.bottom] }
+                    
+                    if let reading = token.reading {
+                        Text(reading)
+                            .font(readingFont)
+                            .foregroundStyle(color.opacity(0.7))
+                    } else {
+                        Text("あ")
+                            .font(readingFont)
+                            .opacity(0)
+                    }
                 }
             }
         }
