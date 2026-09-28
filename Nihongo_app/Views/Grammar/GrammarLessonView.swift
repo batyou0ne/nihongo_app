@@ -5,6 +5,8 @@ import SwiftUI
 /// (Bkz. modül tasarımındaki öğrenme akışı; içerik N5GrammarData.json'dan gelir.)
 struct GrammarLessonView: View {
     let point: GrammarPoint
+    var isSessionMode: Bool = false
+    var onNext: (() -> Void)? = nil
 
     var body: some View {
         ScrollView {
@@ -13,17 +15,31 @@ struct GrammarLessonView: View {
                 formulaBox
                 examplesSection
 
-                NavigationLink {
-                    GrammarPracticeView(points: [point], title: point.title)
-                } label: {
-                    Text("Pratiğe geç →")
-                        .font(.system(size: 17, weight: .bold))
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(Theme.ink)
-                        .foregroundStyle(Theme.paper)
+                if isSessionMode {
+                    Button {
+                        onNext?()
+                    } label: {
+                        Text("Anladım, Devam Et →")
+                            .font(.system(size: 17, weight: .bold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                            .background(Theme.ink)
+                            .foregroundStyle(Theme.paper)
+                    }
+                    .padding(.top, 4)
+                } else {
+                    NavigationLink {
+                        GrammarPracticeView(points: [point], title: point.title)
+                    } label: {
+                        Text("Pratiğe geç →")
+                            .font(.system(size: 17, weight: .bold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                            .background(Theme.ink)
+                            .foregroundStyle(Theme.paper)
+                    }
+                    .padding(.top, 4)
                 }
-                .padding(.top, 4)
             }
             .padding(20)
         }

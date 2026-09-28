@@ -12,6 +12,7 @@ import SwiftData
 struct GrammarPracticeView: View {
     let points: [GrammarPoint]
     let title: String
+    var onFinish: (() -> Void)? = nil
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -467,7 +468,13 @@ struct GrammarPracticeView: View {
 
             Spacer(minLength: 0)
 
-            Button("Bitir") { dismiss() }
+            Button("Bitir") {
+                if let onFinish {
+                    onFinish()
+                } else {
+                    dismiss()
+                }
+            }
                 .buttonStyle(PrimaryButtonStyle())
         }
         .padding(20)

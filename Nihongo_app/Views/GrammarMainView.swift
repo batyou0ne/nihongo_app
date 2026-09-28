@@ -22,7 +22,7 @@ struct GrammarMainView: View {
                         ForEach(levels, id: \.level) { entry in
                             if entry.isAvailable {
                                 NavigationLink {
-                                    GrammarPartSelectionView(level: entry.level)
+                                    GrammarSessionView(level: entry.level)
                                 } label: {
                                     levelRow(entry.level, isAvailable: true)
                                 }
