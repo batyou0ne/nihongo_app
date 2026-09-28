@@ -34,11 +34,14 @@ protocol FlashcardItem: QuizItem {
     /// Sesli okuma butonunun okuyacağı metin. Varsayılanı prompt; kelimelerde TTS
     /// kanjiyi yanlış okuyabildiği için hiragana kullanılır.
     var speechText: String { get }
+    
+    var contextHint: (sentence: String, translation: String)? { get }
 }
 
 extension FlashcardItem {
     var promptReading: String? { nil }
     var speechText: String { prompt }
+    var contextHint: (sentence: String, translation: String)? { nil }
 }
 
 extension JapaneseCharacter: FlashcardItem {

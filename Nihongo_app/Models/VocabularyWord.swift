@@ -9,6 +9,8 @@ struct VocabularyWord: Codable, Identifiable, Hashable {
     let hiragana: String
     let romaji: String
     let turkishMeaning: String
+    let exampleSentence: String?
+    let exampleTranslation: String?
 
     /// Aynı okunuşa sahip farklı kelimeler olabildiği için (ör. はし = köprü / çubuklar)
     /// kimlik, okunuş + anlam birleşiminden üretilir.
@@ -33,4 +35,9 @@ extension VocabularyWord: FlashcardItem {
 
     /// TTS kanjiyi yanlış okuyabilir; her zaman hiragana okunur.
     var speechText: String { hiragana }
+    
+    var contextHint: (sentence: String, translation: String)? {
+        guard let sentence = exampleSentence, let translation = exampleTranslation else { return nil }
+        return (sentence, translation)
+    }
 }

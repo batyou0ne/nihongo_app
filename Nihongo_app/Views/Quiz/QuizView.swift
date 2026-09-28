@@ -12,6 +12,7 @@ struct QuizView<Item: QuizItem>: View {
     @Query private var userProgressRecords: [UserProgress]
     @State private var viewModel: QuizViewModel<Item>?
     @State private var hasRecordedStreak = false
+    @State private var showHint = false
 
     private let questions: [Item]
     private let progressLookup: (String) -> LearningItemProgress?
@@ -72,6 +73,30 @@ struct QuizView<Item: QuizItem>: View {
                     .font(Theme.display(88))
                     .foregroundStyle(Theme.ink)
                     .padding(.top, 24)
+                    
+                if let flashcardItem = question as? any FlashcardItem, let hint = flashcardItem.contextHint {
+                    if showHint {
+                        VStack(spacing: 4) {
+                            Text(hint.sentence)
+                                .font(Theme.heading(20))
+                                .foregroundStyle(Theme.accent)
+                                .multilineTextAlignment(.center)
+                            Text(hint.translation)
+                                .font(.subheadline)
+                                .foregroundStyle(Theme.secondaryInk)
+                                .multilineTextAlignment(.center)
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 12)
+                    } else {
+                        Button("İpucu") {
+                            withAnimation { showHint = true }
+                        }
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundStyle(Theme.secondaryInk)
+                        .padding(.bottom, 12)
+                    }
+                }
 
                 VStack(spacing: 12) {
                     ForEach(viewModel.options, id: \.self) { option in
@@ -132,6 +157,9 @@ struct QuizView<Item: QuizItem>: View {
             .overlay(Rectangle().strokeBorder(Theme.ink, lineWidth: 2))
         }
         .disabled(showResult)
+        .onChange(of: viewModel.currentIndex) { _, _ in
+            showHint = false
+        }
     }
 
     private func optionBackground(isSelected: Bool, isCorrectAnswer: Bool, showResult: Bool) -> Color {

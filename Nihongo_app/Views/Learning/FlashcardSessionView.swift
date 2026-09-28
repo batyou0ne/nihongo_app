@@ -28,6 +28,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
     @State private var isFlipped = false
     @State private var isPresentingQuiz = false
     @State private var hasRecordedStreak = false
+    @State private var showHint = false
     @State private var autoAdvanceTask: Task<Void, Never>?
     @State private var didSetup = false
 
@@ -280,6 +281,30 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                         autoAdvanceTask?.cancel()
                         advanceToNext(vm)
                     }
+                    
+                if !isFlipped, let hint = question.contextHint {
+                    if showHint {
+                        VStack(spacing: 4) {
+                            Text(hint.sentence)
+                                .font(Theme.heading(18))
+                                .foregroundStyle(Theme.accent)
+                                .multilineTextAlignment(.center)
+                            Text(hint.translation)
+                                .font(.caption)
+                                .foregroundStyle(Theme.secondaryInk)
+                                .multilineTextAlignment(.center)
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 4)
+                    } else {
+                        Button("İpucu") {
+                            withAnimation { showHint = true }
+                        }
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundStyle(Theme.secondaryInk)
+                        .padding(.bottom, 4)
+                    }
+                }
 
                 optionsGrid(vm)
 
@@ -296,6 +321,9 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         }
         .padding(.top)
         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: vm.currentIndex)
+        .onChange(of: vm.currentIndex) { _, _ in
+            showHint = false
+        }
     }
 
     @ViewBuilder
