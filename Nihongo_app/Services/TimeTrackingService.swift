@@ -25,6 +25,18 @@ class TimeTrackingService {
         sessionStartTime = nil
     }
     
+    /// Uygulama hala açıkken süreyi veritabanına yansıtmak için kullanılır (ör. grafik açıldığında).
+    func commitCurrentSession(context: ModelContext) {
+        guard let start = sessionStartTime else { return }
+        let duration = Int(Date.now.timeIntervalSince(start))
+        
+        if duration > 0 {
+            addTime(seconds: duration, context: context)
+            // Çift saymayı önlemek için başlangıç zamanını şu an olarak güncelle
+            sessionStartTime = .now
+        }
+    }
+    
     private func addTime(seconds: Int, context: ModelContext) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"

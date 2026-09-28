@@ -6,6 +6,7 @@ import Charts
 /// `ProgressView` (spinner) tipiyle isim çakışmasını önlemek için. Dosya adı klasör
 /// yapısındaki isimlendirmeyle tutarlı kalsın diye ProgressView.swift olarak bırakıldı.
 struct ProgressOverviewView: View {
+    @Environment(\.modelContext) private var modelContext
     @Query private var allProgress: [LearningItemProgress]
     @Query private var userProgressRecords: [UserProgress]
     @Query(sort: \DailyActivity.dateString, order: .reverse)
@@ -45,6 +46,9 @@ struct ProgressOverviewView: View {
         .scrollIndicators(.hidden)
         .background(Theme.paper)
         .navigationTitle("İlerleme")
+        .onAppear {
+            TimeTrackingService.shared.commitCurrentSession(context: modelContext)
+        }
     }
 
     private func sectionTitle(_ title: String) -> some View {
