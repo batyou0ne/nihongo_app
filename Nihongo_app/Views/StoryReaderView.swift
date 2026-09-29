@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct StoryReaderView: View {
     let story: Story

@@ -16,15 +16,22 @@ struct FuriganaText: View {
         let reading: String?
     }
     
-    private var tokens: [Token] {
+    private let tokens: [Token]
+    
+    init(text: String, font: Font = .body, readingFont: Font = .caption2, color: Color = Theme.ink) {
+        self.text = text
+        self.font = font
+        self.readingFont = readingFont
+        self.color = color
+        
         if text.contains("[") && text.contains("]") {
-            return parseManualTags(text)
+            self.tokens = FuriganaText.parseManualTags(text)
         } else {
-            return generateAutoFurigana(for: text)
+            self.tokens = FuriganaText.generateAutoFurigana(for: text)
         }
     }
     
-    private func parseManualTags(_ text: String) -> [Token] {
+    private static func parseManualTags(_ text: String) -> [Token] {
         var result: [Token] = []
         let pattern = "([一-龯]+)\\[([ぁ-んァ-ン]+)\\]"
         guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
@@ -60,7 +67,7 @@ struct FuriganaText: View {
         return result.isEmpty ? [Token(kanji: text, reading: nil)] : result
     }
     
-    private func generateAutoFurigana(for string: String) -> [Token] {
+    private static func generateAutoFurigana(for string: String) -> [Token] {
         let cfString = string as CFString
         let range = CFRangeMake(0, CFStringGetLength(cfString))
         let tokenizer = CFStringTokenizerCreate(kCFAllocatorDefault, cfString, range, kCFStringTokenizerUnitWordBoundary, CFLocaleCreate(kCFAllocatorDefault, CFLocaleIdentifier("ja_JP" as CFString)))
@@ -148,12 +155,18 @@ struct FlowLayout: Layout {
     var lineSpacing: CGFloat = 4
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let result = FlowResult(in: proposal.width ?? 0, subviews: subviews, alignment: alignment, spacing: spacing, lineSpacing: lineSpacing)
+        // Clamp infinite width to screen width to prevent CoreAnimation texture allocation crashes
+        let maxWidth = UIScreen.main.bounds.width
+        let width = proposal.width ?? maxWidth
+        let safeWidth = width == .infinity ? maxWidth : width
+        let result = FlowResult(in: safeWidth, subviews: subviews, alignment: alignment, spacing: spacing, lineSpacing: lineSpacing)
         return result.size
     }
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        let result = FlowResult(in: bounds.width, subviews: subviews, alignment: alignment, spacing: spacing, lineSpacing: lineSpacing)
+        let maxWidth = UIScreen.main.bounds.width
+        let safeWidth = bounds.width == .infinity ? maxWidth : bounds.width
+        let result = FlowResult(in: safeWidth, subviews: subviews, alignment: alignment, spacing: spacing, lineSpacing: lineSpacing)
         for row in result.rows {
             for element in row.elements {
                 let x = bounds.minX + element.rect.minX

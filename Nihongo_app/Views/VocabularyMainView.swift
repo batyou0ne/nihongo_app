@@ -1,9 +1,6 @@
 import SwiftUI
 
 struct VocabularyMainView: View {
-    @State private var selectedLevel: String?
-    @State private var isShowingSession = false
-    
     private let levels: [(level: String, isAvailable: Bool)] = [
         ("N5", true),
         ("N4", false),
@@ -24,9 +21,8 @@ struct VocabularyMainView: View {
                     VStack(spacing: 14) {
                         ForEach(levels, id: \.level) { entry in
                             if entry.isAvailable {
-                                Button {
-                                    selectedLevel = entry.level
-                                    isShowingSession = true
+                                NavigationLink {
+                                    VocabularyPartSelectionView(level: entry.level)
                                 } label: {
                                     levelRow(entry.level, isAvailable: true)
                                 }
@@ -42,13 +38,6 @@ struct VocabularyMainView: View {
             .scrollIndicators(.hidden)
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
-            .fullScreenCover(isPresented: $isShowingSession) {
-                if let level = selectedLevel {
-                    NavigationStack {
-                        VocabularySessionView(level: level)
-                    }
-                }
-            }
         }
         .tint(Theme.accent)
     }
