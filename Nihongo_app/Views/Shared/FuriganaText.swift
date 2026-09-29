@@ -155,8 +155,9 @@ struct FlowLayout: Layout {
     var lineSpacing: CGFloat = 4
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        // Clamp infinite width to screen width to prevent CoreAnimation texture allocation crashes
-        let maxWidth = UIScreen.main.bounds.width
+        // Clamp infinite width to a safe constant (4000) to prevent CoreAnimation texture allocation crashes
+        // (exceeding 8192 crashes older devices/simulators).
+        let maxWidth: CGFloat = 4000
         let width = proposal.width ?? maxWidth
         let safeWidth = width == .infinity ? maxWidth : width
         let result = FlowResult(in: safeWidth, subviews: subviews, alignment: alignment, spacing: spacing, lineSpacing: lineSpacing)
@@ -164,7 +165,7 @@ struct FlowLayout: Layout {
     }
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        let maxWidth = UIScreen.main.bounds.width
+        let maxWidth: CGFloat = 4000
         let safeWidth = bounds.width == .infinity ? maxWidth : bounds.width
         let result = FlowResult(in: safeWidth, subviews: subviews, alignment: alignment, spacing: spacing, lineSpacing: lineSpacing)
         for row in result.rows {
