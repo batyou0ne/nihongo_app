@@ -56,12 +56,14 @@ struct VocabularyPartSelectionView: View {
         }
         .onAppear {
             guard allWords.isEmpty else { return }
-            guard let url = Bundle.main.url(forResource: "\(level)VocabularyData", withExtension: "json"),
-                  let data = try? Data(contentsOf: url),
-                  let loaded = try? JSONDecoder().decode([VocabularyWord].self, from: data) else {
-                return
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                guard let url = Bundle.main.url(forResource: "\(level)VocabularyData", withExtension: "json"),
+                      let data = try? Data(contentsOf: url),
+                      let loaded = try? JSONDecoder().decode([VocabularyWord].self, from: data) else {
+                    return
+                }
+                allWords = loaded
             }
-            allWords = loaded
         }
     }
 

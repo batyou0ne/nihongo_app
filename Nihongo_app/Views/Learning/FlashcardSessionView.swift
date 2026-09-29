@@ -92,8 +92,10 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         .onAppear {
             guard !didSetup else { return }
             didSetup = true
-            syncProgress()
-            setupSession()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                syncProgress()
+                setupSession()
+            }
         }
     }
 
@@ -366,6 +368,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             .opacity(isFlipped ? 1 : 0)
             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
         }
+        .drawingGroup()
         .rotation3DEffect(.degrees(isFlipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
         .frame(height: 220)
     }

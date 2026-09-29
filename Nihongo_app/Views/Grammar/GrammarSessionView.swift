@@ -52,23 +52,25 @@ struct GrammarSessionView: View {
     private func loadSession() {
         guard isLoading else { return }
         
-        // 1. Tüm gramer noktalarını yükle
-        let allPoints = ContentStore.loadGrammar(level: level)
-        
-        // 2. Öğrenilmiş olanları bul
-        let allProgress = (try? modelContext.fetch(FetchDescriptor<LearningItemProgress>())) ?? []
-        let learnedIDs = Set(allProgress.filter { $0.itemKind == .grammar && $0.repetitionCount >= 1 }.map(\.itemID))
-        
-        // 3. Öğrenilmemişleri filtrele
-        let unlearnedPoints = allPoints.filter { !learnedIDs.contains($0.id) }
-        
-        if unlearnedPoints.isEmpty {
-            isAllLearned = true
-        } else {
-            // En fazla 3 konu al
-            sessionPoints = Array(unlearnedPoints.prefix(3))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            // 1. Tüm gramer noktalarını yükle
+            let allPoints = ContentStore.loadGrammar(level: level)
+            
+            // 2. Öğrenilmiş olanları bul
+            let allProgress = (try? modelContext.fetch(FetchDescriptor<LearningItemProgress>())) ?? []
+            let learnedIDs = Set(allProgress.filter { $0.itemKind == .grammar && $0.repetitionCount >= 1 }.map(\.itemID))
+            
+            // 3. Öğrenilmemişleri filtrele
+            let unlearnedPoints = allPoints.filter { !learnedIDs.contains($0.id) }
+            
+            if unlearnedPoints.isEmpty {
+                isAllLearned = true
+            } else {
+                // En fazla 3 konu al
+                sessionPoints = Array(unlearnedPoints.prefix(3))
+            }
+            isLoading = false
         }
-        isLoading = false
     }
 
     private func advanceLesson() {

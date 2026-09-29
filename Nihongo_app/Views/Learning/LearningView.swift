@@ -29,14 +29,16 @@ struct LearningView: View {
         }
         .onAppear {
             guard characters.isEmpty else { return }
-            let fileName = characterType == .hiragana ? "HiraganaData" : "KatakanaData"
-            guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
-                  let data = try? Data(contentsOf: url),
-                  var loaded = try? JSONDecoder().decode([JapaneseCharacter].self, from: data) else {
-                return
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                let fileName = characterType == .hiragana ? "HiraganaData" : "KatakanaData"
+                guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
+                      let data = try? Data(contentsOf: url),
+                      var loaded = try? JSONDecoder().decode([JapaneseCharacter].self, from: data) else {
+                    return
+                }
+                for index in loaded.indices { loaded[index].type = characterType }
+                characters = loaded
             }
-            for index in loaded.indices { loaded[index].type = characterType }
-            characters = loaded
         }
     }
 }
