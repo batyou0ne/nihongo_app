@@ -1,49 +1,48 @@
 import SwiftUI
 import SwiftData
 
-/// Seçilen JLPT seviyesinin kelimelerini 25'erlik partlara böler ("N5 Kelimeler Part 1"
-/// gibi). Bir part, o partın kelimeleriyle FlashcardSessionView'ı açar — şık havuzu
-/// olarak yine tüm seviyeyi kullanır ki 4 şık her zaman dolu olsun.
+/// Seçilen JLPT seviyesinin kelimelerini yükler ve kullanıcının henüz tamamlamadığı
+/// ilk "part"ı otomatik bularak FlashcardSessionView'ı başlatır.
 struct VocabularyPartSelectionView: View {
     let level: String
 
     @State private var allWords: [VocabularyWord] = []
+    @Query private var allProgress: [LearningItemProgress]
 
-    /// Bölümleme ContentStore'da; ana ekrandaki "Kaldığın yer" kartı da aynı
-    /// fonksiyonu kullanıyor ki iki taraf aynı kartlara işaret etsin.
     private var parts: [[VocabularyWord]] {
         allWords.isEmpty ? [] : ContentStore.vocabularyParts(level: level)
+    }
+
+    private var currentPartIndex: Int {
+        guard !parts.isEmpty else { return 0 }
+        let learnedIDs = Set(allProgress.filter { $0.itemKind == .vocabularyWord && $0.isLearned }.map(\.itemID))
+        for (index, part) in parts.enumerated() {
+            let partIDs = Set(part.map(\.id))
+            if !partIDs.isSubset(of: learnedIDs) {
+                return index
+            }
+        }
+        return parts.count - 1
     }
 
     var body: some View {
         Group {
             if allWords.isEmpty {
                 SwiftUI.ProgressView()
+                    .background(Theme.paper)
+                    .navigationTitle("\(level) Kelimeler")
             } else {
-                ScrollView {
-                    VStack(spacing: 14) {
-                        ForEach(Array(parts.enumerated()), id: \.offset) { index, part in
-                            NavigationLink {
-                                FlashcardSessionView(
-                                    sessionKey: "vocab_\(level)_part\(index + 1)",
-                                    itemKind: .vocabularyWord,
-                                    allItems: part,
-                                    distractorPool: allWords,
-                                    accentColor: Theme.accent,
-                                    title: "\(level) Kelimeler Part \(index + 1)"
-                                )
-                            } label: {
-                                partRow(index: index, count: part.count)
-                            }
-                        }
-                    }
-                    .padding(20)
-                }
-                .scrollIndicators(.hidden)
-                .background(Theme.paper)
+                let index = currentPartIndex
+                FlashcardSessionView(
+                    sessionKey: "vocab_\(level)_part\(index + 1)",
+                    itemKind: .vocabularyWord,
+                    allItems: parts[index],
+                    distractorPool: allWords,
+                    accentColor: Theme.accent,
+                    title: "\(level) Part \(index + 1)"
+                )
             }
         }
-        .navigationTitle("\(level) Kelimeler")
         .onAppear {
             guard allWords.isEmpty else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -55,32 +54,6 @@ struct VocabularyPartSelectionView: View {
                 allWords = loaded
             }
         }
-    }
-
-    private func partRow(index: Int, count: Int) -> some View {
-        HStack(spacing: 16) {
-            Text("\(index + 1)")
-                .font(Theme.heading(19))
-                .foregroundStyle(.white)
-                .frame(width: 44, height: 44)
-                .background(Theme.accent)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text("\(level) Kelimeler Part \(index + 1)")
-                    .font(Theme.heading(19))
-                    .foregroundStyle(Theme.ink)
-                Text("\(count) kelime")
-                    .font(.subheadline)
-                    .foregroundStyle(Theme.secondaryInk)
-            }
-
-            Spacer()
-            Image(systemName: "arrow.right")
-                .font(.system(size: 15, weight: .bold))
-                .foregroundStyle(Theme.ink)
-        }
-        .padding()
-        .inkBordered()
     }
 }
 

@@ -63,15 +63,6 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         .background(Theme.paper)
         .navigationTitle(title)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(Theme.secondaryInk)
-                        .font(.title3)
-                }
-            }
             ToolbarItem(placement: .primaryAction) {
                 Button("Hızlı Quiz") {
                     isPresentingQuiz = true
@@ -293,27 +284,39 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                         advanceToNext(vm)
                     }
                     
-                if !isFlipped, let hint = question.contextHint {
-                    if showHint {
+                if !isFlipped {
+                    if vm.currentQuestionModeIsAlternate, let hint = question.contextHint {
                         VStack(spacing: 4) {
-                            Text(hint.sentence)
-                                .font(Theme.heading(18))
-                                .foregroundStyle(Theme.accent)
-                                .multilineTextAlignment(.center)
                             Text(hint.translation)
-                                .font(.caption)
+                                .font(.subheadline)
                                 .foregroundStyle(Theme.secondaryInk)
                                 .multilineTextAlignment(.center)
+                                .padding(.top, 4)
                         }
                         .padding(.horizontal)
                         .padding(.bottom, 4)
-                    } else {
-                        Button("İpucu") {
-                            withAnimation { showHint = true }
+                    } else if let hint = question.contextHint {
+                        if showHint {
+                            VStack(spacing: 4) {
+                                Text(hint.sentence)
+                                    .font(Theme.heading(18))
+                                    .foregroundStyle(Theme.accent)
+                                    .multilineTextAlignment(.center)
+                                Text(hint.translation)
+                                    .font(.caption)
+                                    .foregroundStyle(Theme.secondaryInk)
+                                    .multilineTextAlignment(.center)
+                            }
+                            .padding(.horizontal)
+                            .padding(.bottom, 4)
+                        } else {
+                            Button("İpucu") {
+                                withAnimation { showHint = true }
+                            }
+                            .font(.system(size: 15, weight: .bold))
+                            .foregroundStyle(Theme.secondaryInk)
+                            .padding(.bottom, 4)
                         }
-                        .font(.system(size: 15, weight: .bold))
-                        .foregroundStyle(Theme.secondaryInk)
-                        .padding(.bottom, 4)
                     }
                 }
 
@@ -349,9 +352,14 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
                     }
-                    FuriganaText(text: item.prompt, font: Theme.display(80), color: Theme.ink)
+                    
+                    let isAlt = quizViewModel?.currentQuestionModeIsAlternate == true
+                    let promptText = isAlt ? (item.alternatePrompt ?? item.prompt) : item.prompt
+                    let fontSize: CGFloat = isAlt ? 24 : 80
+                    
+                    FuriganaText(text: promptText, font: Theme.display(fontSize), color: Theme.ink)
                         .minimumScaleFactor(0.3)
-                        .lineLimit(1)
+                        .lineLimit(isAlt ? 3 : 1)
                     Button {
                         AudioService.shared.speak(item.speechText)
                     } label: {

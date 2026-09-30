@@ -91,21 +91,7 @@ struct GrammarPracticeView: View {
         .background(Theme.paper)
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    if let onFinish {
-                        onFinish()
-                    } else {
-                        dismiss()
-                    }
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(Theme.secondaryInk)
-                        .font(.title3)
-                }
-            }
-        }
+
         .onAppear(perform: setup)
     }
 

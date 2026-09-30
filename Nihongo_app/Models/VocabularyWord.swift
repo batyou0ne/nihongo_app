@@ -23,6 +23,19 @@ struct VocabularyWord: Codable, Identifiable, Hashable {
 extension VocabularyWord: FlashcardItem {
     var prompt: String { displayText }
     var correctAnswer: String { turkishMeaning }
+    
+    var alternatePrompt: String? {
+        guard let sentence = exampleSentence else { return nil }
+        let target = kanji.isEmpty ? hiragana : kanji
+        if sentence.contains(target) {
+            return sentence.replacingOccurrences(of: target, with: "____")
+        }
+        return nil
+    }
+    
+    var alternateAnswer: String? {
+        kanji.isEmpty ? hiragana : kanji
+    }
 
     var flipRecap: String {
         kanji.isEmpty ? "\(hiragana) · \(romaji)" : "\(kanji) — \(hiragana) · \(romaji)"

@@ -8,30 +8,30 @@ struct MainTabView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            TabView(selection: $selectedTab) {
+            ZStack {
                 HomeView()
-                    .tag(0)
-                    .toolbar(.hidden, for: .tabBar)
+                    .opacity(selectedTab == 0 ? 1 : 0)
+                    .allowsHitTesting(selectedTab == 0)
 
                 AlphabetMainView()
-                    .tag(1)
-                    .toolbar(.hidden, for: .tabBar)
+                    .opacity(selectedTab == 1 ? 1 : 0)
+                    .allowsHitTesting(selectedTab == 1)
 
                 GrammarMainView()
-                    .tag(2)
-                    .toolbar(.hidden, for: .tabBar)
-
-                DictionaryView()
-                    .tag(4)
-                    .toolbar(.hidden, for: .tabBar)
+                    .opacity(selectedTab == 2 ? 1 : 0)
+                    .allowsHitTesting(selectedTab == 2)
 
                 VocabularyMainView()
-                    .tag(3)
-                    .toolbar(.hidden, for: .tabBar)
+                    .opacity(selectedTab == 3 ? 1 : 0)
+                    .allowsHitTesting(selectedTab == 3)
+
+                DictionaryView()
+                    .opacity(selectedTab == 4 ? 1 : 0)
+                    .allowsHitTesting(selectedTab == 4)
 
                 ReadingMainView()
-                    .tag(5)
-                    .toolbar(.hidden, for: .tabBar)
+                    .opacity(selectedTab == 5 ? 1 : 0)
+                    .allowsHitTesting(selectedTab == 5)
             }
 
             floatingTabBar

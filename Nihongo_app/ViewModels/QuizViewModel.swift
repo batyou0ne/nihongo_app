@@ -9,6 +9,14 @@ protocol QuizItem: Identifiable {
     var id: String { get }
     var prompt: String { get }        // Ekranda büyük gösterilen Japonca metin.
     var correctAnswer: String { get } // Doğru cevap (romaji ya da Türkçe anlam).
+    
+    var alternatePrompt: String? { get }
+    var alternateAnswer: String? { get }
+}
+
+extension QuizItem {
+    var alternatePrompt: String? { nil }
+    var alternateAnswer: String? { nil }
 }
 
 extension JapaneseCharacter: QuizItem {
@@ -65,6 +73,7 @@ final class QuizViewModel<Item: QuizItem> {
     private(set) var selectedAnswer: String?
     private(set) var isAnswerCorrect: Bool?
     private(set) var score = 0
+    private(set) var currentQuestionModeIsAlternate = false
 
     private let itemKind: LearnableItemKind
     private let progressLookup: (String) -> LearningItemProgress?
@@ -109,20 +118,28 @@ final class QuizViewModel<Item: QuizItem> {
             options = []
             return
         }
+        
+        // Rastgele %50 ihtimalle alternate mode kullan (fill-in-the-blank)
+        let useAlt = Bool.random() && question.alternatePrompt != nil && question.alternateAnswer != nil
+        currentQuestionModeIsAlternate = useAlt
+        
+        let answer = useAlt ? question.alternateAnswer! : question.correctAnswer
+        
         var distractors = distractorPool
             .filter { $0.id != question.id }
-            .map(\.correctAnswer)
+            .map { useAlt ? ($0.alternateAnswer ?? $0.prompt) : $0.correctAnswer }
+        
         distractors.shuffle()
 
         var choices = Set(distractors.prefix(3))
-        choices.insert(question.correctAnswer)
+        choices.insert(answer)
         options = Array(choices).shuffled()
     }
 
     func submitAnswer(_ answer: String) {
         guard let question = currentQuestion, selectedAnswer == nil else { return }
         selectedAnswer = answer
-        let correct = answer == question.correctAnswer
+        let correct = answer == (currentQuestionModeIsAlternate ? question.alternateAnswer! : question.correctAnswer)
         isAnswerCorrect = correct
         if correct { score += 1 }
     }
