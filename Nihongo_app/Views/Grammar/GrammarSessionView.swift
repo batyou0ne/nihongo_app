@@ -36,7 +36,6 @@ struct GrammarSessionView: View {
         }
         .onAppear(perform: loadSession)
         .navigationBarTitleDisplayMode(.inline)
-        }
     }
 
     private func loadSession() {
@@ -98,3 +97,4 @@ struct GrammarSessionView: View {
         }
     }
 }
+
