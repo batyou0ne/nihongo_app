@@ -6,6 +6,7 @@ struct StoryReaderView: View {
     @State private var selectedSentence: StorySentence?
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    @Environment(TabBarManager.self) private var tabBarManager
     
     var continuousText: AttributedString {
         var result = AttributedString()
@@ -106,6 +107,12 @@ struct StoryReaderView: View {
             SentenceDetailPopup(sentence: sentence)
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
+        }
+        .onAppear {
+            tabBarManager.isHidden = true
+        }
+        .onDisappear {
+            tabBarManager.isHidden = false
         }
     }
 }

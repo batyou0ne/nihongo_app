@@ -5,6 +5,7 @@ import SwiftData
 /// akışını (tek tek gelen kartlar, 4 şık, oturum devamlılığı) FlashcardSessionView'a bırakır.
 struct LearningView: View {
     let characterType: CharacterType
+    @Environment(TabBarManager.self) private var tabBarManager
 
     @State private var characters: [JapaneseCharacter] = []
 
@@ -28,6 +29,7 @@ struct LearningView: View {
             }
         }
         .onAppear {
+            tabBarManager.isHidden = true
             guard characters.isEmpty else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 let fileName = characterType == .hiragana ? "HiraganaData" : "KatakanaData"
@@ -39,6 +41,9 @@ struct LearningView: View {
                 for index in loaded.indices { loaded[index].type = characterType }
                 characters = loaded
             }
+        }
+        .onDisappear {
+            tabBarManager.isHidden = false
         }
     }
 }

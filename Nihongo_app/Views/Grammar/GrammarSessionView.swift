@@ -9,6 +9,7 @@ struct GrammarSessionView: View {
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Environment(TabBarManager.self) private var tabBarManager
 
     @State private var sessionPoints: [GrammarPoint] = []
     @State private var currentLessonIndex = 0
@@ -34,7 +35,13 @@ struct GrammarSessionView: View {
                 )
             }
         }
-        .onAppear(perform: loadSession)
+        .onAppear {
+            tabBarManager.isHidden = true
+            loadSession()
+        }
+        .onDisappear {
+            tabBarManager.isHidden = false
+        }
         .navigationBarTitleDisplayMode(.inline)
     }
 

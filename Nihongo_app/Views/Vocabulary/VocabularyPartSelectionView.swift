@@ -8,6 +8,7 @@ struct VocabularyPartSelectionView: View {
 
     @State private var allWords: [VocabularyWord] = []
     @Query private var allProgress: [LearningItemProgress]
+    @Environment(TabBarManager.self) private var tabBarManager
 
     private var parts: [[VocabularyWord]] {
         allWords.isEmpty ? [] : ContentStore.vocabularyParts(level: level)
@@ -44,6 +45,7 @@ struct VocabularyPartSelectionView: View {
             }
         }
         .onAppear {
+            tabBarManager.isHidden = true
             guard allWords.isEmpty else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 guard let url = Bundle.main.url(forResource: "\(level)VocabularyData", withExtension: "json"),
@@ -53,6 +55,9 @@ struct VocabularyPartSelectionView: View {
                 }
                 allWords = loaded
             }
+        }
+        .onDisappear {
+            tabBarManager.isHidden = false
         }
     }
 }

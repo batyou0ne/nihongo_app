@@ -16,6 +16,7 @@ struct GrammarPracticeView: View {
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Environment(TabBarManager.self) private var tabBarManager
     @Query private var userProgressRecords: [UserProgress]
 
     /// wordOrder sorusundaki kelime kartı — aynı metinli iki kart olabildiği için
@@ -91,8 +92,13 @@ struct GrammarPracticeView: View {
         .background(Theme.paper)
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
-
-        .onAppear(perform: setup)
+        .onAppear {
+            tabBarManager.isHidden = true
+            setup()
+        }
+        .onDisappear {
+            tabBarManager.isHidden = false
+        }
     }
 
     // MARK: - Kurulum

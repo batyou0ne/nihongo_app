@@ -20,6 +20,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Environment(TabBarManager.self) private var tabBarManager
     @Query private var userProgressRecords: [UserProgress]
 
     @State private var progressByID: [String: LearningItemProgress] = [:]
@@ -81,12 +82,16 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             }
         }
         .onAppear {
+            tabBarManager.isHidden = true
             guard !didSetup else { return }
             didSetup = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 syncProgress()
                 setupSession()
             }
+        }
+        .onDisappear {
+            tabBarManager.isHidden = false
         }
     }
 

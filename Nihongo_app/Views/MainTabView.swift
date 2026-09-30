@@ -5,6 +5,7 @@ struct MainTabView: View {
     @State private var selectedTab: Int = 0
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
+    @State private var tabBarManager = TabBarManager.shared
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -33,9 +34,14 @@ struct MainTabView: View {
                     .opacity(selectedTab == 5 ? 1 : 0)
                     .allowsHitTesting(selectedTab == 5)
             }
-
-            floatingTabBar
+            .environment(tabBarManager)
+            
+            if !tabBarManager.isHidden {
+                floatingTabBar
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
         }
+        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: tabBarManager.isHidden)
         .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .active {
                 TimeTrackingService.shared.appDidBecomeActive()
