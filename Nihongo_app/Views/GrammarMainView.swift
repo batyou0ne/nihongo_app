@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct GrammarMainView: View {
-    @State private var selectedLevel: String?
-    @State private var isShowingSession = false
-    
+
     private let levels: [(level: String, isAvailable: Bool)] = [
         ("N5", true),
         ("N4", false),
@@ -24,9 +22,8 @@ struct GrammarMainView: View {
                     VStack(spacing: 14) {
                         ForEach(levels, id: \.level) { entry in
                             if entry.isAvailable {
-                                Button {
-                                    selectedLevel = entry.level
-                                    isShowingSession = true
+                                NavigationLink {
+                                    GrammarSessionView(level: entry.level)
                                 } label: {
                                     levelRow(entry.level, isAvailable: true)
                                 }
@@ -42,13 +39,6 @@ struct GrammarMainView: View {
             .scrollIndicators(.hidden)
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
-            .fullScreenCover(isPresented: $isShowingSession) {
-                if let level = selectedLevel {
-                    NavigationStack {
-                        GrammarSessionView(level: level)
-                    }
-                }
-            }
         }
         .tint(Theme.accent)
     }
