@@ -1,0 +1,18 @@
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.build/
+*.xcworkspace/xcuserdata/
+
+# macOS
+.DS_Store
+
+# Swift Package Manager
+.swiftpm/
+
+# Firebase (proje bilgilerini public repoda paylaşmamak için)
+GoogleService-Info.plist
+
+# Secrets
+Secrets.swift

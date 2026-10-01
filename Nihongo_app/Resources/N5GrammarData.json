@@ -1,0 +1,1702 @@
+[
+  {
+    "key": "wa_b_desu",
+    "pattern": "～は～です",
+    "romaji": "~ wa ~ desu",
+    "title": "A wa B desu",
+    "explanation": "En temel cümle yapısı. は konuyu işaretler (bu görevde 'wa' okunur), です yüklemi kibarca 'dır/dir' yapar.",
+    "formula": "[İsim A] + は + [İsim B] + です",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "私は学生です。", "hiragana": "わたしはがくせいです。", "romaji": "watashi wa gakusei desu.", "turkish": "Ben öğrenciyim." },
+      { "japanese": "これはかばんです。", "romaji": "kore wa kaban desu.", "turkish": "Bu bir çanta." },
+      { "japanese": "田中さんは先生です。", "hiragana": "たなかさんはせんせいです。", "romaji": "Tanaka-san wa sensei desu.", "turkish": "Tanaka öğretmendir." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "私＿＿日本人です。", "hint": "Ben Japon'um.", "promptReading": "わたし＿＿にほんじんです。", "choices": ["は", "を", "に", "が"], "answer": "は" },
+      { "kind": "wordOrder", "prompt": "Bu bir kalem.", "hint": "これ / は / ペン / です", "choices": ["これ", "は", "ペン", "です"], "answer": "これはペンです", "answerTokens": ["これ", "は", "ペン", "です"] },
+      { "kind": "multipleChoice", "prompt": "は edatı bu cümlede ne yapar?", "hint": null, "choices": ["Konuyu işaretler", "Nesneyi işaretler", "Yeri bildirir", "Soru sorar"], "answer": "Konuyu işaretler" }
+    ]
+  },
+  {
+    "key": "wa_b_ja_arimasen",
+    "pattern": "～は～じゃありません",
+    "romaji": "~ wa ~ ja arimasen",
+    "title": "Olumsuz cümle",
+    "explanation": "です'nin olumsuzu. Günlük kibar konuşmada じゃありません, daha resmîde ではありません kullanılır.",
+    "formula": "[İsim A] + は + [İsim B] + じゃありません",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "私は先生じゃありません。", "hiragana": "わたしはせんせいじゃありません。", "romaji": "watashi wa sensei ja arimasen.", "turkish": "Ben öğretmen değilim." },
+      { "japanese": "これは水じゃありません。", "hiragana": "これはみずじゃありません。", "romaji": "kore wa mizu ja arimasen.", "turkish": "Bu su değil." },
+      { "japanese": "田中さんは学生ではありません。", "hiragana": "たなかさんはがくせいではありません。", "romaji": "Tanaka-san wa gakusei dewa arimasen.", "turkish": "Tanaka öğrenci değil." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "私は医者＿＿。", "hint": "Ben doktor değilim.", "promptReading": "わたしはいしゃ＿＿。", "choices": ["じゃありません", "です", "ます", "でした"], "answer": "じゃありません" },
+      { "kind": "multipleChoice", "prompt": "「これは私のかばんじゃありません」 ne demek?", "hint": null, "promptReading": "「これはわたしのかばんじゃありません」 ne demek?", "choices": ["Bu benim çantam değil", "Bu benim çantam", "Bu çanta yeni", "Çanta orada değil"], "answer": "Bu benim çantam değil" },
+      { "kind": "wordOrder", "prompt": "O kişi Japon değil.", "hint": "あの人 / は / 日本人 / じゃありません", "choices": ["あの人", "は", "日本人", "じゃありません"], "answer": "あの人は日本人じゃありません", "answerTokens": ["あの人", "は", "日本人", "じゃありません"] }
+    ]
+  },
+  {
+    "key": "wo_object",
+    "pattern": "～を",
+    "romaji": "~ o",
+    "title": "Nesne edatı を",
+    "explanation": "を (bu görevde 'o' okunur) geçişli fiilin doğrudan nesnesini işaretler. Yalnızca bu dilbilgisel görev için kullanılır.",
+    "formula": "[Nesne] + を + [geçişli fiil]",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "パンを食べます。", "hiragana": "ぱんをたべます。", "romaji": "pan o tabemasu.", "turkish": "Ekmek yerim." },
+      { "japanese": "水を飲みます。", "hiragana": "みずをのみます。", "romaji": "mizu o nomimasu.", "turkish": "Su içerim." },
+      { "japanese": "本を読みます。", "hiragana": "ほんをよみます。", "romaji": "hon o yomimasu.", "turkish": "Kitap okurum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "コーヒー＿＿飲みます。", "hint": "Kahve içerim.", "promptReading": "コーヒー＿＿のみます。", "choices": ["を", "は", "に", "で"], "answer": "を" },
+      { "kind": "fillBlank", "prompt": "映画＿＿見ます。", "hint": "Film izlerim.", "promptReading": "えいが＿＿みます。", "choices": ["を", "が", "へ", "と"], "answer": "を" },
+      { "kind": "multipleChoice", "prompt": "を edatı neyi işaretler?", "hint": null, "choices": ["Fiilin nesnesini", "Cümlenin konusunu", "Hareketin yerini", "Kullanılan aracı"], "answer": "Fiilin nesnesini" }
+    ]
+  },
+  {
+    "key": "de_location_means",
+    "pattern": "～で",
+    "romaji": "~ de",
+    "title": "Yer / araç edatı で",
+    "explanation": "で iki işte kullanılır: (1) eylemin gerçekleştiği yer, (2) kullanılan araç, yöntem veya malzeme.",
+    "formula": "[Yer / Araç] + で + [fiil]",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "図書館で勉強します。", "hiragana": "としょかんでべんきょうします。", "romaji": "toshokan de benkyou shimasu.", "turkish": "Kütüphanede ders çalışırım." },
+      { "japanese": "バスで行きます。", "hiragana": "ばすでいきます。", "romaji": "basu de ikimasu.", "turkish": "Otobüsle giderim." },
+      { "japanese": "はしで食べます。", "hiragana": "はしでたべます。", "romaji": "hashi de tabemasu.", "turkish": "Çubuklarla yerim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "レストラン＿＿昼ご飯を食べます。", "hint": "Restoranda öğle yemeği yerim.", "promptReading": "レストラン＿＿ひるごはんをたべます。", "choices": ["で", "に", "を", "へ"], "answer": "で" },
+      { "kind": "fillBlank", "prompt": "電車＿＿会社に行きます。", "hint": "Trenle şirkete giderim.", "promptReading": "でんしゃ＿＿かいしゃにいきます。", "choices": ["で", "を", "が", "も"], "answer": "で" },
+      { "kind": "multipleChoice", "prompt": "「うちで映画を見ます」 ne demek?", "hint": null, "promptReading": "「うちでえいがをみます」 ne demek?", "choices": ["Evde film izlerim", "Eve film getiririm", "Evden çıkarım", "Ev filmi çekerim"], "answer": "Evde film izlerim" }
+    ]
+  },
+  {
+    "key": "ni_e_direction",
+    "pattern": "～に／～へ",
+    "romaji": "~ ni / ~ e",
+    "title": "Yön / hedef edatı に・へ",
+    "explanation": "Hareketin yönünü ve hedefini bildirir. に varış noktasını, へ yönü vurgular; çoğu cümlede birbirinin yerine kullanılabilir. へ bu görevde 'e' okunur.",
+    "formula": "[Yer] + に / へ + [hareket fiili]",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "学校に行きます。", "hiragana": "がっこうにいきます。", "romaji": "gakkou ni ikimasu.", "turkish": "Okula giderim." },
+      { "japanese": "日本へ来ました。", "hiragana": "にほんへきました。", "romaji": "Nihon e kimashita.", "turkish": "Japonya'ya geldim." },
+      { "japanese": "うちに帰ります。", "hiragana": "うちにかえります。", "romaji": "uchi ni kaerimasu.", "turkish": "Eve dönerim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "来週、京都＿＿行きます。", "hint": "Gelecek hafta Kyoto'ya giderim.", "promptReading": "らいしゅう、きょうと＿＿いきます。", "choices": ["に", "で", "を", "が"], "answer": "に" },
+      { "kind": "wordOrder", "prompt": "Yarın okula gideceğim.", "hint": "あした / 学校 / に / 行きます", "choices": ["あした", "学校", "に", "行きます"], "answer": "あした学校に行きます", "answerTokens": ["あした", "学校", "に", "行きます"] },
+      { "kind": "multipleChoice", "prompt": "「駅に行きます」 cümlesinde に neyi gösterir?", "hint": null, "promptReading": "「えきにいきます」 cümlesinde に neyi gösterir?", "choices": ["Gidilen hedefi", "Eylemin yapıldığı yeri", "Kullanılan aracı", "Zamanı"], "answer": "Gidilen hedefi" }
+    ]
+  },
+  {
+    "key": "ni_time",
+    "pattern": "～に (zaman)",
+    "romaji": "~ ni (time)",
+    "title": "Zaman edatı に",
+    "explanation": "Belirli bir saat, gün veya tarihte bir eylemin olduğunu belirtir. Sayısal zaman ifadeleriyle kullanılır; 'bugün, yarın, şimdi, her gün' gibi göreli sözcüklerle kullanılmaz.",
+    "formula": "[Saat / Gün / Tarih] + に + [fiil]",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "7時に起きます。", "hiragana": "しちじにおきます。", "romaji": "shichi-ji ni okimasu.", "turkish": "Saat 7'de kalkarım." },
+      { "japanese": "日曜日に休みます。", "hiragana": "にちようびにやすみます。", "romaji": "nichiyoubi ni yasumimasu.", "turkish": "Pazar günü dinlenirim." },
+      { "japanese": "3月に日本へ行きます。", "hiragana": "さんがつににほんへいきます。", "romaji": "san-gatsu ni Nihon e ikimasu.", "turkish": "Mart'ta Japonya'ya giderim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "8時半＿＿会社に行きます。", "hint": "8:30'da şirkete giderim.", "promptReading": "8じはん＿＿かいしゃにいきます。", "choices": ["に", "で", "を", "へ"], "answer": "に" },
+      { "kind": "multipleChoice", "prompt": "Hangi cümle doğru?", "hint": null, "choices": ["月曜日に働きます", "あしたに働きます", "今に働きます", "毎日に働きます"], "answer": "月曜日に働きます" },
+      { "kind": "fillBlank", "prompt": "土曜日＿＿友だちに会います。", "hint": "Cumartesi arkadaşımla buluşurum.", "promptReading": "どようび＿＿ともだちにあいます。", "choices": ["に", "が", "は", "も"], "answer": "に" }
+    ]
+  },
+  {
+    "key": "mo_also",
+    "pattern": "～も",
+    "romaji": "~ mo",
+    "title": "'De / da' edatı も",
+    "explanation": "は veya を'nun yerini alır ve 'de/da, aynı şekilde' anlamı katar. も geldiğinde は/が/を düşer.",
+    "formula": "[İsim] + も + ... (は/が/を düşer)",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "私も学生です。", "hiragana": "わたしもがくせいです。", "romaji": "watashi mo gakusei desu.", "turkish": "Ben de öğrenciyim." },
+      { "japanese": "コーヒーも飲みます。", "hiragana": "こおひいものみます。", "romaji": "koohii mo nomimasu.", "turkish": "Kahve de içerim." },
+      { "japanese": "田中さんも来ます。", "hiragana": "たなかさんもきます。", "romaji": "Tanaka-san mo kimasu.", "turkish": "Tanaka da geliyor." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "A: 私は日本人です。 B: 私＿＿日本人です。", "hint": "Ben de Japon'um.", "promptReading": "A: わたしはにほんじんです。 B: わたし＿＿にほんじんです。", "choices": ["も", "は", "を", "に"], "answer": "も" },
+      { "kind": "multipleChoice", "prompt": "「パンも食べます」 ne demek?", "hint": null, "promptReading": "「パンもたべます」 ne demek?", "choices": ["Ekmek de yerim", "Sadece ekmek yerim", "Ekmek yemem", "Ekmek isterim"], "answer": "Ekmek de yerim" },
+      { "kind": "wordOrder", "prompt": "O da öğretmen.", "hint": "あの人 / も / 先生 / です", "choices": ["あの人", "も", "先生", "です"], "answer": "あの人も先生です", "answerTokens": ["あの人", "も", "先生", "です"] }
+    ]
+  },
+  {
+    "key": "no_possessive",
+    "pattern": "～の",
+    "romaji": "~ no",
+    "title": "İsim bağlayan の",
+    "explanation": "İki ismi bağlar: sahiplik ('benim'), aitlik veya niteleme. [A] の [B] = 'A'nın B'si'.",
+    "formula": "[İsim A] + の + [İsim B]",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "私の本です。", "hiragana": "わたしのほんです。", "romaji": "watashi no hon desu.", "turkish": "Benim kitabım." },
+      { "japanese": "日本語の先生です。", "hiragana": "にほんごのせんせいです。", "romaji": "nihongo no sensei desu.", "turkish": "Japonca öğretmeni." },
+      { "japanese": "これは田中さんのかばんです。", "hiragana": "これはたなかさんのかばんです。", "romaji": "kore wa Tanaka-san no kaban desu.", "turkish": "Bu Tanaka'nın çantası." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "これは友だち＿＿車です。", "hint": "Bu arkadaşımın arabası.", "promptReading": "これはともだち＿＿くるまです。", "choices": ["の", "は", "を", "で"], "answer": "の" },
+      { "kind": "wordOrder", "prompt": "Bu benim telefonum.", "hint": "これ / は / 私 / の / 電話 / です", "choices": ["これ", "は", "私", "の", "電話", "です"], "answer": "これは私の電話です", "answerTokens": ["これ", "は", "私", "の", "電話", "です"] },
+      { "kind": "multipleChoice", "prompt": "「アメリカの映画」 ne demek?", "hint": null, "promptReading": "「アメリカのえいが」 ne demek?", "choices": ["Amerikan filmi", "Amerika'ya film", "Filmli Amerika", "Amerika film izler"], "answer": "Amerikan filmi" }
+    ]
+  },
+  {
+    "key": "ga_arimasu_imasu",
+    "pattern": "～があります／います",
+    "romaji": "~ ga arimasu / imasu",
+    "title": "Var olmak: あります・います",
+    "explanation": "Bir şeyin var olduğunu / bir yerde bulunduğunu söyler. あります cansız şeyler ve bitkiler için, います canlılar (insan, hayvan) için kullanılır.",
+    "formula": "[Yer] + に + [İsim] + が + あります / います",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "机の上に本があります。", "hiragana": "つくえのうえにほんがあります。", "romaji": "tsukue no ue ni hon ga arimasu.", "turkish": "Masanın üstünde kitap var." },
+      { "japanese": "公園に犬がいます。", "hiragana": "こうえんにいぬがいます。", "romaji": "kouen ni inu ga imasu.", "turkish": "Parkta bir köpek var." },
+      { "japanese": "教室に学生がいます。", "hiragana": "きょうしつにがくせいがいます。", "romaji": "kyoushitsu ni gakusei ga imasu.", "turkish": "Sınıfta öğrenciler var." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "部屋にテレビ＿＿あります。", "hint": "Odada televizyon var.", "promptReading": "へやにテレビ＿＿あります。", "choices": ["が", "を", "は", "で"], "answer": "が" },
+      { "kind": "fillBlank", "prompt": "庭に猫が＿＿。", "hint": "Bahçede bir kedi var.", "promptReading": "にわにねこが＿＿。", "choices": ["います", "あります", "です", "します"], "answer": "います" },
+      { "kind": "multipleChoice", "prompt": "Hangisi doğru?", "hint": null, "choices": ["いすの下に本があります", "いすの下に本がいます", "いすの下で本があります", "いすの下を本があります"], "answer": "いすの下に本があります" }
+    ]
+  },
+  {
+    "key": "masu_form",
+    "pattern": "～ます／～ません／～ました",
+    "romaji": "~ masu / masen / mashita",
+    "title": "Kibar fiil çekimi",
+    "explanation": "Fiilin kibar biçimi. ～ます şimdiki/gelecek olumlu, ～ません olumsuz, ～ました geçmiş, ～ませんでした geçmiş olumsuz.",
+    "formula": "[fiil kökü] + ます / ません / ました / ませんでした",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "毎日日本語を勉強します。", "hiragana": "まいにちにほんごをべんきょうします。", "romaji": "mainichi nihongo o benkyou shimasu.", "turkish": "Her gün Japonca çalışırım." },
+      { "japanese": "今日は勉強しません。", "hiragana": "きょうはべんきょうしません。", "romaji": "kyou wa benkyou shimasen.", "turkish": "Bugün çalışmayacağım." },
+      { "japanese": "きのう映画を見ました。", "hiragana": "きのうえいがをみました。", "romaji": "kinou eiga o mimashita.", "turkish": "Dün film izledim." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「きのう」 (dün) ile hangi çekim uyar: 映画を見＿＿", "hint": null, "choices": ["ました", "ます", "ません", "ましょう"], "answer": "ました" },
+      { "kind": "fillBlank", "prompt": "今日は雨です。だから、どこも行き＿＿。", "hint": "Bugün yağmurlu, o yüzden hiçbir yere gitmiyorum.", "promptReading": "きょうはあめです。だから、どこもいき＿＿。", "choices": ["ません", "ます", "ました", "ましょう"], "answer": "ません" },
+      { "kind": "multipleChoice", "prompt": "「食べませんでした」 ne demek?", "hint": null, "promptReading": "「たべませんでした」 ne demek?", "choices": ["Yemedim", "Yemem", "Yiyeceğim", "Yiyelim"], "answer": "Yemedim" }
+    ]
+  },
+  {
+    "key": "te_kudasai",
+    "pattern": "～てください",
+    "romaji": "~ te kudasai",
+    "title": "Rica: ～てください",
+    "explanation": "Fiilin て biçimi + ください ile kibar rica veya talimat: 'lütfen ... yap'.",
+    "formula": "[fiil て-biçimi] + ください",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "ちょっと待ってください。", "hiragana": "ちょっとまってください。", "romaji": "chotto matte kudasai.", "turkish": "Lütfen biraz bekleyin." },
+      { "japanese": "ここに名前を書いてください。", "hiragana": "ここになまえをかいてください。", "romaji": "koko ni namae o kaite kudasai.", "turkish": "Lütfen buraya adınızı yazın." },
+      { "japanese": "もう一度言ってください。", "hiragana": "もういちどいってください。", "romaji": "mou ichido itte kudasai.", "turkish": "Lütfen bir daha söyleyin." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "すみません、写真を撮って＿＿。", "hint": "Affedersiniz, lütfen fotoğraf çekin.", "promptReading": "すみません、しゃしんをとって＿＿。", "choices": ["ください", "います", "ました", "ましょう"], "answer": "ください" },
+      { "kind": "multipleChoice", "prompt": "「座ってください」 ne demek?", "hint": null, "promptReading": "「すわってください」 ne demek?", "choices": ["Lütfen oturun", "Oturmayın", "Oturdum", "Oturalım"], "answer": "Lütfen oturun" },
+      { "kind": "wordOrder", "prompt": "Lütfen kapıyı açın.", "hint": "ドア / を / 開けて / ください", "choices": ["ドア", "を", "開けて", "ください"], "answer": "ドアを開けてください", "answerTokens": ["ドア", "を", "開けて", "ください"] }
+    ]
+  },
+  {
+    "key": "te_imasu",
+    "pattern": "～ています",
+    "romaji": "~ te imasu",
+    "title": "Süregelen eylem: ～ています",
+    "explanation": "て biçimi + います: (1) şu an sürmekte olan eylem, (2) alışkanlık veya süregelen durum.",
+    "formula": "[fiil て-biçimi] + います",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "今、本を読んでいます。", "hiragana": "いま、ほんをよんでいます。", "romaji": "ima, hon o yonde imasu.", "turkish": "Şu an kitap okuyorum." },
+      { "japanese": "東京に住んでいます。", "hiragana": "とうきょうにすんでいます。", "romaji": "Toukyou ni sunde imasu.", "turkish": "Tokyo'da yaşıyorum." },
+      { "japanese": "姉は銀行で働いています。", "hiragana": "あねはぎんこうではたらいています。", "romaji": "ane wa ginkou de hataraite imasu.", "turkish": "Ablam bankada çalışıyor." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "父は今、テレビを見て＿＿。", "hint": "Babam şu an televizyon izliyor.", "promptReading": "ちちはいま、テレビをみて＿＿。", "choices": ["います", "ください", "ました", "ません"], "answer": "います" },
+      { "kind": "multipleChoice", "prompt": "「日本語を勉強しています」 hangi anlamı verMEZ?", "hint": null, "promptReading": "「にほんごをべんきょうしています」 hangi anlamı verMEZ?", "choices": ["Japonca çalışacağım (gelecek)", "Şu an Japonca çalışıyorum", "Bir süredir Japonca çalışıyorum", "Japonca öğreniyorum"], "answer": "Japonca çalışacağım (gelecek)" },
+      { "kind": "wordOrder", "prompt": "Osaka'da yaşıyorum.", "hint": "大阪 / に / 住んで / います", "choices": ["大阪", "に", "住んで", "います"], "answer": "大阪に住んでいます", "answerTokens": ["大阪", "に", "住んで", "います"] }
+    ]
+  },
+  {
+    "key": "tai_want",
+    "pattern": "～たい",
+    "romaji": "~ tai",
+    "title": "İstek: ～たい",
+    "explanation": "Fiil kökü + たい konuşanın isteğini belirtir ('...mek istiyorum'). たい bir い-sıfatı gibi çekilir (olumsuz: ～たくない). Nesne edatı çoğu zaman を yerine が olabilir.",
+    "formula": "[fiil kökü (ます düşer)] + たいです",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "水が飲みたいです。", "hiragana": "みずがのみたいです。", "romaji": "mizu ga nomitai desu.", "turkish": "Su içmek istiyorum." },
+      { "japanese": "日本へ行きたいです。", "hiragana": "にほんへいきたいです。", "romaji": "Nihon e ikitai desu.", "turkish": "Japonya'ya gitmek istiyorum." },
+      { "japanese": "今日は何もしたくないです。", "hiragana": "きょうはなにもしたくないです。", "romaji": "kyou wa nani mo shitakunai desu.", "turkish": "Bugün hiçbir şey yapmak istemiyorum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "つかれました。少し休み＿＿です。", "hint": "Yoruldum. Biraz dinlenmek istiyorum.", "promptReading": "つかれました。すこしやすみ＿＿です。", "choices": ["たい", "ます", "てください", "ています"], "answer": "たい" },
+      { "kind": "multipleChoice", "prompt": "「寿司が食べたいです」 ne demek?", "hint": null, "promptReading": "「すしがたべたいです」 ne demek?", "choices": ["Suşi yemek istiyorum", "Suşi yiyorum", "Suşi yedim", "Suşi yeme"], "answer": "Suşi yemek istiyorum" },
+      { "kind": "multipleChoice", "prompt": "「行きたくないです」 ne demek?", "hint": null, "promptReading": "「いきたくないです」 ne demek?", "choices": ["Gitmek istemiyorum", "Gitmek istiyorum", "Gitmedim", "Gidelim"], "answer": "Gitmek istemiyorum" }
+    ]
+  },
+  {
+    "key": "mashou_masenka",
+    "pattern": "～ましょう／～ませんか",
+    "romaji": "~ mashou / ~ masen ka",
+    "title": "Öneri ve davet",
+    "explanation": "～ましょう 'hadi ... yapalım' (öneri). ～ませんか '... yapmak ister misiniz?' (kibar davet); ませんか daha nazik bir teklif sunar.",
+    "formula": "[fiil kökü] + ましょう / ませんか",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "一緒に昼ご飯を食べましょう。", "hiragana": "いっしょにひるごはんをたべましょう。", "romaji": "issho ni hirugohan o tabemashou.", "turkish": "Birlikte öğle yemeği yiyelim." },
+      { "japanese": "週末、映画を見ませんか。", "hiragana": "しゅうまつ、えいがをみませんか。", "romaji": "shuumatsu, eiga o mimasen ka.", "turkish": "Hafta sonu film izlemez misiniz?" },
+      { "japanese": "ちょっと休みましょう。", "hiragana": "ちょっとやすみましょう。", "romaji": "chotto yasumimashou.", "turkish": "Biraz dinlenelim." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「コーヒーを飲みませんか」 ne demek?", "hint": null, "promptReading": "「コーヒーをのみませんか」 ne demek?", "choices": ["Kahve içmez misiniz? (davet)", "Kahve içmiyor musun? (kızgın)", "Kahve içmedim", "Kahve içeceğim"], "answer": "Kahve içmez misiniz? (davet)" },
+      { "kind": "fillBlank", "prompt": "つかれましたね。少し休み＿＿。", "hint": "Yorulduk, değil mi? Biraz dinlenelim.", "promptReading": "つかれましたね。すこしやすみ＿＿。", "choices": ["ましょう", "ました", "ません", "たい"], "answer": "ましょう" },
+      { "kind": "wordOrder", "prompt": "Birlikte gidelim.", "hint": "一緒に / 行き / ましょう", "choices": ["一緒に", "行き", "ましょう"], "answer": "一緒に行きましょう", "answerTokens": ["一緒に", "行き", "ましょう"] }
+    ]
+  },
+  {
+    "key": "i_na_adjectives",
+    "pattern": "い形容詞・な形容詞",
+    "romaji": "i-keiyoushi / na-keiyoushi",
+    "title": "い ve な sıfatları",
+    "explanation": "İki sıfat türü var. い-sıfatları isimden önce olduğu gibi gelir (大きい犬). な-sıfatları isimden önce な alır (きれいな花). Yüklemde ikisi de です alır; olumsuzda い-sıfatı ～くないです, な-sıfatı ～じゃありません olur.",
+    "formula": "い-sıfat + İsim   /   な-sıfat + な + İsim",
+    "category": "adjective",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "大きい犬がいます。", "hiragana": "おおきいいぬがいます。", "romaji": "ookii inu ga imasu.", "turkish": "Büyük bir köpek var." },
+      { "japanese": "これはきれいな花です。", "hiragana": "これはきれいなはなです。", "romaji": "kore wa kirei na hana desu.", "turkish": "Bu güzel bir çiçek." },
+      { "japanese": "この本は高くないです。", "hiragana": "このほんはたかくないです。", "romaji": "kono hon wa takakunai desu.", "turkish": "Bu kitap pahalı değil." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "きれい＿＿部屋ですね。", "hint": "Temiz bir oda, değil mi?", "promptReading": "きれい＿＿へやですね。", "choices": ["な", "い", "の", "を"], "answer": "な" },
+      { "kind": "multipleChoice", "prompt": "Hangisi doğru?", "hint": null, "choices": ["小さいかばん", "小さいなかばん", "小さなのかばん", "かばん小さい"], "answer": "小さいかばん" },
+      { "kind": "multipleChoice", "prompt": "「この店は有名じゃありません」 ne demek?", "hint": null, "promptReading": "「このみせはゆうめいじゃありません」 ne demek?", "choices": ["Bu dükkân ünlü değil", "Bu dükkân ünlü", "Bu dükkân yeni", "Bu dükkân kapalı"], "answer": "Bu dükkân ünlü değil" }
+    ]
+  },
+  {
+    "key": "kara_because",
+    "pattern": "～から",
+    "romaji": "~ kara",
+    "title": "Sebep: ～から",
+    "explanation": "Sebep bildirir: '...dığı için, çünkü'. Sebep cümlesinin sonuna gelir, sonuç ondan sonra söylenir. (から ayrıca 'başlangıç noktası: ...den' anlamında da kullanılır.)",
+    "formula": "[Sebep] + から、 + [Sonuç]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "時間がないから、タクシーで行きます。", "hiragana": "じかんがないから、たくしいでいきます。", "romaji": "jikan ga nai kara, takushii de ikimasu.", "turkish": "Vaktim olmadığı için taksiyle giderim." },
+      { "japanese": "寒いから、まどを閉めてください。", "hiragana": "さむいから、まどをしめてください。", "romaji": "samui kara, mado o shimete kudasai.", "turkish": "Soğuk olduğu için lütfen pencereyi kapatın." },
+      { "japanese": "あした試験があるから、今日は勉強します。", "hiragana": "あしたしけんがあるから、きょうはべんきょうします。", "romaji": "ashita shiken ga aru kara, kyou wa benkyou shimasu.", "turkish": "Yarın sınavım olduğu için bugün çalışıyorum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "あたまがいたい＿＿、うちに帰ります。", "hint": "Başım ağrıdığı için eve dönüyorum.", "promptReading": "あたまがいたい＿＿、うちにかえります。", "choices": ["から", "でも", "が", "と"], "answer": "から" },
+      { "kind": "multipleChoice", "prompt": "「高いから、買いません」 ne demek?", "hint": null, "promptReading": "「たかいから、かいません」 ne demek?", "choices": ["Pahalı olduğu için almıyorum", "Pahalı ama alıyorum", "Ucuz olduğu için alıyorum", "Pahalı mı diye soruyorum"], "answer": "Pahalı olduğu için almıyorum" },
+      { "kind": "wordOrder", "prompt": "Meşgul olduğum için gitmiyorum.", "hint": "いそがしい / から / 行きません", "choices": ["いそがしい", "から", "行きません"], "answer": "いそがしいから行きません", "answerTokens": ["いそがしい", "から", "行きません"] }
+    ]
+  },
+  {
+    "key": "ga_subject",
+    "pattern": "～が",
+    "romaji": "~ ga",
+    "title": "Özne edatı が",
+    "explanation": "が cümlenin öznesini işaretler. Yeni bilgi, 'hangisi?' seçimi ve varlık/duygu cümlelerinde (あります/います, 好き, 上手, わかる) kullanılır. Konu zaten biliniyorsa は tercih edilir.",
+    "formula": "[Özne] + が + [yüklem]",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "雨が降っています。", "hiragana": "あめがふっています。", "romaji": "ame ga futte imasu.", "turkish": "Yağmur yağıyor." },
+      { "japanese": "だれが来ましたか。", "hiragana": "だれがきましたか。", "romaji": "dare ga kimashita ka.", "turkish": "Kim geldi?" },
+      { "japanese": "私は犬が好きです。", "hiragana": "わたしはいぬがすきです。", "romaji": "watashi wa inu ga suki desu.", "turkish": "Ben köpekleri severim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "だれ＿＿この本を書きましたか。", "hint": "Bu kitabı kim yazdı?", "promptReading": "だれ＿＿このほんをかきましたか。", "choices": ["が", "は", "を", "に"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「私は日本語＿＿わかります」 boşluğa ne gelir?", "hint": null, "promptReading": "「わたしはにほんご＿＿わかります」 boşluğa ne gelir?", "choices": ["が", "を", "は", "で"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「猫がいます」 ne demek?", "hint": null, "promptReading": "「ねこがいます」 ne demek?", "choices": ["Bir kedi var", "Kedi yok", "Kedi geldi", "Kedileri severim"], "answer": "Bir kedi var" }
+    ]
+  },
+  {
+    "key": "to_and_with",
+    "pattern": "～と",
+    "romaji": "~ to",
+    "title": "Bağlama edatı と",
+    "explanation": "İki ismi tam olarak bağlar ('A ve B'). Ayrıca 'ile birlikte' (biriyle bir şey yapmak) ve karşılıklı eylem 'ile' (buluşmak, konuşmak) anlamı taşır.",
+    "formula": "[İsim] + と + [İsim]   /   [kişi] + と + [fiil]",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "パンとたまごを買いました。", "hiragana": "ぱんとたまごをかいました。", "romaji": "pan to tamago o kaimashita.", "turkish": "Ekmek ve yumurta aldım." },
+      { "japanese": "友だちと映画を見ます。", "hiragana": "ともだちとえいがをみます。", "romaji": "tomodachi to eiga o mimasu.", "turkish": "Arkadaşımla film izlerim." },
+      { "japanese": "母と話しました。", "hiragana": "ははとはなしました。", "romaji": "haha to hanashimashita.", "turkish": "Annemle konuştum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "コーヒー＿＿ケーキをください。", "hint": "Kahve ve pasta alayım.", "choices": ["と", "も", "を", "で"], "answer": "と" },
+      { "kind": "fillBlank", "prompt": "きのう先生＿＿会いました。", "hint": "Dün öğretmenle buluştum.", "promptReading": "きのうせんせい＿＿あいました。", "choices": ["と", "を", "が", "へ"], "answer": "と" },
+      { "kind": "wordOrder", "prompt": "Kardeşimle oyun oynarım.", "hint": "弟 / と / ゲーム / を / します", "choices": ["弟", "と", "ゲーム", "を", "します"], "answer": "弟とゲームをします", "answerTokens": ["弟", "と", "ゲーム", "を", "します"] }
+    ]
+  },
+  {
+    "key": "ya_and_etc",
+    "pattern": "～や",
+    "romaji": "~ ya",
+    "title": "Örnek sayan や",
+    "explanation": "İki veya daha çok ismi 'gibi şeyler' anlamında bağlar; liste eksiktir (と ise tam listedir). Genelde など ('vb.') ile birlikte gelir.",
+    "formula": "[İsim] + や + [İsim] (+ など)",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "つくえの上に本やペンがあります。", "hiragana": "つくえのうえにほんやぺんがあります。", "romaji": "tsukue no ue ni hon ya pen ga arimasu.", "turkish": "Masanın üstünde kitap, kalem gibi şeyler var." },
+      { "japanese": "週末は買い物や掃除をします。", "hiragana": "しゅうまつはかいものやそうじをします。", "romaji": "shuumatsu wa kaimono ya souji o shimasu.", "turkish": "Hafta sonu alışveriş, temizlik gibi şeyler yaparım." },
+      { "japanese": "京都や大阪へ行きました。", "hiragana": "きょうとやおおさかへいきました。", "romaji": "Kyouto ya Oosaka e ikimashita.", "turkish": "Kyoto, Osaka gibi yerlere gittim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "かばんの中にさいふ＿＿かぎがあります。", "hint": "Çantada cüzdan, anahtar gibi şeyler var.", "promptReading": "かばんのなかにさいふ＿＿かぎがあります。", "choices": ["や", "と", "を", "へ"], "answer": "や" },
+      { "kind": "multipleChoice", "prompt": "「や」 ile 「と」 arasındaki fark nedir?", "hint": null, "choices": ["や eksik liste, と tam liste", "İkisi aynı", "や sadece kişiler için", "と sadece yerler için"], "answer": "や eksik liste, と tam liste" },
+      { "kind": "multipleChoice", "prompt": "「ノートやえんぴつなどを買います」 ne demek?", "hint": null, "promptReading": "「ノートやえんぴつなどをかいます」 ne demek?", "choices": ["Defter, kalem gibi şeyler alırım", "Sadece defter alırım", "Defter alamam", "Defterle kalem aynı"], "answer": "Defter, kalem gibi şeyler alırım" }
+    ]
+  },
+  {
+    "key": "ka_question",
+    "pattern": "～か",
+    "romaji": "~ ka",
+    "title": "Soru eki か",
+    "explanation": "Cümlenin sonuna gelerek onu kibar soruya çevirir; yazıda çoğu zaman '?' yerine geçer. Yükselen tonlama gerekmez.",
+    "formula": "[cümle] + か",
+    "category": "particle",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "あなたは学生ですか。", "hiragana": "あなたはがくせいですか。", "romaji": "anata wa gakusei desu ka.", "turkish": "Sen öğrenci misin?" },
+      { "japanese": "もう昼ご飯を食べましたか。", "hiragana": "もうひるごはんをたべましたか。", "romaji": "mou hirugohan o tabemashita ka.", "turkish": "Öğle yemeğini yedin mi?" },
+      { "japanese": "トイレはどこですか。", "romaji": "toire wa doko desu ka.", "turkish": "Tuvalet nerede?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "これはあなたのかばんです＿＿。", "hint": "Bu senin çantan mı?", "choices": ["か", "ね", "よ", "の"], "answer": "か" },
+      { "kind": "multipleChoice", "prompt": "「か」 cümlenin sonuna gelince ne olur?", "hint": null, "choices": ["Cümle soru olur", "Cümle olumsuz olur", "Cümle geçmiş olur", "Cümle emir olur"], "answer": "Cümle soru olur" },
+      { "kind": "wordOrder", "prompt": "Bu ne?", "hint": "これ / は / 何 / です / か", "choices": ["これ", "は", "何", "です", "か"], "answer": "これは何ですか", "answerTokens": ["これ", "は", "何", "です", "か"] }
+    ]
+  },
+  {
+    "key": "ka_ka_or",
+    "pattern": "～か～か",
+    "romaji": "~ ka ~ ka",
+    "title": "Seçenek: か～か",
+    "explanation": "İki seçenek arasında 'ya ... ya da' sunar. Konuşmada ikinci か genellikle düşürülür (コーヒーかお茶).",
+    "formula": "[A] + か + [B] + (か)",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "コーヒーかお茶を飲みます。", "hiragana": "こおひいかおちゃをのみます。", "romaji": "koohii ka ocha o nomimasu.", "turkish": "Ya kahve ya çay içerim." },
+      { "japanese": "土曜日か日曜日に行きます。", "hiragana": "どようびかにちようびにいきます。", "romaji": "doyoubi ka nichiyoubi ni ikimasu.", "turkish": "Ya cumartesi ya pazar giderim." },
+      { "japanese": "ペンかえんぴつで書いてください。", "hiragana": "ぺんかえんぴつでかいてください。", "romaji": "pen ka enpitsu de kaite kudasai.", "turkish": "Ya kalemle ya kurşun kalemle yazın." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "バス＿＿電車で行きます。", "hint": "Ya otobüsle ya trenle giderim.", "promptReading": "バス＿＿でんしゃでいきます。", "choices": ["か", "と", "や", "も"], "answer": "か" },
+      { "kind": "multipleChoice", "prompt": "「肉か魚を食べます」 ne demek?", "hint": null, "promptReading": "「にくかさかなをたべます」 ne demek?", "choices": ["Ya et ya balık yerim", "Hem et hem balık yerim", "Et de balık da yemem", "Etle balık aynı"], "answer": "Ya et ya balık yerim" },
+      { "kind": "wordOrder", "prompt": "Ya bugün ya yarın.", "hint": "今日 / か / あした", "choices": ["今日", "か", "あした"], "answer": "今日かあした", "answerTokens": ["今日", "か", "あした"] }
+    ]
+  },
+  {
+    "key": "made_until",
+    "pattern": "～まで",
+    "romaji": "~ made",
+    "title": "Sınır: ～まで",
+    "explanation": "Bir eylemin veya durumun bittiği zaman ya da yer sınırını gösterir: '...e kadar'. Başlangıç için から ile eşleşir (9時から5時まで).",
+    "formula": "[Zaman / Yer] + まで",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "5時まで働きます。", "hiragana": "ごじまではたらきます。", "romaji": "go-ji made hatarakimasu.", "turkish": "Saat 5'e kadar çalışırım." },
+      { "japanese": "駅まで歩きました。", "hiragana": "えきまであるきました。", "romaji": "eki made arukimashita.", "turkish": "İstasyona kadar yürüdüm." },
+      { "japanese": "月曜日から金曜日まで学校があります。", "hiragana": "げつようびからきんようびまでがっこうがあります。", "romaji": "getsuyoubi kara kinyoubi made gakkou ga arimasu.", "turkish": "Pazartesiden cumaya kadar okul var." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "9時から6時＿＿会社にいます。", "hint": "9'dan 6'ya kadar iş yerindeyim.", "promptReading": "9じから6じ＿＿かいしゃにいます。", "choices": ["まで", "から", "に", "で"], "answer": "まで" },
+      { "kind": "fillBlank", "prompt": "うち＿＿バスで帰ります。", "hint": "Eve kadar otobüsle dönerim.", "promptReading": "うち＿＿バスでかえります。", "choices": ["まで", "でも", "しか", "だけ"], "answer": "まで" },
+      { "kind": "multipleChoice", "prompt": "「夜まで」 ne demek?", "hint": null, "choices": ["Geceye kadar", "Geceden beri", "Gece için", "Gece hariç"], "answer": "Geceye kadar" }
+    ]
+  },
+  {
+    "key": "kara_from",
+    "pattern": "～から (başlangıç)",
+    "romaji": "~ kara (from)",
+    "title": "Başlangıç: ～から",
+    "explanation": "Bir eylemin başladığı zamanı veya yeri gösterir: '...den itibaren'. Bitiş için まで ile eşleşir. (から ayrıca 'çünkü' bağlacıdır — bkz. ～から sebep.)",
+    "formula": "[Zaman / Yer] + から",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "9時から授業が始まります。", "hiragana": "くじからじゅぎょうがはじまります。", "romaji": "ku-ji kara jugyou ga hajimarimasu.", "turkish": "Ders 9'dan itibaren başlar." },
+      { "japanese": "日本から手紙が来ました。", "hiragana": "にほんからてがみがきました。", "romaji": "Nihon kara tegami ga kimashita.", "turkish": "Japonya'dan mektup geldi." },
+      { "japanese": "家から駅まで10分です。", "hiragana": "いえからえきまでじゅっぷんです。", "romaji": "ie kara eki made juppun desu.", "turkish": "Evden istasyona 10 dakika." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "銀行は何時＿＿ですか。", "hint": "Banka saat kaçtan itibaren açık?", "promptReading": "ぎんこうはなんじ＿＿ですか。", "choices": ["から", "まで", "に", "で"], "answer": "から" },
+      { "kind": "fillBlank", "prompt": "田中さん＿＿電話がありました。", "hint": "Tanaka'dan telefon geldi.", "promptReading": "たなかさん＿＿でんわがありました。", "choices": ["から", "まで", "へ", "を"], "answer": "から" },
+      { "kind": "multipleChoice", "prompt": "「うちから」 ne demek?", "hint": null, "choices": ["Evden", "Eve", "Evde", "Ev için"], "answer": "Evden" }
+    ]
+  },
+  {
+    "key": "dake_only",
+    "pattern": "～だけ",
+    "romaji": "~ dake",
+    "title": "Yalnızca: ～だけ",
+    "explanation": "'Sadece, yalnızca' anlamı verir; isimden, sayıdan veya fiilden sonra gelir. Genelde を ve は gibi kısa edatlar だけ'den sonra düşer.",
+    "formula": "[İsim / sayı] + だけ",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "水だけ飲みます。", "hiragana": "みずだけのみます。", "romaji": "mizu dake nomimasu.", "turkish": "Sadece su içerim." },
+      { "japanese": "一人だけ来ました。", "hiragana": "ひとりだけきました。", "romaji": "hitori dake kimashita.", "turkish": "Sadece bir kişi geldi." },
+      { "japanese": "日曜日だけ休みます。", "hiragana": "にちようびだけやすみます。", "romaji": "nichiyoubi dake yasumimasu.", "turkish": "Sadece pazar dinlenirim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "少し＿＿食べました。", "hint": "Sadece biraz yedim.", "promptReading": "すこし＿＿たべました。", "choices": ["だけ", "まで", "から", "と"], "answer": "だけ" },
+      { "kind": "multipleChoice", "prompt": "「これだけです」 ne demek?", "hint": null, "choices": ["Sadece bu kadar", "Bu hariç hepsi", "Bu değil", "Çok var"], "answer": "Sadece bu kadar" },
+      { "kind": "wordOrder", "prompt": "Sadece Japonca konuşuyorum.", "hint": "日本語 / だけ / 話します", "choices": ["日本語", "だけ", "話します"], "answer": "日本語だけ話します", "answerTokens": ["日本語", "だけ", "話します"] }
+    ]
+  },
+  {
+    "key": "ne_particle",
+    "pattern": "～ね",
+    "romaji": "~ ne",
+    "title": "Onay edatı ね",
+    "explanation": "Cümle sonu edatı. Onay/uzlaşma arar ('...değil mi?', 'ha') ya da hafif bir yumuşaklık katar. Dinleyenin de aynı fikirde olacağı varsayılır.",
+    "formula": "[cümle] + ね",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "いい天気ですね。", "hiragana": "いいてんきですね。", "romaji": "ii tenki desu ne.", "turkish": "Güzel hava, değil mi?" },
+      { "japanese": "この店は高いですね。", "hiragana": "このみせはたかいですね。", "romaji": "kono mise wa takai desu ne.", "turkish": "Bu dükkân pahalı, ha." },
+      { "japanese": "じゃあ、また明日ね。", "hiragana": "じゃあ、またあしたね。", "romaji": "jaa, mata ashita ne.", "turkish": "O zaman, yarın görüşürüz ha." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「おいしいですね」 ne anlatır?", "hint": null, "choices": ["Onay bekler: lezzetli, değil mi?", "Emir verir", "Soru sorar: lezzetli mi?", "Olumsuzdur"], "answer": "Onay bekler: lezzetli, değil mi?" },
+      { "kind": "fillBlank", "prompt": "きょうは寒いです＿＿。", "hint": "Bugün soğuk, değil mi?", "promptReading": "きょうはさむいです＿＿。", "choices": ["ね", "か", "を", "が"], "answer": "ね" },
+      { "kind": "multipleChoice", "prompt": "「ね」 kimin bilgisini paylaştığını varsayar?", "hint": null, "choices": ["Hem konuşanın hem dinleyenin", "Sadece konuşanın", "Sadece dinleyenin", "Kimsenin"], "answer": "Hem konuşanın hem dinleyenin" }
+    ]
+  },
+  {
+    "key": "yo_particle",
+    "pattern": "～よ",
+    "romaji": "~ yo",
+    "title": "Vurgu edatı よ",
+    "explanation": "Cümle sonu edatı. Dinleyenin bilmediği yeni bir bilgiyi vurgular ya da bir görüşü öne çıkarır ('...biliyor musun', 'bak'). ね'nin tersine ortak bilgi varsaymaz.",
+    "formula": "[cümle] + よ",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "その映画はおもしろいですよ。", "hiragana": "そのえいがはおもしろいですよ。", "romaji": "sono eiga wa omoshiroi desu yo.", "turkish": "O film ilginç, bak." },
+      { "japanese": "もう時間ですよ。", "hiragana": "もうじかんですよ。", "romaji": "mou jikan desu yo.", "turkish": "Vakit geldi, haberin olsun." },
+      { "japanese": "あそこに駅がありますよ。", "hiragana": "あそこにえきがありますよ。", "romaji": "asoko ni eki ga arimasu yo.", "turkish": "Şurada istasyon var, biliyor musun." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「ね」 ile 「よ」 farkı nedir?", "hint": null, "choices": ["よ yeni bilgi verir, ね onay arar", "İkisi aynı", "よ soru yapar", "ね geçmiş zaman yapar"], "answer": "よ yeni bilgi verir, ね onay arar" },
+      { "kind": "fillBlank", "prompt": "気をつけて。車が来ます＿＿。", "hint": "Dikkat et. Araba geliyor, bak!", "promptReading": "きをつけて。くるまがきます＿＿。", "choices": ["よ", "ね", "か", "の"], "answer": "よ" },
+      { "kind": "multipleChoice", "prompt": "「この店は安いですよ」 ne anlatır?", "hint": null, "promptReading": "「このみせはやすいですよ」 ne anlatır?", "choices": ["Dinleyenin bilmediği bir bilgiyi vurgular", "Dinleyenle aynı fikirde olduğunu varsayar", "Soru sorar", "Emir verir"], "answer": "Dinleyenin bilmediği bir bilgiyi vurgular" }
+    ]
+  },
+  {
+    "key": "naa_particle",
+    "pattern": "～なあ",
+    "romaji": "~ naa",
+    "title": "Duygu edatı なあ",
+    "explanation": "Gayrıresmî cümle sonu edatı. Konuşanın kendi duygusunu dile getirir: hayranlık, istek, iç geçirme ('...ya', 'keşke'). Genelde yalın biçimle kullanılır.",
+    "formula": "[yalın cümle] + なあ",
+    "category": "particle",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "この町はきれいだなあ。", "hiragana": "このまちはきれいだなあ。", "romaji": "kono machi wa kirei da naa.", "turkish": "Bu kasaba ne güzelmiş ya." },
+      { "japanese": "お金がほしいなあ。", "hiragana": "おかねがほしいなあ。", "romaji": "okane ga hoshii naa.", "turkish": "Keşke param olsa." },
+      { "japanese": "いい天気だなあ。", "hiragana": "いいてんきだなあ。", "romaji": "ii tenki da naa.", "turkish": "Ne güzel hava ya." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「なあ」 kime yöneliktir?", "hint": null, "choices": ["Konuşanın kendi duygusuna", "Dinleyene soru olarak", "Bir emir olarak", "Resmî bir sunuma"], "answer": "Konuşanın kendi duygusuna" },
+      { "kind": "multipleChoice", "prompt": "「行きたいなあ」 ne demek?", "hint": null, "promptReading": "「いきたいなあ」 ne demek?", "choices": ["Keşke gidebilsem ya", "Gitme", "Gitti mi?", "Gidelim mi?"], "answer": "Keşke gidebilsem ya" },
+      { "kind": "fillBlank", "prompt": "今日は疲れた＿＿。", "hint": "Bugün çok yoruldum ya.", "promptReading": "きょうはつかれた＿＿。", "choices": ["なあ", "か", "を", "へ"], "answer": "なあ" }
+    ]
+  },
+  {
+    "key": "o_go_prefix",
+    "pattern": "お／ご",
+    "romaji": "o / go",
+    "title": "Kibarlık öneki お・ご",
+    "explanation": "İsmin başına gelerek nezaket katar. Genelde Japonca kökenli sözcüklerde お (お茶, お金, お名前), Çince kökenli sözcüklerde ご (ご家族, ご住所).",
+    "formula": "お / ご + [isim]",
+    "category": "particle",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "お名前は何ですか。", "hiragana": "おなまえはなんですか。", "romaji": "onamae wa nan desu ka.", "turkish": "Adınız nedir?" },
+      { "japanese": "お茶をどうぞ。", "hiragana": "おちゃをどうぞ。", "romaji": "ocha o douzo.", "turkish": "Buyurun çay." },
+      { "japanese": "ご家族は元気ですか。", "hiragana": "ごかぞくはげんきですか。", "romaji": "gokazoku wa genki desu ka.", "turkish": "Aileniz iyi mi?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "＿＿名前を教えてください。", "hint": "Adınızı söyler misiniz? (kibar)", "promptReading": "＿＿なまえをおしえてください。", "choices": ["お", "ご", "を", "に"], "answer": "お" },
+      { "kind": "multipleChoice", "prompt": "「ご」 genelde ne tür sözcüklerle kullanılır?", "hint": null, "choices": ["Çince kökenli sözcüklerle", "Sadece fiillerle", "Sadece sayılarla", "Yabancı sözcüklerle"], "answer": "Çince kökenli sözcüklerle" },
+      { "kind": "multipleChoice", "prompt": "Hangisi doğru?", "hint": null, "choices": ["お金", "ご金", "お家族", "を茶"], "answer": "お金" }
+    ]
+  },
+  {
+    "key": "plain_nai_form",
+    "pattern": "～ない",
+    "romaji": "~ nai",
+    "title": "Yalın olumsuz: ～ない",
+    "explanation": "Fiilin yalın (sözlük) olumsuzu. u-fiillerde son う→あ + ない (書く→書かない), ru-fiillerde る→ない (食べる→食べない). Düzensiz: する→しない, 来る→こない. Anlamı ～ません ile aynı; arkadaşlar arası konuşmada kullanılır.",
+    "formula": "[fiil olumsuz kök] + ない",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "今日は学校に行かない。", "hiragana": "きょうはがっこうにいかない。", "romaji": "kyou wa gakkou ni ikanai.", "turkish": "Bugün okula gitmiyorum." },
+      { "japanese": "肉を食べない。", "hiragana": "にくをたべない。", "romaji": "niku o tabenai.", "turkish": "Et yemem." },
+      { "japanese": "時間がないから、行かない。", "hiragana": "じかんがないから、いかない。", "romaji": "jikan ga nai kara, ikanai.", "turkish": "Vaktim yok, o yüzden gitmem." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「食べる」 fiilinin yalın olumsuzu nedir?", "hint": null, "choices": ["食べない", "食べます", "食べた", "食べて"], "answer": "食べない" },
+      { "kind": "multipleChoice", "prompt": "「行く」 → yalın olumsuz?", "hint": null, "choices": ["行かない", "行きない", "行くない", "行けない"], "answer": "行かない" },
+      { "kind": "fillBlank", "prompt": "お金がないから、何も買わ＿＿。", "hint": "Param yok, o yüzden hiçbir şey almam.", "promptReading": "おかねがないから、なにもかわ＿＿。", "choices": ["ない", "ます", "たい", "ました"], "answer": "ない" }
+    ]
+  },
+  {
+    "key": "plain_ta_form",
+    "pattern": "～た",
+    "romaji": "~ ta",
+    "title": "Yalın geçmiş: ～た",
+    "explanation": "Fiilin yalın geçmiş biçimi. て-biçimindeki て/で yerine た/だ gelir (食べて→食べた, 飲んで→飲んだ). Anlamı ～ました ile aynı.",
+    "formula": "[fiil て-biçimi] → て/で yerine た/だ",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "きのう映画を見た。", "hiragana": "きのうえいがをみた。", "romaji": "kinou eiga o mita.", "turkish": "Dün film izledim." },
+      { "japanese": "もうご飯を食べた。", "hiragana": "もうごはんをたべた。", "romaji": "mou gohan o tabeta.", "turkish": "Yemeği çoktan yedim." },
+      { "japanese": "友だちに会った。", "hiragana": "ともだちにあった。", "romaji": "tomodachi ni atta.", "turkish": "Arkadaşımla buluştum." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「飲む」 → yalın geçmiş?", "hint": null, "choices": ["飲んだ", "飲みた", "飲むた", "飲んた"], "answer": "飲んだ" },
+      { "kind": "multipleChoice", "prompt": "「見ました」 nın yalın hali nedir?", "hint": null, "promptReading": "「みました」 nın yalın hali nedir?", "choices": ["見た", "見て", "見ない", "見る"], "answer": "見た" },
+      { "kind": "fillBlank", "prompt": "きのうは早く寝＿＿。", "hint": "Dün erken yattım.", "promptReading": "きのうははやくね＿＿。", "choices": ["た", "る", "ない", "ます"], "answer": "た" }
+    ]
+  },
+  {
+    "key": "te_form_general",
+    "pattern": "～て",
+    "romaji": "~ te",
+    "title": "te-biçimi (bağlama)",
+    "explanation": "Fiilleri birbirine bağlar: 'yapıp, edip'. Art arda eylemleri veya 'önce şu, sonra bu' ilişkisini gösterir. Ayrıca ～てください, ～ています gibi birçok yapının temelidir.",
+    "formula": "[fiil te-biçimi] + [fiil]",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "朝起きて、顔を洗います。", "hiragana": "あさおきて、かおをあらいます。", "romaji": "asa okite, kao o araimasu.", "turkish": "Sabah kalkıp yüzümü yıkarım." },
+      { "japanese": "家に帰って、晩ご飯を食べました。", "hiragana": "いえにかえって、ばんごはんをたべました。", "romaji": "ie ni kaette, bangohan o tabemashita.", "turkish": "Eve dönüp akşam yemeği yedim." },
+      { "japanese": "電車に乗って、会社へ行きます。", "hiragana": "でんしゃにのって、かいしゃへいきます。", "romaji": "densha ni notte, kaisha e ikimasu.", "turkish": "Trene binip şirkete giderim." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「書く」 → te-biçimi?", "hint": null, "choices": ["書いて", "書きて", "書くて", "書けて"], "answer": "書いて" },
+      { "kind": "multipleChoice", "prompt": "「起きて、食べます」 ne demek?", "hint": null, "promptReading": "「おきて、たべます」 ne demek?", "choices": ["Kalkıp yerim", "Kalkmadan yerim", "Yiyip kalkarım", "Kalkarken yerim"], "answer": "Kalkıp yerim" },
+      { "kind": "wordOrder", "prompt": "Eve dönüp uyudum.", "hint": "家 / に / 帰って / 寝ました", "choices": ["家", "に", "帰って", "寝ました"], "answer": "家に帰って寝ました", "answerTokens": ["家", "に", "帰って", "寝ました"] }
+    ]
+  },
+  {
+    "key": "te_kara",
+    "pattern": "～てから",
+    "romaji": "~ te kara",
+    "title": "Yaptıktan sonra: ～てから",
+    "explanation": "'... yaptıktan sonra' — ilk eylem tamamlanınca ikincisi başlar. Sıralamayı net vurgular.",
+    "formula": "[fiil te-biçimi] + から + [ikinci eylem]",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "宿題をしてから、テレビを見ます。", "hiragana": "しゅくだいをしてから、てれびをみます。", "romaji": "shukudai o shite kara, terebi o mimasu.", "turkish": "Ödevimi yaptıktan sonra televizyon izlerim." },
+      { "japanese": "手を洗ってから、ご飯を食べます。", "hiragana": "てをあらってから、ごはんをたべます。", "romaji": "te o aratte kara, gohan o tabemasu.", "turkish": "Ellerimi yıkadıktan sonra yemek yerim." },
+      { "japanese": "日本に来てから、3年になります。", "hiragana": "にほんにきてから、さんねんになります。", "romaji": "Nihon ni kite kara, san-nen ni narimasu.", "turkish": "Japonya'ya geldikten sonra 3 yıl oldu." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "映画を見て＿＿、レストランに行きました。", "hint": "Film izledikten sonra restorana gittik.", "promptReading": "えいがをみて＿＿、レストランにいきました。", "choices": ["から", "まで", "ながら", "ので"], "answer": "から" },
+      { "kind": "multipleChoice", "prompt": "「食べてから」 ne demek?", "hint": null, "promptReading": "「たべてから」 ne demek?", "choices": ["Yedikten sonra", "Yemeden önce", "Yerken", "Yediği için"], "answer": "Yedikten sonra" },
+      { "kind": "wordOrder", "prompt": "Ders çalıştıktan sonra uyudum.", "hint": "勉強して / から / 寝ました", "choices": ["勉強して", "から", "寝ました"], "answer": "勉強してから寝ました", "answerTokens": ["勉強して", "から", "寝ました"] }
+    ]
+  },
+  {
+    "key": "te_aru",
+    "pattern": "～てある",
+    "romaji": "~ te aru",
+    "title": "Yapılmış durumda: ～てある",
+    "explanation": "Geçişli fiilin te-biçimi + ある: bir eylemin (biri tarafından) yapılmış olduğu ve sonucunun sürdüğü durumu anlatır. Genelde hazırlık/amaç ima eder.",
+    "formula": "[geçişli fiil te-biçimi] + ある",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "壁に絵がかけてあります。", "hiragana": "かべにえがかけてあります。", "romaji": "kabe ni e ga kakete arimasu.", "turkish": "Duvara resim asılı (asılmış durumda)." },
+      { "japanese": "テーブルに料理が並べてあります。", "hiragana": "てえぶるにりょうりがならべてあります。", "romaji": "teeburu ni ryouri ga narabete arimasu.", "turkish": "Masaya yemekler dizilmiş." },
+      { "japanese": "ドアが開けてあります。", "hiragana": "どあがあけてあります。", "romaji": "doa ga akete arimasu.", "turkish": "Kapı açık bırakılmış." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「窓が開けてあります」 ne demek?", "hint": null, "promptReading": "「まどがあけてあります」 ne demek?", "choices": ["Pencere (biri tarafından) açık bırakılmış", "Pencere kendiliğinden açıldı", "Pencereyi açıyorum", "Pencere kapalı"], "answer": "Pencere (biri tarafından) açık bırakılmış" },
+      { "kind": "multipleChoice", "prompt": "「てある」 hangi fiillerle kullanılır?", "hint": null, "choices": ["Geçişli fiillerle", "Geçişsiz fiillerle", "Sadece する ile", "Sadece 来る ile"], "answer": "Geçişli fiillerle" },
+      { "kind": "fillBlank", "prompt": "ノートに名前が書いて＿＿。", "hint": "Deftere isim yazılmış.", "promptReading": "ノートになまえがかいて＿＿。", "choices": ["あります", "います", "おきます", "みます"], "answer": "あります" }
+    ]
+  },
+  {
+    "key": "te_wa_ikenai",
+    "pattern": "～てはいけない",
+    "romaji": "~ te wa ikenai",
+    "title": "Yasak: ～てはいけない",
+    "explanation": "'... yapmak yasak / olmaz' — kural, yasak bildirir. Konuşmada ちゃいけない'e kısalır. Kibarda ～てはいけません.",
+    "formula": "[fiil te-biçimi] + はいけない / はいけません",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "ここでたばこを吸ってはいけません。", "hiragana": "ここでたばこをすってはいけません。", "romaji": "koko de tabako o sutte wa ikemasen.", "turkish": "Burada sigara içmek yasak." },
+      { "japanese": "授業中に話してはいけません。", "hiragana": "じゅぎょうちゅうにはなしてはいけません。", "romaji": "jugyou-chuu ni hanashite wa ikemasen.", "turkish": "Ders sırasında konuşmak yasak." },
+      { "japanese": "この川で泳いではいけない。", "hiragana": "このかわでおよいではいけない。", "romaji": "kono kawa de oyoide wa ikenai.", "turkish": "Bu nehirde yüzmek yasak." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "ここに車を止めて＿＿。", "hint": "Buraya araba park etmek yasak.", "promptReading": "ここにくるまをとめて＿＿。", "choices": ["はいけません", "もいいです", "ください", "います"], "answer": "はいけません" },
+      { "kind": "multipleChoice", "prompt": "「食べてはいけません」 ne demek?", "hint": null, "promptReading": "「たべてはいけません」 ne demek?", "choices": ["Yemek yasak", "Yiyebilirsin", "Yemelisin", "Yedin mi?"], "answer": "Yemek yasak" },
+      { "kind": "multipleChoice", "prompt": "「てはいけない」 konuşmada neye kısalır?", "hint": null, "choices": ["ちゃいけない", "てもいい", "ています", "てから"], "answer": "ちゃいけない" }
+    ]
+  },
+  {
+    "key": "temo_ii",
+    "pattern": "～てもいいです",
+    "romaji": "~ te mo ii desu",
+    "title": "İzin: ～てもいいです",
+    "explanation": "'... yapsan da olur / yapabilirsin' — izin verir veya (soru hâlinde) izin ister. ～てはいけません'in karşıtı.",
+    "formula": "[fiil te-biçimi] + もいいです (+ か)",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "ここに座ってもいいですか。", "hiragana": "ここにすわってもいいですか。", "romaji": "koko ni suwatte mo ii desu ka.", "turkish": "Buraya oturabilir miyim?" },
+      { "japanese": "写真を撮ってもいいです。", "hiragana": "しゃしんをとってもいいです。", "romaji": "shashin o totte mo ii desu.", "turkish": "Fotoğraf çekebilirsin." },
+      { "japanese": "鉛筆で書いてもいいです。", "hiragana": "えんぴつでかいてもいいです。", "romaji": "enpitsu de kaite mo ii desu.", "turkish": "Kurşun kalemle yazabilirsin." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "この本を借りて＿＿か。", "hint": "Bu kitabı ödünç alabilir miyim?", "promptReading": "このほんをかりて＿＿か。", "choices": ["もいいです", "はいけません", "ください", "います"], "answer": "もいいです" },
+      { "kind": "multipleChoice", "prompt": "「帰ってもいいですよ」 ne demek?", "hint": null, "promptReading": "「かえってもいいですよ」 ne demek?", "choices": ["Eve gidebilirsin", "Eve gitme", "Eve git!", "Eve gitti mi?"], "answer": "Eve gidebilirsin" },
+      { "kind": "wordOrder", "prompt": "İçeri girebilir miyim?", "hint": "入って / も / いいです / か", "choices": ["入って", "も", "いいです", "か"], "answer": "入ってもいいですか", "answerTokens": ["入って", "も", "いいです", "か"] }
+    ]
+  },
+  {
+    "key": "naide",
+    "pattern": "～ないで",
+    "romaji": "~ nai de",
+    "title": "Yapmadan: ～ないで",
+    "explanation": "'... yapmadan (başka bir şey yapmak)' ya da '...yapmayıp' anlamı verir. İki eylemi olumsuz bağlar.",
+    "formula": "[fiil ない-biçimi] + で + [ikinci eylem]",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "朝ご飯を食べないで、学校に行きました。", "hiragana": "あさごはんをたべないで、がっこうにいきました。", "romaji": "asagohan o tabenai de, gakkou ni ikimashita.", "turkish": "Kahvaltı yapmadan okula gittim." },
+      { "japanese": "何も言わないで、帰りました。", "hiragana": "なにもいわないで、かえりました。", "romaji": "nani mo iwanai de, kaerimashita.", "turkish": "Hiçbir şey söylemeden eve döndüm." },
+      { "japanese": "傘を持たないで、出かけました。", "hiragana": "かさをもたないで、でかけました。", "romaji": "kasa o motanai de, dekakemashita.", "turkish": "Şemsiye almadan dışarı çıktım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "辞書を使わ＿＿、読んでください。", "hint": "Sözlük kullanmadan okuyun.", "promptReading": "じしょをつかわ＿＿、よんでください。", "choices": ["ないで", "なくて", "ないと", "ながら"], "answer": "ないで" },
+      { "kind": "multipleChoice", "prompt": "「寝ないで勉強しました」 ne demek?", "hint": null, "promptReading": "「ねないでべんきょうしました」 ne demek?", "choices": ["Uyumadan ders çalıştım", "Uyuyup ders çalıştım", "Uyumak için çalıştım", "Çalışmadan uyudum"], "answer": "Uyumadan ders çalıştım" },
+      { "kind": "wordOrder", "prompt": "Yemek yemeden çıktım.", "hint": "ご飯 / を / 食べないで / 出ました", "choices": ["ご飯", "を", "食べないで", "出ました"], "answer": "ご飯を食べないで出ました", "answerTokens": ["ご飯", "を", "食べないで", "出ました"] }
+    ]
+  },
+  {
+    "key": "naide_kudasai",
+    "pattern": "～ないでください",
+    "romaji": "~ nai de kudasai",
+    "title": "Lütfen yapma: ～ないでください",
+    "explanation": "Kibar olumsuz rica: 'lütfen ... yapmayın'. ～てください'nin olumsuzu.",
+    "formula": "[fiil ない-biçimi] + でください",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "ここで写真を撮らないでください。", "hiragana": "ここでしゃしんをとらないでください。", "romaji": "koko de shashin o toranai de kudasai.", "turkish": "Lütfen burada fotoğraf çekmeyin." },
+      { "japanese": "心配しないでください。", "hiragana": "しんぱいしないでください。", "romaji": "shinpai shinai de kudasai.", "turkish": "Lütfen endişelenmeyin." },
+      { "japanese": "ドアを閉めないでください。", "hiragana": "どあをしめないでください。", "romaji": "doa o shimenai de kudasai.", "turkish": "Lütfen kapıyı kapatmayın." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "この部屋に入ら＿＿。", "hint": "Lütfen bu odaya girmeyin.", "promptReading": "このへやにはいら＿＿。", "choices": ["ないでください", "てください", "もいいです", "ました"], "answer": "ないでください" },
+      { "kind": "multipleChoice", "prompt": "「忘れないでください」 ne demek?", "hint": null, "promptReading": "「わすれないでください」 ne demek?", "choices": ["Lütfen unutmayın", "Lütfen unutun", "Unuttum", "Unutur musun?"], "answer": "Lütfen unutmayın" },
+      { "kind": "wordOrder", "prompt": "Lütfen gürültü yapmayın.", "hint": "うるさく / しないで / ください", "choices": ["うるさく", "しないで", "ください"], "answer": "うるさくしないでください", "answerTokens": ["うるさく", "しないで", "ください"] }
+    ]
+  },
+  {
+    "key": "ni_iku",
+    "pattern": "～に行く",
+    "romaji": "~ ni iku",
+    "title": "Yapmaya gitmek: ～に行く",
+    "explanation": "Fiil kökü + に + 行く/来る/帰る: bir eylemi yapma amacıyla gitmek/gelmek/dönmek. Gidilen yer へ/に ile verilir.",
+    "formula": "[Yer] + へ/に + [fiil kökü] + に + 行く/来る/帰る",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "図書館へ本を借りに行きます。", "hiragana": "としょかんへほんをかりにいきます。", "romaji": "toshokan e hon o kari ni ikimasu.", "turkish": "Kütüphaneye kitap ödünç almaya giderim." },
+      { "japanese": "日本へ日本語を勉強しに来ました。", "hiragana": "にほんへにほんごをべんきょうしにきました。", "romaji": "Nihon e nihongo o benkyou shi ni kimashita.", "turkish": "Japonya'ya Japonca öğrenmeye geldim." },
+      { "japanese": "デパートへ買い物に行きました。", "hiragana": "でぱあとへかいものにいきました。", "romaji": "depaato e kaimono ni ikimashita.", "turkish": "Mağazaya alışverişe gittim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "レストランへ昼ご飯を食べ＿＿行きます。", "hint": "Restorana öğle yemeği yemeye giderim.", "promptReading": "レストランへひるごはんをたべ＿＿いきます。", "choices": ["に", "で", "を", "へ"], "answer": "に" },
+      { "kind": "multipleChoice", "prompt": "「映画を見に行きます」 ne demek?", "hint": null, "promptReading": "「えいがをみにいきます」 ne demek?", "choices": ["Film izlemeye giderim", "Film izlerken giderim", "Filmden sonra giderim", "Film izleyemem"], "answer": "Film izlemeye giderim" },
+      { "kind": "wordOrder", "prompt": "Balık tutmaya gittim.", "hint": "魚 / を / つりに / 行きました", "choices": ["魚", "を", "つりに", "行きました"], "answer": "魚をつりに行きました", "answerTokens": ["魚", "を", "つりに", "行きました"] }
+    ]
+  },
+  {
+    "key": "ni_suru",
+    "pattern": "～にする",
+    "romaji": "~ ni suru",
+    "title": "Seçmek / karar vermek: ～にする",
+    "explanation": "'... yapayım / bunu seçiyorum' — sipariş, seçim veya karar bildirir. İsim + にする yapısında kullanılır.",
+    "formula": "[İsim] + にする / にします",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "私はコーヒーにします。", "hiragana": "わたしはこおひいにします。", "romaji": "watashi wa koohii ni shimasu.", "turkish": "Ben kahve alayım." },
+      { "japanese": "どれにしますか。", "romaji": "dore ni shimasu ka.", "turkish": "Hangisini seçersiniz?" },
+      { "japanese": "旅行は来月にします。", "hiragana": "りょこうはらいげつにします。", "romaji": "ryokou wa raigetsu ni shimasu.", "turkish": "Seyahati gelecek aya alalım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "デザートはアイスクリーム＿＿します。", "hint": "Tatlı olarak dondurma alayım.", "choices": ["に", "を", "が", "で"], "answer": "に" },
+      { "kind": "fillBlank", "prompt": "お飲み物はお茶＿＿します。", "hint": "İçecek olarak çay alayım.", "promptReading": "おのみものはおちゃ＿＿します。", "choices": ["に", "を", "へ", "で"], "answer": "に" },
+      { "kind": "multipleChoice", "prompt": "「これにします」 ne demek?", "hint": null, "choices": ["Bunu seçiyorum", "Bunu yapamam", "Bu değil", "Bunu yaptım"], "answer": "Bunu seçiyorum" }
+    ]
+  },
+  {
+    "key": "tari_tari",
+    "pattern": "～たり～たり",
+    "romaji": "~ tari ~ tari",
+    "title": "Örnek eylemler: ～たり～たり",
+    "explanation": "Örnek olarak birkaç eylem sıralar: 'bir ... bir ... gibi şeyler yapmak'. Fiillerin た-biçimine り eklenir, sonda genelde する gelir.",
+    "formula": "[fiil た-biçimi] + り + [fiil た-biçimi] + り + する",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "週末は本を読んだり、音楽を聞いたりします。", "hiragana": "しゅうまつはほんをよんだり、おんがくをきいたりします。", "romaji": "shuumatsu wa hon o yondari, ongaku o kiitari shimasu.", "turkish": "Hafta sonu kitap okumak, müzik dinlemek gibi şeyler yaparım." },
+      { "japanese": "公園で走ったり、歩いたりしました。", "hiragana": "こうえんではしったり、あるいたりしました。", "romaji": "kouen de hashittari, aruitari shimashita.", "turkish": "Parkta koşmak, yürümek gibi şeyler yaptım." },
+      { "japanese": "デパートで買い物したり、ご飯を食べたりします。", "hiragana": "でぱあとでかいものしたり、ごはんをたべたりします。", "romaji": "depaato de kaimono shitari, gohan o tabetari shimasu.", "turkish": "Mağazada alışveriş yapmak, yemek yemek gibi şeyler yaparım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "日曜日はそうじを＿＿、せんたくをしたりします。", "hint": "Pazar günü temizlik, çamaşır gibi şeyler yaparım.", "promptReading": "にちようびはそうじを＿＿、せんたくをしたりします。", "choices": ["したり", "して", "しないで", "しながら"], "answer": "したり" },
+      { "kind": "multipleChoice", "prompt": "「たり～たり」 ne anlatır?", "hint": null, "choices": ["Örnek olarak birkaç eylem", "Kesin bir sıra", "Yasak", "Zorunluluk"], "answer": "Örnek olarak birkaç eylem" },
+      { "kind": "multipleChoice", "prompt": "「食べたり飲んだりしました」 ne demek?", "hint": null, "promptReading": "「たべたりのんだりしました」 ne demek?", "choices": ["Yemek, içmek gibi şeyler yaptım", "Yiyip içtim (bu sırayla)", "Yemeden içtim", "Ne yedim ne içtim"], "answer": "Yemek, içmek gibi şeyler yaptım" }
+    ]
+  },
+  {
+    "key": "mashou_ka",
+    "pattern": "～ましょうか",
+    "romaji": "~ mashou ka",
+    "title": "Yardım önerisi: ～ましょうか",
+    "explanation": "İki kullanımı var: (1) 'benim ... yapmamı ister misin?' (yardım teklifi), (2) 'birlikte ... yapalım mı?'. Bağlam ayırır; ましょう'dan daha kibar.",
+    "formula": "[fiil kökü] + ましょうか",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "荷物を持ちましょうか。", "hiragana": "にもつをもちましょうか。", "romaji": "nimotsu o mochimashou ka.", "turkish": "Çantanı taşıyayım mı?" },
+      { "japanese": "窓を開けましょうか。", "hiragana": "まどをあけましょうか。", "romaji": "mado o akemashou ka.", "turkish": "Pencereyi açayım mı?" },
+      { "japanese": "そろそろ行きましょうか。", "hiragana": "そろそろいきましょうか。", "romaji": "sorosoro ikimashou ka.", "turkish": "Artık gidelim mi?" }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「手伝いましょうか」 ne demek?", "hint": null, "promptReading": "「てつだいましょうか」 ne demek?", "choices": ["Yardım edeyim mi?", "Yardım et!", "Yardım ettim", "Yardım etme"], "answer": "Yardım edeyim mi?" },
+      { "kind": "fillBlank", "prompt": "重そうですね。持ち＿＿か。", "hint": "Ağır görünüyor. Taşıyayım mı?", "promptReading": "おもそうですね。もち＿＿か。", "choices": ["ましょう", "ました", "ません", "たい"], "answer": "ましょう" },
+      { "kind": "multipleChoice", "prompt": "「ましょうか」 ile 「ましょう」 farkı?", "hint": null, "choices": ["ましょうか daha kibar; öneri/soru sunar", "İkisi aynı", "ましょうか geçmiş zamandır", "ましょう olumsuzdur"], "answer": "ましょうか daha kibar; öneri/soru sunar" }
+    ]
+  },
+  {
+    "key": "nai_to_ikenai",
+    "pattern": "～ないといけない",
+    "romaji": "~ nai to ikenai",
+    "title": "Zorunluluk: ～ないといけない",
+    "explanation": "'... yapmak zorunda / yapmam lazım'. 'Yapmazsan olmaz' mantığıyla zorunluluk bildirir. Konuşmada ないと'e kısalır.",
+    "formula": "[fiil ない-biçimi] + と + いけない / いけません",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "明日は早く起きないといけません。", "hiragana": "あしたははやくおきないといけません。", "romaji": "ashita wa hayaku okinai to ikemasen.", "turkish": "Yarın erken kalkmam lazım." },
+      { "japanese": "薬を飲まないといけない。", "hiragana": "くすりをのまないといけない。", "romaji": "kusuri o nomanai to ikenai.", "turkish": "İlaç içmem lazım." },
+      { "japanese": "もう帰らないといけません。", "hiragana": "もうかえらないといけません。", "romaji": "mou kaeranai to ikemasen.", "turkish": "Artık gitmem lazım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "レポートを出さ＿＿。", "hint": "Raporu teslim etmem lazım.", "promptReading": "レポートをださ＿＿。", "choices": ["ないといけません", "てもいいです", "ないでください", "ましょう"], "answer": "ないといけません" },
+      { "kind": "multipleChoice", "prompt": "「勉強しないといけない」 ne demek?", "hint": null, "promptReading": "「べんきょうしないといけない」 ne demek?", "choices": ["Ders çalışmam lazım", "Ders çalışmasam da olur", "Ders çalışma", "Ders çalıştım"], "answer": "Ders çalışmam lazım" },
+      { "kind": "multipleChoice", "prompt": "「ないといけない」 konuşmada neye kısalır?", "hint": null, "choices": ["ないと", "ないで", "なくて", "ながら"], "answer": "ないと" }
+    ]
+  },
+  {
+    "key": "nakute_wa_ikenai",
+    "pattern": "～なくてはいけない",
+    "romaji": "~ nakute wa ikenai",
+    "title": "Zorunluluk: ～なくてはいけない",
+    "explanation": "Zorunluluk bildiren bir başka kalıp: '... yapmak zorunda'. なくては 'yapmazsan', いけない 'olmaz'. Konuşmada なくちゃ'e kısalır; ～なければならない ile eş anlamlı.",
+    "formula": "[fiil なくて-biçimi] + はいけない / はいけません",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "パスポートを見せなくてはいけません。", "hiragana": "ぱすぽおとをみせなくてはいけません。", "romaji": "pasupooto o misenakute wa ikemasen.", "turkish": "Pasaportu göstermek zorundasınız." },
+      { "japanese": "毎日、花に水をやらなくてはいけない。", "hiragana": "まいにち、はなにみずをやらなくてはいけない。", "romaji": "mainichi, hana ni mizu o yaranakute wa ikenai.", "turkish": "Her gün çiçekleri sulamak zorundayım." },
+      { "japanese": "宿題をしなくてはいけません。", "hiragana": "しゅくだいをしなくてはいけません。", "romaji": "shukudai o shinakute wa ikemasen.", "turkish": "Ödevi yapmak zorundayım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "8時までに行か＿＿。", "hint": "8'e kadar gitmek zorundayım.", "promptReading": "8じまでにいか＿＿。", "choices": ["なくてはいけません", "てもいいです", "ないでください", "ましょうか"], "answer": "なくてはいけません" },
+      { "kind": "multipleChoice", "prompt": "「なくてはいけない」 konuşmada neye kısalır?", "hint": null, "choices": ["なくちゃ", "ないで", "なくて", "ながら"], "answer": "なくちゃ" },
+      { "kind": "multipleChoice", "prompt": "「食べなくてはいけません」 ne demek?", "hint": null, "promptReading": "「たべなくてはいけません」 ne demek?", "choices": ["Yemek zorundayım", "Yememem lazım", "Yesem de olur", "Yedim"], "answer": "Yemek zorundayım" }
+    ]
+  },
+  {
+    "key": "nakute_mo_ii",
+    "pattern": "～なくてもいい",
+    "romaji": "~ nakute mo ii",
+    "title": "Gerek yok: ～なくてもいい",
+    "explanation": "'... yapmasan da olur / yapmak zorunda değilsin'. ～なくてはいけない'in karşıtı; izin/rahatlatma bildirir.",
+    "formula": "[fiil なくて-biçimi] + もいい / もいいです",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "明日は来なくてもいいです。", "hiragana": "あしたはこなくてもいいです。", "romaji": "ashita wa konakute mo ii desu.", "turkish": "Yarın gelmesen de olur." },
+      { "japanese": "お金を払わなくてもいいです。", "hiragana": "おかねをはらわなくてもいいです。", "romaji": "okane o harawanakute mo ii desu.", "turkish": "Para ödemek zorunda değilsiniz." },
+      { "japanese": "全部食べなくてもいい。", "hiragana": "ぜんぶたべなくてもいい。", "romaji": "zenbu tabenakute mo ii.", "turkish": "Hepsini yemek zorunda değilsin." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "急がなくても＿＿。", "hint": "Acele etmesen de olur.", "promptReading": "いそがなくても＿＿。", "choices": ["いいです", "いけません", "ください", "います"], "answer": "いいです" },
+      { "kind": "multipleChoice", "prompt": "「来なくてもいいです」 ne demek?", "hint": null, "promptReading": "「こなくてもいいです」 ne demek?", "choices": ["Gelmesen de olur", "Gelmek zorundasın", "Gelme!", "Geldin mi?"], "answer": "Gelmesen de olur" },
+      { "kind": "multipleChoice", "prompt": "「なくてもいい」 hangisinin karşıtıdır?", "hint": null, "choices": ["なくてはいけない", "てもいい", "てはいけない", "たい"], "answer": "なくてはいけない" }
+    ]
+  },
+  {
+    "key": "nakucha",
+    "pattern": "～なくちゃ",
+    "romaji": "~ nakucha",
+    "title": "Konuşma dili: ～なくちゃ",
+    "explanation": "なくては(いけない)'nin gündelik, kısaltılmış hâli; sonundaki いけない çoğu zaman söylenmez. 'Yapmam lazım' anlamı taşır, samimi konuşmada kullanılır.",
+    "formula": "[fiil なくて-biçimi] → なくちゃ",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "もう行かなくちゃ。", "hiragana": "もういかなくちゃ。", "romaji": "mou ikanakucha.", "turkish": "Artık gitmem lazım." },
+      { "japanese": "買い物しなくちゃ。", "hiragana": "かいものしなくちゃ。", "romaji": "kaimono shinakucha.", "turkish": "Alışveriş yapmam lazım." },
+      { "japanese": "明日までに終わらせなくちゃ。", "hiragana": "あしたまでにおわらせなくちゃ。", "romaji": "ashita made ni owarasenakucha.", "turkish": "Yarına kadar bitirmem lazım." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「なくちゃ」 hangi kalıbın kısasıdır?", "hint": null, "choices": ["なくてはいけない", "なくてもいい", "てはいけない", "ないでください"], "answer": "なくてはいけない" },
+      { "kind": "multipleChoice", "prompt": "「寝なくちゃ」 ne demek?", "hint": null, "promptReading": "「ねなくちゃ」 ne demek?", "choices": ["Uyumam lazım", "Uyumasam da olur", "Uyuma", "Uyudum"], "answer": "Uyumam lazım" },
+      { "kind": "multipleChoice", "prompt": "「なくちゃ」 hangi durumda uygundur?", "hint": null, "choices": ["Samimi, günlük konuşma", "Resmî sunum", "Yazılı rapor", "Haber bülteni"], "answer": "Samimi, günlük konuşma" }
+    ]
+  },
+  {
+    "key": "cha_ikenai",
+    "pattern": "～ちゃいけない",
+    "romaji": "~ cha ikenai",
+    "title": "Konuşma dili: ～ちゃいけない",
+    "explanation": "～てはいけない'in gündelik kısası: ては→ちゃ (では→じゃ). 'Yapmak yok / yasak' anlamı; samimi konuşmada kullanılır.",
+    "formula": "[fiil te-biçimi] → ては→ちゃ + いけない",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "ここで遊んじゃいけないよ。", "hiragana": "ここであそんじゃいけないよ。", "romaji": "koko de asonja ikenai yo.", "turkish": "Burada oynamak yok." },
+      { "japanese": "まだ食べちゃいけない。", "hiragana": "まだたべちゃいけない。", "romaji": "mada tabecha ikenai.", "turkish": "Daha yeme (yasak)." },
+      { "japanese": "嘘をついちゃいけない。", "hiragana": "うそをついちゃいけない。", "romaji": "uso o tsuicha ikenai.", "turkish": "Yalan söylemek yok." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「ちゃいけない」 hangi kalıbın kısasıdır?", "hint": null, "choices": ["てはいけない", "てもいい", "なくてはいけない", "てから"], "answer": "てはいけない" },
+      { "kind": "multipleChoice", "prompt": "「入っちゃいけない」 ne demek?", "hint": null, "promptReading": "「はいっちゃいけない」 ne demek?", "choices": ["Girmek yok", "Girebilirsin", "Gir!", "Girdim"], "answer": "Girmek yok" },
+      { "kind": "fillBlank", "prompt": "ここで写真をとっ＿＿いけないよ。", "hint": "Burada fotoğraf çekmek yok.", "promptReading": "ここでしゃしんをとっ＿＿いけないよ。", "choices": ["ちゃ", "ても", "てから", "たり"], "answer": "ちゃ" }
+    ]
+  },
+  {
+    "key": "node_because",
+    "pattern": "～ので",
+    "romaji": "~ node",
+    "title": "Sebep (nazik): ～ので",
+    "explanation": "'... olduğu için' — sebep bildirir. から'ya göre daha nesnel ve nazik; ricalarla, özürlerle uyumlu. İsim/na-sıfattan sonra な + ので olur (病気なので).",
+    "formula": "[cümle (yalın)] + ので、 + [sonuç]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "雨なので、行きません。", "hiragana": "あめなので、いきません。", "romaji": "ame na node, ikimasen.", "turkish": "Yağmurlu olduğu için gitmiyorum." },
+      { "japanese": "お腹が痛いので、早退します。", "hiragana": "おなかがいたいので、そうたいします。", "romaji": "onaka ga itai node, soutai shimasu.", "turkish": "Karnım ağrıdığı için erken çıkıyorum." },
+      { "japanese": "時間がないので、タクシーで行きます。", "hiragana": "じかんがないので、たくしいでいきます。", "romaji": "jikan ga nai node, takushii de ikimasu.", "turkish": "Vaktim olmadığı için taksiyle giderim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "日本語がわからない＿＿、英語で話してください。", "hint": "Japonca bilmediğim için İngilizce konuşun.", "promptReading": "にほんごがわからない＿＿、えいごではなしてください。", "choices": ["ので", "のに", "でも", "が"], "answer": "ので" },
+      { "kind": "multipleChoice", "prompt": "「から」 ile 「ので」 farkı nedir?", "hint": null, "choices": ["ので daha nazik/nesnel", "から daha nazik", "İkisi tam zıt", "ので geçmiş zamandır"], "answer": "ので daha nazik/nesnel" },
+      { "kind": "multipleChoice", "prompt": "「病気＿＿ので、休みます」 boşluğa ne gelir?", "hint": null, "promptReading": "「びょうき＿＿ので、やすみます」 boşluğa ne gelir?", "choices": ["な", "だ", "の", "を"], "answer": "な" }
+    ]
+  },
+  {
+    "key": "kedo_keredomo",
+    "pattern": "～けど／～けれども",
+    "romaji": "~ kedo / ~ keredomo",
+    "title": "Zıtlık: ～けど／～けれども",
+    "explanation": "İki cümleyi zıtlık ile bağlar: 'ama, gene de'. けれども en resmî, けど en gündelik (けれど ortada). Cümle içinde が ile aynı işlevi görür.",
+    "formula": "[cümle] + けど / けれども + [zıt cümle]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "このカメラは高いけど、いいです。", "hiragana": "このかめらはたかいけど、いいです。", "romaji": "kono kamera wa takai kedo, ii desu.", "turkish": "Bu fotoğraf makinesi pahalı ama iyi." },
+      { "japanese": "行きたいけれども、時間がありません。", "hiragana": "いきたいけれども、じかんがありません。", "romaji": "ikitai keredomo, jikan ga arimasen.", "turkish": "Gitmek istiyorum ama vaktim yok." },
+      { "japanese": "勉強したけど、わかりませんでした。", "hiragana": "べんきょうしたけど、わかりませんでした。", "romaji": "benkyou shita kedo, wakarimasen deshita.", "turkish": "Çalıştım ama anlamadım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "安い＿＿、おいしくないです。", "hint": "Ucuz ama lezzetli değil.", "promptReading": "やすい＿＿、おいしくないです。", "choices": ["けど", "ので", "から", "し"], "answer": "けど" },
+      { "kind": "multipleChoice", "prompt": "En gündelik olanı hangisi?", "hint": null, "choices": ["けど", "けれども", "けれど", "しかし"], "answer": "けど" },
+      { "kind": "multipleChoice", "prompt": "「食べたいけど、お金がない」 ne demek?", "hint": null, "promptReading": "「たべたいけど、おかねがない」 ne demek?", "choices": ["Yemek istiyorum ama param yok", "Param olmadığı için yemek istemiyorum", "Param olduğu için yemek istiyorum", "Yedim ve param yok"], "answer": "Yemek istiyorum ama param yok" }
+    ]
+  },
+  {
+    "key": "demo_but",
+    "pattern": "でも",
+    "romaji": "demo",
+    "title": "Ama (cümle başı): でも",
+    "explanation": "Yeni cümlenin başında 'ama, yine de' anlamı verir; bir önceki cümleye zıtlık kurar. (でも ayrıca 'bile' anlamında da kullanılır: 子どもでも.)",
+    "formula": "[cümle]。 + でも、 + [zıt cümle]",
+    "category": "conjunction",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "頭が痛いです。でも、会社に行きます。", "hiragana": "あたまがいたいです。でも、かいしゃにいきます。", "romaji": "atama ga itai desu. demo, kaisha ni ikimasu.", "turkish": "Başım ağrıyor. Ama işe gidiyorum." },
+      { "japanese": "この店は安いです。でも、あまりおいしくないです。", "hiragana": "このみせはやすいです。でも、あまりおいしくないです。", "romaji": "kono mise wa yasui desu. demo, amari oishikunai desu.", "turkish": "Bu dükkân ucuz. Ama pek lezzetli değil." },
+      { "japanese": "疲れました。でも、もう少しがんばります。", "hiragana": "つかれました。でも、もうすこしがんばります。", "romaji": "tsukaremashita. demo, mou sukoshi ganbarimasu.", "turkish": "Yoruldum. Ama biraz daha gayret edeceğim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "日本語はむずかしいです。＿＿、おもしろいです。", "hint": "Japonca zor. Ama ilginç.", "promptReading": "にほんごはむずかしいです。＿＿、おもしろいです。", "choices": ["でも", "だから", "そして", "それから"], "answer": "でも" },
+      { "kind": "multipleChoice", "prompt": "「でも」 cümlede nerede durur?", "hint": null, "choices": ["Yeni cümlenin başında", "Cümlenin sonunda", "İki ismin arasında", "Fiilin önünde"], "answer": "Yeni cümlenin başında" },
+      { "kind": "multipleChoice", "prompt": "「高いです。でも、買います。」 ne demek?", "hint": null, "promptReading": "「たかいです。でも、かいます。」 ne demek?", "choices": ["Pahalı. Ama alacağım.", "Pahalı olduğu için almayacağım.", "Ucuz, o yüzden alacağım.", "Pahalı mı?"], "answer": "Pahalı. Ama alacağım." }
+    ]
+  },
+  {
+    "key": "shikashi",
+    "pattern": "しかし",
+    "romaji": "shikashi",
+    "title": "Fakat (resmî): しかし",
+    "explanation": "でも ile aynı işlev ('fakat, ancak') ama daha resmî; yazıda ve sunumlarda tercih edilir. Yeni cümlenin başında durur.",
+    "formula": "[cümle]。 + しかし、 + [zıt cümle]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "練習しました。しかし、勝てませんでした。", "hiragana": "れんしゅうしました。しかし、かてませんでした。", "romaji": "renshuu shimashita. shikashi, katemasen deshita.", "turkish": "Antrenman yaptık. Fakat kazanamadık." },
+      { "japanese": "この薬はよく効きます。しかし、高いです。", "hiragana": "このくすりはよくききます。しかし、たかいです。", "romaji": "kono kusuri wa yoku kikimasu. shikashi, takai desu.", "turkish": "Bu ilaç iyi etki ediyor. Fakat pahalı." },
+      { "japanese": "雨が降っていました。しかし、試合は続きました。", "hiragana": "あめがふっていました。しかし、しあいはつづきました。", "romaji": "ame ga futte imashita. shikashi, shiai wa tsuzukimashita.", "turkish": "Yağmur yağıyordu. Fakat maç devam etti." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「しかし」 ile 「でも」 arasındaki fark nedir?", "hint": null, "choices": ["しかし daha resmî", "でも daha resmî", "しかし olumlu bağlar", "İkisi de soru yapar"], "answer": "しかし daha resmî" },
+      { "kind": "fillBlank", "prompt": "たくさん食べました。＿＿、まだお腹がすいています。", "hint": "Çok yedim. Fakat hâlâ açım.", "promptReading": "たくさんたべました。＿＿、まだおなかがすいています。", "choices": ["しかし", "だから", "そして", "または"], "answer": "しかし" },
+      { "kind": "multipleChoice", "prompt": "「しかし」 nerede kullanılır?", "hint": null, "choices": ["Resmî yazı ve sunumlarda", "Sadece arkadaşlar arası", "Sadece sorularda", "Sadece cümle sonunda"], "answer": "Resmî yazı ve sunumlarda" }
+    ]
+  },
+  {
+    "key": "sorekara",
+    "pattern": "それから",
+    "romaji": "sorekara",
+    "title": "Sonra / bir de: それから",
+    "explanation": "İki kullanımı var: (1) olaylar arasında 'ondan sonra' (zaman sırası), (2) liste eklerken 'bir de, ayrıca'.",
+    "formula": "[cümle]。 + それから、 + [sonraki cümle]",
+    "category": "conjunction",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "朝ご飯を食べました。それから、学校へ行きました。", "hiragana": "あさごはんをたべました。それから、がっこうへいきました。", "romaji": "asagohan o tabemashita. sorekara, gakkou e ikimashita.", "turkish": "Kahvaltı yaptım. Sonra okula gittim." },
+      { "japanese": "パンを買いました。それから、牛乳も買いました。", "hiragana": "ぱんをかいました。それから、ぎゅうにゅうもかいました。", "romaji": "pan o kaimashita. sorekara, gyuunyuu mo kaimashita.", "turkish": "Ekmek aldım. Bir de süt aldım." },
+      { "japanese": "宿題をします。それから、寝ます。", "hiragana": "しゅくだいをします。それから、ねます。", "romaji": "shukudai o shimasu. sorekara, nemasu.", "turkish": "Ödev yaparım. Sonra uyurum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "顔を洗いました。＿＿、朝ご飯を食べました。", "hint": "Yüzümü yıkadım. Sonra kahvaltı yaptım.", "promptReading": "かおをあらいました。＿＿、あさごはんをたべました。", "choices": ["それから", "でも", "しかし", "けど"], "answer": "それから" },
+      { "kind": "multipleChoice", "prompt": "「それから」 ne anlatır?", "hint": null, "choices": ["Ondan sonra / bir de", "Ama", "Çünkü", "Eğer"], "answer": "Ondan sonra / bir de" },
+      { "kind": "multipleChoice", "prompt": "「コーヒー、それからケーキをください」 ne demek?", "hint": null, "choices": ["Kahve, bir de pasta alayım", "Kahve yerine pasta", "Kahveden sonra pasta gelsin", "Sadece kahve"], "answer": "Kahve, bir de pasta alayım" }
+    ]
+  },
+  {
+    "key": "soshite",
+    "pattern": "そして",
+    "romaji": "soshite",
+    "title": "Ve: そして",
+    "explanation": "Cümleleri düzgünce ekler: 've, ve sonra'. Olumlu, art arda gelen bilgileri bağlar; それから'ya benzer ama daha yazılı ve tarafsızdır.",
+    "formula": "[cümle]。 + そして、 + [ek cümle]",
+    "category": "conjunction",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "京都へ行きました。そして、お寺を見ました。", "hiragana": "きょうとへいきました。そして、おてらをみました。", "romaji": "Kyouto e ikimashita. soshite, otera o mimashita.", "turkish": "Kyoto'ya gittim. Ve tapınakları gezdim." },
+      { "japanese": "彼は親切です。そして、まじめです。", "hiragana": "かれはしんせつです。そして、まじめです。", "romaji": "kare wa shinsetsu desu. soshite, majime desu.", "turkish": "O kibardır. Ve ciddidir." },
+      { "japanese": "掃除をしました。そして、洗濯もしました。", "hiragana": "そうじをしました。そして、せんたくもしました。", "romaji": "souji o shimashita. soshite, sentaku mo shimashita.", "turkish": "Temizlik yaptım. Ve çamaşır da yıkadım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "田中さんは頭がいいです。＿＿、やさしいです。", "hint": "Tanaka akıllıdır. Ve naziktir.", "promptReading": "たなかさんはあたまがいいです。＿＿、やさしいです。", "choices": ["そして", "でも", "しかし", "けれども"], "answer": "そして" },
+      { "kind": "multipleChoice", "prompt": "「そして」 hangi tür bilgileri bağlar?", "hint": null, "choices": ["Olumlu, art arda gelen bilgileri", "Zıt bilgileri", "Sebep-sonucu", "Koşulu"], "answer": "Olumlu, art arda gelen bilgileri" },
+      { "kind": "multipleChoice", "prompt": "「ご飯を食べました。そして、寝ました。」 ne demek?", "hint": null, "promptReading": "「ごはんをたべました。そして、ねました。」 ne demek?", "choices": ["Yemek yedim. Ve uyudum.", "Yemek yedim ama uyumadım.", "Uyudum çünkü yedim.", "Yemeden uyudum."], "answer": "Yemek yedim. Ve uyudum." }
+    ]
+  },
+  {
+    "key": "ga_but",
+    "pattern": "～が (ama)",
+    "romaji": "~ ga (but)",
+    "title": "Zıtlık (kibar): ～が",
+    "explanation": "İki cümleyi tek cümlede zıtlıkla bağlar: 'ama'. けど'nun daha kibar/yazılı hâli. (が ayrıca özne edatıdır — bu tümüyle farklı bir kullanım.)",
+    "formula": "[cümle] + が、 + [zıt cümle]",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "すみませんが、道を教えてください。", "hiragana": "すみませんが、みちをおしえてください。", "romaji": "sumimasen ga, michi o oshiete kudasai.", "turkish": "Kusura bakmayın ama yolu tarif eder misiniz?" },
+      { "japanese": "この部屋は狭いですが、きれいです。", "hiragana": "このへやはせまいですが、きれいです。", "romaji": "kono heya wa semai desu ga, kirei desu.", "turkish": "Bu oda dar ama temiz." },
+      { "japanese": "電話しましたが、だれも出ませんでした。", "hiragana": "でんわしましたが、だれもでませんでした。", "romaji": "denwa shimashita ga, dare mo demasen deshita.", "turkish": "Telefon ettim ama kimse açmadı." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "行きたいです＿＿、時間がありません。", "hint": "Gitmek istiyorum ama vaktim yok.", "promptReading": "いきたいです＿＿、じかんがありません。", "choices": ["が", "ので", "から", "し"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "Cümle içindeki 「が」 ile 「けど」 arasındaki fark nedir?", "hint": null, "choices": ["が daha kibar/yazılı", "けど daha kibar", "が sadece soru yapar", "İkisi tam zıt anlamlı"], "answer": "が daha kibar/yazılı" },
+      { "kind": "multipleChoice", "prompt": "「安いですが、おいしいです」 ne demek?", "hint": null, "promptReading": "「やすいですが、おいしいです」 ne demek?", "choices": ["Ucuz ama lezzetli", "Ucuz olduğu için lezzetli", "Ne ucuz ne lezzetli", "Pahalı ve lezzetli"], "answer": "Ucuz ama lezzetli" }
+    ]
+  },
+  {
+    "key": "toki",
+    "pattern": "～とき",
+    "romaji": "~ toki",
+    "title": "... dığında: ～とき",
+    "explanation": "'... dığı zaman'. Fiil/sıfat + とき. Fiil sözlük biçiminde → eylemden önce/sırasında; た-biçiminde → eylemden sonra. İsim + の + とき (子どものとき).",
+    "formula": "[fiil/sıfat yalın] + とき   /   [İsim] + の + とき",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "日本へ行くとき、カメラを買いました。", "hiragana": "にほんへいくとき、かめらをかいました。", "romaji": "Nihon e iku toki, kamera o kaimashita.", "turkish": "Japonya'ya giderken (gitmeden önce) fotoğraf makinesi aldım." },
+      { "japanese": "子どものとき、よく泳ぎました。", "hiragana": "こどものとき、よくおよぎました。", "romaji": "kodomo no toki, yoku oyogimashita.", "turkish": "Çocukken sık sık yüzerdim." },
+      { "japanese": "暇なとき、映画を見ます。", "hiragana": "ひまなとき、えいがをみます。", "romaji": "hima na toki, eiga o mimasu.", "turkish": "Boş olduğumda film izlerim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "国へ帰る＿＿、おみやげを買います。", "hint": "Ülkeme dönerken hediye alırım.", "promptReading": "くにへかえる＿＿、おみやげをかいます。", "choices": ["とき", "まえ", "あと", "ながら"], "answer": "とき" },
+      { "kind": "fillBlank", "prompt": "子ども＿＿とき、東京に住んでいました。", "hint": "Çocukken Tokyo'da yaşıyordum.", "promptReading": "こども＿＿とき、とうきょうにすんでいました。", "choices": ["の", "な", "だ", "を"], "answer": "の" },
+      { "kind": "multipleChoice", "prompt": "「食べたとき」 ile 「食べるとき」 farkı nedir?", "hint": null, "promptReading": "「たべたとき」 ile 「たべるとき」 farkı nedir?", "choices": ["食べたとき: yedikten sonra; 食べるとき: yemeden önce/sırasında", "İkisi aynı", "食べたとき: gelecek", "食べるとき: geçmiş"], "answer": "食べたとき: yedikten sonra; 食べるとき: yemeden önce/sırasında" }
+    ]
+  },
+  {
+    "key": "mae_ni",
+    "pattern": "～まえに",
+    "romaji": "~ mae ni",
+    "title": "... den önce: ～まえに",
+    "explanation": "'... yapmadan önce'. Fiil sözlük biçimi + まえに; isim + の + まえに (食事のまえに); süre + まえに (3年まえに = 3 yıl önce).",
+    "formula": "[fiil sözlük biçimi] + まえに   /   [İsim] + の + まえに",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "寝るまえに、歯をみがきます。", "hiragana": "ねるまえに、はをみがきます。", "romaji": "neru mae ni, ha o migakimasu.", "turkish": "Yatmadan önce dişlerimi fırçalarım." },
+      { "japanese": "食事のまえに、手を洗います。", "hiragana": "しょくじのまえに、てをあらいます。", "romaji": "shokuji no mae ni, te o araimasu.", "turkish": "Yemekten önce ellerimi yıkarım." },
+      { "japanese": "3年まえに、日本に来ました。", "hiragana": "さんねんまえに、にほんにきました。", "romaji": "san-nen mae ni, Nihon ni kimashita.", "turkish": "3 yıl önce Japonya'ya geldim." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "出かける＿＿、天気を調べます。", "hint": "Çıkmadan önce havaya bakarım.", "promptReading": "でかける＿＿、てんきをしらべます。", "choices": ["まえに", "あとで", "とき", "から"], "answer": "まえに" },
+      { "kind": "fillBlank", "prompt": "テスト＿＿まえに、よく寝てください。", "hint": "Sınavdan önce iyi uyuyun.", "promptReading": "テスト＿＿まえに、よくねてください。", "choices": ["の", "な", "を", "に"], "answer": "の" },
+      { "kind": "wordOrder", "prompt": "Yemekten önce ellerini yıka.", "hint": "ご飯 / の / まえに / 手を / 洗って", "choices": ["ご飯", "の", "まえに", "手を", "洗って"], "answer": "ご飯のまえに手を洗って", "answerTokens": ["ご飯", "の", "まえに", "手を", "洗って"] }
+    ]
+  },
+  {
+    "key": "ga_hoshii",
+    "pattern": "～がほしい",
+    "romaji": "~ ga hoshii",
+    "title": "İstemek (isim): ～がほしい",
+    "explanation": "'... istiyorum' (isim için). İstenen şey が ile işaretlenir. Yalnızca 1./2. tekil şahıs için kullanılır. ～たい fiil isteği içindir, ほしい isim içindir.",
+    "formula": "[İsim] + が + ほしい / ほしいです",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "新しい車がほしいです。", "hiragana": "あたらしいくるまがほしいです。", "romaji": "atarashii kuruma ga hoshii desu.", "turkish": "Yeni bir araba istiyorum." },
+      { "japanese": "何がほしいですか。", "hiragana": "なにがほしいですか。", "romaji": "nani ga hoshii desu ka.", "turkish": "Ne istiyorsun?" },
+      { "japanese": "今は何もほしくないです。", "hiragana": "いまはなにもほしくないです。", "romaji": "ima wa nani mo hoshikunai desu.", "turkish": "Şu an hiçbir şey istemiyorum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "私は新しいかばん＿＿ほしいです。", "hint": "Yeni bir çanta istiyorum.", "promptReading": "わたしはあたらしいかばん＿＿ほしいです。", "choices": ["が", "を", "に", "で"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「ほしい」 ile 「たい」 farkı nedir?", "hint": null, "choices": ["ほしい isim, たい fiil isteği", "İkisi aynı", "ほしい fiil, たい isim", "ほしい geçmiş zaman"], "answer": "ほしい isim, たい fiil isteği" },
+      { "kind": "multipleChoice", "prompt": "「時間がほしいです」 ne demek?", "hint": null, "promptReading": "「じかんがほしいです」 ne demek?", "choices": ["Zaman istiyorum", "Zamanım var", "Zamanım yok", "Zaman geçti"], "answer": "Zaman istiyorum" }
+    ]
+  },
+  {
+    "key": "hou_ga_ii",
+    "pattern": "～ほうがいい",
+    "romaji": "~ hou ga ii",
+    "title": "Tavsiye: ～ほうがいい",
+    "explanation": "'... yapsan iyi olur / yapmalısın'. Olumlu için た-biçimi + ほうがいい, olumsuz için ない-biçimi + ほうがいい.",
+    "formula": "[fiil た-biçimi] + ほうがいい   /   [fiil ない-biçimi] + ほうがいい",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "早く寝たほうがいいですよ。", "hiragana": "はやくねたほうがいいですよ。", "romaji": "hayaku neta hou ga ii desu yo.", "turkish": "Erken yatsan iyi olur." },
+      { "japanese": "薬を飲んだほうがいいです。", "hiragana": "くすりをのんだほうがいいです。", "romaji": "kusuri o nonda hou ga ii desu.", "turkish": "İlaç içsen iyi olur." },
+      { "japanese": "今日は出かけないほうがいいです。", "hiragana": "きょうはでかけないほうがいいです。", "romaji": "kyou wa dekakenai hou ga ii desu.", "turkish": "Bugün dışarı çıkmasan iyi olur." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "つかれているなら、休んだ＿＿がいいですよ。", "hint": "Yorgunsan dinlensen iyi olur.", "promptReading": "つかれているなら、やすんだ＿＿がいいですよ。", "choices": ["ほう", "こと", "もの", "とき"], "answer": "ほう" },
+      { "kind": "multipleChoice", "prompt": "「行かないほうがいい」 ne demek?", "hint": null, "promptReading": "「いかないほうがいい」 ne demek?", "choices": ["Gitmesen iyi olur", "Gitsen iyi olur", "Gitmelisin", "Gitmek yasak"], "answer": "Gitmesen iyi olur" },
+      { "kind": "multipleChoice", "prompt": "Tavsiye verirken olumlu fiil hangi biçimde olur?", "hint": null, "choices": ["た-biçimi", "sözlük biçimi", "ます-biçimi", "て-biçimi"], "answer": "た-biçimi" }
+    ]
+  },
+  {
+    "key": "ichiban",
+    "pattern": "いちばん",
+    "romaji": "ichiban",
+    "title": "En üstün derece: いちばん",
+    "explanation": "'En ...' — üstünlük derecesi. Sıfat/zarftan önce gelir (いちばん高い = en pahalı). Bir grup içinde 'en'i belirtmek için の中で ... がいちばん yapısıyla kullanılır.",
+    "formula": "いちばん + [sıfat]   /   [İsim] + がいちばん + [sıfat]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "富士山は日本でいちばん高い山です。", "hiragana": "ふじさんはにほんでいちばんたかいやまです。", "romaji": "Fuji-san wa Nihon de ichiban takai yama desu.", "turkish": "Fuji, Japonya'nın en yüksek dağıdır." },
+      { "japanese": "この店のケーキがいちばんおいしいです。", "hiragana": "このみせのけえきがいちばんおいしいです。", "romaji": "kono mise no keeki ga ichiban oishii desu.", "turkish": "Bu dükkânın pastası en lezzetlisi." },
+      { "japanese": "どの季節がいちばん好きですか。", "hiragana": "どのきせつがいちばんすきですか。", "romaji": "dono kisetsu ga ichiban suki desu ka.", "turkish": "En çok hangi mevsimi seversin?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "クラスで田中さん＿＿いちばん背が高いです。", "hint": "Sınıfta en uzun boylu Tanaka.", "promptReading": "クラスでたなかさん＿＿いちばんせがたかいです。", "choices": ["が", "を", "に", "も"], "answer": "が" },
+      { "kind": "multipleChoice", "prompt": "「いちばん安い」 ne demek?", "hint": null, "promptReading": "「いちばんやすい」 ne demek?", "choices": ["En ucuz", "Daha ucuz", "Biraz ucuz", "Ucuz değil"], "answer": "En ucuz" },
+      { "kind": "wordOrder", "prompt": "En çok yazı severim.", "hint": "夏 / が / いちばん / 好きです", "choices": ["夏", "が", "いちばん", "好きです"], "answer": "夏がいちばん好きです", "answerTokens": ["夏", "が", "いちばん", "好きです"] }
+    ]
+  },
+  {
+    "key": "no_naka_de_ichiban",
+    "pattern": "～の中で〜がいちばん",
+    "romaji": "~ no naka de ~ ga ichiban",
+    "title": "Grup içinde en: ～の中で〜がいちばん",
+    "explanation": "Belirli bir grup/aralık içinde 'en'i belirtir. [Grup] の中で [X] が いちばん [sıfat]. Grup zaman/yer ise で olur (一年で).",
+    "formula": "[Grup] + の中で + [X] + が + いちばん + [sıfat]",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "スポーツの中で、サッカーがいちばん好きです。", "hiragana": "すぽおつのなかで、さっかあがいちばんすきです。", "romaji": "supootsu no naka de, sakkaa ga ichiban suki desu.", "turkish": "Sporlar arasında en çok futbolu severim." },
+      { "japanese": "家族の中で、父がいちばん背が高いです。", "hiragana": "かぞくのなかで、ちちがいちばんせがたかいです。", "romaji": "kazoku no naka de, chichi ga ichiban se ga takai desu.", "turkish": "Ailede en uzun boylu babam." },
+      { "japanese": "クラスの中で、だれがいちばん歌が上手ですか。", "hiragana": "くらすのなかで、だれがいちばんうたがじょうずですか。", "romaji": "kurasu no naka de, dare ga ichiban uta ga jouzu desu ka.", "turkish": "Sınıfta en iyi şarkı söyleyen kim?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "くだもの＿＿中で、りんごがいちばん好きです。", "hint": "Meyveler arasında en çok elmayı severim.", "promptReading": "くだもの＿＿なかで、りんごがいちばんすきです。", "choices": ["の", "が", "を", "で"], "answer": "の" },
+      { "kind": "wordOrder", "prompt": "Aile içinde en çok ben yerim.", "hint": "家族 / の中で / 私 / が / いちばん / 食べます", "choices": ["家族", "の中で", "私", "が", "いちばん", "食べます"], "answer": "家族の中で私がいちばん食べます", "answerTokens": ["家族", "の中で", "私", "が", "いちばん", "食べます"] },
+      { "kind": "multipleChoice", "prompt": "「一年で夏がいちばん暑いです」 ne demek?", "hint": null, "promptReading": "「いちねんでなつがいちばんあついです」 ne demek?", "choices": ["Yılın en sıcak mevsimi yazdır", "Yaz en soğuk mevsimdir", "Yazın hiç sıcak olmaz", "Yaz bir yıl sürer"], "answer": "Yılın en sıcak mevsimi yazdır" }
+    ]
+  },
+  {
+    "key": "wa_yori",
+    "pattern": "～は〜より",
+    "romaji": "~ wa ~ yori",
+    "title": "–den daha: ～は〜より",
+    "explanation": "İki şeyi karşılaştırır: '[A], [B]'den daha [sıfat]'. より 'den' anlamındaki karşılaştırma edatıdır.",
+    "formula": "[A] + は + [B] + より + [sıfat]",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "東京は大阪より大きいです。", "hiragana": "とうきょうはおおさかよりおおきいです。", "romaji": "Toukyou wa Oosaka yori ookii desu.", "turkish": "Tokyo, Osaka'dan büyüktür." },
+      { "japanese": "今日は昨日より寒いです。", "hiragana": "きょうはきのうよりさむいです。", "romaji": "kyou wa kinou yori samui desu.", "turkish": "Bugün dünden soğuk." },
+      { "japanese": "電車は車より速いです。", "hiragana": "でんしゃはくるまよりはやいです。", "romaji": "densha wa kuruma yori hayai desu.", "turkish": "Tren, arabadan hızlıdır." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "夏は冬＿＿暑いです。", "hint": "Yaz kıştan sıcaktır.", "promptReading": "なつはふゆ＿＿あついです。", "choices": ["より", "から", "まで", "ほど"], "answer": "より" },
+      { "kind": "multipleChoice", "prompt": "「A は B より高いです」 ne demek?", "hint": null, "promptReading": "「A は B よりたかいです」 ne demek?", "choices": ["A, B'den pahalıdır", "B, A'dan pahalıdır", "A ile B aynı fiyat", "A ucuzdur"], "answer": "A, B'den pahalıdır" },
+      { "kind": "wordOrder", "prompt": "Bu kitap o kitaptan ilginç.", "hint": "この本 / は / その本 / より / おもしろいです", "choices": ["この本", "は", "その本", "より", "おもしろいです"], "answer": "この本はその本よりおもしろいです", "answerTokens": ["この本", "は", "その本", "より", "おもしろいです"] }
+    ]
+  },
+  {
+    "key": "yori_hou_ga",
+    "pattern": "～より〜ほうが",
+    "romaji": "~ yori ~ hou ga",
+    "title": "–e kıyasla daha: ～より〜ほうが",
+    "explanation": "Karşılaştırmada bir tarafı öne çıkarır: '[B]'ye kıyasla [A] daha [sıfat]'. Soru: [A] と [B] と どちらのほうが ...?",
+    "formula": "[B] + より + [A] + のほうが + [sıfat]",
+    "category": "expression",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "バスより電車のほうが速いです。", "hiragana": "ばすよりでんしゃのほうがはやいです。", "romaji": "basu yori densha no hou ga hayai desu.", "turkish": "Otobüse kıyasla tren daha hızlı." },
+      { "japanese": "肉より魚のほうが好きです。", "hiragana": "にくよりさかなのほうがすきです。", "romaji": "niku yori sakana no hou ga suki desu.", "turkish": "Ete kıyasla balığı daha çok severim." },
+      { "japanese": "コーヒーと紅茶と、どちらのほうが好きですか。", "hiragana": "こおひいとこうちゃと、どちらのほうがすきですか。", "romaji": "koohii to koucha to, dochira no hou ga suki desu ka.", "turkish": "Kahve mi çay mı, hangisini daha çok seversin?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "きのうより今日＿＿ほうが暑いです。", "hint": "Düne kıyasla bugün daha sıcak.", "promptReading": "きのうよりきょう＿＿ほうがあついです。", "choices": ["の", "が", "は", "を"], "answer": "の" },
+      { "kind": "multipleChoice", "prompt": "「犬より猫のほうが好きです」 ne demek?", "hint": null, "promptReading": "「いぬよりねこのほうがすきです」 ne demek?", "choices": ["Köpeğe kıyasla kediyi daha çok severim", "Kediye kıyasla köpeği daha çok severim", "İkisini de sevmem", "İkisini eşit severim"], "answer": "Köpeğe kıyasla kediyi daha çok severim" },
+      { "kind": "multipleChoice", "prompt": "Karşılaştırmada 'hangisi?' nasıl sorulur?", "hint": null, "choices": ["どちらのほうが", "なにのほうが", "どこのほうが", "いつのほうが"], "answer": "どちらのほうが" }
+    ]
+  },
+  {
+    "key": "wa_dou_desu_ka",
+    "pattern": "～はどうですか",
+    "romaji": "~ wa dou desu ka",
+    "title": "... nasıl? / ne dersin?: ～はどうですか",
+    "explanation": "İki kullanımı: (1) bir şeyin durumunu sormak ('... nasıl?'), (2) öneri sunmak ('... e ne dersin?'). はどうですか kibar, どう? gündelik.",
+    "formula": "[İsim] + はどうですか",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "新しい仕事はどうですか。", "hiragana": "あたらしいしごとはどうですか。", "romaji": "atarashii shigoto wa dou desu ka.", "turkish": "Yeni iş nasıl?" },
+      { "japanese": "日曜日はどうですか。", "hiragana": "にちようびはどうですか。", "romaji": "nichiyoubi wa dou desu ka.", "turkish": "Pazar günü nasıl olur? (öneri)" },
+      { "japanese": "コーヒーはどうですか。", "romaji": "koohii wa dou desu ka.", "turkish": "Kahve ister misin?" }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "(Buluşma ayarlarken) 「土曜日はどうですか」 ne demek?", "hint": null, "promptReading": "(Buluşma ayarlarken) 「どようびはどうですか」 ne demek?", "choices": ["Cumartesi nasıl olur? (öneri)", "Cumartesi nasıl geçti?", "Cumartesi neredesin?", "Cumartesi kim var?"], "answer": "Cumartesi nasıl olur? (öneri)" },
+      { "kind": "fillBlank", "prompt": "この赤いセーター＿＿どうですか。", "hint": "Bu kırmızı kazak nasıl?", "promptReading": "このあかいセーター＿＿どうですか。", "choices": ["は", "を", "が", "に"], "answer": "は" },
+      { "kind": "multipleChoice", "prompt": "「お茶はどうですか」 ne anlatabilir?", "hint": null, "promptReading": "「おちゃはどうですか」 ne anlatabilir?", "choices": ["Çay ikram etme / önerme", "Çayın fiyatını sorma", "Çayın nerede olduğunu sorma", "Çayı yasaklama"], "answer": "Çay ikram etme / önerme" }
+    ]
+  },
+  {
+    "key": "issho_ni",
+    "pattern": "いっしょに",
+    "romaji": "issho ni",
+    "title": "Birlikte: いっしょに",
+    "explanation": "'Birlikte, beraber'. Fiilden önce gelir. Kiminle olduğu [kişi] と ile belirtilir: 友だちといっしょに.",
+    "formula": "([kişi] + と) + いっしょに + [fiil]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "いっしょに帰りましょう。", "hiragana": "いっしょにかえりましょう。", "romaji": "issho ni kaerimashou.", "turkish": "Birlikte dönelim." },
+      { "japanese": "友だちといっしょに映画を見ました。", "hiragana": "ともだちといっしょにえいがをみました。", "romaji": "tomodachi to issho ni eiga o mimashita.", "turkish": "Arkadaşımla birlikte film izledim." },
+      { "japanese": "家族といっしょに住んでいます。", "hiragana": "かぞくといっしょにすんでいます。", "romaji": "kazoku to issho ni sunde imasu.", "turkish": "Ailemle birlikte yaşıyorum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "昼ご飯を＿＿食べませんか。", "hint": "Birlikte öğle yemeği yemez misin?", "promptReading": "ひるごはんを＿＿たべませんか。", "choices": ["いっしょに", "ひとりで", "たいてい", "あまり"], "answer": "いっしょに" },
+      { "kind": "fillBlank", "prompt": "母＿＿いっしょに買い物に行きました。", "hint": "Annemle birlikte alışverişe gittim.", "promptReading": "はは＿＿いっしょにかいものにいきました。", "choices": ["と", "に", "を", "へ"], "answer": "と" },
+      { "kind": "multipleChoice", "prompt": "「いっしょに」 ne demek?", "hint": null, "choices": ["Birlikte", "Yalnız", "Bazen", "Asla"], "answer": "Birlikte" }
+    ]
+  },
+  {
+    "key": "itsumo",
+    "pattern": "いつも",
+    "romaji": "itsumo",
+    "title": "Her zaman: いつも",
+    "explanation": "Sıklık zarfı: 'her zaman, hep'. Fiilden önce serbestçe durur. Sıklık sırası: いつも > よく > ときどき > あまり〜ない > ぜんぜん〜ない.",
+    "formula": "いつも + [fiil]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "私はいつも7時に起きます。", "hiragana": "わたしはいつもしちじにおきます。", "romaji": "watashi wa itsumo shichi-ji ni okimasu.", "turkish": "Ben her zaman 7'de kalkarım." },
+      { "japanese": "彼はいつも元気です。", "hiragana": "かれはいつもげんきです。", "romaji": "kare wa itsumo genki desu.", "turkish": "O her zaman neşelidir." },
+      { "japanese": "いつもありがとうございます。", "romaji": "itsumo arigatou gozaimasu.", "turkish": "Her zaman teşekkür ederim." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "Sıklık sırası doğru mu: いつも > よく > ときどき > あまり", "hint": null, "choices": ["Evet, doğru", "Hayır, ters", "あまり en sık", "ときどき en sık"], "answer": "Evet, doğru" },
+      { "kind": "fillBlank", "prompt": "父は＿＿新聞を読みます。", "hint": "Babam her zaman gazete okur.", "promptReading": "ちちは＿＿しんぶんをよみます。", "choices": ["いつも", "あまり", "ぜんぜん", "たぶん"], "answer": "いつも" },
+      { "kind": "multipleChoice", "prompt": "「いつも」 ne demek?", "hint": null, "choices": ["Her zaman", "Bazen", "Nadiren", "Asla"], "answer": "Her zaman" }
+    ]
+  },
+  {
+    "key": "mou_already",
+    "pattern": "もう",
+    "romaji": "mou",
+    "title": "Artık / zaten: もう",
+    "explanation": "İki kullanımı: (1) olumlu geçmişle 'çoktan, zaten' (もう食べました), (2) olumsuzla 'artık ...değil' (もういません).",
+    "formula": "もう + [olumlu geçmiş] = zaten   /   もう + [olumsuz] = artık ...değil",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "もう昼ご飯を食べました。", "hiragana": "もうひるごはんをたべました。", "romaji": "mou hirugohan o tabemashita.", "turkish": "Öğle yemeğini çoktan yedim." },
+      { "japanese": "もうお金がありません。", "hiragana": "もうおかねがありません。", "romaji": "mou okane ga arimasen.", "turkish": "Artık param yok." },
+      { "japanese": "彼はもうここにいません。", "hiragana": "かれはもうここにいません。", "romaji": "kare wa mou koko ni imasen.", "turkish": "O artık burada değil." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「もう帰りました」 ne demek?", "hint": null, "promptReading": "「もうかえりました」 ne demek?", "choices": ["Çoktan eve döndü", "Henüz dönmedi", "Artık dönmüyor", "Dönecek"], "answer": "Çoktan eve döndü" },
+      { "kind": "multipleChoice", "prompt": "「もう飲みません」 ne demek?", "hint": null, "promptReading": "「もうのみません」 ne demek?", "choices": ["Artık içmiyorum", "Çoktan içtim", "Henüz içmedim", "İçeceğim"], "answer": "Artık içmiyorum" },
+      { "kind": "fillBlank", "prompt": "宿題は＿＿終わりました。", "hint": "Ödev çoktan bitti.", "promptReading": "しゅくだいは＿＿おわりました。", "choices": ["もう", "まだ", "これから", "たぶん"], "answer": "もう" }
+    ]
+  },
+  {
+    "key": "mada",
+    "pattern": "まだ",
+    "romaji": "mada",
+    "title": "Hâlâ / henüz değil: まだ",
+    "explanation": "İki kullanımı: (1) olumluyla 'hâlâ' (まだ食べています), (2) olumsuzla 'henüz ...değil' (まだ食べていません). もう'nun karşıtı.",
+    "formula": "まだ + [olumlu] = hâlâ   /   まだ + [olumsuz] = henüz ...değil",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "まだ雨が降っています。", "hiragana": "まだあめがふっています。", "romaji": "mada ame ga futte imasu.", "turkish": "Hâlâ yağmur yağıyor." },
+      { "japanese": "まだ宿題をしていません。", "hiragana": "まだしゅくだいをしていません。", "romaji": "mada shukudai o shite imasen.", "turkish": "Henüz ödevimi yapmadım." },
+      { "japanese": "まだ時間がありますよ。", "hiragana": "まだじかんがありますよ。", "romaji": "mada jikan ga arimasu yo.", "turkish": "Hâlâ vaktimiz var." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「まだ来ていません」 ne demek?", "hint": null, "promptReading": "「まだきていません」 ne demek?", "choices": ["Henüz gelmedi", "Çoktan geldi", "Artık gelmiyor", "Şimdi geliyor"], "answer": "Henüz gelmedi" },
+      { "kind": "fillBlank", "prompt": "＿＿時間がありますから、ゆっくりしましょう。", "hint": "Hâlâ vaktimiz var, acele etmeyelim.", "promptReading": "＿＿じかんがありますから、ゆっくりしましょう。", "choices": ["まだ", "もう", "そろそろ", "たぶん"], "answer": "まだ" },
+      { "kind": "multipleChoice", "prompt": "「もう」 ile 「まだ」 ilişkisi nedir?", "hint": null, "choices": ["Birbirinin karşıtı", "Aynı anlam", "İkisi de soru eki", "İkisi de bağlaç"], "answer": "Birbirinin karşıtı" }
+    ]
+  },
+  {
+    "key": "mada_te_imasen",
+    "pattern": "まだ～ていません",
+    "romaji": "mada ~ te imasen",
+    "title": "Henüz ...medi: まだ～ていません",
+    "explanation": "'Henüz ... yapmadı' — beklenen ama henüz gerçekleşmemiş bir eylem. まだ〜ませんでした değil, まだ〜ていません kullanılır (çünkü hâlâ olabilir).",
+    "formula": "まだ + [fiil te-biçimi] + いません",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "まだ昼ご飯を食べていません。", "hiragana": "まだひるごはんをたべていません。", "romaji": "mada hirugohan o tabete imasen.", "turkish": "Henüz öğle yemeği yemedim." },
+      { "japanese": "その映画はまだ見ていません。", "hiragana": "そのえいがはまだみていません。", "romaji": "sono eiga wa mada mite imasen.", "turkish": "O filmi henüz izlemedim." },
+      { "japanese": "田中さんはまだ来ていません。", "hiragana": "たなかさんはまだきていません。", "romaji": "Tanaka-san wa mada kite imasen.", "turkish": "Tanaka henüz gelmedi." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「もう宿題をしましたか」 sorusuna 'henüz yapmadım' nasıl denir?", "hint": null, "promptReading": "「もうしゅくだいをしましたか」 sorusuna 'henüz yapmadım' nasıl denir?", "choices": ["いいえ、まだしていません", "いいえ、しませんでした", "はい、しました", "もうしました"], "answer": "いいえ、まだしていません" },
+      { "kind": "fillBlank", "prompt": "その本はまだ読ん＿＿。", "hint": "O kitabı henüz okumadım.", "promptReading": "そのほんはまだよん＿＿。", "choices": ["でいません", "でいます", "でした", "でください"], "answer": "でいません" },
+      { "kind": "multipleChoice", "prompt": "「まだ食べていません」 ne demek?", "hint": null, "promptReading": "「まだたべていません」 ne demek?", "choices": ["Henüz yemedim", "Artık yemiyorum", "Hâlâ yiyorum", "Çoktan yedim"], "answer": "Henüz yemedim" }
+    ]
+  },
+  {
+    "key": "totemo",
+    "pattern": "とても",
+    "romaji": "totemo",
+    "title": "Çok: とても",
+    "explanation": "Derece zarfı: 'çok, pek'. Sıfat veya zarftan önce gelir. Olumlu cümlelerde kullanılır; olumsuzla 'あまり〜ない' tercih edilir.",
+    "formula": "とても + [sıfat]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "この料理はとてもおいしいです。", "hiragana": "このりょうりはとてもおいしいです。", "romaji": "kono ryouri wa totemo oishii desu.", "turkish": "Bu yemek çok lezzetli." },
+      { "japanese": "今日はとても寒いです。", "hiragana": "きょうはとてもさむいです。", "romaji": "kyou wa totemo samui desu.", "turkish": "Bugün çok soğuk." },
+      { "japanese": "日本語はとてもおもしろいです。", "hiragana": "にほんごはとてもおもしろいです。", "romaji": "nihongo wa totemo omoshiroi desu.", "turkish": "Japonca çok ilginç." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "このかばんは＿＿高いです。", "hint": "Bu çanta çok pahalı.", "promptReading": "このかばんは＿＿たかいです。", "choices": ["とても", "あまり", "ぜんぜん", "まだ"], "answer": "とても" },
+      { "kind": "multipleChoice", "prompt": "「とても」 hangi cümlelerde kullanılır?", "hint": null, "choices": ["Olumlu cümlelerde", "Sadece olumsuz cümlelerde", "Sadece sorularda", "Sadece emir cümlelerinde"], "answer": "Olumlu cümlelerde" },
+      { "kind": "multipleChoice", "prompt": "「とても」 ne demek?", "hint": null, "choices": ["Çok", "Az", "Hiç", "Bazen"], "answer": "Çok" }
+    ]
+  },
+  {
+    "key": "amari_nai",
+    "pattern": "あまり～ない",
+    "romaji": "amari ~ nai",
+    "title": "Pek ... değil: あまり～ない",
+    "explanation": "Derece: 'pek ... değil, o kadar ... değil'. Her zaman olumsuz fiil/sıfatla kullanılır. ぜんぜん〜ない ise 'hiç ...değil' (daha güçlü).",
+    "formula": "あまり + [sıfat/fiil olumsuz]",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "この店はあまり高くないです。", "hiragana": "このみせはあまりたかくないです。", "romaji": "kono mise wa amari takakunai desu.", "turkish": "Bu dükkân pek pahalı değil." },
+      { "japanese": "肉はあまり食べません。", "hiragana": "にくはあまりたべません。", "romaji": "niku wa amari tabemasen.", "turkish": "Et pek yemem." },
+      { "japanese": "昨日はあまり寝ませんでした。", "hiragana": "きのうはあまりねませんでした。", "romaji": "kinou wa amari nemasen deshita.", "turkish": "Dün pek uyumadım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "その映画は＿＿おもしろくなかったです。", "hint": "O film pek ilginç değildi.", "promptReading": "そのえいがは＿＿おもしろくなかったです。", "choices": ["あまり", "とても", "もう", "いつも"], "answer": "あまり" },
+      { "kind": "multipleChoice", "prompt": "「あまり」 hangi biçimle kullanılır?", "hint": null, "choices": ["Olumsuz fiil/sıfatla", "Olumlu fiille", "Sadece isimle", "Sadece soruyla"], "answer": "Olumsuz fiil/sıfatla" },
+      { "kind": "multipleChoice", "prompt": "「あまり」 ile 「ぜんぜん」 farkı nedir?", "hint": null, "choices": ["ぜんぜん daha güçlü: 'hiç'; あまり: 'pek değil'", "İkisi aynı", "あまり 'hiç' demek", "ぜんぜん olumlu kullanılır"], "answer": "ぜんぜん daha güçlü: 'hiç'; あまり: 'pek değil'" }
+    ]
+  },
+  {
+    "key": "donna",
+    "pattern": "どんな",
+    "romaji": "donna",
+    "title": "Ne tür: どんな",
+    "explanation": "'Ne tür, nasıl bir' — isimden hemen önce gelir ve o ismi niteler: どんな + [isim]. どんな ismi niteler, どう yüklem sorar.",
+    "formula": "どんな + [İsim]",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "どんな音楽が好きですか。", "hiragana": "どんなおんがくがすきですか。", "romaji": "donna ongaku ga suki desu ka.", "turkish": "Ne tür müzik seversin?" },
+      { "japanese": "どんな人ですか。", "hiragana": "どんなひとですか。", "romaji": "donna hito desu ka.", "turkish": "Nasıl biri?" },
+      { "japanese": "どんな町に住みたいですか。", "hiragana": "どんなまちにすみたいですか。", "romaji": "donna machi ni sumitai desu ka.", "turkish": "Nasıl bir kasabada yaşamak istersin?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "＿＿映画を見ましたか。", "hint": "Ne tür film izledin?", "promptReading": "＿＿えいがをみましたか。", "choices": ["どんな", "どこ", "どう", "いつ"], "answer": "どんな" },
+      { "kind": "multipleChoice", "prompt": "「どんな」 ile 「どう」 farkı nedir?", "hint": null, "choices": ["どんな ismi niteler, どう yüklem sorar", "İkisi aynı", "どんな zaman sorar", "どう yer sorar"], "answer": "どんな ismi niteler, どう yüklem sorar" },
+      { "kind": "multipleChoice", "prompt": "「どんな本」 ne demek?", "hint": null, "promptReading": "「どんなほん」 ne demek?", "choices": ["Nasıl bir kitap", "Kitap nerede", "Kitap ne zaman", "Kaç kitap"], "answer": "Nasıl bir kitap" }
+    ]
+  },
+  {
+    "key": "doushite",
+    "pattern": "どうして",
+    "romaji": "doushite",
+    "title": "Neden: どうして",
+    "explanation": "'Neden, niçin'. Sebep sorar; cevap genelde ～から / ～ので ile verilir. なぜ ile eş anlamlı (どうして daha gündelik).",
+    "formula": "どうして + [cümle] + か",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "どうして遅れましたか。", "hiragana": "どうしておくれましたか。", "romaji": "doushite okuremashita ka.", "turkish": "Neden geciktin?" },
+      { "japanese": "どうして日本語を勉強していますか。", "hiragana": "どうしてにほんごをべんきょうしていますか。", "romaji": "doushite nihongo o benkyou shite imasu ka.", "turkish": "Neden Japonca öğreniyorsun?" },
+      { "japanese": "どうして食べないんですか。", "hiragana": "どうしてたべないんですか。", "romaji": "doushite tabenai n desu ka.", "turkish": "Neden yemiyorsun?" }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「どうして」 sorusuna nasıl cevap verilir?", "hint": null, "choices": ["～からです / ～のでです", "～ませんか", "～ましょう", "～たいです"], "answer": "～からです / ～のでです" },
+      { "kind": "fillBlank", "prompt": "＿＿学校を休みましたか。", "hint": "Neden okula gelmedin?", "promptReading": "＿＿がっこうをやすみましたか。", "choices": ["どうして", "どうやって", "どこで", "だれと"], "answer": "どうして" },
+      { "kind": "multipleChoice", "prompt": "「どうして」 ne demek?", "hint": null, "choices": ["Neden", "Nasıl", "Nerede", "Ne zaman"], "answer": "Neden" }
+    ]
+  },
+  {
+    "key": "douyatte",
+    "pattern": "どうやって",
+    "romaji": "douyatte",
+    "title": "Nasıl / hangi yolla: どうやって",
+    "explanation": "Bir işin 'nasıl, hangi yöntemle' yapıldığını sorar (araç/yol). どうやって yöntem/süreç sorar, どう genel durum/izlenim sorar.",
+    "formula": "どうやって + [fiil] + か",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "駅までどうやって行きますか。", "hiragana": "えきまでどうやっていきますか。", "romaji": "eki made douyatte ikimasu ka.", "turkish": "İstasyona nasıl gidilir?" },
+      { "japanese": "このパソコンはどうやって使いますか。", "hiragana": "このぱそこんはどうやってつかいますか。", "romaji": "kono pasokon wa douyatte tsukaimasu ka.", "turkish": "Bu bilgisayar nasıl kullanılır?" },
+      { "japanese": "漢字はどうやって覚えましたか。", "hiragana": "かんじはどうやっておぼえましたか。", "romaji": "kanji wa douyatte oboemashita ka.", "turkish": "Kanjiyi nasıl ezberledin?" }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「どうやって」 neyi sorar?", "hint": null, "choices": ["Yöntem / hangi yolla", "Sebep", "Zaman", "Miktar"], "answer": "Yöntem / hangi yolla" },
+      { "kind": "fillBlank", "prompt": "この料理は＿＿作りますか。", "hint": "Bu yemek nasıl yapılır?", "promptReading": "このりょうりは＿＿つくりますか。", "choices": ["どうやって", "どうして", "どんな", "どこ"], "answer": "どうやって" },
+      { "kind": "multipleChoice", "prompt": "「駅までどうやって行きますか」 sorusunun cevabı ne olabilir?", "hint": null, "promptReading": "「えきまでどうやっていきますか」 sorusunun cevabı ne olabilir?", "choices": ["バスで行きます", "おいしいです", "3時です", "高いです"], "answer": "バスで行きます" }
+    ]
+  },
+  {
+    "key": "kata_way",
+    "pattern": "～かた",
+    "romaji": "~ kata",
+    "title": "Yapma şekli: ～かた",
+    "explanation": "Fiil kökü + かた: 'yapma şekli, nasıl yapıldığı'. İsim gibi davranır. Nesne edatı を genelde の olur: 漢字の書きかた.",
+    "formula": "[fiil kökü] + かた",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "この漢字の読みかたを教えてください。", "hiragana": "このかんじのよみかたをおしえてください。", "romaji": "kono kanji no yomikata o oshiete kudasai.", "turkish": "Bu kanjinin okunuşunu öğretir misiniz?" },
+      { "japanese": "はしの使いかたが難しいです。", "hiragana": "はしのつかいかたがむずかしいです。", "romaji": "hashi no tsukaikata ga muzukashii desu.", "turkish": "Çubukları kullanma şekli zor." },
+      { "japanese": "駅への行きかたを知っていますか。", "hiragana": "えきへのいきかたをしっていますか。", "romaji": "eki e no ikikata o shitte imasu ka.", "turkish": "İstasyona nasıl gidileceğini biliyor musun?" }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "この機械の使い＿＿がわかりません。", "hint": "Bu makinenin kullanımını bilmiyorum.", "promptReading": "このきかいのつかい＿＿がわかりません。", "choices": ["かた", "こと", "もの", "ほう"], "answer": "かた" },
+      { "kind": "multipleChoice", "prompt": "「作りかた」 ne demek?", "hint": null, "promptReading": "「つくりかた」 ne demek?", "choices": ["Yapma şekli / tarifi", "Yaptığı şey", "Yapan kişi", "Yapıldığı yer"], "answer": "Yapma şekli / tarifi" },
+      { "kind": "multipleChoice", "prompt": "「漢字＿＿書きかた」 boşluğa ne gelir?", "hint": null, "promptReading": "「かんじ＿＿かきかた」 boşluğa ne gelir?", "choices": ["の", "を", "が", "に"], "answer": "の" }
+    ]
+  },
+  {
+    "key": "naru",
+    "pattern": "～なる",
+    "romaji": "~ naru",
+    "title": "Olmak / dönüşmek: ～なる",
+    "explanation": "Bir duruma geçişi anlatır: 'olmak, ...laşmak'. い-sıfat: 〜く + なる (大きくなる); な-sıfat / isim: 〜に + なる (元気になる, 先生になる).",
+    "formula": "[い-sıfat 〜く] / [な-sıfat・isim 〜に] + なる",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "春になりました。", "hiragana": "はるになりました。", "romaji": "haru ni narimashita.", "turkish": "Bahar geldi (oldu)." },
+      { "japanese": "日本語が上手になりました。", "hiragana": "にほんごがじょうずになりました。", "romaji": "nihongo ga jouzu ni narimashita.", "turkish": "Japoncam iyileşti." },
+      { "japanese": "もう暗くなりました。", "hiragana": "もうくらくなりました。", "romaji": "mou kuraku narimashita.", "turkish": "Hava karardı bile." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "さいきん、寒く＿＿。", "hint": "Son zamanlarda hava soğudu.", "promptReading": "さいきん、さむく＿＿。", "choices": ["なりました", "しました", "いました", "ありました"], "answer": "なりました" },
+      { "kind": "fillBlank", "prompt": "姉は先生＿＿なりました。", "hint": "Ablam öğretmen oldu.", "promptReading": "あねはせんせい＿＿なりました。", "choices": ["に", "を", "が", "で"], "answer": "に" },
+      { "kind": "multipleChoice", "prompt": "い-sıfat + なる nasıl olur? (ör. 高い)", "hint": null, "choices": ["高くなる", "高いになる", "高になる", "高くになる"], "answer": "高くなる" }
+    ]
+  },
+  {
+    "key": "sugiru",
+    "pattern": "～すぎる",
+    "romaji": "~ sugiru",
+    "title": "Aşırı: ～すぎる",
+    "explanation": "'Aşırı, gereğinden fazla' — olumsuz bir aşırılık ima eder. Fiil kökü + すぎる (食べすぎる); い-sıfat kökü + すぎる (高すぎる); な-sıfat + すぎる (静かすぎる).",
+    "formula": "[fiil kökü / sıfat kökü] + すぎる",
+    "category": "expression",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "昨日は食べすぎました。", "hiragana": "きのうはたべすぎました。", "romaji": "kinou wa tabesugimashita.", "turkish": "Dün çok fazla yedim." },
+      { "japanese": "このコートは高すぎます。", "hiragana": "このこおとはたかすぎます。", "romaji": "kono kooto wa takasugimasu.", "turkish": "Bu palto çok pahalı." },
+      { "japanese": "部屋が静かすぎて、こわいです。", "hiragana": "へやがしずかすぎて、こわいです。", "romaji": "heya ga shizukasugite, kowai desu.", "turkish": "Oda fazla sessiz, korkutucu." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "このスープは辛＿＿、食べられません。", "hint": "Bu çorba çok acı, yiyemiyorum.", "promptReading": "このスープはから＿＿、たべられません。", "choices": ["すぎて", "くて", "たり", "ながら"], "answer": "すぎて" },
+      { "kind": "multipleChoice", "prompt": "「飲みすぎました」 ne demek?", "hint": null, "promptReading": "「のみすぎました」 ne demek?", "choices": ["Çok fazla içtim", "Az içtim", "İçmedim", "İçeceğim"], "answer": "Çok fazla içtim" },
+      { "kind": "multipleChoice", "prompt": "「高すぎる」 hangi nüansı taşır?", "hint": null, "promptReading": "「たかすぎる」 hangi nüansı taşır?", "choices": ["Olumsuz: gereğinden fazla pahalı", "Olumlu: güzelce pahalı", "Biraz pahalı", "Ucuz"], "answer": "Olumsuz: gereğinden fazla pahalı" }
+    ]
+  },
+  {
+    "key": "tsumori",
+    "pattern": "～つもり",
+    "romaji": "~ tsumori",
+    "title": "Niyet / plan: ～つもり",
+    "explanation": "'... yapmayı düşünüyorum / niyetindeyim'. Fiil sözlük biçimi + つもりです. Olumsuz niyet: ない-biçimi + つもりです.",
+    "formula": "[fiil sözlük biçimi] + つもりです",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "夏休みに国へ帰るつもりです。", "hiragana": "なつやすみにくにへかえるつもりです。", "romaji": "natsuyasumi ni kuni e kaeru tsumori desu.", "turkish": "Yaz tatilinde ülkeme dönmeyi düşünüyorum." },
+      { "japanese": "今日は何もしないつもりです。", "hiragana": "きょうはなにもしないつもりです。", "romaji": "kyou wa nani mo shinai tsumori desu.", "turkish": "Bugün hiçbir şey yapmamayı düşünüyorum." },
+      { "japanese": "来年、日本語能力試験を受けるつもりです。", "hiragana": "らいねん、にほんごのうりょくしけんをうけるつもりです。", "romaji": "rainen, nihongo nouryoku shiken o ukeru tsumori desu.", "turkish": "Gelecek yıl JLPT'ye girmeyi düşünüyorum." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "週末、映画を見る＿＿です。", "hint": "Hafta sonu film izlemeyi düşünüyorum.", "promptReading": "しゅうまつ、えいがをみる＿＿です。", "choices": ["つもり", "ながら", "ほう", "こと"], "answer": "つもり" },
+      { "kind": "multipleChoice", "prompt": "「行かないつもりです」 ne demek?", "hint": null, "promptReading": "「いかないつもりです」 ne demek?", "choices": ["Gitmemeyi düşünüyorum", "Gitmeyi düşünüyorum", "Gitmedim", "Gitmek zorundayım"], "answer": "Gitmemeyi düşünüyorum" },
+      { "kind": "multipleChoice", "prompt": "「つもり」 öncesinde fiil hangi biçimdedir?", "hint": null, "choices": ["Sözlük biçimi (veya ない-biçimi)", "ます-biçimi", "て-biçimi", "た-biçimi"], "answer": "Sözlük biçimi (veya ない-biçimi)" }
+    ]
+  },
+  {
+    "key": "ta_koto_ga_aru",
+    "pattern": "～たことがある",
+    "romaji": "~ ta koto ga aru",
+    "title": "Deneyim: ～たことがある",
+    "explanation": "Bir deneyimi anlatır: 'daha önce ... yaptım / yapmışlığım var'. Fiil た-biçimi + ことがある. Sıradan geçmiş (ました) tekil olayı, bu kalıp yaşam deneyimini anlatır.",
+    "formula": "[fiil た-biçimi] + ことがある / ことがあります",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "日本へ行ったことがあります。", "hiragana": "にほんへいったことがあります。", "romaji": "Nihon e itta koto ga arimasu.", "turkish": "Japonya'ya gitmişliğim var." },
+      { "japanese": "すしを食べたことがありますか。", "hiragana": "すしをたべたことがありますか。", "romaji": "sushi o tabeta koto ga arimasu ka.", "turkish": "Hiç suşi yedin mi?" },
+      { "japanese": "富士山に登ったことがありません。", "hiragana": "ふじさんにのぼったことがありません。", "romaji": "Fuji-san ni nobotta koto ga arimasen.", "turkish": "Fuji'ye hiç tırmanmadım." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "馬に乗った＿＿ありますか。", "hint": "Hiç ata bindin mi?", "promptReading": "うまにのった＿＿ありますか。", "choices": ["ことが", "ことを", "ものが", "ときが"], "answer": "ことが" },
+      { "kind": "multipleChoice", "prompt": "「見たことがあります」 ne demek?", "hint": null, "promptReading": "「みたことがあります」 ne demek?", "choices": ["Daha önce görmüşlüğüm var", "Şimdi görüyorum", "Göreceğim", "Hiç görmedim"], "answer": "Daha önce görmüşlüğüm var" },
+      { "kind": "multipleChoice", "prompt": "「ことがある」 öncesinde fiil hangi biçimdedir?", "hint": null, "choices": ["た-biçimi", "sözlük biçimi", "て-biçimi", "ない-biçimi"], "answer": "た-biçimi" }
+    ]
+  },
+  {
+    "key": "darou_deshou",
+    "pattern": "だろう／でしょう",
+    "romaji": "darou / deshou",
+    "title": "Tahmin: だろう／でしょう",
+    "explanation": "Tahmin/olasılık bildirir: 'herhalde, muhtemelen'. でしょう kibar, だろう yalın. Yükselen tonlamayla 'değil mi?' onayı da sorabilir.",
+    "formula": "[yalın cümle] + だろう / でしょう",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "明日は雨でしょう。", "hiragana": "あしたはあめでしょう。", "romaji": "ashita wa ame deshou.", "turkish": "Yarın herhalde yağmur yağar." },
+      { "japanese": "彼はもう帰っただろう。", "hiragana": "かれはもうかえっただろう。", "romaji": "kare wa mou kaetta darou.", "turkish": "O herhalde gitti bile." },
+      { "japanese": "この問題は難しいでしょう。", "hiragana": "このもんだいはむずかしいでしょう。", "romaji": "kono mondai wa muzukashii deshou.", "turkish": "Bu soru zordur herhalde." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「あしたは晴れるでしょう」 ne demek?", "hint": null, "promptReading": "「あしたははれるでしょう」 ne demek?", "choices": ["Yarın herhalde açar", "Yarın kesin açacak", "Yarın açmadı", "Yarın açar mı?"], "answer": "Yarın herhalde açar" },
+      { "kind": "multipleChoice", "prompt": "でしょう ile だろう farkı nedir?", "hint": null, "choices": ["でしょう kibar, だろう yalın", "İkisi aynı derecede resmî", "だろう kibar", "でしょう geçmiş zamandır"], "answer": "でしょう kibar, だろう yalın" },
+      { "kind": "fillBlank", "prompt": "田中さんは来ない＿＿。", "hint": "Tanaka herhalde gelmez.", "promptReading": "たなかさんはこない＿＿。", "choices": ["でしょう", "ください", "ましょう", "ませんか"], "answer": "でしょう" }
+    ]
+  },
+  {
+    "key": "n_desu",
+    "pattern": "～んです／～のです",
+    "romaji": "~ n desu / ~ no desu",
+    "title": "Açıklama: ～んです",
+    "explanation": "Bir durumu açıklar, gerekçe sunar ya da vurgu katar. Konuşmada んです, resmî yazıda のです. Yalın cümleye eklenir; isim/na-sıfattan sonra な + んです (病気なんです).",
+    "formula": "[yalın cümle] + んです / のです",
+    "category": "expression",
+    "difficulty": 3,
+    "examples": [
+      { "japanese": "どうして遅れたんですか。", "hiragana": "どうしておくれたんですか。", "romaji": "doushite okureta n desu ka.", "turkish": "Neden geciktin (açıkla)?" },
+      { "japanese": "頭が痛いんです。", "hiragana": "あたまがいたいんです。", "romaji": "atama ga itai n desu.", "turkish": "Başım ağrıyor (o yüzden...)." },
+      { "japanese": "日本語を勉強しているんです。", "hiragana": "にほんごをべんきょうしているんです。", "romaji": "nihongo o benkyou shite iru n desu.", "turkish": "Japonca öğreniyorum (durum bu)." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「んです」 ne işe yarar?", "hint": null, "choices": ["Açıklama / gerekçe / vurgu katar", "Geçmiş zaman yapar", "Yasak koyar", "Emir yapar"], "answer": "Açıklama / gerekçe / vurgu katar" },
+      { "kind": "fillBlank", "prompt": "少し熱がある＿＿。", "hint": "Biraz ateşim var (durum bu).", "promptReading": "すこしねつがある＿＿。", "choices": ["んです", "ました", "ましょう", "ください"], "answer": "んです" },
+      { "kind": "multipleChoice", "prompt": "「病気＿＿んです」 boşluğa ne gelir?", "hint": null, "promptReading": "「びょうき＿＿んです」 boşluğa ne gelir?", "choices": ["な", "だ", "の", "を"], "answer": "な" }
+    ]
+  },
+  {
+    "key": "da_plain",
+    "pattern": "～だ",
+    "romaji": "~ da",
+    "title": "Yalın kopula: ～だ",
+    "explanation": "です'nin yalın (samimi) hâli: 'dır/dir'. İsim / な-sıfattan sonra gelir (学生だ, 元気だ). Nezaket gereken yerlerde です kullanılır; だ günlük konuşmada.",
+    "formula": "[İsim / な-sıfat] + だ",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "これは私の本だ。", "hiragana": "これはわたしのほんだ。", "romaji": "kore wa watashi no hon da.", "turkish": "Bu benim kitabım." },
+      { "japanese": "彼は学生だ。", "hiragana": "かれはがくせいだ。", "romaji": "kare wa gakusei da.", "turkish": "O öğrenci." },
+      { "japanese": "今日は休みだ。", "hiragana": "きょうはやすみだ。", "romaji": "kyou wa yasumi da.", "turkish": "Bugün tatil." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「です」 nin yalın hâli nedir?", "hint": null, "choices": ["だ", "ます", "ない", "た"], "answer": "だ" },
+      { "kind": "multipleChoice", "prompt": "「学生だ」 hangi durumda uygundur?", "hint": null, "choices": ["Samimi, günlük konuşma", "Resmî sunum", "Yabancılarla ilk tanışma", "İş toplantısı"], "answer": "Samimi, günlük konuşma" },
+      { "kind": "fillBlank", "prompt": "あしたは日曜日＿＿。", "hint": "Yarın pazar. (yalın)", "promptReading": "あしたはにちようび＿＿。", "choices": ["だ", "を", "が", "に"], "answer": "だ" }
+    ]
+  },
+  {
+    "key": "janai_plain",
+    "pattern": "～じゃない",
+    "romaji": "~ janai",
+    "title": "Yalın olumsuz kopula: ～じゃない",
+    "explanation": "です'nin yalın olumsuzu: 'değil'. じゃありません'in samimi hâli. İsim / な-sıfattan sonra: 学生じゃない, 元気じゃない. Daha resmî: ではない.",
+    "formula": "[İsim / な-sıfat] + じゃない",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "これは私のかばんじゃない。", "hiragana": "これはわたしのかばんじゃない。", "romaji": "kore wa watashi no kaban janai.", "turkish": "Bu benim çantam değil." },
+      { "japanese": "彼は先生じゃない。", "hiragana": "かれはせんせいじゃない。", "romaji": "kare wa sensei janai.", "turkish": "O öğretmen değil." },
+      { "japanese": "この問題は簡単じゃない。", "hiragana": "このもんだいはかんたんじゃない。", "romaji": "kono mondai wa kantan janai.", "turkish": "Bu soru kolay değil." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「じゃありません」 nin yalın hâli nedir?", "hint": null, "choices": ["じゃない", "じゃなかった", "じゃないです", "ではありません"], "answer": "じゃない" },
+      { "kind": "fillBlank", "prompt": "それは本当＿＿。", "hint": "O doğru değil. (yalın)", "promptReading": "それはほんとう＿＿。", "choices": ["じゃない", "じゃある", "くない", "ないだ"], "answer": "じゃない" },
+      { "kind": "multipleChoice", "prompt": "「学生じゃない」 ne demek?", "hint": null, "promptReading": "「がくせいじゃない」 ne demek?", "choices": ["Öğrenci değil", "Öğrenci", "Öğrenci miydi?", "Öğrenci ol"], "answer": "Öğrenci değil" }
+    ]
+  },
+  {
+    "key": "i_adj_conjugation",
+    "pattern": "い形容詞の活用",
+    "romaji": "i-keiyoushi no katsuyou",
+    "title": "い-sıfat çekimi",
+    "explanation": "い-sıfatlar cümle sonunda çekilir: şimdi 〜いです, olumsuz 〜くないです, geçmiş 〜かったです, geçmiş olumsuz 〜くなかったです. いい düzensiz: よくない, よかった.",
+    "formula": "〜い / 〜くない / 〜かった / 〜くなかった (+ です)",
+    "category": "adjective",
+    "difficulty": 1,
+    "examples": [
+      { "japanese": "このケーキはおいしかったです。", "romaji": "kono keeki wa oishikatta desu.", "turkish": "Bu pasta lezzetliydi." },
+      { "japanese": "きのうは寒くなかったです。", "hiragana": "きのうはさむくなかったです。", "romaji": "kinou wa samukunakatta desu.", "turkish": "Dün soğuk değildi." },
+      { "japanese": "その映画はよかったです。", "hiragana": "そのえいがはよかったです。", "romaji": "sono eiga wa yokatta desu.", "turkish": "O film iyiydi." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「高い」 nın geçmiş hâli nedir?", "hint": null, "choices": ["高かった", "高いだった", "高くだ", "高いでした"], "answer": "高かった" },
+      { "kind": "multipleChoice", "prompt": "「おいしい」 nın olumsuzu nedir?", "hint": null, "choices": ["おいしくない", "おいしいない", "おいしじゃない", "おいしくじゃない"], "answer": "おいしくない" },
+      { "kind": "fillBlank", "prompt": "きのうのパーティーは楽し＿＿です。", "hint": "Dünkü parti eğlenceliydi.", "promptReading": "きのうのパーティーはたのし＿＿です。", "choices": ["かった", "い", "くない", "だった"], "answer": "かった" }
+    ]
+  },
+  {
+    "key": "na_adj_predicate",
+    "pattern": "な形容詞の活用",
+    "romaji": "na-keiyoushi no katsuyou",
+    "title": "な-sıfat çekimi",
+    "explanation": "な-sıfatlar isim gibi çekilir: şimdi 〜です, olumsuz 〜じゃありません, geçmiş 〜でした, geçmiş olumsuz 〜じゃありませんでした. İsimden önce 〜な (きれいな花).",
+    "formula": "〜です / 〜じゃありません / 〜でした / 〜じゃありませんでした",
+    "category": "adjective",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "きのうは暇でした。", "hiragana": "きのうはひまでした。", "romaji": "kinou wa hima deshita.", "turkish": "Dün boştum." },
+      { "japanese": "この町は静かじゃありません。", "hiragana": "このまちはしずかじゃありません。", "romaji": "kono machi wa shizuka ja arimasen.", "turkish": "Bu kasaba sessiz değil." },
+      { "japanese": "子どものとき、体が丈夫じゃありませんでした。", "hiragana": "こどものとき、からだがじょうぶじゃありませんでした。", "romaji": "kodomo no toki, karada ga joubu ja arimasen deshita.", "turkish": "Çocukken sağlığım pek iyi değildi." }
+    ],
+    "questions": [
+      { "kind": "multipleChoice", "prompt": "「元気」 (na-sıfat) nın geçmiş hâli nedir?", "hint": null, "choices": ["元気でした", "元気かった", "元気いだ", "元気くない"], "answer": "元気でした" },
+      { "kind": "multipleChoice", "prompt": "「静か」 nın olumsuzu nedir?", "hint": null, "choices": ["静かじゃありません", "静くない", "静かくない", "静かないです"], "answer": "静かじゃありません" },
+      { "kind": "fillBlank", "prompt": "先週の試験は簡単＿＿。", "hint": "Geçen haftaki sınav kolaydı.", "promptReading": "せんしゅうのしけんはかんたん＿＿。", "choices": ["でした", "かった", "くない", "だったです"], "answer": "でした" }
+    ]
+  },
+  {
+    "key": "adj_ku_ni_adverb",
+    "pattern": "～く／～に (zarf)",
+    "romaji": "~ ku / ~ ni",
+    "title": "Sıfattan zarf: ～く／～に",
+    "explanation": "Sıfatı zarfa çevirir (fiili niteler). い-sıfat: 〜い→〜く (早く 'hızlıca'); な-sıfat: 〜な→〜に (静かに 'sessizce', 上手に 'ustaca').",
+    "formula": "[い-sıfat] 〜く + [fiil]   /   [な-sıfat] 〜に + [fiil]",
+    "category": "adjective",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "早く起きてください。", "hiragana": "はやくおきてください。", "romaji": "hayaku okite kudasai.", "turkish": "Lütfen erken kalkın." },
+      { "japanese": "字をきれいに書きます。", "hiragana": "じをきれいにかきます。", "romaji": "ji o kirei ni kakimasu.", "turkish": "Yazıyı güzelce yazarım." },
+      { "japanese": "日本語を上手に話します。", "hiragana": "にほんごをじょうずにはなします。", "romaji": "nihongo o jouzu ni hanashimasu.", "turkish": "Japoncayı ustaca konuşur." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "もっと大き＿＿声で話してください。", "hint": "Daha yüksek sesle konuşun.", "promptReading": "もっとおおき＿＿こえではなしてください。", "choices": ["く", "に", "な", "の"], "answer": "く" },
+      { "kind": "fillBlank", "prompt": "しずか＿＿してください。", "hint": "Sessiz olun / sessizce yapın.", "choices": ["に", "く", "な", "と"], "answer": "に" },
+      { "kind": "multipleChoice", "prompt": "「早い」 sıfatı fiili nitelemek için nasıl olur?", "hint": null, "choices": ["早く", "早に", "早いに", "早くに"], "answer": "早く" }
+    ]
+  },
+  {
+    "key": "adj_te_form",
+    "pattern": "～くて／～で (bağlama)",
+    "romaji": "~ kute / ~ de",
+    "title": "Sıfat te-biçimi: ～くて／～で",
+    "explanation": "İki sıfatı ya da sıfat + cümleyi bağlar: 've'. い-sıfat: 〜い→〜くて (安くておいしい); な-sıfat / isim: 〜で (きれいで静か). いい→よくて.",
+    "formula": "[い-sıfat] 〜くて   /   [な-sıfat・isim] 〜で",
+    "category": "adjective",
+    "difficulty": 2,
+    "examples": [
+      { "japanese": "この店は安くておいしいです。", "hiragana": "このみせはやすくておいしいです。", "romaji": "kono mise wa yasukute oishii desu.", "turkish": "Bu dükkân ucuz ve lezzetli." },
+      { "japanese": "彼女はきれいで親切です。", "hiragana": "かのじょはきれいでしんせつです。", "romaji": "kanojo wa kirei de shinsetsu desu.", "turkish": "O güzel ve nazik." },
+      { "japanese": "この部屋は広くて明るいです。", "hiragana": "このへやはひろくてあかるいです。", "romaji": "kono heya wa hirokute akarui desu.", "turkish": "Bu oda geniş ve aydınlık." }
+    ],
+    "questions": [
+      { "kind": "fillBlank", "prompt": "このかばんは軽＿＿、便利です。", "hint": "Bu çanta hafif ve kullanışlı.", "promptReading": "このかばんはかる＿＿、べんりです。", "choices": ["くて", "くで", "いで", "だって"], "answer": "くて" },
+      { "kind": "fillBlank", "prompt": "町はしずか＿＿、きれいです。", "hint": "Kasaba sessiz ve temiz.", "promptReading": "まちはしずか＿＿、きれいです。", "choices": ["で", "くて", "に", "と"], "answer": "で" },
+      { "kind": "multipleChoice", "prompt": "「高い」 + 「まずい」 nasıl birleşir?", "hint": null, "choices": ["高くてまずい", "高いてまずい", "高でまずい", "高くまずい"], "answer": "高くてまずい" }
+    ]
+  }
+]

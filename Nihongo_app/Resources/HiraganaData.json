@@ -1,0 +1,57 @@
+[
+  { "character": "あ", "romaji": "a", "turkishPronunciation": "a", "row": "a", "strokeCount": 3, "exampleWords": [{ "hiragana": "あさ", "romaji": "asa", "turkishMeaning": "sabah" }] },
+  { "character": "い", "romaji": "i", "turkishPronunciation": "i", "row": "a", "strokeCount": 2, "exampleWords": [{ "hiragana": "いぬ", "romaji": "inu", "turkishMeaning": "köpek" }] },
+  { "character": "う", "romaji": "u", "turkishPronunciation": "u", "row": "a", "strokeCount": 2, "exampleWords": [{ "hiragana": "うみ", "romaji": "umi", "turkishMeaning": "deniz" }] },
+  { "character": "え", "romaji": "e", "turkishPronunciation": "e", "row": "a", "strokeCount": 2, "exampleWords": [{ "hiragana": "えき", "romaji": "eki", "turkishMeaning": "istasyon" }] },
+  { "character": "お", "romaji": "o", "turkishPronunciation": "o", "row": "a", "strokeCount": 3, "exampleWords": [{ "hiragana": "おちゃ", "romaji": "ocha", "turkishMeaning": "çay" }] },
+
+  { "character": "か", "romaji": "ka", "turkishPronunciation": "ka", "row": "ka", "strokeCount": 3, "exampleWords": [{ "hiragana": "かさ", "romaji": "kasa", "turkishMeaning": "şemsiye" }] },
+  { "character": "き", "romaji": "ki", "turkishPronunciation": "ki", "row": "ka", "strokeCount": 4, "exampleWords": [{ "hiragana": "きって", "romaji": "kitte", "turkishMeaning": "pul" }] },
+  { "character": "く", "romaji": "ku", "turkishPronunciation": "ku", "row": "ka", "strokeCount": 1, "exampleWords": [{ "hiragana": "くつ", "romaji": "kutsu", "turkishMeaning": "ayakkabı" }] },
+  { "character": "け", "romaji": "ke", "turkishPronunciation": "ke", "row": "ka", "strokeCount": 3, "exampleWords": [{ "hiragana": "けさ", "romaji": "kesa", "turkishMeaning": "bu sabah" }] },
+  { "character": "こ", "romaji": "ko", "turkishPronunciation": "ko", "row": "ka", "strokeCount": 2, "exampleWords": [{ "hiragana": "こども", "romaji": "kodomo", "turkishMeaning": "çocuk" }] },
+
+  { "character": "さ", "romaji": "sa", "turkishPronunciation": "sa", "row": "sa", "strokeCount": 3, "exampleWords": [{ "hiragana": "さかな", "romaji": "sakana", "turkishMeaning": "balık" }] },
+  { "character": "し", "romaji": "shi", "turkishPronunciation": "şi", "row": "sa", "strokeCount": 1, "exampleWords": [{ "hiragana": "しろ", "romaji": "shiro", "turkishMeaning": "beyaz" }] },
+  { "character": "す", "romaji": "su", "turkishPronunciation": "su", "row": "sa", "strokeCount": 2, "exampleWords": [{ "hiragana": "すいか", "romaji": "suika", "turkishMeaning": "karpuz" }] },
+  { "character": "せ", "romaji": "se", "turkishPronunciation": "se", "row": "sa", "strokeCount": 3, "exampleWords": [{ "hiragana": "せんせい", "romaji": "sensei", "turkishMeaning": "öğretmen" }] },
+  { "character": "そ", "romaji": "so", "turkishPronunciation": "so", "row": "sa", "strokeCount": 1, "exampleWords": [{ "hiragana": "そら", "romaji": "sora", "turkishMeaning": "gökyüzü" }] },
+
+  { "character": "た", "romaji": "ta", "turkishPronunciation": "ta", "row": "ta", "strokeCount": 4, "exampleWords": [{ "hiragana": "たまご", "romaji": "tamago", "turkishMeaning": "yumurta" }] },
+  { "character": "ち", "romaji": "chi", "turkishPronunciation": "çi", "row": "ta", "strokeCount": 2, "exampleWords": [{ "hiragana": "ちず", "romaji": "chizu", "turkishMeaning": "harita" }] },
+  { "character": "つ", "romaji": "tsu", "turkishPronunciation": "tsu", "row": "ta", "strokeCount": 1, "exampleWords": [{ "hiragana": "つくえ", "romaji": "tsukue", "turkishMeaning": "masa" }] },
+  { "character": "て", "romaji": "te", "turkishPronunciation": "te", "row": "ta", "strokeCount": 1, "exampleWords": [{ "hiragana": "てがみ", "romaji": "tegami", "turkishMeaning": "mektup" }] },
+  { "character": "と", "romaji": "to", "turkishPronunciation": "to", "row": "ta", "strokeCount": 2, "exampleWords": [{ "hiragana": "とけい", "romaji": "tokei", "turkishMeaning": "saat" }] },
+
+  { "character": "な", "romaji": "na", "turkishPronunciation": "na", "row": "na", "strokeCount": 4, "exampleWords": [{ "hiragana": "なつ", "romaji": "natsu", "turkishMeaning": "yaz" }] },
+  { "character": "に", "romaji": "ni", "turkishPronunciation": "ni", "row": "na", "strokeCount": 3, "exampleWords": [{ "hiragana": "にほん", "romaji": "nihon", "turkishMeaning": "Japonya" }] },
+  { "character": "ぬ", "romaji": "nu", "turkishPronunciation": "nu", "row": "na", "strokeCount": 2, "exampleWords": [{ "hiragana": "ぬいぐるみ", "romaji": "nuigurumi", "turkishMeaning": "peluş oyuncak" }] },
+  { "character": "ね", "romaji": "ne", "turkishPronunciation": "ne", "row": "na", "strokeCount": 2, "exampleWords": [{ "hiragana": "ねこ", "romaji": "neko", "turkishMeaning": "kedi" }] },
+  { "character": "の", "romaji": "no", "turkishPronunciation": "no", "row": "na", "strokeCount": 1, "exampleWords": [{ "hiragana": "のみもの", "romaji": "nomimono", "turkishMeaning": "içecek" }] },
+
+  { "character": "は", "romaji": "ha", "turkishPronunciation": "ha", "row": "ha", "strokeCount": 3, "exampleWords": [{ "hiragana": "はな", "romaji": "hana", "turkishMeaning": "çiçek" }] },
+  { "character": "ひ", "romaji": "hi", "turkishPronunciation": "hi", "row": "ha", "strokeCount": 1, "exampleWords": [{ "hiragana": "ひこうき", "romaji": "hikouki", "turkishMeaning": "uçak" }] },
+  { "character": "ふ", "romaji": "fu", "turkishPronunciation": "fu", "row": "ha", "strokeCount": 4, "exampleWords": [{ "hiragana": "ふゆ", "romaji": "fuyu", "turkishMeaning": "kış" }] },
+  { "character": "へ", "romaji": "he", "turkishPronunciation": "he", "row": "ha", "strokeCount": 1, "exampleWords": [{ "hiragana": "へや", "romaji": "heya", "turkishMeaning": "oda" }] },
+  { "character": "ほ", "romaji": "ho", "turkishPronunciation": "ho", "row": "ha", "strokeCount": 4, "exampleWords": [{ "hiragana": "ほん", "romaji": "hon", "turkishMeaning": "kitap" }] },
+
+  { "character": "ま", "romaji": "ma", "turkishPronunciation": "ma", "row": "ma", "strokeCount": 3, "exampleWords": [{ "hiragana": "まど", "romaji": "mado", "turkishMeaning": "pencere" }] },
+  { "character": "み", "romaji": "mi", "turkishPronunciation": "mi", "row": "ma", "strokeCount": 2, "exampleWords": [{ "hiragana": "みず", "romaji": "mizu", "turkishMeaning": "su" }] },
+  { "character": "む", "romaji": "mu", "turkishPronunciation": "mu", "row": "ma", "strokeCount": 3, "exampleWords": [{ "hiragana": "むし", "romaji": "mushi", "turkishMeaning": "böcek" }] },
+  { "character": "め", "romaji": "me", "turkishPronunciation": "me", "row": "ma", "strokeCount": 2, "exampleWords": [{ "hiragana": "めがね", "romaji": "megane", "turkishMeaning": "gözlük" }] },
+  { "character": "も", "romaji": "mo", "turkishPronunciation": "mo", "row": "ma", "strokeCount": 3, "exampleWords": [{ "hiragana": "もも", "romaji": "momo", "turkishMeaning": "şeftali" }] },
+
+  { "character": "や", "romaji": "ya", "turkishPronunciation": "ya", "row": "ya", "strokeCount": 3, "exampleWords": [{ "hiragana": "やま", "romaji": "yama", "turkishMeaning": "dağ" }] },
+  { "character": "ゆ", "romaji": "yu", "turkishPronunciation": "yu", "row": "ya", "strokeCount": 2, "exampleWords": [{ "hiragana": "ゆき", "romaji": "yuki", "turkishMeaning": "kar" }] },
+  { "character": "よ", "romaji": "yo", "turkishPronunciation": "yo", "row": "ya", "strokeCount": 2, "exampleWords": [{ "hiragana": "よる", "romaji": "yoru", "turkishMeaning": "gece" }] },
+
+  { "character": "ら", "romaji": "ra", "turkishPronunciation": "ra", "row": "ra", "strokeCount": 2, "exampleWords": [{ "hiragana": "らいねん", "romaji": "rainen", "turkishMeaning": "gelecek yıl" }] },
+  { "character": "り", "romaji": "ri", "turkishPronunciation": "ri", "row": "ra", "strokeCount": 2, "exampleWords": [{ "hiragana": "りんご", "romaji": "ringo", "turkishMeaning": "elma" }] },
+  { "character": "る", "romaji": "ru", "turkishPronunciation": "ru", "row": "ra", "strokeCount": 1, "exampleWords": [{ "hiragana": "るす", "romaji": "rusu", "turkishMeaning": "evde olmama" }] },
+  { "character": "れ", "romaji": "re", "turkishPronunciation": "re", "row": "ra", "strokeCount": 2, "exampleWords": [{ "hiragana": "れいぞうこ", "romaji": "reizouko", "turkishMeaning": "buzdolabı" }] },
+  { "character": "ろ", "romaji": "ro", "turkishPronunciation": "ro", "row": "ra", "strokeCount": 1, "exampleWords": [{ "hiragana": "ろうそく", "romaji": "rousoku", "turkishMeaning": "mum" }] },
+
+  { "character": "わ", "romaji": "wa", "turkishPronunciation": "va", "row": "wa", "strokeCount": 2, "exampleWords": [{ "hiragana": "わたし", "romaji": "watashi", "turkishMeaning": "ben" }] },
+  { "character": "を", "romaji": "wo", "turkishPronunciation": "o", "row": "wa", "strokeCount": 3, "exampleWords": [{ "hiragana": "ほんをよむ", "romaji": "hon wo yomu", "turkishMeaning": "kitap okumak (parçacık olarak kullanılır)" }] },
+  { "character": "ん", "romaji": "n", "turkishPronunciation": "n", "row": "wa", "strokeCount": 1, "exampleWords": [{ "hiragana": "みかん", "romaji": "mikan", "turkishMeaning": "mandalina (sonunda 'ん' geçer)" }] }
+]

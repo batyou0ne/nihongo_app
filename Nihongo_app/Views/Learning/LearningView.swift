@@ -1,0 +1,56 @@
+import SwiftUI
+import SwiftData
+
+/// Hiragana/Katakana öğrenme ekranı — karakterleri JSON'dan yükler, gerçek flashcard
+/// akışını (tek tek gelen kartlar, 4 şık, oturum devamlılığı) FlashcardSessionView'a bırakır.
+struct LearningView: View {
+    let characterType: CharacterType
+    @Environment(TabBarManager.self) private var tabBarManager
+
+    @State private var characters: [JapaneseCharacter] = []
+
+    private var accentColor: Color {
+        Theme.accent
+    }
+
+    var body: some View {
+        Group {
+            if characters.isEmpty {
+                SwiftUI.ProgressView()
+            } else {
+                FlashcardSessionView(
+                    sessionKey: characterType.rawValue,
+                    itemKind: characterType == .hiragana ? .hiraganaCharacter : .katakanaCharacter,
+                    allItems: characters,
+                    distractorPool: characters,
+                    accentColor: accentColor,
+                    title: characterType.displayName
+                )
+            }
+        }
+        .onAppear {
+            tabBarManager.isHidden = true
+            guard characters.isEmpty else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                let fileName = characterType == .hiragana ? "HiraganaData" : "KatakanaData"
+                guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
+                      let data = try? Data(contentsOf: url),
+                      var loaded = try? JSONDecoder().decode([JapaneseCharacter].self, from: data) else {
+                    return
+                }
+                for index in loaded.indices { loaded[index].type = characterType }
+                characters = loaded
+            }
+        }
+        .onDisappear {
+            tabBarManager.isHidden = false
+        }
+    }
+}
+
+#Preview {
+    NavigationStack {
+        LearningView(characterType: .hiragana)
+    }
+    .modelContainer(for: [LearningItemProgress.self, UserProgress.self, LearningSessionState.self], inMemory: true)
+}
