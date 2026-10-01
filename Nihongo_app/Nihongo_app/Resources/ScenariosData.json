@@ -1,0 +1,1982 @@
+[
+  {
+    "id": "s1",
+    "title": "Tanışma",
+    "description": "Yeni biriyle karşılaştığınızda kendinizi tanıtın.",
+    "level": "N5",
+    "steps": [
+      {
+        "id": "39b045d1-2004-4298-a4e8-1fe283e488ca",
+        "botMessage": {
+          "japanese": "はじめまして。わたしは田中[たなか]です。",
+          "romaji": "Hajimemashite. Watashi wa Tanaka desu.",
+          "turkish": "Memnun oldum. Ben Tanaka."
+        },
+        "options": [
+          {
+            "id": "2e8f0f8d-f715-4cff-9b4c-228bfe861e07",
+            "japanese": "はじめまして。よろしくお願[ねが]いします。",
+            "romaji": "Hajimemashite. Yoroshiku onegaishimasu.",
+            "turkish": "Memnun oldum. Lütfen bana iyi davranın.",
+            "isCorrect": true
+          },
+          {
+            "id": "ed0aaf62-de78-4d95-800e-23132e73c54b",
+            "japanese": "さようなら。",
+            "romaji": "Sayounara.",
+            "turkish": "Hoşça kal.",
+            "isCorrect": false
+          },
+          {
+            "id": "839acaad-bdbe-468c-ab26-6e49c4bb1108",
+            "japanese": "ごめんなさい。",
+            "romaji": "Gomennasai.",
+            "turkish": "Özür dilerim.",
+            "isCorrect": false
+          },
+          {
+            "id": "e2d9e976-03e6-401e-9420-d66843d6cbaa",
+            "japanese": "ありがとう。",
+            "romaji": "Arigatou.",
+            "turkish": "Teşekkür ederim.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "cb1b4857-1604-4d3f-a922-84a226aef585",
+        "botMessage": {
+          "japanese": "お仕事[しごと]はなんですか？",
+          "romaji": "Oshigoto wa nan desu ka?",
+          "turkish": "Mesleğiniz nedir?"
+        },
+        "options": [
+          {
+            "id": "6130592b-3d6c-4579-a90b-23eb00a30a8d",
+            "japanese": "わたしは学生[がくせい]です。",
+            "romaji": "Watashi wa gakusei desu.",
+            "turkish": "Ben öğrenciyim.",
+            "isCorrect": true
+          },
+          {
+            "id": "885dfc6c-d8db-4741-9711-001cb55d1f54",
+            "japanese": "これはペンです。",
+            "romaji": "Kore wa pen desu.",
+            "turkish": "Bu bir kalemdir.",
+            "isCorrect": false
+          },
+          {
+            "id": "7da26512-60a6-4be4-8125-e8deb915606c",
+            "japanese": "はい、そうです。",
+            "romaji": "Hai, sou desu.",
+            "turkish": "Evet, öyle.",
+            "isCorrect": false
+          },
+          {
+            "id": "df3571e1-f19f-4390-832f-84865bc32463",
+            "japanese": "おいしいです。",
+            "romaji": "Oishii desu.",
+            "turkish": "Lezzetlidir.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "43a7c22c-6b9b-4cdd-ad0b-679a1202d218",
+        "botMessage": {
+          "japanese": "そうですか。どこから来[き]ましたか？",
+          "romaji": "Sou desu ka. Doko kara kimashita ka?",
+          "turkish": "Öyle mi? Nereden geldiniz?"
+        },
+        "options": [
+          {
+            "id": "301166e1-52a7-4246-8d04-f6b4cbe473ba",
+            "japanese": "トルコから来[き]ました。",
+            "romaji": "Toruko kara kimashita.",
+            "turkish": "Türkiye'den geldim.",
+            "isCorrect": true
+          },
+          {
+            "id": "a99c1124-b73e-4785-be4e-564ace3c7865",
+            "japanese": "学校[がっこう]へ行[い]きます。",
+            "romaji": "Gakkou e ikimasu.",
+            "turkish": "Okula gidiyorum.",
+            "isCorrect": false
+          },
+          {
+            "id": "57db6828-dba8-4e3a-8f73-9d7b33fb9c46",
+            "japanese": "明日[あした]来[き]ます。",
+            "romaji": "Ashita kimasu.",
+            "turkish": "Yarın geleceğim.",
+            "isCorrect": false
+          },
+          {
+            "id": "1e133a8b-a389-4aee-8657-7351e79f0757",
+            "japanese": "東京[とうきょう]にあります。",
+            "romaji": "Toukyou ni arimasu.",
+            "turkish": "Tokyo'da bulunuyor.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "d0e8355a-a51b-4ca7-b58d-af19bd7c1f1b",
+        "botMessage": {
+          "japanese": "トルコですね。いいですね。",
+          "romaji": "Toruko desu ne. Ii desu ne.",
+          "turkish": "Türkiye demek. Çok güzel."
+        },
+        "options": [
+          {
+            "id": "601f6b47-bf6c-431c-aab5-bfc1ecae671a",
+            "japanese": "はい、とてもいい国[くに]です。",
+            "romaji": "Hai, totemo ii kuni desu.",
+            "turkish": "Evet, çok güzel bir ülkedir.",
+            "isCorrect": true
+          },
+          {
+            "id": "3c953cad-80b6-41a3-96f2-61648904c553",
+            "japanese": "いいえ、ちがいます。",
+            "romaji": "Iie, chigaimasu.",
+            "turkish": "Hayır, yanılıyorsunuz.",
+            "isCorrect": false
+          },
+          {
+            "id": "cd757fde-a585-4f92-add9-4c8c520a8116",
+            "japanese": "まだ食[た]べていません。",
+            "romaji": "Mada tabete imasen.",
+            "turkish": "Henüz yemedim.",
+            "isCorrect": false
+          },
+          {
+            "id": "0c87e293-ff70-4dc5-ae0a-05fec27fc5bf",
+            "japanese": "わかりません。",
+            "romaji": "Wakarimasen.",
+            "turkish": "Bilmiyorum.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "b78b31f7-5531-4af9-9fc1-8c5a72d7cf44",
+        "botMessage": {
+          "japanese": "これからもよろしくお願[ねが]いします。",
+          "romaji": "Korekara mo yoroshiku onegaishimasu.",
+          "turkish": "Bundan sonra da görüşmek üzere (memnun oldum)."
+        },
+        "options": [
+          {
+            "id": "b2688994-76f1-4763-a41b-7b4b0cfd503d",
+            "japanese": "こちらこそ、よろしくお願[ねが]いします。",
+            "romaji": "Kochirakoso, yoroshiku onegaishimasu.",
+            "turkish": "Asıl ben memnun oldum.",
+            "isCorrect": true
+          },
+          {
+            "id": "d87d598c-6b4f-4ee5-bd47-45568d3bfa52",
+            "japanese": "どういたしまして。",
+            "romaji": "Douitashimashite.",
+            "turkish": "Rica ederim.",
+            "isCorrect": false
+          },
+          {
+            "id": "a2e60a30-02ff-4700-93d7-f6050be37313",
+            "japanese": "すみません。",
+            "romaji": "Sumimasen.",
+            "turkish": "Afedersiniz.",
+            "isCorrect": false
+          },
+          {
+            "id": "11a3da90-fd80-4462-b698-7d0baf8baf9b",
+            "japanese": "いただきます。",
+            "romaji": "Itadakimasu.",
+            "turkish": "Afiyet olsun.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s2",
+    "title": "Restoranda Sipariş",
+    "description": "Bir restoranda yemek siparişi verin.",
+    "level": "N5",
+    "steps": [
+      {
+        "id": "1a0576f5-7ba7-4440-984f-6e41b93ad6e1",
+        "botMessage": {
+          "japanese": "いらっしゃいませ。何名様[なんめいさま]ですか？",
+          "romaji": "Irasshaimase. Nanmei-sama desu ka?",
+          "turkish": "Hoş geldiniz. Kaç kişisiniz?"
+        },
+        "options": [
+          {
+            "id": "f6d68916-1652-41aa-ae89-3b5c704ba460",
+            "japanese": "二人[ふたり]です。",
+            "romaji": "Futari desu.",
+            "turkish": "İki kişiyiz.",
+            "isCorrect": true
+          },
+          {
+            "id": "43dfd7bd-3fb9-43db-91cf-bd16fb3ae7f6",
+            "japanese": "二[ふた]つです。",
+            "romaji": "Futatsu desu.",
+            "turkish": "İki tane.",
+            "isCorrect": false
+          },
+          {
+            "id": "1161f81d-22ec-49f9-984a-8df2fea61bea",
+            "japanese": "二時[にじ]です。",
+            "romaji": "Niji desu.",
+            "turkish": "Saat iki.",
+            "isCorrect": false
+          },
+          {
+            "id": "12622eaa-4ec9-4f34-8eae-a9ce7ff1bdb7",
+            "japanese": "二階[にかい]です。",
+            "romaji": "Nikai desu.",
+            "turkish": "İkinci kat.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "99292a5d-8b2c-4dff-ba90-f98645c5489b",
+        "botMessage": {
+          "japanese": "こちらへどうぞ。メニューです。",
+          "romaji": "Kochira e douzo. Menyuu desu.",
+          "turkish": "Buradan buyrun. Menünüz."
+        },
+        "options": [
+          {
+            "id": "0a252126-2b25-4c60-b72d-1beb53c195c8",
+            "japanese": "ありがとうございます。",
+            "romaji": "Arigatou gozaimasu.",
+            "turkish": "Teşekkür ederim.",
+            "isCorrect": true
+          },
+          {
+            "id": "87048b0e-48a0-45ad-bd6a-2e71f795a7b3",
+            "japanese": "ごめんなさい。",
+            "romaji": "Gomennasai.",
+            "turkish": "Özür dilerim.",
+            "isCorrect": false
+          },
+          {
+            "id": "06f7487f-d19e-4e28-a68a-922539a940de",
+            "japanese": "おやすみなさい。",
+            "romaji": "Oyasuminasai.",
+            "turkish": "İyi geceler.",
+            "isCorrect": false
+          },
+          {
+            "id": "cbaf3098-fe85-492a-a599-ac81cd6aaf6b",
+            "japanese": "おはようございます。",
+            "romaji": "Ohayou gozaimasu.",
+            "turkish": "Günaydın.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "b9e42a94-88f9-498f-9c13-fb16a3d0d400",
+        "botMessage": {
+          "japanese": "ご注[ちゅう]文[もん]はお決[き]まりですか？",
+          "romaji": "Gochuumon wa okimari desu ka?",
+          "turkish": "Siparişinize karar verdiniz mi?"
+        },
+        "options": [
+          {
+            "id": "7c552504-c40b-4476-a445-268e1f3a3564",
+            "japanese": "はい、ラーメンをお願[ねが]いします。",
+            "romaji": "Hai, raamen o onegaishimasu.",
+            "turkish": "Evet, ramen lütfen.",
+            "isCorrect": true
+          },
+          {
+            "id": "49db8235-e88a-4fd9-91ed-6453a28306c5",
+            "japanese": "いいえ、食[た]べません。",
+            "romaji": "Iie, tabemasen.",
+            "turkish": "Hayır, yemem.",
+            "isCorrect": false
+          },
+          {
+            "id": "e51f3d7f-868c-4ff9-b499-18b5cdb98fb1",
+            "japanese": "おいしいです。",
+            "romaji": "Oishii desu.",
+            "turkish": "Lezzetlidir.",
+            "isCorrect": false
+          },
+          {
+            "id": "ddc322ce-687a-46b4-b4dd-901a80c297fa",
+            "japanese": "水[みず]が好[す]きです。",
+            "romaji": "Mizu ga suki desu.",
+            "turkish": "Suyu severim.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "c5a9272a-b8ba-4ec7-a026-c11d82c21621",
+        "botMessage": {
+          "japanese": "お飲[の]み物[もの]はいかがですか？",
+          "romaji": "Onomimono wa ikaga desu ka?",
+          "turkish": "İçecek bir şey ister misiniz?"
+        },
+        "options": [
+          {
+            "id": "152f502d-412b-4207-99b8-0fbd905a0568",
+            "japanese": "お茶[ちゃ]をください。",
+            "romaji": "Ocha o kudasai.",
+            "turkish": "Çay verin lütfen.",
+            "isCorrect": true
+          },
+          {
+            "id": "dcf43cc8-0f25-4b9a-b0c5-2327f3e51aa2",
+            "japanese": "りんごをください。",
+            "romaji": "Ringo o kudasai.",
+            "turkish": "Elma verin lütfen.",
+            "isCorrect": false
+          },
+          {
+            "id": "c01b81e3-a849-4df8-bb14-35396530fc5a",
+            "japanese": "肉[にく]をお願[ねが]いします。",
+            "romaji": "Niku o onegaishimasu.",
+            "turkish": "Et lütfen.",
+            "isCorrect": false
+          },
+          {
+            "id": "51de333a-9e0e-4bbe-a82b-0054685e60f4",
+            "japanese": "いりません。",
+            "romaji": "Irimasen.",
+            "turkish": "İstemiyorum. (Kaba)",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "6bdd6b60-8731-4ef5-a789-b210773ce978",
+        "botMessage": {
+          "japanese": "かしこまりました。少々[しょうしょう]お待[ま]ちください。",
+          "romaji": "Kashikomarimashita. Shoushou omachi kudasai.",
+          "turkish": "Anlaşıldı. Lütfen biraz bekleyin."
+        },
+        "options": [
+          {
+            "id": "8118dd1c-713f-4f23-856c-6fe9feed2507",
+            "japanese": "はい、わかりました。",
+            "romaji": "Hai, wakarimashita.",
+            "turkish": "Evet, anladım.",
+            "isCorrect": true
+          },
+          {
+            "id": "478fb44a-f481-4598-bfbb-e7159d6085e8",
+            "japanese": "早[はや]くしてください。",
+            "romaji": "Hayaku shite kudasai.",
+            "turkish": "Acele edin lütfen.",
+            "isCorrect": false
+          },
+          {
+            "id": "3928d22b-a745-46d1-9439-30748da1904a",
+            "japanese": "ごちそうさまでした。",
+            "romaji": "Gochisousama deshita.",
+            "turkish": "Ellerinize sağlık (Yemekten sonra).",
+            "isCorrect": false
+          },
+          {
+            "id": "a37e680f-a1ac-4f9a-9148-cf2ab7cabc99",
+            "japanese": "さようなら。",
+            "romaji": "Sayounara.",
+            "turkish": "Hoşça kal.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s3",
+    "title": "Alışveriş",
+    "description": "Bir mağazada kıyafet alırken geçen diyalog.",
+    "level": "N5",
+    "steps": [
+      {
+        "id": "ddc1e6c3-fa63-4b80-a0d6-c31a4b0d43a2",
+        "botMessage": {
+          "japanese": "いらっしゃいませ。何[なに]かお探[さが]しですか？",
+          "romaji": "Irasshaimase. Nanika osagashi desu ka?",
+          "turkish": "Hoş geldiniz. Bir şey mi arıyordunuz?"
+        },
+        "options": [
+          {
+            "id": "89d76808-1894-4eff-81a5-ae81279352e2",
+            "japanese": "シャツを探[さが]しています。",
+            "romaji": "Shatsu o sagashite imasu.",
+            "turkish": "Gömlek arıyorum.",
+            "isCorrect": true
+          },
+          {
+            "id": "e0ea7a31-0e14-45dc-9387-7afd5d9589ed",
+            "japanese": "寝[ね]たいです。",
+            "romaji": "Netai desu.",
+            "turkish": "Uyumak istiyorum.",
+            "isCorrect": false
+          },
+          {
+            "id": "658c4f66-881f-4b74-bbae-99e486aabeef",
+            "japanese": "道[みち]に迷[まよ]いました。",
+            "romaji": "Michi ni mayoimashita.",
+            "turkish": "Yolumu kaybettim.",
+            "isCorrect": false
+          },
+          {
+            "id": "03cfbc2e-237d-43f5-88aa-2ffd56f608d6",
+            "japanese": "本[ほん]を読[よ]みます。",
+            "romaji": "Hon o yomimasu.",
+            "turkish": "Kitap okuyacağım.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "45564a19-cc3f-42f3-bdfe-ee81633e7c49",
+        "botMessage": {
+          "japanese": "こちらのシャツはいかがですか？",
+          "romaji": "Kochira no shatsu wa ikaga desu ka?",
+          "turkish": "Bu gömlek nasıl?"
+        },
+        "options": [
+          {
+            "id": "94b9c6f0-de52-42c4-86c4-65fac6419bc1",
+            "japanese": "いいですね。試着[しちゃく]してもいいですか？",
+            "romaji": "Ii desu ne. Shichaku shite mo ii desu ka?",
+            "turkish": "Güzelmiş. Deneyebilir miyim?",
+            "isCorrect": true
+          },
+          {
+            "id": "a118d6e5-3fda-43b4-9c04-ca232c9d01d4",
+            "japanese": "美味[おい]しくないです。",
+            "romaji": "Oishikunai desu.",
+            "turkish": "Lezzetli değil.",
+            "isCorrect": false
+          },
+          {
+            "id": "b860a5e8-aee3-4f5a-be03-264fe553f9ec",
+            "japanese": "はい、捨[す]ててください。",
+            "romaji": "Hai, sutete kudasai.",
+            "turkish": "Evet, çöpe atın.",
+            "isCorrect": false
+          },
+          {
+            "id": "44cd8733-421a-46fe-86bd-41a91d7a5dcc",
+            "japanese": "あそこです。",
+            "romaji": "Asoko desu.",
+            "turkish": "Oradadır.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "258faa62-d18c-4ebb-85f2-d5a77134a100",
+        "botMessage": {
+          "japanese": "はい、試着室[しちゃくしつ]はあちらです。",
+          "romaji": "Hai, shichakushitsu wa achira desu.",
+          "turkish": "Evet, deneme kabini oradadır."
+        },
+        "options": [
+          {
+            "id": "9d7dfa13-5b44-4fe0-8c69-aff8e81a1b1f",
+            "japanese": "ありがとうございます。",
+            "romaji": "Arigatou gozaimasu.",
+            "turkish": "Teşekkür ederim.",
+            "isCorrect": true
+          },
+          {
+            "id": "8fa83743-e47c-413e-aff8-18b167be06e8",
+            "japanese": "どういたしまして。",
+            "romaji": "Douitashimashite.",
+            "turkish": "Rica ederim.",
+            "isCorrect": false
+          },
+          {
+            "id": "1c666d18-5c4a-429c-8d01-703b219a59bc",
+            "japanese": "ただいま。",
+            "romaji": "Tadaima.",
+            "turkish": "Ben geldim.",
+            "isCorrect": false
+          },
+          {
+            "id": "293d72b6-995c-40f8-9580-d3e65a9bf061",
+            "japanese": "いただきます。",
+            "romaji": "Itadakimasu.",
+            "turkish": "Afiyet olsun.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "fe4feb8b-893c-4398-97cc-3b35eac0bd4a",
+        "botMessage": {
+          "japanese": "いかがでしたか？",
+          "romaji": "Ikaga deshita ka?",
+          "turkish": "Nasıldı? (Üzerinize oldu mu?)"
+        },
+        "options": [
+          {
+            "id": "c7c2bf97-c987-471c-983a-39e95775ec9b",
+            "japanese": "ちょうどいいです。これを買[か]います。",
+            "romaji": "Choudo ii desu. Kore o kaimasu.",
+            "turkish": "Tam oldu. Bunu satın alıyorum.",
+            "isCorrect": true
+          },
+          {
+            "id": "ebc0bdd8-20c2-445e-847d-3838d2a529b4",
+            "japanese": "食[た]べすぎました。",
+            "romaji": "Tabesugimashita.",
+            "turkish": "Çok fazla yedim.",
+            "isCorrect": false
+          },
+          {
+            "id": "c16a3e8d-56ed-40e8-9062-532bdc93587c",
+            "japanese": "まだ終[お]わっていません。",
+            "romaji": "Mada owatte imasen.",
+            "turkish": "Henüz bitmedi.",
+            "isCorrect": false
+          },
+          {
+            "id": "0f44dc7f-b023-4cf3-99d7-0e5489d94234",
+            "japanese": "分[わ]かりません。",
+            "romaji": "Wakarimasen.",
+            "turkish": "Bilmiyorum.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "b3204daa-6243-4f1b-b732-a8c32fc3d270",
+        "botMessage": {
+          "japanese": "ありがとうございます。三千円[さんぜんえん]になります。",
+          "romaji": "Arigatou gozaimasu. Sanzen-en ni narimasu.",
+          "turkish": "Teşekkür ederim. Üç bin yen tutuyor."
+        },
+        "options": [
+          {
+            "id": "aa1a82f6-8bd4-4ef8-a413-38b859cb09cf",
+            "japanese": "カードで払[はら]えますか？",
+            "romaji": "Kaado de haraemasu ka?",
+            "turkish": "Kartla ödeyebilir miyim?",
+            "isCorrect": true
+          },
+          {
+            "id": "435a13a8-9f19-4786-8682-022377a892c7",
+            "japanese": "お金[かね]がありません。",
+            "romaji": "Okane ga arimasen.",
+            "turkish": "Param yok.",
+            "isCorrect": false
+          },
+          {
+            "id": "2d7578cb-aa93-44cf-9976-98105e684862",
+            "japanese": "安[やす]すぎます。",
+            "romaji": "Yasusugimasu.",
+            "turkish": "Çok ucuz.",
+            "isCorrect": false
+          },
+          {
+            "id": "65ca74b2-064b-4d20-bd14-80c5e561bcc7",
+            "japanese": "明日[あした]払[はら]います。",
+            "romaji": "Ashita haraimasu.",
+            "turkish": "Yarın ödeyeceğim.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s4",
+    "title": "Yol Tarifi",
+    "description": "İstasyona nasıl gideceğinizi sorun.",
+    "level": "N5",
+    "steps": [
+      {
+        "id": "73c002dd-5cdb-4512-a98c-3533642249c7",
+        "botMessage": {
+          "japanese": "すみません、駅[えき]はどこですか？",
+          "romaji": "Sumimasen, eki wa doko desu ka?",
+          "turkish": "Afedersiniz, istasyon nerede?"
+        },
+        "options": [
+          {
+            "id": "90426ee7-f52e-496d-a8cc-e74e42f916cc",
+            "japanese": "駅[えき]はこの道[みち]をまっすぐです。",
+            "romaji": "Eki wa kono michi o massugu desu.",
+            "turkish": "İstasyon bu yoldan dümdüz ileride.",
+            "isCorrect": true
+          },
+          {
+            "id": "198a5767-eee8-4059-bb64-3309036957af",
+            "japanese": "駅[えき]は私[わたし]の家[いえ]です。",
+            "romaji": "Eki wa watashi no ie desu.",
+            "turkish": "İstasyon benim evim.",
+            "isCorrect": false
+          },
+          {
+            "id": "65e6d3d8-81cc-4499-a04a-d6cc6b3416ad",
+            "japanese": "駅[えき]を食[た]べました。",
+            "romaji": "Eki o tabemashita.",
+            "turkish": "İstasyonu yedim.",
+            "isCorrect": false
+          },
+          {
+            "id": "f3a1462e-ca3e-453d-a268-6964bb9a2a8f",
+            "japanese": "はい、駅[えき]です。",
+            "romaji": "Hai, eki desu.",
+            "turkish": "Evet, istasyon.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "9b5f94c8-f30e-444d-a380-61c530a6cd84",
+        "botMessage": {
+          "japanese": "歩[ある]いてどのくらいかかりますか？",
+          "romaji": "Aruite dono kurai kakarimasu ka?",
+          "turkish": "Yürüyerek ne kadar sürer?"
+        },
+        "options": [
+          {
+            "id": "65013ab6-a557-445a-ac91-94097b09d458",
+            "japanese": "十分[じゅっぷん]くらいかかります。",
+            "romaji": "Juppun kurai kakarimasu.",
+            "turkish": "Yaklaşık 10 dakika sürer.",
+            "isCorrect": true
+          },
+          {
+            "id": "850e9996-ae15-4822-bdcb-970bdf81915a",
+            "japanese": "十円[じゅうえん]くらいかかります。",
+            "romaji": "Juuen kurai kakarimasu.",
+            "turkish": "Yaklaşık 10 yen tutar.",
+            "isCorrect": false
+          },
+          {
+            "id": "4da7ce0d-2126-40e2-bc6a-3f726a32fdc4",
+            "japanese": "十個[じゅっこ]くらいあります。",
+            "romaji": "Jukko kurai arimasu.",
+            "turkish": "Yaklaşık 10 tane var.",
+            "isCorrect": false
+          },
+          {
+            "id": "98b06987-5843-4406-a481-8002452d6875",
+            "japanese": "十人[じゅうにん]くらいいます。",
+            "romaji": "Juunin kurai imasu.",
+            "turkish": "Yaklaşık 10 kişi var.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "62b36383-f07c-470e-8c76-0fbff96f60dc",
+        "botMessage": {
+          "japanese": "遠[とお]いですか？",
+          "romaji": "Tooi desu ka?",
+          "turkish": "Uzak mı?"
+        },
+        "options": [
+          {
+            "id": "2a135879-6e0d-41cd-8110-0015c8f7d901",
+            "japanese": "いいえ、近[ちか]くですよ。",
+            "romaji": "Iie, chikaku desu yo.",
+            "turkish": "Hayır, yakındır.",
+            "isCorrect": true
+          },
+          {
+            "id": "4f33029d-2ffb-410e-bd53-acb38586ad0a",
+            "japanese": "はい、安[やす]いです。",
+            "romaji": "Hai, yasui desu.",
+            "turkish": "Evet, ucuzdur.",
+            "isCorrect": false
+          },
+          {
+            "id": "22e1a701-0458-4acb-b0b5-f091b01cfe08",
+            "japanese": "いいえ、甘[あま]くないです。",
+            "romaji": "Iie, amakunai desu.",
+            "turkish": "Hayır, tatlı değil.",
+            "isCorrect": false
+          },
+          {
+            "id": "d9459cdd-ac7e-47c8-ae53-bb9ac68484d3",
+            "japanese": "はい、遠[とお]かったです。",
+            "romaji": "Hai, tookatta desu.",
+            "turkish": "Evet, uzaktı. (Geçmiş zaman)",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "3a02d4fb-6f75-41cc-91fe-f8f1dbd8a8a8",
+        "botMessage": {
+          "japanese": "バスでも行[い]けますか？",
+          "romaji": "Basu de mo ikemasu ka?",
+          "turkish": "Otobüsle de gidilebilir mi?"
+        },
+        "options": [
+          {
+            "id": "dbc55855-7a75-4479-be4b-6c5285301a27",
+            "japanese": "はい、あそこにバス停[てい]があります。",
+            "romaji": "Hai, asoko ni basutei ga arimasu.",
+            "turkish": "Evet, şurada otobüs durağı var.",
+            "isCorrect": true
+          },
+          {
+            "id": "9a45d7c3-5529-4773-8971-bc94c2b46020",
+            "japanese": "はい、バスを食[た]べます。",
+            "romaji": "Hai, basu o tabemasu.",
+            "turkish": "Evet, otobüsü yerim.",
+            "isCorrect": false
+          },
+          {
+            "id": "139db7f5-e07d-47c4-935b-e26bf082f5b6",
+            "japanese": "いいえ、行[い]きませんでした。",
+            "romaji": "Iie, ikimasen deshita.",
+            "turkish": "Hayır, gitmedim.",
+            "isCorrect": false
+          },
+          {
+            "id": "995a2d4e-0525-4267-815f-ef24377b8b65",
+            "japanese": "はい、車[くるま]です。",
+            "romaji": "Hai, kuruma desu.",
+            "turkish": "Evet, araba.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "b0e40700-88df-4354-bc4f-1779340726af",
+        "botMessage": {
+          "japanese": "どうもありがとうございます。",
+          "romaji": "Doumo arigatou gozaimasu.",
+          "turkish": "Çok teşekkür ederim."
+        },
+        "options": [
+          {
+            "id": "ddd32fdb-2db2-4166-8a9b-b9a39e49f307",
+            "japanese": "気[き]をつけてくださいね。",
+            "romaji": "Ki o tsukete kudasai ne.",
+            "turkish": "Dikkatli olun lütfen.",
+            "isCorrect": true
+          },
+          {
+            "id": "2a2a5479-67f1-4532-9070-095b674da406",
+            "japanese": "ごちそうさまでした。",
+            "romaji": "Gochisousama deshita.",
+            "turkish": "Ellerinize sağlık.",
+            "isCorrect": false
+          },
+          {
+            "id": "3a954ee3-2260-484f-ab3b-024d2b351b56",
+            "japanese": "おやすみなさい。",
+            "romaji": "Oyasuminasai.",
+            "turkish": "İyi geceler.",
+            "isCorrect": false
+          },
+          {
+            "id": "def0c3e1-2b46-491c-867f-057e131a532d",
+            "japanese": "いただきます。",
+            "romaji": "Itadakimasu.",
+            "turkish": "Afiyet olsun.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s5",
+    "title": "Otel Check-in",
+    "description": "Bir otele giriş yapın ve işlemlerinizi tamamlayın.",
+    "level": "N4",
+    "steps": [
+      {
+        "id": "b2248b22-7654-4d64-b7ce-9f3e9fd9dd7f",
+        "botMessage": {
+          "japanese": "いらっしゃいませ。ご予約[よやく]のお客様[きゃくさま]ですか？",
+          "romaji": "Irasshaimase. Goyoyaku no okyakusama desu ka?",
+          "turkish": "Hoş geldiniz. Rezervasyonunuz var mıydı?"
+        },
+        "options": [
+          {
+            "id": "728e8dee-c472-437a-99be-a8c233261434",
+            "japanese": "はい、予約[よやく]したアリです。",
+            "romaji": "Hai, yoyaku shita Ari desu.",
+            "turkish": "Evet, rezervasyon yapan Ali'yim.",
+            "isCorrect": true
+          },
+          {
+            "id": "bcf1b135-a0bf-4da7-974e-c20ab42a25d3",
+            "japanese": "いいえ、帰[かえ]りたかったです。",
+            "romaji": "Iie, kaeritakatta desu.",
+            "turkish": "Hayır, dönmek istiyordum.",
+            "isCorrect": false
+          },
+          {
+            "id": "127acd17-0954-4bf1-9551-252b93ea23b6",
+            "japanese": "はい、ホテルです。",
+            "romaji": "Hai, hoteru desu.",
+            "turkish": "Evet, otel.",
+            "isCorrect": false
+          },
+          {
+            "id": "61c1976b-440e-46bc-9bcf-fd0ad365f672",
+            "japanese": "部屋[へや]が広[ひろ]いです。",
+            "romaji": "Heya ga hiroi desu.",
+            "turkish": "Oda geniş.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "b7d81451-775b-4218-84ba-767c12ba7744",
+        "botMessage": {
+          "japanese": "アリ様[さま]ですね。パスポートをお願[ねが]いします。",
+          "romaji": "Ari-sama desu ne. Pasupooto o onegaishimasu.",
+          "turkish": "Ali Bey, değil mi? Pasaportunuzu alabilir miyim?"
+        },
+        "options": [
+          {
+            "id": "f7076faa-08bd-4e2e-8fa7-f4fa4bb44a11",
+            "japanese": "はい、どうぞ。",
+            "romaji": "Hai, douzo.",
+            "turkish": "Evet, buyrun.",
+            "isCorrect": true
+          },
+          {
+            "id": "5993e988-7aa3-4f49-9ac2-f97fc3374280",
+            "japanese": "いいえ、ちがいます。",
+            "romaji": "Iie, chigaimasu.",
+            "turkish": "Hayır, yanlış.",
+            "isCorrect": false
+          },
+          {
+            "id": "79156be5-297d-454e-86ef-2d520ed6731a",
+            "japanese": "パスポートが好[す]きです。",
+            "romaji": "Pasupooto ga suki desu.",
+            "turkish": "Pasaportu severim.",
+            "isCorrect": false
+          },
+          {
+            "id": "02bd7935-cffd-45f7-bc0c-50e21526b473",
+            "japanese": "これは本[ほん]です。",
+            "romaji": "Kore wa hon desu.",
+            "turkish": "Bu kitaptır.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "066c2159-bb3c-4f77-a1aa-52aa717eb2cc",
+        "botMessage": {
+          "japanese": "ありがとうございます。三泊[さんぱく]ですね。",
+          "romaji": "Arigatou gozaimasu. Sanpaku desu ne.",
+          "turkish": "Teşekkür ederim. Üç gece kalacaksınız değil mi?"
+        },
+        "options": [
+          {
+            "id": "81f22c64-b178-4ad7-9876-942600573933",
+            "japanese": "はい、そうです。",
+            "romaji": "Hai, sou desu.",
+            "turkish": "Evet, öyle.",
+            "isCorrect": true
+          },
+          {
+            "id": "e247b697-8b48-4660-9617-c667c522e466",
+            "japanese": "いいえ、三個[さんこ]です。",
+            "romaji": "Iie, sanko desu.",
+            "turkish": "Hayır, üç tane.",
+            "isCorrect": false
+          },
+          {
+            "id": "0b61e9fd-5f84-4632-bd98-87b3f5921f3b",
+            "japanese": "はい、三回[さんかい]です。",
+            "romaji": "Hai, sankai desu.",
+            "turkish": "Evet, üç kere.",
+            "isCorrect": false
+          },
+          {
+            "id": "3307ae5d-a1de-4595-9109-445f18fb427a",
+            "japanese": "いいえ、三歳[さんさい]です。",
+            "romaji": "Iie, sansai desu.",
+            "turkish": "Hayır, üç yaşında.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "62098393-5a7e-4229-8bbb-5d5b6ba12294",
+        "botMessage": {
+          "japanese": "朝食[ちょうしょく]は朝[あさ]７時[じ]から９時[じ]までです。",
+          "romaji": "Choushoku wa asa shichiji kara kuji made desu.",
+          "turkish": "Kahvaltı sabah 7'den 9'a kadardır."
+        },
+        "options": [
+          {
+            "id": "85ee257f-3d66-4f63-b06a-b24e58a3cde0",
+            "japanese": "わかりました。レストランはどこですか？",
+            "romaji": "Wakarimashita. Resutoran wa doko desu ka?",
+            "turkish": "Anladım. Restoran nerede?",
+            "isCorrect": true
+          },
+          {
+            "id": "4542bf0e-e345-4172-b85d-9cee3c10d210",
+            "japanese": "朝食[ちょうしょく]は食[た]べました。",
+            "romaji": "Choushoku wa tabemashita.",
+            "turkish": "Kahvaltıyı yedim.",
+            "isCorrect": false
+          },
+          {
+            "id": "e9597c47-0ad4-43eb-a8a7-f26854086c92",
+            "japanese": "朝食[ちょうしょく]を作[つく]ります。",
+            "romaji": "Choushoku o tsukurimasu.",
+            "turkish": "Kahvaltı hazırlayacağım.",
+            "isCorrect": false
+          },
+          {
+            "id": "5cfe422f-1925-4d60-acc1-738787d744d2",
+            "japanese": "９時[じ]に寝[ね]ます。",
+            "romaji": "Kuji ni nemasu.",
+            "turkish": "9'da uyurum.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "20b39980-b039-4a66-8a1a-4e6f10518cbc",
+        "botMessage": {
+          "japanese": "一階[いっかい]のロビーの隣[となり]にあります。こちらが鍵[かぎ]です。",
+          "romaji": "Ikkai no robii no tonari ni arimasu. Kochira ga kagi desu.",
+          "turkish": "Birinci kattaki lobinin yanındadır. Bu da anahtarınız."
+        },
+        "options": [
+          {
+            "id": "8cc5692e-9fbb-483f-9289-0a2b42e5af1f",
+            "japanese": "ありがとうございます。部屋[へや]に行[い]きます。",
+            "romaji": "Arigatou gozaimasu. Heya ni ikimasu.",
+            "turkish": "Teşekkür ederim. Odaya gidiyorum.",
+            "isCorrect": true
+          },
+          {
+            "id": "0d6c37b6-6470-4c60-8c73-b60197e9bdb8",
+            "japanese": "鍵[かぎ]を開[あ]けます。",
+            "romaji": "Kagi o akemasu.",
+            "turkish": "Anahtarı açacağım.",
+            "isCorrect": false
+          },
+          {
+            "id": "195280df-a389-4a7c-b866-424770fb5b8c",
+            "japanese": "鍵[かぎ]をなくしました。",
+            "romaji": "Kagi o nakushimashita.",
+            "turkish": "Anahtarı kaybettim.",
+            "isCorrect": false
+          },
+          {
+            "id": "ffb6e36a-c516-48ee-a8b5-a603de48aa7f",
+            "japanese": "ロビーで寝[ね]ます。",
+            "romaji": "Robii de nemasu.",
+            "turkish": "Lobide uyuyacağım.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s6",
+    "title": "Doktorda",
+    "description": "Kendinizi kötü hissediyorsunuz, hastaneye gittiniz.",
+    "level": "N4",
+    "steps": [
+      {
+        "id": "49e45fb0-6239-4c77-bf0a-fd8956400b19",
+        "botMessage": {
+          "japanese": "今日[きょう]はどうしましたか？",
+          "romaji": "Kyou wa dou shimashita ka?",
+          "turkish": "Bugün şikayetiniz nedir?"
+        },
+        "options": [
+          {
+            "id": "77b07ccc-6437-4485-b1c2-470b475dbfa9",
+            "japanese": "熱[ねつ]があって、頭[あたま]が痛[いた]いです。",
+            "romaji": "Netsu ga atte, atama ga itai desu.",
+            "turkish": "Ateşim var ve başım ağrıyor.",
+            "isCorrect": true
+          },
+          {
+            "id": "299d5485-6ddc-4d01-8183-078b1a07cbe6",
+            "japanese": "元気[げんき]です。",
+            "romaji": "Genki desu.",
+            "turkish": "İyiyim.",
+            "isCorrect": false
+          },
+          {
+            "id": "fbb5a70b-8a9c-4823-8a2d-e916d5af43b7",
+            "japanese": "今日[きょう]はいい天気[てんき]です。",
+            "romaji": "Kyou wa ii tenki desu.",
+            "turkish": "Bugün hava güzel.",
+            "isCorrect": false
+          },
+          {
+            "id": "feebb05b-fae9-4893-90de-2f06c2ffafd4",
+            "japanese": "足[あし]が長[なが]いです。",
+            "romaji": "Ashi ga nagai desu.",
+            "turkish": "Bacaklarım uzun.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "17e59985-6ed9-475a-90f2-1abd7ad9c61f",
+        "botMessage": {
+          "japanese": "いつからですか？",
+          "romaji": "Itsu kara desu ka?",
+          "turkish": "Ne zamandan beri?"
+        },
+        "options": [
+          {
+            "id": "e17cfadf-5881-43e6-a9a8-2646d33c92de",
+            "japanese": "昨日[きのう]の夜[よる]からです。",
+            "romaji": "Kinou no yoru kara desu.",
+            "turkish": "Dün geceden beri.",
+            "isCorrect": true
+          },
+          {
+            "id": "be471dd8-58cd-4593-afec-12777dc5a472",
+            "japanese": "来週[らいしゅう]からです。",
+            "romaji": "Raishuu kara desu.",
+            "turkish": "Gelecek haftadan itibaren.",
+            "isCorrect": false
+          },
+          {
+            "id": "f1a87042-6f8e-4de6-95c5-5a20544d7e74",
+            "japanese": "まだです。",
+            "romaji": "Mada desu.",
+            "turkish": "Henüz değil.",
+            "isCorrect": false
+          },
+          {
+            "id": "e26631e6-0bb9-406d-b7d1-7a8f6f145e0e",
+            "japanese": "今[いま]からです。",
+            "romaji": "Ima kara desu.",
+            "turkish": "Şu andan itibaren.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "1c3ea5cd-ffa8-49e8-a620-a1ca11e351b3",
+        "botMessage": {
+          "japanese": "咳[せき]や鼻水[はなみず]は出[で]ますか？",
+          "romaji": "Seki ya hanamizu wa demasu ka?",
+          "turkish": "Öksürük veya burun akıntısı var mı?"
+        },
+        "options": [
+          {
+            "id": "ce882892-4a25-45bb-8383-6eedbf6b24c4",
+            "japanese": "はい、少[すこ]し咳[せき]が出[で]ます。",
+            "romaji": "Hai, sukoshi seki ga demasu.",
+            "turkish": "Evet, biraz öksürüyorum.",
+            "isCorrect": true
+          },
+          {
+            "id": "7f4525cb-e4e7-4b60-8359-65c0b65c3dfe",
+            "japanese": "いいえ、水[みず]が出[で]ます。",
+            "romaji": "Iie, mizu ga demasu.",
+            "turkish": "Hayır, su akıyor.",
+            "isCorrect": false
+          },
+          {
+            "id": "7a676ba7-c4db-42b5-a9d7-b39ce63d468c",
+            "japanese": "はい、出[で]かけます。",
+            "romaji": "Hai, dekakemasu.",
+            "turkish": "Evet, dışarı çıkacağım.",
+            "isCorrect": false
+          },
+          {
+            "id": "158c03bb-185d-423e-b33b-2a69d2e5f748",
+            "japanese": "いいえ、何[なに]もありません。",
+            "romaji": "Iie, nanimo arimasen.",
+            "turkish": "Hayır, hiçbir şeyim yok.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "d5e6a1c1-ec8b-4689-9d18-365c84b67b3f",
+        "botMessage": {
+          "japanese": "風邪[かぜ]ですね。薬[くすり]を出[だ]しておきます。",
+          "romaji": "Kaze desu ne. Kusuri o dashite okimasu.",
+          "turkish": "Soğuk algınlığı. Size ilaç yazıyorum."
+        },
+        "options": [
+          {
+            "id": "a9677b2d-653b-434e-84f7-78d7811e0288",
+            "japanese": "一日[いちにち]に何回[なんかい]飲[の]みますか？",
+            "romaji": "Ichinichi ni nankai nomimasu ka?",
+            "turkish": "Günde kaç kere içeceğim?",
+            "isCorrect": true
+          },
+          {
+            "id": "82d5a53b-41c5-4dc6-8b7a-dba0be32391b",
+            "japanese": "薬[くすり]は好[す]きです。",
+            "romaji": "Kusuri wa suki desu.",
+            "turkish": "İlacı severim.",
+            "isCorrect": false
+          },
+          {
+            "id": "06769ebf-6a76-4222-85da-bfe85ef69d3d",
+            "japanese": "薬[くすり]を作[つく]りましょうか？",
+            "romaji": "Kusuri o tsukurimashou ka?",
+            "turkish": "İlaç yapayım mı?",
+            "isCorrect": false
+          },
+          {
+            "id": "263b2caf-0f35-4ae1-9ee7-26a57ca87da4",
+            "japanese": "薬[くすり]は高[たか]いですか？",
+            "romaji": "Kusuri wa takai desu ka?",
+            "turkish": "İlaç pahalı mı?",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "c16fe18e-29cf-4a07-9ec0-3e4f75c9bfb5",
+        "botMessage": {
+          "japanese": "食後[しょくご]に一日三回[いちにちさんかい]飲[の]んでください。お大事[だいじ]に。",
+          "romaji": "Shokugo ni ichinichi sankai nonde kudasai. Odaiji ni.",
+          "turkish": "Yemeklerden sonra günde 3 kere için. Geçmiş olsun."
+        },
+        "options": [
+          {
+            "id": "2f000e57-cf0b-43eb-bf42-731b151776ff",
+            "japanese": "はい、ありがとうございました。",
+            "romaji": "Hai, arigatou gozaimashita.",
+            "turkish": "Peki, çok teşekkür ederim.",
+            "isCorrect": true
+          },
+          {
+            "id": "cc75501e-c76d-44cd-86df-cb225dae161d",
+            "japanese": "いただきます。",
+            "romaji": "Itadakimasu.",
+            "turkish": "Afiyet olsun.",
+            "isCorrect": false
+          },
+          {
+            "id": "5bdd8bd5-b6fd-4455-ab2f-038f93ba14f3",
+            "japanese": "おかえりなさい。",
+            "romaji": "Okaerinasai.",
+            "turkish": "Evine hoş geldin.",
+            "isCorrect": false
+          },
+          {
+            "id": "9c6bbdfa-ae3c-4f91-8c1c-98975ddc33f2",
+            "japanese": "ごちそうさまでした。",
+            "romaji": "Gochisousama deshita.",
+            "turkish": "Ellerinize sağlık.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s7",
+    "title": "Hafta Sonu Planları",
+    "description": "Bir arkadaşınızla hafta sonu planları hakkında konuşun.",
+    "level": "N5",
+    "steps": [
+      {
+        "id": "e72b9866-10f4-482b-9ce2-a0e2ee14ad70",
+        "botMessage": {
+          "japanese": "週末[しゅうまつ]は何[なに]か予定[よてい]がありますか？",
+          "romaji": "Shuumatsu wa nanika yotei ga arimasu ka?",
+          "turkish": "Hafta sonu için planın var mı?"
+        },
+        "options": [
+          {
+            "id": "cbc3309e-a07d-474c-927e-d81c93e66ced",
+            "japanese": "いいえ、特[とく]にありません。",
+            "romaji": "Iie, tokuni arimasen.",
+            "turkish": "Hayır, özellikle bir planım yok.",
+            "isCorrect": true
+          },
+          {
+            "id": "3c771e2b-4754-47ff-866a-e887fb7c34e3",
+            "japanese": "はい、週末[しゅうまつ]です。",
+            "romaji": "Hai, shuumatsu desu.",
+            "turkish": "Evet, hafta sonu.",
+            "isCorrect": false
+          },
+          {
+            "id": "116a85ea-40c4-4587-9a1d-85af520a33fc",
+            "japanese": "いいえ、昨日[きのう]でした。",
+            "romaji": "Iie, kinou deshita.",
+            "turkish": "Hayır, dündü.",
+            "isCorrect": false
+          },
+          {
+            "id": "65298282-ba52-451a-a072-0279d89b6954",
+            "japanese": "はい、予定[よてい]を知[し]りません。",
+            "romaji": "Hai, yotei o shirimasen.",
+            "turkish": "Evet, planı bilmiyorum.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "f4636d3f-40c3-4d7f-94cd-aaa550779a27",
+        "botMessage": {
+          "japanese": "じゃあ、一緒[いっしょ]に映画[えいが]を見[み]に行[い]きませんか？",
+          "romaji": "Jaa, issho ni eiga o mi ni ikimasen ka?",
+          "turkish": "Öyleyse, birlikte film izlemeye gidelim mi?"
+        },
+        "options": [
+          {
+            "id": "babb6520-4036-4c17-8dab-4323977a8c4b",
+            "japanese": "いいですね。何[なに]を見[み]ますか？",
+            "romaji": "Ii desu ne. Nani o mimasu ka?",
+            "turkish": "Olur, ne izleyeceğiz?",
+            "isCorrect": true
+          },
+          {
+            "id": "331e72f0-fe92-4a1c-acce-e12b524939a9",
+            "japanese": "映画[えいが]は嫌[きら]いです。",
+            "romaji": "Eiga wa kirai desu.",
+            "turkish": "Filmlerden nefret ederim.",
+            "isCorrect": false
+          },
+          {
+            "id": "e66e3627-03f2-4e01-ac37-0dfc42d24cf6",
+            "japanese": "一人[ひとり]で行[い]きます。",
+            "romaji": "Hitori de ikimasu.",
+            "turkish": "Tek başıma gideceğim.",
+            "isCorrect": false
+          },
+          {
+            "id": "88cab0df-a379-4b29-bf55-6e6d86c6b5a9",
+            "japanese": "私[わたし]は映画[えいが]です。",
+            "romaji": "Watashi wa eiga desu.",
+            "turkish": "Ben filmim.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "4cf5df31-6fab-4551-a788-569a6dcc44d4",
+        "botMessage": {
+          "japanese": "新[あたら]しいアニメの映画[えいが]はどうですか？",
+          "romaji": "Atarashii anime no eiga wa dou desu ka?",
+          "turkish": "Yeni anime filmi nasıl olur?"
+        },
+        "options": [
+          {
+            "id": "e5b0c247-2172-498a-9f61-35f02f3e4347",
+            "japanese": "面白[おもしろ]そうですね。そうしましょう。",
+            "romaji": "Omoshirosou desu ne. Sou shimashou.",
+            "turkish": "İlginç görünüyor. Öyle yapalım.",
+            "isCorrect": true
+          },
+          {
+            "id": "9402aca0-c908-4e60-9df3-ca7c36f3f887",
+            "japanese": "おいしそうですね。",
+            "romaji": "Oishisou desu ne.",
+            "turkish": "Lezzetli görünüyor.",
+            "isCorrect": false
+          },
+          {
+            "id": "7c243129-1ab1-416e-8952-820e7df8dc3d",
+            "japanese": "悲[かな]しいです。",
+            "romaji": "Kanashii desu.",
+            "turkish": "Üzgünüm.",
+            "isCorrect": false
+          },
+          {
+            "id": "03ff0125-d21d-4534-8d14-fcff06151853",
+            "japanese": "アニメは見[み]ません。",
+            "romaji": "Anime wa mimasen.",
+            "turkish": "Anime izlemem.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "d068fede-4511-4f87-98e3-f2a14a3ed637",
+        "botMessage": {
+          "japanese": "土曜日[どようび]の午後[ごご]はどうですか？",
+          "romaji": "Doyoubi no gogo wa dou desu ka?",
+          "turkish": "Cumartesi öğleden sonraya ne dersin?"
+        },
+        "options": [
+          {
+            "id": "9c5ab55a-2b65-4ba0-b786-c0082c309e26",
+            "japanese": "はい、大丈夫[だいじょうぶ]です。",
+            "romaji": "Hai, daijoubu desu.",
+            "turkish": "Evet, bana uyar.",
+            "isCorrect": true
+          },
+          {
+            "id": "c1f121c9-cc2f-4cfd-9d01-c724231a73d2",
+            "japanese": "土曜日[どようび]は昨日[きのう]でした。",
+            "romaji": "Doyoubi wa kinou deshita.",
+            "turkish": "Cumartesi dündü.",
+            "isCorrect": false
+          },
+          {
+            "id": "0ef927ce-bdf0-44c9-92bf-0a34e56f57c3",
+            "japanese": "午後[ごご]は朝[あさ]です。",
+            "romaji": "Gogo wa asa desu.",
+            "turkish": "Öğleden sonra sabahtır.",
+            "isCorrect": false
+          },
+          {
+            "id": "c4a9546a-d8c5-4e38-a7d6-294a93d1e322",
+            "japanese": "いいえ、時計[とけい]がありません。",
+            "romaji": "Iie, tokei ga arimasen.",
+            "turkish": "Hayır, saatim yok.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "231e8bdb-fdc0-4440-9147-1a06c7c00984",
+        "botMessage": {
+          "japanese": "じゃあ、駅[えき]の前[まえ]で２時[じ]に待[ま]ち合[あ]わせしましょう。",
+          "romaji": "Jaa, eki no mae de niji ni machiawase shimashou.",
+          "turkish": "Tamam, istasyonun önünde saat 2'de buluşalım."
+        },
+        "options": [
+          {
+            "id": "3ae803fb-0297-4cfc-9543-8a5bdbaee0c9",
+            "japanese": "わかりました。楽[たの]しみにしています。",
+            "romaji": "Wakarimashita. Tanoshimi ni shite imasu.",
+            "turkish": "Anlaştık. Dört gözle bekliyorum.",
+            "isCorrect": true
+          },
+          {
+            "id": "38f48e85-0e36-4bdb-84f1-128d65e1603c",
+            "japanese": "駅[えき]はどこですか。",
+            "romaji": "Eki wa doko desu ka.",
+            "turkish": "İstasyon nerede?",
+            "isCorrect": false
+          },
+          {
+            "id": "65f67f1c-6f29-4990-a8c6-f7b64b064f15",
+            "japanese": "待[ま]ち合[あ]わせはしません。",
+            "romaji": "Machiawase wa shimasen.",
+            "turkish": "Buluşmayacağız.",
+            "isCorrect": false
+          },
+          {
+            "id": "64b2510b-ffff-4a41-9f7f-7a31d8ec8888",
+            "japanese": "さようなら。",
+            "romaji": "Sayounara.",
+            "turkish": "Hoşça kal.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s8",
+    "title": "İş Görüşmesi",
+    "description": "Bir ofiste yarı zamanlı iş (baito) görüşmesindesiniz.",
+    "level": "N4",
+    "steps": [
+      {
+        "id": "52850192-f769-46b3-b1a5-a3b10b158c42",
+        "botMessage": {
+          "japanese": "どうぞ、座[すわ]ってください。",
+          "romaji": "Douzo, suwatte kudasai.",
+          "turkish": "Buyrun, oturun."
+        },
+        "options": [
+          {
+            "id": "6bbba4c2-62d4-445e-a91c-284407051ffe",
+            "japanese": "失礼[しつれい]します。",
+            "romaji": "Shitsurei shimasu.",
+            "turkish": "İzninizle.",
+            "isCorrect": true
+          },
+          {
+            "id": "365a3d15-3e50-4c00-b9d1-3920714e98f1",
+            "japanese": "ただいま。",
+            "romaji": "Tadaima.",
+            "turkish": "Ben geldim.",
+            "isCorrect": false
+          },
+          {
+            "id": "c115659f-84f9-40f7-9edc-7eb70a53ea2c",
+            "japanese": "いってきます。",
+            "romaji": "Ittekimasu.",
+            "turkish": "Gidip döneceğim.",
+            "isCorrect": false
+          },
+          {
+            "id": "efd9cc7e-e3ff-4a02-a557-88f2c5b91ed3",
+            "japanese": "ごめんください。",
+            "romaji": "Gomen kudasai.",
+            "turkish": "Kimse var mı? / Özür dilerim.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "59ab3a28-37e8-4554-b407-99e6e8b81fe3",
+        "botMessage": {
+          "japanese": "どうしてこのアルバイトに応募[おうぼ]したんですか？",
+          "romaji": "Doushite kono arubaito ni oubo shitan desu ka?",
+          "turkish": "Neden bu yarı zamanlı işe başvurdunuz?"
+        },
+        "options": [
+          {
+            "id": "6d91b686-ec92-4280-92f5-c8d3f1eac1ab",
+            "japanese": "日本語[にほんご]を使[つか]う仕事[しごと]がしたいからです。",
+            "romaji": "Nihongo o tsukau shigoto ga shitai kara desu.",
+            "turkish": "Japonca kullanacağım bir iş yapmak istediğim için.",
+            "isCorrect": true
+          },
+          {
+            "id": "30ae0830-f181-40a4-8fda-b1912227ad61",
+            "japanese": "お金[かね]が好[す]きだからです。",
+            "romaji": "Okane ga suki dakara desu.",
+            "turkish": "Parayı sevdiğim için.",
+            "isCorrect": false
+          },
+          {
+            "id": "18ee24ed-18bf-44c5-b95d-a36021c9cb84",
+            "japanese": "仕事[しごと]をしたくないからです。",
+            "romaji": "Shigoto o shitakunai kara desu.",
+            "turkish": "Çalışmak istemediğim için.",
+            "isCorrect": false
+          },
+          {
+            "id": "6f6dad00-da07-4069-b7c4-d94a0f8964c6",
+            "japanese": "家[いえ]が近[ちか]いからです。",
+            "romaji": "Ie ga chikai kara desu.",
+            "turkish": "Ev yakın olduğu için.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "99a2422a-b50b-4e5d-9e62-efecb9d429c7",
+        "botMessage": {
+          "japanese": "週[しゅう]に何日[なんにち]働[はたら]けますか？",
+          "romaji": "Shuu ni nannichi hatarakemasu ka?",
+          "turkish": "Haftada kaç gün çalışabilirsiniz?"
+        },
+        "options": [
+          {
+            "id": "0729d51b-4045-4154-953b-c8cab8396a31",
+            "japanese": "週[しゅう]に三日[みっか]働[はたら]けます。",
+            "romaji": "Shuu ni mikka hatarakemasu.",
+            "turkish": "Haftada 3 gün çalışabilirim.",
+            "isCorrect": true
+          },
+          {
+            "id": "f287e805-4b51-4011-aa9e-eadd79aca7eb",
+            "japanese": "三週間[さんしゅうかん]です。",
+            "romaji": "Sanshuukan desu.",
+            "turkish": "3 haftadır.",
+            "isCorrect": false
+          },
+          {
+            "id": "dbade7ae-8553-4504-9e16-15454dbdca47",
+            "japanese": "働[はたら]きません。",
+            "romaji": "Hatarakimasen.",
+            "turkish": "Çalışmam.",
+            "isCorrect": false
+          },
+          {
+            "id": "1b39b171-7084-41ff-ba0f-1829765eac4f",
+            "japanese": "日曜日[にちようび]です。",
+            "romaji": "Nichiyoubi desu.",
+            "turkish": "Pazar günüdür.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "ea874b28-fec2-4ef2-a401-916e4a8697c4",
+        "botMessage": {
+          "japanese": "夜遅[よるおそ]くても大丈夫[だいじょうぶ]ですか？",
+          "romaji": "Yoru osokute mo daijoubu desu ka?",
+          "turkish": "Gece geç saatlere kadar olsa da sorun olur mu?"
+        },
+        "options": [
+          {
+            "id": "d87b8cdf-106f-4c0d-ba41-0e933bd00d02",
+            "japanese": "はい、夜[よる]１１時[じ]までなら大丈夫[だいじょうぶ]です。",
+            "romaji": "Hai, yoru juuichiji made nara daijoubu desu.",
+            "turkish": "Evet, gece 11'e kadarsa sorun olmaz.",
+            "isCorrect": true
+          },
+          {
+            "id": "492169c6-d3c5-4618-8cc5-b220036e1c8b",
+            "japanese": "夜[よる]は寝[ね]ます。",
+            "romaji": "Yoru wa nemasu.",
+            "turkish": "Gece uyurum.",
+            "isCorrect": false
+          },
+          {
+            "id": "3de7c5fa-9c38-45e0-9dd8-29d874868f4d",
+            "japanese": "暗[くら]いのが怖[こわ]いです。",
+            "romaji": "Kurai no ga kowai desu.",
+            "turkish": "Karanlıktan korkarım.",
+            "isCorrect": false
+          },
+          {
+            "id": "d7bf64a1-4c08-4185-be13-75869caa60c0",
+            "japanese": "遅刻[ちこく]します。",
+            "romaji": "Chikoku shimasu.",
+            "turkish": "Geç kalırım.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "ee373001-9961-402c-b5ae-c59363c983ee",
+        "botMessage": {
+          "japanese": "結果[けっか]は来週[らいしゅう]電話[でんわ]で知[し]らせます。",
+          "romaji": "Kekka wa raishuu denwa de shirasemasu.",
+          "turkish": "Sonucu haftaya telefonla bildireceğiz."
+        },
+        "options": [
+          {
+            "id": "4fd1dfb1-aceb-4352-8e2d-64108d75ea0d",
+            "japanese": "はい、よろしくお願[ねが]いします。",
+            "romaji": "Hai, yoroshiku onegaishimasu.",
+            "turkish": "Anladım, sizden haber bekliyorum.",
+            "isCorrect": true
+          },
+          {
+            "id": "0c8066af-32d7-4993-9e6c-d420d30767e2",
+            "japanese": "電話[でんわ]を持[も]っていません。",
+            "romaji": "Denwa o motte imasen.",
+            "turkish": "Telefonum yok.",
+            "isCorrect": false
+          },
+          {
+            "id": "98482670-c819-43b0-8b2e-0a95c75b91f0",
+            "japanese": "今日[きょう]教[おし]えてください。",
+            "romaji": "Kyou oshiete kudasai.",
+            "turkish": "Bugün söyleyin.",
+            "isCorrect": false
+          },
+          {
+            "id": "e3beeede-1a3a-4335-9b8f-08b90af8ffc9",
+            "japanese": "どういたしまして。",
+            "romaji": "Douitashimashite.",
+            "turkish": "Rica ederim.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s9",
+    "title": "Kayıp Eşya",
+    "description": "İstasyonda çantanızı unuttunuz ve görevliye soruyorsunuz.",
+    "level": "N4",
+    "steps": [
+      {
+        "id": "49215d72-add3-488e-9a85-22da65bbb1ed",
+        "botMessage": {
+          "japanese": "どうしましたか？",
+          "romaji": "Dou shimashita ka?",
+          "turkish": "Size nasıl yardımcı olabilirim?"
+        },
+        "options": [
+          {
+            "id": "1330114b-b176-4280-b2da-b8443d162d31",
+            "japanese": "電車[でんしゃ]にカバンを忘[わす]れました。",
+            "romaji": "Densha ni kaban o wasuremashita.",
+            "turkish": "Trende çantamı unuttum.",
+            "isCorrect": true
+          },
+          {
+            "id": "dec03cbd-f64c-4204-a038-83a119d46020",
+            "japanese": "電車[でんしゃ]が好[す]きです。",
+            "romaji": "Densha ga suki desu.",
+            "turkish": "Trenleri severim.",
+            "isCorrect": false
+          },
+          {
+            "id": "c488d115-42d8-45d8-970c-f69d04e04923",
+            "japanese": "カバンを買[か]いたいです。",
+            "romaji": "Kaban o kaitai desu.",
+            "turkish": "Çanta satın almak istiyorum.",
+            "isCorrect": false
+          },
+          {
+            "id": "2ccd422e-6924-4c29-b6a1-36260d1c1219",
+            "japanese": "道[みち]に迷[まよ]いました。",
+            "romaji": "Michi ni mayoimashita.",
+            "turkish": "Yolumu kaybettim.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "ec36b98a-fc79-4567-91be-9cc21ddfa599",
+        "botMessage": {
+          "japanese": "どんなカバンですか？",
+          "romaji": "Donna kaban desu ka?",
+          "turkish": "Nasıl bir çantaydı?"
+        },
+        "options": [
+          {
+            "id": "ae799e30-4dc3-49d7-af96-5269e0650e1c",
+            "japanese": "黒[くろ]くて、大[おお]きいです。",
+            "romaji": "Kurokute, ookii desu.",
+            "turkish": "Siyah ve büyüktür.",
+            "isCorrect": true
+          },
+          {
+            "id": "6e147ba9-8654-4e41-a9d6-19f69d75f7b0",
+            "japanese": "高[たか]かったです。",
+            "romaji": "Takakatta desu.",
+            "turkish": "Pahalıydı.",
+            "isCorrect": false
+          },
+          {
+            "id": "02ba0a8e-528a-4d00-b50a-7fc157565d7e",
+            "japanese": "カバンは重[おも]いです。",
+            "romaji": "Kaban wa omoi desu.",
+            "turkish": "Çanta ağırdır.",
+            "isCorrect": false
+          },
+          {
+            "id": "99764500-5b46-433e-ad8c-3943860db3b9",
+            "japanese": "私[わたし]が作[つく]りました。",
+            "romaji": "Watashi ga tsukurimashita.",
+            "turkish": "Ben yaptım.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "c9dec732-3927-45e2-a8b1-8f6f697efddf",
+        "botMessage": {
+          "japanese": "何線[なにせん]に乗[の]っていましたか？",
+          "romaji": "Nansen ni notte imashita ka?",
+          "turkish": "Hangi hatta biniyordunuz?"
+        },
+        "options": [
+          {
+            "id": "6f396efc-6141-4865-a463-424cf7999b73",
+            "japanese": "山手線[やまのてせん]です。",
+            "romaji": "Yamanotesen desu.",
+            "turkish": "Yamanote hattındaydım.",
+            "isCorrect": true
+          },
+          {
+            "id": "66180688-c096-4a16-a15c-f326b0e510db",
+            "japanese": "新幹線[しんかんせん]を見[み]ました。",
+            "romaji": "Shinkansen o mimashita.",
+            "turkish": "Hızlı treni gördüm.",
+            "isCorrect": false
+          },
+          {
+            "id": "679ccec1-ec41-4674-858b-bd364821d5ca",
+            "japanese": "自転車[じてんしゃ]です。",
+            "romaji": "Jitensha desu.",
+            "turkish": "Bisikletti.",
+            "isCorrect": false
+          },
+          {
+            "id": "b8cd7530-9280-4552-b174-c66ae1c1eb19",
+            "japanese": "線[せん]は引[ひ]きません。",
+            "romaji": "Sen wa hikimasen.",
+            "turkish": "Çizgi çizmem.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "470ede23-27af-4293-abea-a088d75a0417",
+        "botMessage": {
+          "japanese": "カバンの中[なか]に何[なに]が入[はい]っていますか？",
+          "romaji": "Kaban no naka ni nani ga haitte imasu ka?",
+          "turkish": "Çantanın içinde neler var?"
+        },
+        "options": [
+          {
+            "id": "10b8f689-73cb-4049-a6d5-48c58267427d",
+            "japanese": "財布[さいふ]とパスポートが入[はい]っています。",
+            "romaji": "Saifu to pasupooto ga haitte imasu.",
+            "turkish": "Cüzdanım ve pasaportum var.",
+            "isCorrect": true
+          },
+          {
+            "id": "3020628f-0c40-4b5a-a0fd-d4beed8b14ba",
+            "japanese": "夢[ゆめ]が入[はい]っています。",
+            "romaji": "Yume ga haitte imasu.",
+            "turkish": "Hayallerim var.",
+            "isCorrect": false
+          },
+          {
+            "id": "a1a7a6f1-7f36-4c6d-966a-086f14851712",
+            "japanese": "何[なに]も食[た]べません。",
+            "romaji": "Nanimo tabemasen.",
+            "turkish": "Hiçbir şey yemem.",
+            "isCorrect": false
+          },
+          {
+            "id": "b0ec98be-73b6-44d7-ad1e-264f3915bed9",
+            "japanese": "空[から]っぽです。",
+            "romaji": "Karappo desu.",
+            "turkish": "Bomboş.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "a4583955-1910-4204-bb72-112acd0005c4",
+        "botMessage": {
+          "japanese": "見[み]つかったら電話[でんわ]します。電話番号[でんわばんごう]をお願[ねが]いします。",
+          "romaji": "Mitsukattara denwa shimasu. Denwabangou o onegaishimasu.",
+          "turkish": "Bulunursa arayacağız. Telefon numaranızı alabilir miyim?"
+        },
+        "options": [
+          {
+            "id": "85180518-5faa-42d2-a21f-8b99778026f8",
+            "japanese": "はい、０９０ー...です。お願[ねが]いします。",
+            "romaji": "Hai, zero-kyuu-zero... desu. Onegaishimasu.",
+            "turkish": "Evet, 090-... Lütfen bana yardımcı olun.",
+            "isCorrect": true
+          },
+          {
+            "id": "2dabc5e1-a855-4d76-8017-8035edc0e9c9",
+            "japanese": "電話[でんわ]は嫌[きら]いです。",
+            "romaji": "Denwa wa kirai desu.",
+            "turkish": "Telefondan nefret ederim.",
+            "isCorrect": false
+          },
+          {
+            "id": "9d1b5448-6044-4264-8589-056d3418f4b6",
+            "japanese": "電話[でんわ]をください。",
+            "romaji": "Denwa o kudasai.",
+            "turkish": "Bana telefon verin.",
+            "isCorrect": false
+          },
+          {
+            "id": "6353af13-47b8-4dc5-9a26-a6c86acde157",
+            "japanese": "見[み]つかりません。",
+            "romaji": "Mitsukarimasen.",
+            "turkish": "Bulunamaz.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s10",
+    "title": "Geç Kalma Özrü",
+    "description": "Arkadaşınızla buluşmaya geç kaldınız ve özür diliyorsunuz.",
+    "level": "N5",
+    "steps": [
+      {
+        "id": "722e6071-525b-4dd5-96f8-9a4732f23a37",
+        "botMessage": {
+          "japanese": "遅[おそ]いよ！三十分[さんじゅっぷん]も待[ま]ったよ。",
+          "romaji": "Osoi yo! Sanjuppun mo matta yo.",
+          "turkish": "Çok geciktin! 30 dakika bekledim."
+        },
+        "options": [
+          {
+            "id": "1bc8d9fe-f447-4d50-8505-354e2fe3e92b",
+            "japanese": "本当[ほんとう]にごめんなさい！",
+            "romaji": "Hontou ni gomennasai!",
+            "turkish": "Gerçekten çok özür dilerim!",
+            "isCorrect": true
+          },
+          {
+            "id": "b76eb001-7115-440c-9d4a-b8910387f232",
+            "japanese": "ありがとうございます。",
+            "romaji": "Arigatou gozaimasu.",
+            "turkish": "Teşekkür ederim.",
+            "isCorrect": false
+          },
+          {
+            "id": "64d31cee-ccff-4bb6-9933-0c96cc085f3f",
+            "japanese": "私[わたし]も待[ま]ちました。",
+            "romaji": "Watashi mo machimashita.",
+            "turkish": "Ben de bekledim.",
+            "isCorrect": false
+          },
+          {
+            "id": "918f6c27-b06a-4172-8580-c10340c84a2c",
+            "japanese": "おはようございます。",
+            "romaji": "Ohayou gozaimasu.",
+            "turkish": "Günaydın.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "89ada010-764d-4c82-b08d-0ae83ae0ba35",
+        "botMessage": {
+          "japanese": "どうして遅[おく]れたの？",
+          "romaji": "Doushite okureta no?",
+          "turkish": "Neden geç kaldın?"
+        },
+        "options": [
+          {
+            "id": "fc84e3e4-4cbb-4095-bdf7-513a356b408a",
+            "japanese": "電車[でんしゃ]が遅[おく]れました。",
+            "romaji": "Densha ga okuremashita.",
+            "turkish": "Tren gecikti.",
+            "isCorrect": true
+          },
+          {
+            "id": "426cd106-4b78-4d07-8faa-c4788aa141ca",
+            "japanese": "走[はし]りました。",
+            "romaji": "Hashirimashita.",
+            "turkish": "Koştum.",
+            "isCorrect": false
+          },
+          {
+            "id": "ce679eff-360f-421b-96ff-1b944f9de699",
+            "japanese": "時計[とけい]を買[か]いました。",
+            "romaji": "Tokei o kaimashita.",
+            "turkish": "Saat satın aldım.",
+            "isCorrect": false
+          },
+          {
+            "id": "3b70ba17-444c-4261-90f0-19dde01ea25f",
+            "japanese": "早[はや]く来[き]ました。",
+            "romaji": "Hayaku kimashita.",
+            "turkish": "Erken geldim.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "b308c6ec-414f-4656-b5ed-a0fffe2fde48",
+        "botMessage": {
+          "japanese": "そうなんだ。連絡[れんらく]してほしかったな。",
+          "romaji": "Sou nanda. Renraku shite hoshikatta na.",
+          "turkish": "Öyle mi. Haber vermeni isterdim."
+        },
+        "options": [
+          {
+            "id": "b14b7e01-9a0a-45b0-bcdf-726e660d05c4",
+            "japanese": "スマホを忘[わす]れてしまって...",
+            "romaji": "Sumaho o wasurete shimatte...",
+            "turkish": "Akıllı telefonumu unuttum da...",
+            "isCorrect": true
+          },
+          {
+            "id": "990f9dd3-0735-4009-8fe9-2dc376e54844",
+            "japanese": "連絡[れんらく]は嫌[きら]いです。",
+            "romaji": "Renraku wa kirai desu.",
+            "turkish": "İletişimi sevmem.",
+            "isCorrect": false
+          },
+          {
+            "id": "9e0c4c51-c5f0-47e7-a49e-d309d2ea1256",
+            "japanese": "スマホが欲[ほ]しいです。",
+            "romaji": "Sumaho ga hoshii desu.",
+            "turkish": "Akıllı telefon istiyorum.",
+            "isCorrect": false
+          },
+          {
+            "id": "e3680aaf-4843-4b29-a0b3-8ef6a7cb1fd1",
+            "japanese": "電話[でんわ]をしましたよ。",
+            "romaji": "Denwa o shimashita yo.",
+            "turkish": "Telefon ettim ya.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "59efada0-42f0-48fd-869e-ce20027f7dff",
+        "botMessage": {
+          "japanese": "次[つぎ]からは気[き]をつけてね。",
+          "romaji": "Tsugi kara wa ki o tsukete ne.",
+          "turkish": "Bir dahakine dikkat et olur mu?"
+        },
+        "options": [
+          {
+            "id": "5014efcd-d8ab-4ede-a456-aeb268ccaf3a",
+            "japanese": "うん、本当[ほんとう]に気[き]をつける。",
+            "romaji": "Un, hontou ni ki o tsukeru.",
+            "turkish": "Evet, gerçekten dikkat edeceğim.",
+            "isCorrect": true
+          },
+          {
+            "id": "e1f7c7f5-a547-447a-bf45-b44752e182fe",
+            "japanese": "気[き]をつけません。",
+            "romaji": "Ki o tsukemasen.",
+            "turkish": "Dikkat etmeyeceğim.",
+            "isCorrect": false
+          },
+          {
+            "id": "51a5d102-25f1-4ebf-a068-13594653ce2a",
+            "japanese": "次[つぎ]はありません。",
+            "romaji": "Tsugi wa arimasen.",
+            "turkish": "Bir dahakisi yok.",
+            "isCorrect": false
+          },
+          {
+            "id": "e6f94cc3-d497-490c-89db-3bf9c37a270f",
+            "japanese": "私[わたし]もそう思[おも]います。",
+            "romaji": "Watashi mo sou omoimasu.",
+            "turkish": "Ben de öyle düşünüyorum.",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": "e5118da8-5a2a-45e2-8a85-df5463770cd8",
+        "botMessage": {
+          "japanese": "じゃあ、行[い]こうか。お腹空[なかす]いた？",
+          "romaji": "Jaa, ikou ka. Onaka suita?",
+          "turkish": "Öyleyse gidelim mi? Karnın aç mı?"
+        },
+        "options": [
+          {
+            "id": "abcba0e9-afb1-47e0-9eae-63a1cf546194",
+            "japanese": "うん、すごく空[す]いた！おごるよ。",
+            "romaji": "Un, sugoku suita! Ogoru yo.",
+            "turkish": "Evet, çok açım! Yemeği ben ısmarlıyorum.",
+            "isCorrect": true
+          },
+          {
+            "id": "c374b2a6-5804-4457-953c-be88334e955f",
+            "japanese": "いいえ、食[た]べません。",
+            "romaji": "Iie, tabemasen.",
+            "turkish": "Hayır, yemem.",
+            "isCorrect": false
+          },
+          {
+            "id": "c8462cc9-1a17-452e-bfbb-a56c37afbfc0",
+            "japanese": "お腹[なか]が痛[いた]いです。",
+            "romaji": "Onaka ga itai desu.",
+            "turkish": "Karnım ağrıyor.",
+            "isCorrect": false
+          },
+          {
+            "id": "c904c37e-eff0-454e-aee0-7815f0166ef0",
+            "japanese": "行[い]きません。",
+            "romaji": "Ikimasen.",
+            "turkish": "Gitmiyorum.",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  }
+]

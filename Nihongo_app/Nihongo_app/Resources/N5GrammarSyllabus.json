@@ -1,0 +1,150 @@
+[
+  {
+    "id": 1,
+    "title": "Temel Cümle Yapısı ve Kimlik Bildirimi",
+    "description": "Öğrencinin isimlerle ilk cümlelerini kurduğu, Japoncanın temel \"A, B'dir\" mantığını ve cümle sonu duygu edatlarını kavradığı aşama.",
+    "grammarKeys": [
+      "wa_b_desu",
+      "wa_b_ja_arimasen",
+      "ka_question",
+      "no_possessive",
+      "mo_also",
+      "ne_particle",
+      "yo_particle",
+      "naa_particle",
+      "o_go_prefix"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Var Olma ve Temel Edatlar (Konum ve Yönelim)",
+    "description": "Cümlelerin uzamaya başladığı, eşyaların ve insanların nerede olduğunun ifade edildiği yapı taşı ünitesi.",
+    "grammarKeys": [
+      "ga_arimasu_imasu",
+      "ga_subject",
+      "wo_object",
+      "de_location_means",
+      "ni_e_direction",
+      "ni_time",
+      "to_and_with",
+      "ya_and_etc"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Eylemlere Giriş ve Soru Kelimeleri",
+    "description": "Fiillerin (kibar form) tanıtıldığı ve eylemlerin detaylandırıldığı ilk büyük eşik.",
+    "grammarKeys": [
+      "masu_form",
+      "kara_from",
+      "made_until",
+      "doushite",
+      "douyatte",
+      "donna",
+      "issho_ni",
+      "mashou_masenka",
+      "mashou_ka"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Betimlemeler (Sıfatlar ve Zarflar)",
+    "description": "İsimleri ve durumları nitelemek için sıfat çekimlerinin (Japoncada fiil gibi çekimlenirler) kavranması.",
+    "grammarKeys": [
+      "i_na_adjectives",
+      "i_adj_conjugation",
+      "na_adj_predicate",
+      "totemo",
+      "amari_nai",
+      "adj_te_form",
+      "adj_ku_ni_adverb",
+      "sugiru"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "て (Te) Formu ve Hayati Kullanımları",
+    "description": "Japoncada en kritik eşik olan \"te-formu\" (bağlama formu). Bu ünitenin alt kırılımları uygulamada bol tekrara (SRS) dayanmalıdır.",
+    "grammarKeys": [
+      "te_form_general",
+      "te_kudasai",
+      "te_imasu",
+      "temo_ii",
+      "te_wa_ikenai",
+      "te_kara",
+      "te_aru",
+      "tari_tari"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "İstekler, Niyetler ve Dönüşüm",
+    "description": "Kişisel arzuların ve bir durumdan diğerine geçişin (olmak/dönüşmek) ifade edildiği orta-ileri N5 aşaması.",
+    "grammarKeys": [
+      "tai_want",
+      "ga_hoshii",
+      "ni_iku",
+      "naru",
+      "ni_suru",
+      "tsumori",
+      "darou_deshou"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Yalın Form, Olumsuzluk ve Zaman İfadeleri",
+    "description": "Günlük konuşma diline (casual) geçiş ve eylemlerin tamamlanma/tamamlanmama durumları.",
+    "grammarKeys": [
+      "da_plain",
+      "janai_plain",
+      "plain_ta_form",
+      "plain_nai_form",
+      "naide",
+      "naide_kudasai",
+      "mou_already",
+      "mada",
+      "mada_te_imasen",
+      "itsumo"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Zorunluluk, Tavsiye ve Deneyim",
+    "description": "Gramer kurallarının birbirine eklendiği, uzun ve kalıp ifadelerin ağırlıkta olduğu bölüm.",
+    "grammarKeys": [
+      "nai_to_ikenai",
+      "nakute_wa_ikenai",
+      "nakucha",
+      "cha_ikenai",
+      "nakute_mo_ii",
+      "hou_ga_ii",
+      "ta_koto_ga_aru",
+      "kata_way"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Kıyaslama, Bağlaçlar ve İleri İfadeler",
+    "description": "Cümleleri birleştirme, sebep-sonuç ilişkisi kurma ve N5'in en belirgin ifade tarzı olan açıklama tonunun (ndesu) verilmesi.",
+    "grammarKeys": [
+      "ichiban",
+      "no_naka_de_ichiban",
+      "wa_yori",
+      "yori_hou_ga",
+      "kara_because",
+      "node_because",
+      "kedo_keredomo",
+      "demo_but",
+      "shikashi",
+      "ga_but",
+      "sorekara",
+      "soshite",
+      "toki",
+      "mae_ni",
+      "ka_ka_or",
+      "dake_only",
+      "wa_dou_desu_ka",
+      "n_desu"
+    ]
+  }
+]

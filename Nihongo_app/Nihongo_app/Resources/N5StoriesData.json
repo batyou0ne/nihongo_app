@@ -1,0 +1,338 @@
+[
+  {
+    "id": "h_1",
+    "type": "hiragana",
+    "title": "わたしの いちにち (Benim Günüm)",
+    "sentences": [
+      {
+        "id": "h_1_1",
+        "japaneseText": "わたしは まいあさ ななじに おきます。",
+        "romaji": "Watashi wa maiasa nanaji ni okimasu.",
+        "turkishTranslation": "Ben her sabah saat 7'de kalkarım.",
+        "vocabulary": ["わたし (Ben)", "まいあさ (Her sabah)", "おきる (Kalkmak, uyanmak)"]
+      },
+      {
+        "id": "h_1_2",
+        "japaneseText": "あさごはんは ごはんと みそしるです。",
+        "romaji": "Asagohan wa gohan to misoshiru desu.",
+        "turkishTranslation": "Kahvaltıda pilav ve miso çorbası vardır.",
+        "vocabulary": ["あさごはん (Kahvaltı)", "ごはん (Pilav)", "みそしる (Miso çorbası)"]
+      },
+      {
+        "id": "h_1_3",
+        "japaneseText": "はちじに がっこうへ いきます。",
+        "romaji": "Hachiji ni gakkou e ikimasu.",
+        "turkishTranslation": "Saat 8'de okula giderim.",
+        "vocabulary": ["がっこう (Okul)", "いく (Gitmek)"]
+      }
+    ]
+  },
+  {
+    "id": "h_2",
+    "type": "hiragana",
+    "title": "あたらしい ほん (Yeni Kitap)",
+    "sentences": [
+      {
+        "id": "h_2_1",
+        "japaneseText": "きのう、あたらしい ほんを かいました。",
+        "romaji": "Kinou, atarashii hon o kaimashita.",
+        "turkishTranslation": "Dün yeni bir kitap aldım.",
+        "vocabulary": ["きのう (Dün)", "あたらしい (Yeni)", "ほん (Kitap)", "かう (Satın almak)"]
+      },
+      {
+        "id": "h_2_2",
+        "japaneseText": "とても おもしろい ほんです。",
+        "romaji": "Totemo omoshiroi hon desu.",
+        "turkishTranslation": "Çok ilginç bir kitap.",
+        "vocabulary": ["とても (Çok)", "おもしろい (İlginç)"]
+      },
+      {
+        "id": "h_2_3",
+        "japaneseText": "まいにち よる よみます。",
+        "romaji": "Mainichi yoru yomimasu.",
+        "turkishTranslation": "Her gün gece okurum.",
+        "vocabulary": ["まいにち (Her gün)", "よる (Gece)", "よむ (Okumak)"]
+      }
+    ]
+  },
+  {
+    "id": "h_3",
+    "type": "hiragana",
+    "title": "あつい なつ (Sıcak Yaz)",
+    "sentences": [
+      {
+        "id": "h_3_1",
+        "japaneseText": "きょうは とても あついです。",
+        "romaji": "Kyou wa totemo atsui desu.",
+        "turkishTranslation": "Bugün çok sıcak.",
+        "vocabulary": ["きょう (Bugün)", "あつい (Sıcak)"]
+      },
+      {
+        "id": "h_3_2",
+        "japaneseText": "つめたい みずを たくさん のみます。",
+        "romaji": "Tsumetai mizu o takusan nomimasu.",
+        "turkishTranslation": "Çok soğuk su içerim.",
+        "vocabulary": ["つめたい (Soğuk)", "みず (Su)", "たくさん (Çok fazla)", "のむ (İçmek)"]
+      },
+      {
+        "id": "h_3_3",
+        "japaneseText": "はやく あきに なって ほしいです。",
+        "romaji": "Hayaku aki ni natte hoshii desu.",
+        "turkishTranslation": "Çabuk sonbahar olmasını istiyorum.",
+        "vocabulary": ["はやく (Çabucak/Erkenden)", "あき (Sonbahar)", "なる (Olmak)", "ほしい (İstemek)"]
+      }
+    ]
+  },
+  {
+    "id": "hk_1",
+    "type": "hiraganaKatakana",
+    "title": "カフェで (Kafede)",
+    "sentences": [
+      {
+        "id": "hk_1_1",
+        "japaneseText": "きょうは ともだちと カフェへ いきました。",
+        "romaji": "Kyou wa tomodachi to kafe e ikimashita.",
+        "turkishTranslation": "Bugün arkadaşımla kafeye gittik.",
+        "vocabulary": ["ともだち (Arkadaş)", "カフェ (Kafe)"]
+      },
+      {
+        "id": "hk_1_2",
+        "japaneseText": "わたしは コーヒーと ケーキを たのみました。",
+        "romaji": "Watashi wa koohii to keeki o tanomimashita.",
+        "turkishTranslation": "Ben kahve ve pasta sipariş ettim.",
+        "vocabulary": ["コーヒー (Kahve)", "ケーキ (Pasta)", "たのむ (İstemek/Sipariş etmek)"]
+      },
+      {
+        "id": "hk_1_3",
+        "japaneseText": "おいしい ケーキでした。",
+        "romaji": "Oishii keeki deshita.",
+        "turkishTranslation": "Lezzetli bir pastaydı.",
+        "vocabulary": ["おいしい (Lezzetli)"]
+      }
+    ]
+  },
+  {
+    "id": "hk_2",
+    "type": "hiraganaKatakana",
+    "title": "スポーツの ひ (Spor Günü)",
+    "sentences": [
+      {
+        "id": "hk_2_1",
+        "japaneseText": "きのうは スポーツを しました。",
+        "romaji": "Kinou wa supootsu o shimashita.",
+        "turkishTranslation": "Dün spor yaptım.",
+        "vocabulary": ["スポーツ (Spor)", "する (Yapmak)"]
+      },
+      {
+        "id": "hk_2_2",
+        "japaneseText": "あさ テニスを して、ごご プールへ いきました。",
+        "romaji": "Asa tenisu o shite, gogo puuru e ikimashita.",
+        "turkishTranslation": "Sabah tenis oynayıp, öğleden sonra havuza gittim.",
+        "vocabulary": ["あさ (Sabah)", "テニス (Tenis)", "ごご (Öğleden sonra)", "プール (Havuz)"]
+      },
+      {
+        "id": "hk_2_3",
+        "japaneseText": "とても つかれました。",
+        "romaji": "Totemo tsukaremashita.",
+        "turkishTranslation": "Çok yoruldum.",
+        "vocabulary": ["つかれる (Yorulmak)"]
+      }
+    ]
+  },
+  {
+    "id": "hk_3",
+    "type": "hiraganaKatakana",
+    "title": "カメラと しゃしん (Kamera ve Fotoğraf)",
+    "sentences": [
+      {
+        "id": "hk_3_1",
+        "japaneseText": "あたらしい カメラを もっています。",
+        "romaji": "Atarashii kamera o motteimasu.",
+        "turkishTranslation": "Yeni bir kameram var.",
+        "vocabulary": ["カメラ (Kamera)", "もつ (Sahip olmak/Taşımak)"]
+      },
+      {
+        "id": "hk_3_2",
+        "japaneseText": "よく えきの しゃしんを とります。",
+        "romaji": "Yoku eki no shashin o torimasu.",
+        "turkishTranslation": "Sık sık istasyon fotoğrafı çekerim.",
+        "vocabulary": ["よく (Sık sık/İyi)", "えき (İstasyon)", "しゃしん (Fotoğraf)", "とる (Çekmek)"]
+      },
+      {
+        "id": "hk_3_3",
+        "japaneseText": "いつか パリへ いきたいです。",
+        "romaji": "Itsuka pari e ikitai desu.",
+        "turkishTranslation": "Bir gün Paris'e gitmek istiyorum.",
+        "vocabulary": ["いつか (Bir gün)", "パリ (Paris)"]
+      }
+    ]
+  },
+  {
+    "id": "hkj_1",
+    "type": "hiraganaKanji",
+    "title": "私の 一日 (Benim Günüm - Kanji)",
+    "sentences": [
+      {
+        "id": "hkj_1_1",
+        "japaneseText": "私は 毎日 七時に 起きます。",
+        "romaji": "Watashi wa mainichi nanaji ni okimasu.",
+        "turkishTranslation": "Ben her gün saat yedide uyanırım.",
+        "vocabulary": ["私 (Ben)", "毎日 (Her gün)", "七時 (Saat yedi)", "起きる (Uyanmak)"]
+      },
+      {
+        "id": "hkj_1_2",
+        "japaneseText": "そして、電車で 学校へ 行きます。",
+        "romaji": "Soshite, densha de gakkou e ikimasu.",
+        "turkishTranslation": "Ve trenle okula giderim.",
+        "vocabulary": ["電車 (Tren)", "学校 (Okul)", "行く (Gitmek)"]
+      },
+      {
+        "id": "hkj_1_3",
+        "japaneseText": "夕方 五時に 家へ 帰ります。",
+        "romaji": "Yuugata goji ni uchi e kaerimasu.",
+        "turkishTranslation": "Akşamüstü saat beşte eve dönerim.",
+        "vocabulary": ["夕方 (Akşamüstü)", "五時 (Saat beş)", "家 (Ev)", "帰る (Dönmek)"]
+      }
+    ]
+  },
+  {
+    "id": "hkj_2",
+    "type": "hiraganaKanji",
+    "title": "雨の 日 (Yağmurlu Gün)",
+    "sentences": [
+      {
+        "id": "hkj_2_1",
+        "japaneseText": "今日は 雨が 降っています。",
+        "romaji": "Kyou wa ame ga futteimasu.",
+        "turkishTranslation": "Bugün yağmur yağıyor.",
+        "vocabulary": ["今日 (Bugün)", "雨 (Yağmur)", "降る (Yağmak)"]
+      },
+      {
+        "id": "hkj_2_2",
+        "japaneseText": "外へ 出ません。家で 休みます。",
+        "romaji": "Soto e demasen. Uchi de yasumimasu.",
+        "turkishTranslation": "Dışarı çıkmam. Evde dinlenirim.",
+        "vocabulary": ["外 (Dışarı)", "出る (Çıkmak)", "休む (Dinlenmek)"]
+      },
+      {
+        "id": "hkj_2_3",
+        "japaneseText": "先生の 本を 読みます。",
+        "romaji": "Sensei no hon o yomimasu.",
+        "turkishTranslation": "Öğretmenin kitabını okurum.",
+        "vocabulary": ["先生 (Öğretmen)", "本 (Kitap)", "読む (Okumak)"]
+      }
+    ]
+  },
+  {
+    "id": "hkj_3",
+    "type": "hiraganaKanji",
+    "title": "山の 上 (Dağın Tepesi)",
+    "sentences": [
+      {
+        "id": "hkj_3_1",
+        "japaneseText": "昨日、山へ 行きました。",
+        "romaji": "Kinou, yama e ikimashita.",
+        "turkishTranslation": "Dün dağa gittim.",
+        "vocabulary": ["昨日 (Dün)", "山 (Dağ)"]
+      },
+      {
+        "id": "hkj_3_2",
+        "japaneseText": "山の上から 川が 見えました。",
+        "romaji": "Yama no ue kara kawa ga miemashita.",
+        "turkishTranslation": "Dağın tepesinden nehir görünüyordu.",
+        "vocabulary": ["上 (Üst/Tepe)", "川 (Nehir)", "見える (Görünmek)"]
+      },
+      {
+        "id": "hkj_3_3",
+        "japaneseText": "とても 良い 一日でした。",
+        "romaji": "Totemo yoi ichinichi deshita.",
+        "turkishTranslation": "Çok iyi bir gündü.",
+        "vocabulary": ["良い (İyi)", "一日 (Bir gün)"]
+      }
+    ]
+  },
+  {
+    "id": "all_1",
+    "type": "all",
+    "title": "週末の 買い物 (Hafta Sonu Alışverişi)",
+    "sentences": [
+      {
+        "id": "all_1_1",
+        "japaneseText": "週末、デパートへ 買い物に 行きました。",
+        "romaji": "Shuumatsu, depaato e kaimono ni ikimashita.",
+        "turkishTranslation": "Hafta sonu büyük mağazaya alışverişe gittim.",
+        "vocabulary": ["週末 (Hafta sonu)", "デパート (Büyük Mağaza)", "買い物 (Alışveriş)"]
+      },
+      {
+        "id": "all_1_2",
+        "japaneseText": "白い シャツと 新しい ノートを 買いました。",
+        "romaji": "Shiroi shatsu to atarashii nooto o kaimashita.",
+        "turkishTranslation": "Beyaz gömlek ve yeni bir defter aldım.",
+        "vocabulary": ["白い (Beyaz)", "シャツ (Gömlek)", "新しい (Yeni)", "ノート (Defter)", "買う (Satın almak)"]
+      },
+      {
+        "id": "all_1_3",
+        "japaneseText": "少し 高かったですが、好きです。",
+        "romaji": "Sukoshi takakatta desu ga, suki desu.",
+        "turkishTranslation": "Biraz pahalıydı ama seviyorum.",
+        "vocabulary": ["少し (Biraz)", "高い (Yüksek/Pahalı)", "好き (Sevmek)"]
+      }
+    ]
+  },
+  {
+    "id": "all_2",
+    "type": "all",
+    "title": "レストランで (Restoranda)",
+    "sentences": [
+      {
+        "id": "all_2_1",
+        "japaneseText": "昨日の 夜、レストランへ 行きました。",
+        "romaji": "Kinou no yoru, resutoran e ikimashita.",
+        "turkishTranslation": "Dün gece restorana gittim.",
+        "vocabulary": ["昨日 (Dün)", "夜 (Gece)", "レストラン (Restoran)"]
+      },
+      {
+        "id": "all_2_2",
+        "japaneseText": "私は 魚を、友だちは ステーキを 食べました。",
+        "romaji": "Watashi wa sakana o, tomodachi wa suteeki o tabemashita.",
+        "turkishTranslation": "Ben balık, arkadaşım ise biftek yedi.",
+        "vocabulary": ["魚 (Balık)", "友だち (Arkadaş)", "ステーキ (Biftek)", "食べる (Yemek)"]
+      },
+      {
+        "id": "all_2_3",
+        "japaneseText": "二人で ビールも 飲みました。",
+        "romaji": "Futari de biiru mo nomimashita.",
+        "turkishTranslation": "İkimiz birlikte bira da içtik.",
+        "vocabulary": ["二人 (İki kişi)", "ビール (Bira)", "飲む (İçmek)"]
+      }
+    ]
+  },
+  {
+    "id": "all_3",
+    "type": "all",
+    "title": "日本語の 勉強 (Japonca Çalışmak)",
+    "sentences": [
+      {
+        "id": "all_3_1",
+        "japaneseText": "今、日本語を 勉強しています。",
+        "romaji": "Ima, nihongo o benkyou shiteimasu.",
+        "turkishTranslation": "Şu an Japonca çalışıyorum.",
+        "vocabulary": ["今 (Şimdi)", "日本語 (Japonca)", "勉強 (Çalışmak/Öğrenmek)"]
+      },
+      {
+        "id": "all_3_2",
+        "japaneseText": "漢字は 難しいですが、面白いです。",
+        "romaji": "Kanji wa muzukashii desu ga, omoshiroi desu.",
+        "turkishTranslation": "Kanjiler zor ama ilginç.",
+        "vocabulary": ["漢字 (Kanji)", "難しい (Zor)", "面白い (İlginç)"]
+      },
+      {
+        "id": "all_3_3",
+        "japaneseText": "毎日 スマホで ニュースを 読みます。",
+        "romaji": "Mainichi sumaho de nyuusu o yomimasu.",
+        "turkishTranslation": "Her gün akıllı telefondan haber okurum.",
+        "vocabulary": ["毎日 (Her gün)", "スマホ (Akıllı telefon)", "ニュース (Haber)", "読む (Okumak)"]
+      }
+    ]
+  }
+]
