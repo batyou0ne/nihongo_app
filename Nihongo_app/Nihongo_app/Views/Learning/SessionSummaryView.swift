@@ -21,52 +21,57 @@ struct SessionSummaryView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 24) {
-            VStack(alignment: .leading, spacing: 8) {
-                Image(systemName: "checkmark.seal.fill")
-                    .font(.system(size: 44))
-                    .foregroundStyle(Theme.accent)
-                Text(L10n.sessionSummary)
-                    .font(Theme.display(32))
-                    .foregroundStyle(Theme.ink)
-            }
+        VStack(spacing: 0) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Image(systemName: "checkmark.seal.fill")
+                            .font(.system(size: 44))
+                            .foregroundStyle(Theme.accent)
+                        Text(L10n.sessionSummary)
+                            .font(Theme.display(32))
+                            .foregroundStyle(Theme.ink)
+                    }
 
-            HStack(spacing: 14) {
-                statBox(value: totalAnswers, label: L10n.cardsSeenLabel)
-                statBox(value: totalWrong, label: L10n.wrongAnswersLabel)
-            }
+                    HStack(spacing: 14) {
+                        statBox(value: totalAnswers, label: L10n.cardsSeenLabel)
+                        statBox(value: totalWrong, label: L10n.wrongAnswersLabel)
+                    }
 
-            if wrongItems.isEmpty {
-                Text(L10n.perfectScore)
-                    .font(Theme.heading(17))
-                    .foregroundStyle(Theme.ink)
-            } else {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(L10n.wrongItemsTitle)
-                        .font(Theme.heading(19))
-                        .foregroundStyle(Theme.ink)
+                    if wrongItems.isEmpty {
+                        Text(L10n.perfectScore)
+                            .font(Theme.heading(17))
+                            .foregroundStyle(Theme.ink)
+                    } else {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(L10n.wrongItemsTitle)
+                                .font(Theme.heading(19))
+                                .foregroundStyle(Theme.ink)
 
-                    ScrollView {
-                        VStack(spacing: 10) {
-                            ForEach(wrongItems) { item in
-                                wrongItemRow(item)
+                            VStack(spacing: 10) {
+                                ForEach(wrongItems) { item in
+                                    wrongItemRow(item)
+                                }
                             }
+
+                            Text(L10n.addedToReview)
+                                .font(.footnote)
+                                .foregroundStyle(Theme.secondaryInk)
+                                .padding(.top, 4)
                         }
                     }
-                    .scrollIndicators(.hidden)
-
-                    Text(L10n.addedToReview)
-                        .font(.footnote)
-                        .foregroundStyle(Theme.secondaryInk)
                 }
+                .padding(20)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .scrollIndicators(.hidden)
 
-            Spacer(minLength: 0)
-
-            Button(L10n.finishButton) { onFinish() }
-                .buttonStyle(PrimaryButtonStyle())
+            VStack {
+                Button(L10n.finishButton) { onFinish() }
+                    .buttonStyle(PrimaryButtonStyle())
+            }
+            .padding(20)
         }
-        .padding(20)
         .background(Theme.paper)
     }
 
