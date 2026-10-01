@@ -159,12 +159,25 @@ struct ReviewListView: View {
     }
 
     private func reviewRow<Item: FlashcardItem>(_ item: Item, kind: LearnableItemKind) -> some View {
-        HStack(spacing: 14) {
-            Text(item.prompt)
-                .font(Theme.heading(26))
-                .foregroundStyle(Theme.ink)
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
+        let progress = reviewProgress.first(where: { $0.itemKind == kind && $0.itemID == item.id })
+        let levelTitle = SpacedRepetitionService.SRSLevel(rawValue: progress?.repetitionCount ?? 0)?.title ?? "Yeni"
+
+        return HStack(spacing: 14) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(item.prompt)
+                    .font(Theme.heading(26))
+                    .foregroundStyle(Theme.ink)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                
+                Text(levelTitle)
+                    .font(.caption.weight(.bold))
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(Theme.accent.opacity(0.1))
+                    .foregroundStyle(Theme.accent)
+                    .clipShape(Capsule())
+            }
 
             Text(item.flipRecap)
                 .font(.subheadline)
@@ -214,16 +227,30 @@ struct ReviewListView: View {
 
                 ForEach(points) { point in
                     HStack(spacing: 14) {
-                        VStack(alignment: .leading, spacing: 2) {
+                        let progress = reviewProgress.first(where: { $0.itemKind == .grammar && $0.itemID == point.id })
+                        let levelTitle = SpacedRepetitionService.SRSLevel(rawValue: progress?.repetitionCount ?? 0)?.title ?? "Yeni"
+
+                        VStack(alignment: .leading, spacing: 4) {
                             Text(point.pattern)
                                 .font(Theme.heading(20))
                                 .foregroundStyle(Theme.accent)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.5)
-                            Text(point.title)
-                                .font(.subheadline)
-                                .foregroundStyle(Theme.secondaryInk)
-                                .lineLimit(1)
+                            
+                            HStack {
+                                Text(levelTitle)
+                                    .font(.caption.weight(.bold))
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(Theme.ink.opacity(0.1))
+                                    .foregroundStyle(Theme.ink)
+                                    .clipShape(Capsule())
+                                
+                                Text(point.title)
+                                    .font(.subheadline)
+                                    .foregroundStyle(Theme.secondaryInk)
+                                    .lineLimit(1)
+                            }
                         }
 
                         Spacer()
