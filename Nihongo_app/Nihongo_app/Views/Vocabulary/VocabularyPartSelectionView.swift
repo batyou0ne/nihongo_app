@@ -31,7 +31,7 @@ struct VocabularyPartSelectionView: View {
             if allWords.isEmpty {
                 SwiftUI.ProgressView()
                     .background(Theme.paper)
-                    .navigationTitle("\(level) Kelimeler")
+                    .navigationTitle(L10n.vocabularyLevel(level))
             } else {
                 let index = currentPartIndex
                 FlashcardSessionView(

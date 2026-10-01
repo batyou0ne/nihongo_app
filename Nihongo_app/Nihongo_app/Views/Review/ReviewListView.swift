@@ -51,7 +51,7 @@ struct ReviewListView: View {
         }
         .scrollIndicators(.hidden)
         .background(Theme.paper)
-        .navigationTitle("Tekrar Çalış")
+        .navigationTitle(L10n.reviewNavTitle)
         .fullScreenCover(item: $selectedSessionParams) { params in
             NavigationStack {
                 if params.kind == .hiraganaCharacter || params.kind == .katakanaCharacter {
@@ -93,7 +93,7 @@ struct ReviewListView: View {
         .fullScreenCover(isPresented: $isShowingGrammarPractice) {
             if let points = selectedGrammarPoints {
                 NavigationStack {
-                    GrammarPracticeView(points: points, title: "Tekrar: Gramer")
+                    GrammarPracticeView(points: points, title: L10n.reviewPrefix(L10n.grammarTitle))
                 }
             }
         }
@@ -111,10 +111,10 @@ struct ReviewListView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("🎉")
                 .font(.system(size: 44))
-            Text("Harika!")
+            Text(L10n.reviewEmptyTitle)
                 .font(Theme.display(28))
                 .foregroundStyle(Theme.ink)
-            Text("Tekrar çalışman gereken bir şey yok. Yanlış yaptığın kartlar burada birikir.")
+            Text(L10n.reviewEmptyMessage)
                 .font(.subheadline)
                 .foregroundStyle(Theme.secondaryInk)
         }
@@ -142,10 +142,10 @@ struct ReviewListView: View {
                             kind: kind,
                             allItems: items,
                             distractorPool: allModuleItems,
-                            title: "Tekrar: \(kind.displayName)"
+                            title: L10n.reviewPrefix(kind.displayName)
                         )
                     } label: {
-                        Text("Bunlarla çalış →")
+                        Text(L10n.practiceWithThese())
                             .font(.system(size: 15, weight: .heavy))
                             .foregroundStyle(Theme.accent)
                     }
@@ -176,7 +176,7 @@ struct ReviewListView: View {
             Button {
                 markAsLearned(kind: kind, itemID: item.id)
             } label: {
-                Text("Öğrendim ✓")
+                Text(L10n.learnedButton)
                     .font(.system(size: 14, weight: .bold))
                     .foregroundStyle(Theme.paper)
                     .padding(.horizontal, 12)
@@ -206,7 +206,7 @@ struct ReviewListView: View {
                         selectedGrammarPoints = points
                         isShowingGrammarPractice = true
                     } label: {
-                        Text("Bunlarla çalış →")
+                        Text(L10n.practiceWithThese())
                             .font(.system(size: 15, weight: .heavy))
                             .foregroundStyle(Theme.accent)
                     }
@@ -231,7 +231,7 @@ struct ReviewListView: View {
                         Button {
                             markAsLearned(kind: .grammar, itemID: point.id)
                         } label: {
-                            Text("Öğrendim ✓")
+                            Text(L10n.learnedButton)
                                 .font(.system(size: 14, weight: .bold))
                                 .foregroundStyle(Theme.paper)
                                 .padding(.horizontal, 12)

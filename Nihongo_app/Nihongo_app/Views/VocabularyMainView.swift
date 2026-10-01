@@ -13,7 +13,7 @@ struct VocabularyMainView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Kelimeler")
+                    Text(L10n.vocabularyTitle)
                         .font(Theme.display(36))
                         .foregroundStyle(Theme.ink)
                         .padding(.top, 10)
@@ -50,10 +50,10 @@ struct VocabularyMainView: View {
                 .frame(width: 44, height: 44)
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(level) Kelimeler")
+                Text(L10n.vocabularyLevel(level))
                     .font(Theme.heading(19))
                     .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
-                Text(isAvailable ? "675 kelime · 27 bölüm" : "Yakında")
+                Text(isAvailable ? L10n.vocabularySubtitle(675, 27) : L10n.comingSoon)
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }

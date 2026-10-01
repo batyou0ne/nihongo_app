@@ -17,7 +17,7 @@ struct ReadingMainView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Okuma")
+                    Text(L10n.readingTitle)
                         .font(Theme.display(36))
                         .foregroundStyle(Theme.ink)
                         .padding(.top, 10)
@@ -43,7 +43,7 @@ struct ReadingMainView: View {
                                                     .foregroundStyle(Theme.ink)
                                                     .multilineTextAlignment(.leading)
                                                 
-                                                Text("\(story.sentences.count) cümle")
+                                                Text(L10n.sentenceCount(story.sentences.count))
                                                     .font(.caption)
                                                     .foregroundStyle(Theme.secondaryInk)
                                             }

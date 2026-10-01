@@ -15,12 +15,12 @@ struct AlphabetMainView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Alfabe")
+                    Text(L10n.alphabetTitle)
                         .font(Theme.display(36))
                         .foregroundStyle(Theme.ink)
                         .padding(.top, 10)
                         
-                    SectionLabel("ÖĞREN")
+                    SectionLabel(L10n.sectionLearn)
 
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
                         NavigationLink {

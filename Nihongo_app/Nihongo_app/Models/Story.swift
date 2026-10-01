@@ -7,12 +7,7 @@ enum StoryType: String, Codable, CaseIterable {
     case all = "all"
     
     var displayName: String {
-        switch self {
-        case .hiragana: return "Sadece Hiragana"
-        case .hiraganaKatakana: return "Hiragana + Katakana"
-        case .hiraganaKanji: return "Hiragana + Kanji"
-        case .all: return "Hiragana + Katakana + Kanji"
-        }
+        L10n.storyTypeName(rawValue)
     }
 }
 

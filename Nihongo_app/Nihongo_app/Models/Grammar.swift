@@ -11,13 +11,7 @@ enum GrammarCategory: String, Codable, CaseIterable {
     case expression     // kalıp ifadeler: があります/います, ほうがいい...
 
     var displayName: String {
-        switch self {
-        case .particle: return "Edatlar"
-        case .verb: return "Fiiller"
-        case .adjective: return "Sıfatlar"
-        case .conjunction: return "Bağlaçlar"
-        case .expression: return "İfadeler"
-        }
+        L10n.grammarCategoryName(rawValue)
     }
 
     /// Bölümlerin öğrenme ekranında görünme sırası (kolaydan zora).

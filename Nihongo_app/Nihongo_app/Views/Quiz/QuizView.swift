@@ -46,7 +46,7 @@ struct QuizView<Item: QuizItem>: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button("Kapat") { dismiss() }
+                Button(L10n.closeButton) { dismiss() }
             }
         }
         .onAppear {
@@ -89,7 +89,7 @@ struct QuizView<Item: QuizItem>: View {
                         .padding(.horizontal)
                         .padding(.bottom, 12)
                     } else {
-                        Button("İpucu") {
+                        Button(L10n.hintButton) {
                             withAnimation { showHint = true }
                         }
                         .font(.system(size: 15, weight: .bold))
@@ -106,7 +106,7 @@ struct QuizView<Item: QuizItem>: View {
                 .padding(.horizontal)
 
                 if viewModel.selectedAnswer != nil {
-                    Button("Devam Et") {
+                    Button(L10n.continueButton) {
                         withAnimation { viewModel.moveToNext() }
                     }
                     .buttonStyle(PrimaryButtonStyle())
@@ -187,10 +187,10 @@ struct QuizView<Item: QuizItem>: View {
             Image(systemName: score == total ? "star.fill" : "checkmark.seal.fill")
                 .font(.system(size: 56))
                 .foregroundStyle(Theme.accent)
-            Text("\(score) / \(total) doğru")
+            Text(L10n.scoreResult(score, total))
                 .font(Theme.heading(22))
                 .foregroundStyle(Theme.ink)
-            Button("Bitir") { dismiss() }
+            Button(L10n.finishButton) { dismiss() }
                 .buttonStyle(PrimaryButtonStyle())
                 .padding(.horizontal, 40)
         }

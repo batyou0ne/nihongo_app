@@ -47,12 +47,12 @@ struct SignInView: View {
                     .foregroundStyle(Theme.accent)
                     .padding(.bottom, 10)
 
-                Text(mode == .signUp ? "Hesap oluştur" : "Giriş yap")
+                Text(mode == .signUp ? L10n.signUpTitle : L10n.signInTitle)
                     .font(Theme.display(30))
                     .foregroundStyle(Theme.ink)
                     .padding(.bottom, 8)
 
-                Text("İlerlemen hesabına kaydedilir; başka bir cihazdan giriş yaptığında kaldığın yerden devam edersin.")
+                Text(L10n.signInDescription)
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
                     .padding(.bottom, 24)
@@ -79,7 +79,7 @@ struct SignInView: View {
                         Text("G")
                             .font(.system(size: 20, weight: .black))
                             .foregroundStyle(Theme.accent)
-                        Text("Google ile devam et")
+                        Text(L10n.googleSignIn)
                             .font(.system(size: 17, weight: .bold))
                             .foregroundStyle(Theme.ink)
                     }
@@ -89,7 +89,7 @@ struct SignInView: View {
                 }
                 .padding(.top, 12)
 
-                Button("Şimdilik misafir olarak devam et") {
+                Button(L10n.continueAsGuest) {
                     dismiss()
                 }
                 .font(.system(size: 16, weight: .heavy))
@@ -110,24 +110,24 @@ struct SignInView: View {
         VStack(alignment: .leading, spacing: 12) {
             if mode == .signUp {
                 HStack(spacing: 12) {
-                    TextField("Ad", text: $firstName)
+                    TextField(L10n.firstNamePlaceholder, text: $firstName)
                         .textContentType(.givenName)
                         .padding(14)
                         .inkBordered()
 
-                    TextField("Soyad", text: $lastName)
+                    TextField(L10n.lastNamePlaceholder, text: $lastName)
                         .textContentType(.familyName)
                         .padding(14)
                         .inkBordered()
                 }
 
-                TextField("Yaş (opsiyonel)", text: $ageText)
+                TextField(L10n.agePlaceholder, text: $ageText)
                     .keyboardType(.numberPad)
                     .padding(14)
                     .inkBordered()
             }
 
-            TextField("Email", text: $email)
+            TextField(L10n.emailPlaceholder, text: $email)
                 .keyboardType(.emailAddress)
                 .textContentType(.emailAddress)
                 .textInputAutocapitalization(.never)
@@ -135,7 +135,7 @@ struct SignInView: View {
                 .padding(14)
                 .inkBordered()
 
-            SecureField("Şifre (en az 6 karakter)", text: $password)
+            SecureField(L10n.passwordPlaceholder, text: $password)
                 .textContentType(mode == .signUp ? .newPassword : .password)
                 .padding(14)
                 .inkBordered()
@@ -151,7 +151,7 @@ struct SignInView: View {
                     .foregroundStyle(Theme.ink)
             }
 
-            Button(mode == .signUp ? "Kayıt Ol" : "Giriş Yap") {
+            Button(mode == .signUp ? L10n.signUpButton : L10n.signInButton) {
                 submitEmailPassword()
             }
             .buttonStyle(PrimaryButtonStyle())
@@ -159,7 +159,7 @@ struct SignInView: View {
             .opacity(isWorking ? 0.6 : 1)
 
             HStack {
-                Button(mode == .signUp ? "Zaten hesabın var mı? Giriş yap" : "Hesabın yok mu? Kayıt ol") {
+                Button(mode == .signUp ? L10n.alreadyHaveAccount : L10n.noAccount) {
                     mode = mode == .signUp ? .signIn : .signUp
                     errorMessage = nil
                     infoMessage = nil
@@ -170,7 +170,7 @@ struct SignInView: View {
                 Spacer()
 
                 if mode == .signIn {
-                    Button("Şifremi unuttum") {
+                    Button(L10n.forgotPassword) {
                         sendPasswordReset()
                     }
                     .font(.footnote.weight(.bold))
@@ -184,7 +184,7 @@ struct SignInView: View {
     private var divider: some View {
         HStack(spacing: 12) {
             Rectangle().fill(Theme.ink).frame(height: 2)
-            Text("veya")
+            Text(L10n.orDivider)
                 .font(.footnote.weight(.bold))
                 .foregroundStyle(Theme.secondaryInk)
             Rectangle().fill(Theme.ink).frame(height: 2)
@@ -198,7 +198,7 @@ struct SignInView: View {
         infoMessage = nil
         let trimmedEmail = email.trimmingCharacters(in: .whitespaces)
         guard !trimmedEmail.isEmpty, !password.isEmpty else {
-            errorMessage = "Email ve şifre boş bırakılamaz."
+            errorMessage = L10n.emptyEmailPassword
             return
         }
 
@@ -206,7 +206,7 @@ struct SignInView: View {
         let trimmedLastName = lastName.trimmingCharacters(in: .whitespaces)
         if mode == .signUp {
             guard !trimmedFirstName.isEmpty, !trimmedLastName.isEmpty else {
-                errorMessage = "Ad ve soyad boş bırakılamaz."
+                errorMessage = L10n.emptyName
                 return
             }
         }
@@ -245,14 +245,14 @@ struct SignInView: View {
         infoMessage = nil
         let trimmedEmail = email.trimmingCharacters(in: .whitespaces)
         guard !trimmedEmail.isEmpty else {
-            errorMessage = "Şifre sıfırlama için üstteki alana email adresini yaz."
+            errorMessage = L10n.passwordResetPrompt
             return
         }
 
         Task {
             do {
                 try await AuthService.shared.sendPasswordReset(email: trimmedEmail)
-                infoMessage = "Şifre sıfırlama bağlantısı \(trimmedEmail) adresine gönderildi."
+                infoMessage = L10n.passwordResetSent(trimmedEmail)
             } catch {
                 errorMessage = AuthService.friendlyMessage(for: error)
             }

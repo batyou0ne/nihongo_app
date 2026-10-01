@@ -23,7 +23,7 @@ struct ScenarioListView: View {
             .padding(.bottom, 80) // Tab bar
         }
         .background(Theme.paper)
-        .navigationTitle("Senaryolar")
+        .navigationTitle(L10n.scenariosTitle)
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(item: $selectedScenario) { scenario in
             NavigationStack {

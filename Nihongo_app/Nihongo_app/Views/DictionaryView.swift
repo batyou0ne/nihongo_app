@@ -42,8 +42,8 @@ struct DictionaryView: View {
             .listStyle(.plain)
             .background(Theme.paper)
             .scrollContentBackground(.hidden)
-            .navigationTitle("Sözlük")
-            .searchable(text: $searchText, prompt: "Kelime veya anlam ara...")
+            .navigationTitle(L10n.dictionaryTitle)
+            .searchable(text: $searchText, prompt: L10n.dictionarySearch)
             // Tab bar boşluğu
             .safeAreaInset(edge: .bottom) {
                 Color.clear.frame(height: 80)

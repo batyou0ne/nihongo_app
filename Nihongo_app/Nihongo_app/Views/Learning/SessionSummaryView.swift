@@ -26,23 +26,23 @@ struct SessionSummaryView: View {
                 Image(systemName: "checkmark.seal.fill")
                     .font(.system(size: 44))
                     .foregroundStyle(Theme.accent)
-                Text("Oturum Özeti")
+                Text(L10n.sessionSummary)
                     .font(Theme.display(32))
                     .foregroundStyle(Theme.ink)
             }
 
             HStack(spacing: 14) {
-                statBox(value: totalAnswers, label: "Gördüğün kart")
-                statBox(value: totalWrong, label: "Yanlış cevap")
+                statBox(value: totalAnswers, label: L10n.cardsSeenLabel)
+                statBox(value: totalWrong, label: L10n.wrongAnswersLabel)
             }
 
             if wrongItems.isEmpty {
-                Text("Hiç yanlışın yok — mükemmel! 🎉")
+                Text(L10n.perfectScore)
                     .font(Theme.heading(17))
                     .foregroundStyle(Theme.ink)
             } else {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Yanlış yaptıkların")
+                    Text(L10n.wrongItemsTitle)
                         .font(Theme.heading(19))
                         .foregroundStyle(Theme.ink)
 
@@ -55,7 +55,7 @@ struct SessionSummaryView: View {
                     }
                     .scrollIndicators(.hidden)
 
-                    Text("Bunlar \"Tekrar Çalış\" listesine eklendi.")
+                    Text(L10n.addedToReview)
                         .font(.footnote)
                         .foregroundStyle(Theme.secondaryInk)
                 }
@@ -63,7 +63,7 @@ struct SessionSummaryView: View {
 
             Spacer(minLength: 0)
 
-            Button("Bitir") { onFinish() }
+            Button(L10n.finishButton) { onFinish() }
                 .buttonStyle(PrimaryButtonStyle())
         }
         .padding(20)

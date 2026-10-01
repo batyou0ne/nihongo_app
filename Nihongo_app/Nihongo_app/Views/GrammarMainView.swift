@@ -14,7 +14,7 @@ struct GrammarMainView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Gramer")
+                    Text(L10n.grammarTitle)
                         .font(Theme.display(36))
                         .foregroundStyle(Theme.ink)
                         .padding(.top, 10)
@@ -51,10 +51,10 @@ struct GrammarMainView: View {
                 .frame(width: 44, height: 44)
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(level) Gramer")
+                Text(L10n.grammarLevel(level))
                     .font(Theme.heading(19))
                     .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
-                Text(isAvailable ? "85 konu · 5 kategori" : "Yakında")
+                Text(isAvailable ? L10n.grammarSubtitle(85, 5) : L10n.comingSoon)
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }

@@ -57,7 +57,7 @@ struct StoryReaderView: View {
                     .background(Theme.secondaryInk.opacity(0.3))
                 
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Hikayenin Kelimeleri")
+                    Text(L10n.storyVocabulary)
                         .font(Theme.heading(18))
                         .foregroundStyle(Theme.secondaryInk)
                     
@@ -72,7 +72,7 @@ struct StoryReaderView: View {
                     XPManager.shared.addXP(action: .storyCompleted, context: modelContext)
                     dismiss()
                 } label: {
-                    Text("Hikayeyi Tamamla")
+                    Text(L10n.completeStory)
                         .font(.system(size: 17, weight: .bold))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
@@ -97,7 +97,7 @@ struct StoryReaderView: View {
                     HStack(spacing: 4) {
                         Image(systemName: "chevron.left")
                             .font(.body.weight(.bold))
-                        Text("Geri")
+                        Text(L10n.backButton)
                     }
                     .foregroundStyle(Theme.ink)
                 }
@@ -155,7 +155,7 @@ struct SentenceDetailPopup: View {
                             .font(.body)
                             .foregroundStyle(Theme.ink)
                         
-                        Text("Türkçe Çeviri")
+                        Text(L10n.translationLabel)
                             .font(.caption.weight(.bold))
                             .foregroundStyle(Theme.secondaryInk)
                             .padding(.top, 8)
@@ -169,12 +169,12 @@ struct SentenceDetailPopup: View {
                     
                     // Kelimeler
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Anahtar Kelimeler")
+                        Text(L10n.keyVocabulary)
                             .font(Theme.heading(18))
                             .foregroundStyle(Theme.ink)
                         
                         if sentence.vocabulary.isEmpty {
-                            Text("Bu cümle için yeni kelime yok.")
+                            Text(L10n.noNewVocab)
                                 .font(.body)
                                 .foregroundStyle(Theme.secondaryInk)
                         } else {
@@ -189,11 +189,11 @@ struct SentenceDetailPopup: View {
                 .padding(24)
             }
             .background(Theme.paper)
-            .navigationTitle("Cümle İncelemesi")
+            .navigationTitle(L10n.sentenceReview)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Kapat") {
+                    Button(L10n.closeButton) {
                         dismiss()
                     }
                     .font(.body.weight(.bold))

@@ -33,7 +33,7 @@ struct ProgressOverviewView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 14) {
-                    sectionTitle("Öğrenilenler")
+                    sectionTitle(L10n.learnedSection)
                     progressRow(title: "Hiragana", kind: .hiraganaCharacter)
                     progressRow(title: "Katakana", kind: .katakanaCharacter)
                     progressRow(title: "Kanji (N5)", kind: .kanji)
@@ -45,7 +45,7 @@ struct ProgressOverviewView: View {
         }
         .scrollIndicators(.hidden)
         .background(Theme.paper)
-        .navigationTitle("İlerleme")
+        .navigationTitle(L10n.progressNavTitle)
         .onAppear {
             TimeTrackingService.shared.commitCurrentSession(context: modelContext)
         }
@@ -59,16 +59,16 @@ struct ProgressOverviewView: View {
 
     private func streakSection(_ userProgress: UserProgress) -> some View {
         VStack(alignment: .leading, spacing: 14) {
-            sectionTitle("Seri")
+            sectionTitle(L10n.streakSection)
 
             HStack(spacing: 10) {
                 Image(systemName: "flame.fill")
                     .foregroundStyle(Theme.accent)
-                Text("\(userProgress.activeStreak) günlük seri")
+                Text(L10n.streakText(userProgress.activeStreak))
                     .font(.system(size: 17, weight: .heavy))
                     .foregroundStyle(Theme.ink)
                 Spacer()
-                Text("En uzun: \(userProgress.longestStreak)")
+                Text(L10n.longestStreak(userProgress.longestStreak))
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }
@@ -91,7 +91,7 @@ struct ProgressOverviewView: View {
         
         return VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .bottom) {
-                Text("Seviye \(level)")
+                Text(L10n.levelLabel(level))
                     .font(Theme.display(28))
                     .foregroundStyle(Theme.ink)
                 Spacer()
@@ -129,11 +129,11 @@ struct ProgressOverviewView: View {
         let totalMinutesThisWeek = data.reduce(0) { $0 + $1.minutes }
         let hours = totalMinutesThisWeek / 60
         let mins = totalMinutesThisWeek % 60
-        let timeStr = hours > 0 ? "\(hours) sa \(mins) dk" : "\(mins) dk"
+        let timeStr = L10n.timeFormatted(hours: hours, minutes: mins)
         
         return VStack(alignment: .leading, spacing: 14) {
             HStack(alignment: .firstTextBaseline) {
-                sectionTitle("Çalışma Süresi")
+                sectionTitle(L10n.studyTime)
                 Spacer()
                 Text(timeStr)
                     .font(.subheadline.weight(.bold))
@@ -142,8 +142,8 @@ struct ProgressOverviewView: View {
             
             Chart(data) { item in
                 BarMark(
-                    x: .value("Gün", item.date, unit: .day),
-                    y: .value("Dakika", item.minutes)
+                    x: .value(L10n.chartDay, item.date, unit: .day),
+                    y: .value(L10n.chartMinutes, item.minutes)
                 )
                 .foregroundStyle(Theme.accent.gradient)
             }
@@ -177,7 +177,7 @@ struct ProgressOverviewView: View {
             progressBar(fraction: total > 0 ? Double(learned) / Double(total) : 0)
 
             if mastered > 0 {
-                Text("🏆 \(mastered) tanesi kalıcı öğrenildi (4+ doğru tekrar)")
+                Text(L10n.permanentlyLearned(mastered))
                     .font(.caption)
                     .foregroundStyle(Theme.secondaryInk)
             }

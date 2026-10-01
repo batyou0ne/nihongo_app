@@ -53,17 +53,17 @@ struct MainTabView: View {
 
     private var floatingTabBar: some View {
         HStack(spacing: 0) {
-            tabButton(icon: "house.fill", title: "Ana", tag: 0)
+            tabButton(icon: "house.fill", title: L10n.tabHome, tag: 0)
             Spacer(minLength: 5)
-            tabButton(textIcon: "あ", title: "Alfabe", tag: 1)
+            tabButton(textIcon: "あ", title: L10n.tabAlphabet, tag: 1)
             Spacer(minLength: 5)
-            tabButton(icon: "doc.text.fill", title: "Gramer", tag: 2)
+            tabButton(icon: "doc.text.fill", title: L10n.tabGrammar, tag: 2)
             Spacer(minLength: 5)
-            tabButton(icon: "character.book.closed.fill", title: "Kelime", tag: 3)
+            tabButton(icon: "character.book.closed.fill", title: L10n.tabVocabulary, tag: 3)
             Spacer(minLength: 5)
-            tabButton(icon: "book.fill", title: "Okuma", tag: 5)
+            tabButton(icon: "book.fill", title: L10n.tabReading, tag: 5)
             Spacer(minLength: 5)
-            tabButton(icon: "magnifyingglass", title: "Sözlük", tag: 4)
+            tabButton(icon: "magnifyingglass", title: L10n.tabDictionary, tag: 4)
         }
         .padding(.horizontal, 24)
         .padding(.vertical, 14)

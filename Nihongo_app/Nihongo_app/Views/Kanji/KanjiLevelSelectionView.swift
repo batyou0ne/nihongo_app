@@ -45,7 +45,7 @@ struct KanjiLevelSelectionView: View {
                 Text("\(level) Kanji's")
                     .font(Theme.heading(19))
                     .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
-                Text(isAvailable ? "80 kanji · 4 bölüm" : "Yakında")
+                Text(isAvailable ? L10n.kanjiSubtitle(80, 4) : L10n.comingSoon)
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }

@@ -46,7 +46,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         guard let session = sessionState else { return "" }
         let inPlay = session.remainingItemIDs.count + session.wrongItemIDs.count
         let mastered = max(0, allItems.count - inPlay)
-        return "\(mastered)/\(allItems.count) öğrenildi"
+        return L10n.learnedCount(mastered, allItems.count)
     }
 
     var body: some View {
@@ -65,7 +65,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         .navigationTitle(title)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button("Hızlı Quiz") {
+                Button(L10n.quickQuiz) {
                     isPresentingQuiz = true
                 }
                 .tint(accentColor)
@@ -315,7 +315,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                             .padding(.horizontal)
                             .padding(.bottom, 4)
                         } else {
-                            Button("İpucu") {
+                            Button(L10n.hintButton) {
                                 withAnimation { showHint = true }
                             }
                             .font(.system(size: 15, weight: .bold))
@@ -330,7 +330,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                 // Doğru cevapta otomatik geçilir; yanlışta kullanıcı örnek kelimeyi
                 // inceleyip karta dokunarak kendi geçer (bkz. flipCard'daki tap gesture).
                 if isFlipped && vm.isAnswerCorrect == false {
-                    Text("Devam etmek için karta dokun")
+                    Text(L10n.tapToContinue)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }

@@ -33,7 +33,7 @@ struct AccountView: View {
                 .foregroundStyle(Theme.accent)
                 .padding(.bottom, 12)
 
-            Text("Hesabım")
+            Text(L10n.accountTitle)
                 .font(Theme.display(32))
                 .foregroundStyle(Theme.ink)
                 .padding(.bottom, 24)
@@ -50,19 +50,38 @@ struct AccountView: View {
                 }
 
                 if let age = profile?.age {
-                    Text("Yaş: \(age)")
+                    Text(L10n.ageLabel(age))
                         .font(.system(size: 16))
                         .foregroundStyle(Theme.secondaryInk)
                 }
             }
             .padding(.bottom, 24)
 
-            Text("İlerlemen bu hesaba bağlı. Başka bir cihazda aynı hesapla giriş yaptığında kaldığın yerden devam edersin.")
+            Text(L10n.accountSyncInfo)
                 .font(.footnote)
                 .foregroundStyle(Theme.secondaryInk)
                 .padding(.bottom, 16)
 
-            Button("Çıkış Yap") {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(L10n.languageSettingsTitle)
+                    .font(Theme.heading(20))
+                    .foregroundStyle(Theme.ink)
+
+                Text(L10n.languageSettingsSubtitle)
+                    .font(.footnote)
+                    .foregroundStyle(Theme.secondaryInk)
+
+                Picker("", selection: Bindable(LanguageManager.shared).current) {
+                    ForEach(LanguageManager.AppLanguage.allCases) { lang in
+                        Text("\(lang.flag) \(lang.displayName)").tag(lang)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(.top, 8)
+            }
+            .padding(.bottom, 32)
+
+            Button(L10n.signOutButton) {
                 Task {
                     await AuthService.shared.signOut()
                     UserProfileService.shared.clear()

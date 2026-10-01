@@ -119,7 +119,7 @@ struct HomeView: View {
         return HStack(spacing: 10) {
             Image(systemName: "flame.fill")
                 .foregroundStyle(streak > 0 ? Theme.accent : Theme.secondaryInk)
-            Text(streak > 0 ? "\(streak) günlük seri" : "Seri yok — bugün başla")
+            Text(streak > 0 ? L10n.streakText(streak) : L10n.noStreak)
                 .font(.system(size: 17, weight: .heavy))
                 .foregroundStyle(streak > 0 ? Theme.ink : Theme.secondaryInk)
                 .lineLimit(1)
@@ -149,7 +149,7 @@ struct HomeView: View {
             isShowingResumeTarget = true
         } label: {
             VStack(alignment: .leading, spacing: 10) {
-                Text("KALDIĞIN YER")
+                Text(L10n.resumeLabel)
                     .font(.caption.weight(.heavy))
                     .foregroundStyle(Theme.secondaryInk)
 
@@ -167,7 +167,7 @@ struct HomeView: View {
 
                 ProgressBar(fraction: target.fraction)
 
-                Text("DEVAM ET  →")
+                Text(L10n.resumeButton)
                     .font(.system(size: 17, weight: .bold))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
@@ -221,7 +221,7 @@ struct HomeView: View {
 
     private var reviewSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionLabel("TEKRAR & İLERLEME")
+            SectionLabel(L10n.sectionReview)
 
             VStack(spacing: 12) {
                 NavigationLink {
@@ -229,10 +229,10 @@ struct HomeView: View {
                 } label: {
                     UtilityCard(
                         systemImage: "exclamationmark.arrow.circlepath",
-                        title: "Tekrar Çalış",
+                        title: L10n.reviewTitle,
                         subtitle: reviewItems.isEmpty
-                            ? "Bekleyen öğe yok"
-                            : "\(reviewItems.count) öğe seni bekliyor",
+                            ? L10n.reviewNoItems
+                            : L10n.reviewItemsWaiting(reviewItems.count),
                         // Bekleyen öğe varsa kart öne çıksın, yoksa geri çekilsin.
                         isHighlighted: !reviewItems.isEmpty
                     )
@@ -243,8 +243,8 @@ struct HomeView: View {
                 } label: {
                     UtilityCard(
                         systemImage: "chart.bar.fill",
-                        title: "İlerleme",
-                        subtitle: "Öğrenilenleri görüntüle",
+                        title: L10n.progressTitle,
+                        subtitle: L10n.progressSubtitle,
                         isHighlighted: false
                     )
                 }
@@ -254,7 +254,7 @@ struct HomeView: View {
     
     private var practiceSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionLabel("KONUŞMA PRATİĞİ")
+            SectionLabel(L10n.sectionPractice)
             
             VStack(spacing: 12) {
                 NavigationLink {
@@ -262,7 +262,7 @@ struct HomeView: View {
                 } label: {
                     UtilityCard(
                         systemImage: "person.2.fill",
-                        title: "Sohbet Pratiği",
+                        title: L10n.scenarioPractice,
                         subtitle: nil,
                         isHighlighted: false
                     )
@@ -273,7 +273,7 @@ struct HomeView: View {
                 } label: {
                     UtilityCard(
                         systemImage: "message.fill",
-                        title: "AI ile Sohbet",
+                        title: L10n.aiChat,
                         subtitle: nil,
                         isHighlighted: false
                     )
@@ -343,7 +343,7 @@ struct ResumeTarget: Hashable {
             let parts = ContentStore.vocabularyParts(level: level)
             guard parts.indices.contains(index) else { return nil }
             module = .vocabulary(level: level, index: index)
-            title = "\(level) Kelimeler Part \(index + 1)"
+            title = "\(level) Words Part \(index + 1)"
             total = parts[index].count
         } else {
             return nil // review_* ve tanınmayan anahtarlar

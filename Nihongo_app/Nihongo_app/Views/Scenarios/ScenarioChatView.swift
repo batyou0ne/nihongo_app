@@ -91,11 +91,11 @@ struct ScenarioChatView: View {
                 FuriganaText(text: msg.text, font: .system(size: 16, weight: .medium), color: msg.isBot ? Theme.ink : Theme.paper)
                 if let isSuccess = msg.isSuccessFeedback {
                     if isSuccess {
-                        Text("Doğru!")
+                        Text(L10n.correctFeedback)
                             .font(.caption.weight(.bold))
                             .foregroundStyle(.green)
                     } else {
-                        Text("Yanlış, tekrar dene!")
+                        Text(L10n.wrongFeedback)
                             .font(.caption.weight(.bold))
                             .foregroundStyle(.red)
                     }
@@ -129,7 +129,7 @@ struct ScenarioChatView: View {
             Circle().fill(Theme.secondaryInk).frame(width: 8, height: 8)
             Circle().fill(Theme.secondaryInk).frame(width: 8, height: 8).opacity(0.7)
             Circle().fill(Theme.secondaryInk).frame(width: 8, height: 8).opacity(0.4)
-            Text("Yazıyor...")
+            Text(L10n.typingIndicator)
                 .font(.caption)
                 .foregroundStyle(Theme.secondaryInk)
         }
@@ -140,7 +140,7 @@ struct ScenarioChatView: View {
     
     private func optionsView(step: ScenarioStep) -> some View {
         VStack(spacing: 12) {
-            Text("Nasıl cevap verirsin?")
+            Text(L10n.howToRespond)
                 .font(.subheadline.weight(.bold))
                 .foregroundStyle(Theme.secondaryInk)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -183,10 +183,10 @@ struct ScenarioChatView: View {
         VStack(spacing: 16) {
             Text("🎉")
                 .font(.system(size: 44))
-            Text("Tebrikler!")
+            Text(L10n.congratulations)
                 .font(Theme.display(24))
                 .foregroundStyle(Theme.ink)
-            Text("Bu konuşma senaryosunu başarıyla tamamladın.")
+            Text(L10n.scenarioComplete)
                 .font(.subheadline)
                 .foregroundStyle(Theme.secondaryInk)
                 .multilineTextAlignment(.center)
@@ -194,7 +194,7 @@ struct ScenarioChatView: View {
             Button {
                 dismiss()
             } label: {
-                Text("Bitir")
+                Text(L10n.finishButton)
                     .font(.system(size: 17, weight: .bold))
                     .foregroundStyle(Theme.paper)
                     .frame(maxWidth: .infinity)

@@ -51,7 +51,7 @@ struct ChatView: View {
             VStack(spacing: 0) {
                 Divider().background(Theme.ink)
                 HStack(spacing: 12) {
-                    TextField("Japonca veya Türkçe yaz...", text: $inputText)
+                    TextField(L10n.chatInputPlaceholder, text: $inputText)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 10)
                         .background(Theme.paper)
@@ -72,11 +72,11 @@ struct ChatView: View {
                 .background(Theme.paper)
             }
         }
-        .navigationTitle("AI Pratik")
+        .navigationTitle(L10n.aiPracticeTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button("Kapat") {
+                Button(L10n.closeButton) {
                     dismiss()
                 }
             }

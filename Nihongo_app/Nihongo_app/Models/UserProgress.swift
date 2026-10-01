@@ -15,9 +15,9 @@ enum LearnableItemKind: String, Codable {
         switch self {
         case .hiraganaCharacter: return "Hiragana"
         case .katakanaCharacter: return "Katakana"
-        case .vocabularyWord: return "Kelimeler"
+        case .vocabularyWord: return L10n.itemKindName(rawValue)
         case .kanji: return "Kanji"
-        case .grammar: return "Gramer"
+        case .grammar: return L10n.itemKindName(rawValue)
         }
     }
 
