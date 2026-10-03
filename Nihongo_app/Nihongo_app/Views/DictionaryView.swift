@@ -20,21 +20,33 @@ struct DictionaryView: View {
     var body: some View {
         NavigationStack {
             List(filteredWords) { word in
-                VStack(alignment: .leading, spacing: 6) {
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(word.displayText)
-                            .font(Theme.heading(20))
-                            .foregroundStyle(Theme.ink)
-                        if !word.kanji.isEmpty {
-                            Text(word.hiragana)
-                                .font(.subheadline)
-                                .foregroundStyle(Theme.secondaryInk)
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: 6) {
+                            HStack(alignment: .firstTextBaseline) {
+                                Text(word.displayText)
+                                    .font(Theme.heading(20))
+                                    .foregroundStyle(Theme.ink)
+                                if !word.kanji.isEmpty {
+                                    Text(word.hiragana)
+                                        .font(.subheadline)
+                                        .foregroundStyle(Theme.secondaryInk)
+                                }
+                            }
+                            Text(word.turkishMeaning)
+                                .font(.body)
+                                .foregroundStyle(Theme.ink)
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            AudioService.shared.speak(word.speechText)
+                        } label: {
+                            Image(systemName: "speaker.wave.2.circle.fill")
+                                .font(.title2)
+                                .foregroundStyle(Theme.accent)
                         }
                     }
-                    Text(word.turkishMeaning)
-                        .font(.body)
-                        .foregroundStyle(Theme.ink)
-                }
                 .padding(.vertical, 8)
                 .listRowBackground(Theme.paper)
                 .listRowSeparatorTint(Theme.secondaryInk.opacity(0.3))

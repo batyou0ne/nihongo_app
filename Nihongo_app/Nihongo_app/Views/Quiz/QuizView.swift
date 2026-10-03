@@ -118,6 +118,17 @@ struct QuizView<Item: QuizItem>: View {
             Spacer()
         }
         .padding(.top)
+        .onChange(of: viewModel.currentIndex) { _, _ in
+            showHint = false
+            if let question = viewModel.currentQuestion as? any FlashcardItem {
+                AudioService.shared.speak(question.speechText)
+            }
+        }
+        .onAppear {
+            if let question = viewModel.currentQuestion as? any FlashcardItem {
+                AudioService.shared.speak(question.speechText)
+            }
+        }
     }
 
     private func optionButton(_ option: String, viewModel: QuizViewModel<Item>) -> some View {

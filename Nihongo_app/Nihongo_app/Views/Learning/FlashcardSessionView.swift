@@ -342,6 +342,15 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: vm.currentIndex)
         .onChange(of: vm.currentIndex) { _, _ in
             showHint = false
+            // Yeni kart geldiğinde kelimeyi otomatik seslendir (ses pratik desteği)
+            if let question = vm.currentQuestion {
+                AudioService.shared.speak(question.speechText)
+            }
+        }
+        .onAppear {
+            if let question = vm.currentQuestion {
+                AudioService.shared.speak(question.speechText)
+            }
         }
     }
 
