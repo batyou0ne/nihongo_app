@@ -267,4 +267,9 @@ enum L10n {
     static var languageSettingsSubtitle: String {
         lang == .turkish ? "Arayüz dilini değiştir" : "Change interface language"
     }
+
+    // MARK: - Notifications
+    static var notificationsTitle: String { lang == .turkish ? "Bildirimler" : "Notifications" }
+    static var dailyReminderToggle: String { lang == .turkish ? "Günlük Hatırlatıcı" : "Daily Reminder" }
+    static var reminderTimeLabel: String { lang == .turkish ? "Hatırlatma Saati" : "Reminder Time" }
 }

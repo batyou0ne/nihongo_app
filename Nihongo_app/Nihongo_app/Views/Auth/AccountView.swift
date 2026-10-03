@@ -6,6 +6,19 @@ import FirebaseAuth
 /// (Hesap silme, account-management aşamasında eklenecek.)
 struct AccountView: View {
     @Environment(\.dismiss) private var dismiss
+    
+    @State private var isDailyReminderEnabled: Bool = UserDefaults.standard.bool(forKey: "isDailyReminderEnabled")
+    @State private var reminderTime: Date = {
+        let savedTime = UserDefaults.standard.double(forKey: "reminderTimeInterval")
+        if savedTime > 0 {
+            return Date(timeIntervalSince1970: savedTime)
+        } else {
+            var components = DateComponents()
+            components.hour = 20
+            components.minute = 0
+            return Calendar.current.date(from: components) ?? Date()
+        }
+    }()
 
     private var profile: UserProfile? {
         UserProfileService.shared.profile
@@ -78,6 +91,36 @@ struct AccountView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.top, 8)
+            }
+            .padding(.bottom, 24)
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text(L10n.notificationsTitle)
+                    .font(Theme.heading(20))
+                    .foregroundStyle(Theme.ink)
+                
+                Toggle(L10n.dailyReminderToggle, isOn: $isDailyReminderEnabled)
+                    .tint(Theme.accent)
+                    .onChange(of: isDailyReminderEnabled) { _, newValue in
+                        UserDefaults.standard.set(newValue, forKey: "isDailyReminderEnabled")
+                        if newValue {
+                            let components = Calendar.current.dateComponents([.hour, .minute], from: reminderTime)
+                            NotificationManager.shared.scheduleDailyReminder(hour: components.hour ?? 20, minute: components.minute ?? 0)
+                        } else {
+                            NotificationManager.shared.cancelDailyReminder()
+                        }
+                    }
+                
+                if isDailyReminderEnabled {
+                    DatePicker(L10n.reminderTimeLabel, selection: $reminderTime, displayedComponents: .hourAndMinute)
+                        .tint(Theme.accent)
+                        .padding(.top, 4)
+                        .onChange(of: reminderTime) { _, newValue in
+                            UserDefaults.standard.set(newValue.timeIntervalSince1970, forKey: "reminderTimeInterval")
+                            let components = Calendar.current.dateComponents([.hour, .minute], from: newValue)
+                            NotificationManager.shared.scheduleDailyReminder(hour: components.hour ?? 20, minute: components.minute ?? 0)
+                        }
+                }
             }
             .padding(.bottom, 32)
 
