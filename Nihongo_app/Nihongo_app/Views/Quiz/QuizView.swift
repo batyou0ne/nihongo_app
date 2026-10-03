@@ -147,6 +147,13 @@ struct QuizView<Item: QuizItem>: View {
             }
             
             let correct = (option == item.correctAnswer)
+            
+            if correct {
+                AudioService.shared.playCorrectSound()
+            } else {
+                AudioService.shared.playWrongSound()
+            }
+            
             if let progress = progressLookup(item.id) {
                 let wasLearned = progress.isLearned
                 SpacedRepetitionService.shared.updateProgress(for: progress, correct: correct)

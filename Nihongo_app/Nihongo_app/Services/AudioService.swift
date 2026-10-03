@@ -17,6 +17,7 @@ class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     
     private let synthesizer = AVSpeechSynthesizer()
     private var audioPlayer: AVAudioPlayer?
+    private var effectPlayer: AVAudioPlayer?
     @Published var isSpeaking: Bool = false
     
     /// Japonca metin → ses dosyası adı eşlemesi (audio_manifest.json'dan yüklenir)
@@ -138,6 +139,34 @@ class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
         if let player = audioPlayer, player.isPlaying {
             player.stop()
             isSpeaking = false
+        }
+    }
+    
+    // MARK: - Sound Effects
+    
+    /// Doğru cevap sesini çalar.
+    func playCorrectSound() {
+        playSoundEffect(name: "correct-audio", ext: "wav")
+    }
+    
+    /// Yanlış cevap sesini çalar.
+    func playWrongSound() {
+        playSoundEffect(name: "wrong-audio", ext: "wav")
+    }
+    
+    private func playSoundEffect(name: String, ext: String) {
+        guard let url = Bundle.main.url(forResource: name, withExtension: ext, subdirectory: "Audio")
+            ?? Bundle.main.url(forResource: name, withExtension: ext) else {
+            print("⚠️ Ses efekti bulunamadı: \(name).\(ext)")
+            return
+        }
+        
+        do {
+            effectPlayer = try AVAudioPlayer(contentsOf: url)
+            effectPlayer?.volume = 0.6 // Ses seviyesini ayarlayabilirsiniz
+            effectPlayer?.play()
+        } catch {
+            print("Ses efekti çalınamadı: \(error.localizedDescription)")
         }
     }
     

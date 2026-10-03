@@ -450,8 +450,10 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             // Haptic & Sound Feedback
             if isCorrect {
                 FeedbackManager.shared.playSuccess()
+                AudioService.shared.playCorrectSound()
             } else {
                 FeedbackManager.shared.playError()
+                AudioService.shared.playWrongSound()
             }
             
             autoAdvanceTask = Task {
