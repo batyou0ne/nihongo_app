@@ -1,36 +1,35 @@
 #!/usr/bin/env python3
 """
-Nihongo App — Google Cloud TTS ile Japonca ses dosyaları üretici.
+Nihongo App — edge-tts ile Japonca ses dosyaları üretici.
+Kayıt / kredi kartı gerektirmez. Microsoft Edge'in Neural sesini kullanır.
 
 Kullanım:
-    export GOOGLE_APPLICATION_CREDENTIALS="./gcloud-key.json"
+    pip3 install edge-tts
     python3 scripts/generate_audio.py
 
 Üretilen ses dosyaları:  Nihongo_app/Nihongo_app/Resources/Audio/
 Dosya adlandırma:         Japonca metnin SHA-256 hash'inin ilk 16 karakteri + .mp3
-                          (AudioService.swift'teki lookup mantığıyla aynı)
+                          (AudioService.swift'teki lookup mantığıyla birebir aynı)
 """
 
+import asyncio
 import json
 import hashlib
 import os
 import sys
-import time
 from pathlib import Path
 
 # ─── Yapılandırma ─────────────────────────────────────────────────────────────
 
-VOICE_NAME = "ja-JP-Neural2-B"     # Kadın, en doğal Neural2 ses
-LANGUAGE_CODE = "ja-JP"
-SPEAKING_RATE = 0.9                 # Biraz yavaş — öğrenme amaçlı
-PITCH = 0.0                        # Normal pitch
-AUDIO_ENCODING = "MP3"
+VOICE = "ja-JP-NanamiNeural"   # Kadın, en doğal ücretsiz Neural ses
+RATE  = "-10%"                  # Biraz yavaş — öğrenme amaçlı (%-oran veya +/- ms)
+PITCH = "+0Hz"                  # Normal pitch
 
 # Yollar
-SCRIPT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR   = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 RESOURCES_DIR = PROJECT_ROOT / "Nihongo_app" / "Nihongo_app" / "Resources"
-OUTPUT_DIR = RESOURCES_DIR / "Audio"
+OUTPUT_DIR    = RESOURCES_DIR / "Audio"
 
 # ─── Yardımcı fonksiyonlar ────────────────────────────────────────────────────
 
@@ -62,14 +61,13 @@ def collect_all_texts() -> dict[str, str]:
     for char in load_json("KatakanaData.json"):
         texts[char["character"]] = "katakana"
 
-    # 3) N5 Kelime bilgisi — hiragana okunuşu
+    # 3) N5 Kelime bilgisi — hiragana okunuşu (TTS kanji'yi yanlış okuyabilir)
     for word in load_json("N5VocabularyData.json"):
         texts[word["hiragana"]] = "vocabulary"
 
     # 4) N5 Gramer örnekleri
     for lesson in load_json("N5GrammarData.json"):
         for example in lesson.get("examples", []):
-            # Hiragana varsa onu, yoksa kanji'li japanese'i al
             text = example.get("hiragana") or example.get("japanese", "")
             if text:
                 texts[text] = "grammar"
@@ -84,126 +82,109 @@ def collect_all_texts() -> dict[str, str]:
     return texts
 
 
-def generate_audio_files(texts: dict[str, str]):
-    """Google Cloud TTS ile ses dosyalarını üretir."""
+async def generate_one(text: str, filepath: Path, semaphore: asyncio.Semaphore) -> bool:
+    """Tek bir metni seslendirip dosyaya yazar. Eşzamanlılığı semaphore ile sınırlar."""
+    async with semaphore:
+        try:
+            import edge_tts
+            communicate = edge_tts.Communicate(text, voice=VOICE, rate=RATE, pitch=PITCH)
+            await communicate.save(str(filepath))
+            return True
+        except Exception as e:
+            print(f"  ❌ HATA: {text[:30]!r} → {e}")
+            return False
+
+
+async def generate_all(texts: dict[str, str]):
+    """Tüm ses dosyalarını eşzamanlı olarak üretir."""
     try:
-        from google.cloud import texttospeech
+        import edge_tts  # noqa: F401
     except ImportError:
-        print("❌ google-cloud-texttospeech kütüphanesi bulunamadı!")
-        print("   Kur: pip3 install google-cloud-texttospeech")
+        print("❌ edge-tts kütüphanesi bulunamadı!")
+        print("   Kur: pip3 install edge-tts")
         sys.exit(1)
 
-    # API istemcisini oluştur
-    client = texttospeech.TextToSpeechClient()
-
-    # Ses yapılandırması
-    voice = texttospeech.VoiceSelectionParams(
-        language_code=LANGUAGE_CODE,
-        name=VOICE_NAME,
-    )
-    audio_config = texttospeech.AudioConfig(
-        audio_encoding=texttospeech.AudioEncoding.MP3,
-        speaking_rate=SPEAKING_RATE,
-        pitch=PITCH,
-    )
-
-    # Çıktı klasörünü oluştur
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    total = len(texts)
+    # Neyin üretilmesi gerektiğini belirle
+    tasks_needed: list[tuple[str, str, Path]] = []
     skipped = 0
-    generated = 0
-    errors = 0
-
-    print(f"\n🎌 Nihongo App — Ses Dosyası Üretici")
-    print(f"   Ses: {VOICE_NAME}")
-    print(f"   Toplam metin: {total}")
-    print(f"   Çıktı: {OUTPUT_DIR}\n")
-    print("─" * 60)
-
-    for i, (text, category) in enumerate(texts.items(), 1):
+    for text, category in texts.items():
         filename = text_to_filename(text)
         filepath = OUTPUT_DIR / filename
-
-        # Zaten varsa atla
         if filepath.exists():
             skipped += 1
-            continue
+        else:
+            tasks_needed.append((text, category, filepath))
 
-        try:
-            synthesis_input = texttospeech.SynthesisInput(text=text)
-            response = client.synthesize_speech(
-                input=synthesis_input,
-                voice=voice,
-                audio_config=audio_config,
-            )
+    total     = len(texts)
+    to_gen    = len(tasks_needed)
+    generated = 0
+    errors    = 0
 
-            with open(filepath, "wb") as out:
-                out.write(response.audio_content)
+    print(f"\n🎌 Nihongo App — Ses Dosyası Üretici (edge-tts)")
+    print(f"   Ses:             {VOICE}")
+    print(f"   Hız:             {RATE}")
+    print(f"   Toplam metin:    {total}")
+    print(f"   ⏭️  Zaten mevcut: {skipped}")
+    print(f"   🔄 Üretilecek:   {to_gen}")
+    print(f"   📁 Çıktı:        {OUTPUT_DIR}\n")
+    print("─" * 65)
 
+    if not tasks_needed:
+        print("✅ Tüm sesler zaten mevcut, atlandı.")
+        return
+
+    # Eşzamanlı istek sayısını sınırla (edge-tts'de flood sorunlarını önler)
+    semaphore = asyncio.Semaphore(5)
+
+    for i, (text, category, filepath) in enumerate(tasks_needed, 1):
+        success = await generate_one(text, filepath, semaphore)
+        if success:
             generated += 1
-            # İlerleme göstergesi
-            progress = i / total * 100
-            print(f"  [{i:4d}/{total}] ({progress:5.1f}%) ✅ {category:12s} │ {text[:30]:<30s} → {filename}")
-
-            # Rate limiting — Google Cloud TTS'de dakikada 300 istek limiti var
-            # Her 250 istekte bir kısa duraklama
-            if generated % 250 == 0:
-                print(f"\n  ⏳ Rate limit koruması — 10 saniye bekleniyor...\n")
-                time.sleep(10)
-
-        except Exception as e:
+            progress = i / to_gen * 100
+            print(f"  [{i:4d}/{to_gen}] ({progress:5.1f}%) ✅ {category:12s} │ {text[:28]:<28s}")
+        else:
             errors += 1
-            print(f"  [{i:4d}/{total}]          ❌ {category:12s} │ {text[:30]:<30s} → HATA: {e}")
 
-    print("─" * 60)
+        # Her 100 dosyada bir küçük bir nefes
+        if i % 100 == 0:
+            await asyncio.sleep(1)
+
+    print("─" * 65)
     print(f"\n📊 Sonuç:")
-    print(f"   ✅ Üretilen:  {generated}")
-    print(f"   ⏭️  Atlanan:   {skipped} (zaten mevcuttu)")
-    print(f"   ❌ Hata:      {errors}")
-    print(f"   📁 Toplam dosya: {len(list(OUTPUT_DIR.glob('*.mp3')))}")
+    print(f"   ✅ Üretilen:      {generated}")
+    print(f"   ⏭️  Atlandı:       {skipped}")
+    print(f"   ❌ Hata:          {errors}")
+    print(f"   📁 Toplam dosya:  {len(list(OUTPUT_DIR.glob('*.mp3')))}")
     print()
 
 
 def generate_manifest(texts: dict[str, str]):
-    """
-    AudioService'in kullanacağı text→filename eşleme dosyasını üretir.
-    Bu dosya Xcode projesine eklenmeli.
-    """
-    manifest = {}
-    for text in texts:
-        manifest[text] = text_to_filename(text)
-
+    """AudioService'in kullanacağı text→filename eşleme dosyasını üretir."""
+    manifest = {text: text_to_filename(text) for text in texts}
     manifest_path = OUTPUT_DIR / "audio_manifest.json"
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
-
     print(f"📋 Manifest oluşturuldu: {manifest_path}")
-    print(f"   Toplam giriş: {len(manifest)}")
+    print(f"   Toplam giriş: {len(manifest)}\n")
 
 
 # ─── Ana akış ─────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    if not os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
-        print("⚠️  GOOGLE_APPLICATION_CREDENTIALS ortam değişkeni ayarlanmamış!")
-        print("   export GOOGLE_APPLICATION_CREDENTIALS=\"./gcloud-key.json\"")
-        print()
-
     texts = collect_all_texts()
-    print(f"📝 Toplanan benzersiz metin sayısı: {len(texts)}")
 
-    # Kategori bazlı özet
+    print(f"📝 Toplanan benzersiz metin: {len(texts)}")
     categories: dict[str, int] = {}
-    for category in texts.values():
-        categories[category] = categories.get(category, 0) + 1
+    for cat in texts.values():
+        categories[cat] = categories.get(cat, 0) + 1
     for cat, count in sorted(categories.items()):
         print(f"   • {cat}: {count}")
 
-    # Ses dosyalarını üret
-    generate_audio_files(texts)
-
-    # Manifest oluştur
+    asyncio.run(generate_all(texts))
     generate_manifest(texts)
 
-    print("\n🎉 Tamamlandı! Şimdi Xcode'da Resources/Audio klasörünü projeye ekle.")
+    print("🎉 Tamamlandı!")
+    print("   Şimdi Xcode'da Resources/Audio klasörünü projeye ekle.")
+    print("   (Sürükle-bırak → 'Create folder references' seçili olsun)")
