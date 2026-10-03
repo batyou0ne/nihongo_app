@@ -1,6 +1,7 @@
 import Foundation
 import AVFoundation
 import SwiftUI
+import Combine
 
 /// Metin okuma (Text-to-Speech) işlemlerini yöneten servis.
 /// Özellikle Japonca kelime ve cümlelerin doğru telaffuzu için kullanılır.
