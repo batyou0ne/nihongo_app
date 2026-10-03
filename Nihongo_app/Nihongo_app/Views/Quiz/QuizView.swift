@@ -69,10 +69,22 @@ struct QuizView<Item: QuizItem>: View {
                 .padding(.horizontal)
 
             if let question = viewModel.currentQuestion {
-                Text(question.prompt)
-                    .font(Theme.display(88))
-                    .foregroundStyle(Theme.ink)
-                    .padding(.top, 24)
+                VStack(spacing: 8) {
+                    Text(question.prompt)
+                        .font(Theme.display(88))
+                        .foregroundStyle(Theme.ink)
+                    
+                    if let flashcardItem = question as? any FlashcardItem {
+                        Button {
+                            AudioService.shared.speak(flashcardItem.speechText)
+                        } label: {
+                            Image(systemName: "speaker.wave.2.circle.fill")
+                                .font(.title)
+                                .foregroundStyle(accentColor)
+                        }
+                    }
+                }
+                .padding(.top, 24)
                     
                 if let flashcardItem = question as? any FlashcardItem, let hint = flashcardItem.contextHint {
                     if showHint {
@@ -120,14 +132,6 @@ struct QuizView<Item: QuizItem>: View {
         .padding(.top)
         .onChange(of: viewModel.currentIndex) { _, _ in
             showHint = false
-            if let question = viewModel.currentQuestion as? any FlashcardItem {
-                AudioService.shared.speak(question.speechText)
-            }
-        }
-        .onAppear {
-            if let question = viewModel.currentQuestion as? any FlashcardItem {
-                AudioService.shared.speak(question.speechText)
-            }
         }
     }
 
