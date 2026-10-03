@@ -15,10 +15,6 @@ final class FeedbackManager {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.prepare()
         generator.impactOccurred()
-        
-        // Sound: 1057 (Tink) or 1322 (Success)
-        // 1322 is a nice positive tink sound in iOS.
-        AudioServicesPlaySystemSound(1322)
     }
     
     /// Yanlış cevap verildiğinde çalınacak hata geri bildirimi.
@@ -28,9 +24,6 @@ final class FeedbackManager {
         let generator = UINotificationFeedbackGenerator()
         generator.prepare()
         generator.notificationOccurred(.error)
-        
-        // Sound: 1053 (Beep) or maybe just standard error vibration
-        AudioServicesPlaySystemSound(1053)
     }
     
     /// Sadece butona basma hissiyatı vermek istendiğinde kullanılacak hafif geri bildirim.
