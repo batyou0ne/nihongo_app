@@ -16,3 +16,5 @@ GoogleService-Info.plist
 
 # Secrets
 Secrets.swift
+gcloud-key.json
+__pycache__/
