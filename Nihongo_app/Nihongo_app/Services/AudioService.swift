@@ -1,30 +1,75 @@
+import Foundation
 import AVFoundation
+import SwiftUI
 
-/// Karakter ve kelime telaffuzlarını çalar. MVP'de ses dosyası kaydetmek/indirmek yerine
-/// iOS'un yerleşik Japonca TTS sesini kullanıyoruz — hem 3rd-party bağımlılığı sıfırda
-/// tutar hem de 46+46+100 ayrı ses dosyası üretme/indirme maliyetinden kurtarır.
-/// İleride gerçek seslendirme eklenecekse bu servisin arayüzü değişmeden AVAudioPlayer'a geçilebilir.
+/// Metin okuma (Text-to-Speech) işlemlerini yöneten servis.
+/// Özellikle Japonca kelime ve cümlelerin doğru telaffuzu için kullanılır.
+/// AVAudioSession yapılandırması sayesinde cihaz sessizde olsa bile sesi çalar.
 @MainActor
-final class AudioService: NSObject {
+class AudioService: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     static let shared = AudioService()
-
+    
     private let synthesizer = AVSpeechSynthesizer()
-
-    private override init() {
+    @Published var isSpeaking: Bool = false
+    
+    override private init() {
         super.init()
+        synthesizer.delegate = self
+        
+        // Sessizdeyken bile sesin çıkmasını sağlamak için ses oturumunu (AudioSession) yapılandırıyoruz
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: .duckOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Audio session setup failed: \(error.localizedDescription)")
+        }
     }
-
-    /// `text` Japonca yazılmalı (örn. "あ" ya da "みず") — romaji değil, doğru telaffuz için.
-    func speak(_ text: String, rate: Float = 0.42) {
-        synthesizer.stopSpeaking(at: .immediate)
-
+    
+    /// Verilen metni okur.
+    /// - Parameters:
+    ///   - text: Okunacak metin.
+    ///   - languageCode: Dil kodu. Varsayılan olarak Japonca ("ja-JP").
+    ///   - rate: Konuşma hızı.
+    func speak(_ text: String, languageCode: String = "ja-JP", rate: Float = 0.42) {
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        
+        if let voice = AVSpeechSynthesisVoice(language: languageCode) {
+            utterance.voice = voice
+        }
+        
         utterance.rate = rate
+        
         synthesizer.speak(utterance)
     }
-
+    
+    /// Devam eden okumayı durdurur.
     func stop() {
-        synthesizer.stopSpeaking(at: .immediate)
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+    }
+    
+    // MARK: - AVSpeechSynthesizerDelegate
+    
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
+        Task { @MainActor in
+            self.isSpeaking = true
+        }
+    }
+    
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        Task { @MainActor in
+            self.isSpeaking = false
+        }
+    }
+    
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        Task { @MainActor in
+            self.isSpeaking = false
+        }
     }
 }
