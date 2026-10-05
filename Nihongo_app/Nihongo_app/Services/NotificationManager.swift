@@ -36,27 +36,32 @@ class NotificationManager: NSObject {
         }
     }
     
-    func scheduleDailyReminder(hour: Int, minute: Int) {
+    func scheduleDailyReminder(hour: Int, minute: Int, activeStreak: Int? = nil) {
         if !isAuthorized {
             Task {
                 let granted = await requestPermission()
                 if granted {
-                    self.setupDailyReminder(hour: hour, minute: minute)
+                    self.setupDailyReminder(hour: hour, minute: minute, activeStreak: activeStreak)
                 }
             }
         } else {
-            setupDailyReminder(hour: hour, minute: minute)
+            setupDailyReminder(hour: hour, minute: minute, activeStreak: activeStreak)
         }
     }
     
-    private func setupDailyReminder(hour: Int, minute: Int) {
+    private func setupDailyReminder(hour: Int, minute: Int, activeStreak: Int?) {
         let center = UNUserNotificationCenter.current()
         // Önceki hatırlatıcıları temizle
         center.removePendingNotificationRequests(withIdentifiers: ["dailyReminder"])
         
         let content = UNMutableNotificationContent()
-        content.title = "Çalışma Zamanı!"
-        content.body = "Japonca hedeflerine bir adım daha yaklaş. Günlük egzersizlerini yapmak için hemen uygulamaya gir! 🎌"
+        if let streak = activeStreak, streak > 0 {
+            content.title = "Serini Kaybetme! 🔥"
+            content.body = "Tam \(streak) gündür harika gidiyorsun. Bugün Japonca çalışıp serini korumak için uygulamaya gir!"
+        } else {
+            content.title = "Çalışma Zamanı!"
+            content.body = "Japonca hedeflerine bir adım daha yaklaş. Günlük egzersizlerini yapmak için hemen uygulamaya gir! 🎌"
+        }
         content.sound = .default
         
         var dateComponents = DateComponents()
@@ -71,9 +76,22 @@ class NotificationManager: NSObject {
             if let error = error {
                 print("Bildirim ayarlanırken hata oluştu: \(error)")
             } else {
-                print("Günlük hatırlatıcı her gün saat \(hour):\(String(format: "%02d", minute)) için kuruldu.")
+                print("Günlük hatırlatıcı her gün saat \(hour):\(String(format: "%02d", minute)) (Seri: \(activeStreak ?? 0)) için kuruldu.")
             }
         }
+    }
+    
+    func updateDailyReminderStreak(activeStreak: Int) {
+        let isEnabled = UserDefaults.standard.bool(forKey: "isDailyReminderEnabled")
+        guard isEnabled else { return }
+        
+        let savedTime = UserDefaults.standard.double(forKey: "reminderTimeInterval")
+        guard savedTime > 0 else { return }
+        
+        let date = Date(timeIntervalSince1970: savedTime)
+        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+        
+        scheduleDailyReminder(hour: components.hour ?? 20, minute: components.minute ?? 0, activeStreak: activeStreak)
     }
     
     func cancelDailyReminder() {

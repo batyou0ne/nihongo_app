@@ -225,7 +225,11 @@ final class UserProgress {
     /// Bugün çalışıldığında çağrılır. Streak'i güncel tutar; bir gün atlanırsa sıfırlar.
     func recordStudySession(on date: Date = .now) {
         let calendar = Calendar.current
-        defer { lastStudyDate = date }
+        defer { 
+            lastStudyDate = date
+            // Streak güncellendikten sonra bildirimi de senkronize et
+            NotificationManager.shared.updateDailyReminderStreak(activeStreak: activeStreak)
+        }
 
         guard let last = lastStudyDate else {
             currentStreak = 1
