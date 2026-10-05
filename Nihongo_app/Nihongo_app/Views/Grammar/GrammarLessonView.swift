@@ -8,12 +8,19 @@ struct GrammarLessonView: View {
     var isSessionMode: Bool = false
     var onNext: (() -> Void)? = nil
 
+    @State private var showConjugationTable = false
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 header
                 formulaBox
                 examplesSection
+
+                // Fiil kategorisindeyse çekim tablosu butonu göster
+                if point.category == .verb {
+                    conjugationTableButton
+                }
 
                 if isSessionMode {
                     Button {
@@ -47,6 +54,15 @@ struct GrammarLessonView: View {
         .background(Theme.paper)
         .navigationTitle(point.title)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showConjugationTable) {
+            VerbConjugationView(
+                hiragana: "たべる",
+                kanji: "食べる",
+                turkishMeaning: "yemek (örnek fiil)"
+            )
+            .presentationDetents([.large])
+            .presentationDragIndicator(.visible)
+        }
     }
 
     private var header: some View {
@@ -79,6 +95,35 @@ struct GrammarLessonView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
         .inkBordered()
+    }
+
+    // MARK: - Conjugation Table Button
+
+    private var conjugationTableButton: some View {
+        Button {
+            showConjugationTable = true
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "tablecells")
+                    .font(.system(size: 18))
+                    .foregroundStyle(Theme.accent)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Fiil Çekim Tablosu")
+                        .font(Theme.heading(16))
+                        .foregroundStyle(Theme.ink)
+                    Text("Geçmiş, Olumsuz, て, ます formlarını gör")
+                        .font(.caption)
+                        .foregroundStyle(Theme.secondaryInk)
+                }
+                Spacer()
+                Image(systemName: "arrow.up.right")
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundStyle(Theme.secondaryInk)
+            }
+            .padding()
+            .inkBordered()
+        }
+        .buttonStyle(.plain)
     }
 
     private var examplesSection: some View {
