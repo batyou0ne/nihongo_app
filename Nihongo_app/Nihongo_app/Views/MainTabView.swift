@@ -33,6 +33,10 @@ struct MainTabView: View {
                 ReadingMainView()
                     .opacity(selectedTab == 5 ? 1 : 0)
                     .allowsHitTesting(selectedTab == 5)
+                    
+                GrammarReferenceView()
+                    .opacity(selectedTab == 6 ? 1 : 0)
+                    .allowsHitTesting(selectedTab == 6)
             }
             .environment(tabBarManager)
             
@@ -64,6 +68,8 @@ struct MainTabView: View {
             tabButton(icon: "book.fill", title: L10n.tabReading, tag: 5)
             Spacer(minLength: 5)
             tabButton(icon: "magnifyingglass", title: L10n.tabDictionary, tag: 4)
+            Spacer(minLength: 5)
+            tabButton(icon: "books.vertical.fill", title: L10n.tabReference, tag: 6)
         }
         .padding(.horizontal, 24)
         .padding(.vertical, 14)

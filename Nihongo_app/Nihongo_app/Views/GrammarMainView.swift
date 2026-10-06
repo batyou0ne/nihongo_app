@@ -33,40 +33,7 @@ struct GrammarMainView: View {
                         }
                     }
 
-                    // MARK: - Verb Library Reference
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("BAŞVURU")
-                            .font(.caption.weight(.heavy))
-                            .foregroundStyle(Theme.secondaryInk)
-                            .padding(.top, 8)
 
-                        NavigationLink {
-                            VerbLibraryView()
-                        } label: {
-                            HStack(spacing: 16) {
-                                Image(systemName: "tablecells.fill")
-                                    .font(.title2)
-                                    .foregroundStyle(Theme.accent)
-                                    .frame(width: 44, height: 44)
-
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text("Fiil Çekim Kütüphanesi")
-                                        .font(Theme.heading(19))
-                                        .foregroundStyle(Theme.ink)
-                                    Text("Tüm N5 fiillerinin çekim tabloları")
-                                        .font(.subheadline)
-                                        .foregroundStyle(Theme.secondaryInk)
-                                }
-
-                                Spacer()
-                                Image(systemName: "arrow.right")
-                                    .font(.system(size: 15, weight: .bold))
-                                    .foregroundStyle(Theme.ink)
-                            }
-                            .padding()
-                            .inkBordered()
-                        }
-                    }
                 }
                 .padding(20)
                 .padding(.bottom, 80)

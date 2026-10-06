@@ -15,6 +15,7 @@ enum L10n {
     static var tabVocabulary: String { lang == .turkish ? "Kelime" : "Vocab" }
     static var tabReading: String { lang == .turkish ? "Okuma" : "Reading" }
     static var tabDictionary: String { lang == .turkish ? "Sözlük" : "Dictionary" }
+    static var tabReference: String { lang == .turkish ? "Kütüphane" : "Library" }
 
     // MARK: - Home
     static func streakText(_ count: Int) -> String {
