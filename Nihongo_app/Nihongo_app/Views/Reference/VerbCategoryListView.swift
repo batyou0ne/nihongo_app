@@ -39,31 +39,60 @@ struct VerbCategoryListView: View {
     // MARK: - Body
 
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 10) {
-                if filtered.isEmpty {
-                    emptyState
-                } else {
-                    // Type legend
-                    typeLegend
-                        .padding(.bottom, 4)
-
-                    ForEach(filtered) { verb in
-                        Button {
-                            selectedVerb = verb
-                        } label: {
-                            verbRow(verb)
-                        }
-                        .buttonStyle(.plain)
+        VStack(spacing: 0) {
+            // Custom Search Bar
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundStyle(Theme.secondaryInk)
+                
+                TextField("Fiil, romaji veya Türkçe anlam ara...", text: $searchText)
+                    .font(.system(size: 16))
+                    .foregroundStyle(Theme.ink)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                
+                if !searchText.isEmpty {
+                    Button {
+                        searchText = ""
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(Theme.secondaryInk)
                     }
                 }
             }
-            .padding(20)
-            .padding(.bottom, 90)
+            .padding(12)
+            .inkBordered(lineWidth: 1.5)
+            .padding(.horizontal, 20)
+            .padding(.top, 10)
+            .padding(.bottom, 10)
+            .background(Theme.paper)
+
+            ScrollView {
+                LazyVStack(spacing: 10) {
+                    if filtered.isEmpty {
+                        emptyState
+                    } else {
+                        // Type legend
+                        typeLegend
+                            .padding(.bottom, 4)
+
+                        ForEach(filtered) { verb in
+                            Button {
+                                selectedVerb = verb
+                            } label: {
+                                verbRow(verb)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 10)
+                .padding(.bottom, 90)
+            }
+            .scrollIndicators(.hidden)
         }
-        .scrollIndicators(.hidden)
         .background(Theme.paper)
-        .searchable(text: $searchText, prompt: "Fiil, romaji veya Türkçe anlam ara...")
         .navigationTitle("Fiiller")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { loadVerbs() }
