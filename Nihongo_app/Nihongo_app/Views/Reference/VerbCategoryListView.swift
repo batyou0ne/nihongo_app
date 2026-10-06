@@ -1,36 +1,38 @@
 import SwiftUI
 
-// MARK: - Vocabulary Word (local struct for internal use)
+// MARK: - Verb Entry
 
-private struct VerbEntry: Identifiable {
-    let id: String      // hiragana (unique key)
+struct VerbEntry: Identifiable, Hashable {
+    let id: String       // hiragana
     let hiragana: String
     let kanji: String?
     let romaji: String
     let turkishMeaning: String
+    let verbType: VerbType
 }
 
-// MARK: - Verb Library View
+// MARK: - Verb Category List View
 
-/// Tüm N5 fiillerini listeleyen kütüphane ekranı.
-/// Bir fiile tıklandığında VerbConjugationView sheet olarak açılır.
-struct VerbLibraryView: View {
+/// Fiil kategorisi için özel liste ekranı.
+/// N5 kelime hazinesinden fiilleri çeker; üstte arama çubuğu,
+/// altında tam liste (tüm fiiller varsayılan gösterilir).
+/// Tıklamada VerbConjugationView sheet açılır.
+struct VerbCategoryListView: View {
 
     @State private var verbs: [VerbEntry] = []
     @State private var searchText = ""
     @State private var selectedVerb: VerbEntry? = nil
-    @State private var showConjugation = false
 
     // MARK: - Filtered
 
     private var filtered: [VerbEntry] {
-        if searchText.trimmingCharacters(in: .whitespaces).isEmpty { return verbs }
-        let q = searchText.lowercased()
+        let q = searchText.trimmingCharacters(in: .whitespaces)
+        guard !q.isEmpty else { return verbs }
         return verbs.filter {
             $0.hiragana.contains(q) ||
             ($0.kanji?.contains(q) ?? false) ||
-            $0.romaji.lowercased().contains(q) ||
-            $0.turkishMeaning.lowercased().contains(q)
+            $0.romaji.lowercased().contains(q.lowercased()) ||
+            $0.turkishMeaning.localizedCaseInsensitiveContains(q)
         }
     }
 
@@ -38,38 +40,64 @@ struct VerbLibraryView: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(alignment: .leading, spacing: 10) {
+            LazyVStack(spacing: 10) {
                 if filtered.isEmpty {
                     emptyState
                 } else {
+                    // Type legend
+                    typeLegend
+                        .padding(.bottom, 4)
+
                     ForEach(filtered) { verb in
-                        verbRow(verb)
-                            .onTapGesture {
-                                selectedVerb = verb
-                                showConjugation = true
-                            }
+                        Button {
+                            selectedVerb = verb
+                        } label: {
+                            verbRow(verb)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
             .padding(20)
-            .padding(.bottom, 80)
+            .padding(.bottom, 90)
         }
-        .searchable(text: $searchText, prompt: "Fiil, romaji veya anlam ara...")
         .scrollIndicators(.hidden)
         .background(Theme.paper)
-        .navigationTitle("Fiil Kütüphanesi")
+        .searchable(text: $searchText, prompt: "Fiil, romaji veya Türkçe anlam ara...")
+        .navigationTitle("Fiiller")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { loadVerbs() }
-        .sheet(isPresented: $showConjugation) {
-            if let verb = selectedVerb {
-                VerbConjugationView(
-                    hiragana: verb.hiragana,
-                    kanji: verb.kanji,
-                    turkishMeaning: verb.turkishMeaning
-                )
-                .presentationDetents([.large])
-                .presentationDragIndicator(.visible)
-            }
+        .sheet(item: $selectedVerb) { verb in
+            VerbConjugationView(
+                hiragana: verb.hiragana,
+                kanji: verb.kanji,
+                turkishMeaning: verb.turkishMeaning
+            )
+            .presentationDetents([.large])
+            .presentationDragIndicator(.visible)
+        }
+    }
+
+    // MARK: - Type Legend
+
+    private var typeLegend: some View {
+        HStack(spacing: 16) {
+            legendChip("Gr.1", color: Theme.accent, subtitle: "Godan")
+            legendChip("Gr.2", color: Color(red: 0.13, green: 0.53, blue: 0.90), subtitle: "Ichidan")
+            legendChip("する/くる", color: Color(red: 0.60, green: 0.20, blue: 0.80), subtitle: "Düzensiz")
+            Spacer()
+            Text("\(filtered.count) fiil")
+                .font(.caption)
+                .foregroundStyle(Theme.secondaryInk)
+        }
+    }
+
+    private func legendChip(_ label: String, color: Color, subtitle: String) -> some View {
+        HStack(spacing: 4) {
+            Circle().fill(color).frame(width: 7, height: 7)
+            Text("\(label)")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(Theme.ink)
         }
     }
 
@@ -77,7 +105,7 @@ struct VerbLibraryView: View {
 
     private func verbRow(_ verb: VerbEntry) -> some View {
         HStack(spacing: 14) {
-            // Japanese column
+            // Japanese
             VStack(alignment: .leading, spacing: 2) {
                 if let kanji = verb.kanji {
                     Text(kanji)
@@ -92,9 +120,9 @@ struct VerbLibraryView: View {
                         .foregroundStyle(Theme.ink)
                 }
             }
-            .frame(width: 100, alignment: .leading)
+            .frame(width: 90, alignment: .leading)
 
-            // Meaning column
+            // Meaning
             VStack(alignment: .leading, spacing: 2) {
                 Text(verb.turkishMeaning)
                     .font(.system(size: 14))
@@ -106,20 +134,19 @@ struct VerbLibraryView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 
-            // Verb type badge
-            let vType = VerbConjugationEngine.classify(verb.hiragana)
-            verbTypeTag(vType)
-
-            Image(systemName: "chevron.right")
-                .font(.caption.weight(.bold))
-                .foregroundStyle(Theme.secondaryInk)
+            // Type badge + chevron
+            VStack(alignment: .trailing, spacing: 4) {
+                typeTag(verb.verbType)
+                Image(systemName: "tablecells")
+                    .font(.caption2)
+                    .foregroundStyle(Theme.secondaryInk)
+            }
         }
         .padding(14)
-        .background(Theme.paper)
         .inkBordered()
     }
 
-    private func verbTypeTag(_ type: VerbType) -> some View {
+    private func typeTag(_ type: VerbType) -> some View {
         let (label, color): (String, Color) = {
             switch type {
             case .ichidan:           return ("Gr.2", Color(red: 0.13, green: 0.53, blue: 0.90))
@@ -133,7 +160,7 @@ struct VerbLibraryView: View {
         return Text(label)
             .font(.caption2.weight(.bold))
             .padding(.horizontal, 7)
-            .padding(.vertical, 4)
+            .padding(.vertical, 3)
             .background(color.opacity(0.13))
             .foregroundStyle(color)
             .clipShape(RoundedRectangle(cornerRadius: 6))
@@ -144,13 +171,10 @@ struct VerbLibraryView: View {
     private var emptyState: some View {
         VStack(spacing: 12) {
             Image(systemName: "magnifyingglass")
-                .font(.system(size: 40))
+                .font(.system(size: 36))
                 .foregroundStyle(Theme.secondaryInk)
-            Text("Sonuç bulunamadı")
-                .font(Theme.heading(18))
-                .foregroundStyle(Theme.ink)
-            Text("'\(searchText)' ile eşleşen fiil yok.")
-                .font(.subheadline)
+            Text("'\(searchText)' için sonuç yok")
+                .font(Theme.heading(16))
                 .foregroundStyle(Theme.secondaryInk)
         }
         .frame(maxWidth: .infinity)
@@ -169,45 +193,44 @@ struct VerbLibraryView: View {
                 let raw = try? JSONDecoder().decode([[String: String]].self, from: data)
             else { return }
 
-            // Verb detection: ends in う/く/ぐ/す/つ/ぬ/ぶ/む/る
             let verbEndings: Set<Character> = ["う","く","ぐ","す","つ","ぬ","ぶ","む","る"]
+            let nonVerbHints = ["(ünlem)", "(bağlaç)", "(edat)", "(sıfat)", "(zamir)"]
+
+            var seen = Set<String>()
             let entries: [VerbEntry] = raw.compactMap { dict -> VerbEntry? in
                 guard
                     let hira = dict["hiragana"], !hira.isEmpty,
                     let last = hira.last, verbEndings.contains(last),
-                    let meaning = dict["turkishMeaning"],
+                    let meaning = dict["turkishMeaning"], !meaning.isEmpty,
                     let romaji = dict["romaji"]
                 else { return nil }
 
-                // Filter out obvious non-verbs by meaning clues
-                let nonVerbHints = ["(ünlem)", "(bağlaç)", "(edat)", "(sıfat)", "(zamir)", "(önek)", "(sonek)"]
                 if nonVerbHints.contains(where: { meaning.contains($0) }) { return nil }
+                guard seen.insert(hira).inserted else { return nil }
 
                 let kanji = dict["kanji"].flatMap { $0.isEmpty ? nil : $0 }
+                let type = VerbConjugationEngine.classify(hira)
+
                 return VerbEntry(
                     id: hira,
                     hiragana: hira,
                     kanji: kanji,
                     romaji: romaji,
-                    turkishMeaning: meaning
+                    turkishMeaning: meaning,
+                    verbType: type
                 )
             }
             .sorted { $0.hiragana < $1.hiragana }
-            // Deduplicate
-            var seen = Set<String>()
-            let deduped = entries.filter { seen.insert($0.hiragana).inserted }
 
             DispatchQueue.main.async {
-                self.verbs = deduped
+                self.verbs = entries
             }
         }
     }
 }
 
-// MARK: - Preview
-
 #Preview {
     NavigationStack {
-        VerbLibraryView()
+        VerbCategoryListView()
     }
 }
