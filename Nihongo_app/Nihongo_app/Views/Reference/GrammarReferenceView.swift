@@ -16,29 +16,25 @@ struct GrammarReferenceView: View {
     ]
 
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
 
-                    Text("Bir kategoriye tıkla, kuralları ve formları incele.")
-                        .font(.subheadline)
-                        .foregroundStyle(Theme.secondaryInk)
-                        .padding(.top, 4)
+                Text("Bir kategoriye tıkla, kuralları ve formları incele.")
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.secondaryInk)
+                    .padding(.top, 4)
 
-                    VStack(spacing: 14) {
-                        ForEach(categories, id: \.category) { entry in
-                            navigationLinkForCategory(entry)
-                        }
+                VStack(spacing: 14) {
+                    ForEach(categories, id: \.category) { entry in
+                        navigationLinkForCategory(entry)
                     }
                 }
-                .padding(20)
-                .padding(.bottom, 90)
             }
-            .scrollIndicators(.hidden)
-            .background(Theme.paper)
-            .navigationTitle("Dilbilgisi Kütüphanesi")
-            .navigationBarTitleDisplayMode(.large)
+            .padding(20)
+            .padding(.bottom, 90)
         }
+        .scrollIndicators(.hidden)
+        .background(Theme.paper)
         .tint(Theme.accent)
     }
 

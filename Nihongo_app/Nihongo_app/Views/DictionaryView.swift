@@ -1,8 +1,14 @@
 import SwiftUI
 
+enum DictionaryTab: String, CaseIterable {
+    case vocabulary = "Kelime Sözlüğü"
+    case grammar = "Dilbilgisi Kütüphanesi"
+}
+
 struct DictionaryView: View {
     @State private var allWords: [VocabularyWord] = []
     @State private var searchText = ""
+    @State private var selectedTab: DictionaryTab = .vocabulary
 
     var filteredWords: [VocabularyWord] {
         if searchText.isEmpty {
@@ -19,52 +25,73 @@ struct DictionaryView: View {
 
     var body: some View {
         NavigationStack {
-            List(filteredWords) { word in
-                    HStack(alignment: .top) {
-                        VStack(alignment: .leading, spacing: 6) {
-                            HStack(alignment: .firstTextBaseline) {
-                                Text(word.displayText)
-                                    .font(Theme.heading(20))
-                                    .foregroundStyle(Theme.ink)
-                                if !word.kanji.isEmpty {
-                                    Text(word.hiragana)
-                                        .font(.subheadline)
-                                        .foregroundStyle(Theme.secondaryInk)
-                                }
-                            }
-                            Text(word.turkishMeaning)
-                                .font(.body)
-                                .foregroundStyle(Theme.ink)
-                        }
-                        
-                        Spacer()
-                        
-                        Button {
-                            AudioService.shared.speak(word.speechText)
-                        } label: {
-                            Image(systemName: "speaker.wave.2.circle.fill")
-                                .font(.title2)
-                                .foregroundStyle(Theme.accent)
-                        }
+            VStack(spacing: 0) {
+                Picker("", selection: $selectedTab) {
+                    ForEach(DictionaryTab.allCases, id: \.self) { tab in
+                        Text(tab.rawValue).tag(tab)
                     }
-                .padding(.vertical, 8)
-                .listRowBackground(Theme.paper)
-                .listRowSeparatorTint(Theme.secondaryInk.opacity(0.3))
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .background(Theme.paper)
+
+                if selectedTab == .vocabulary {
+                    vocabularyContent
+                } else {
+                    GrammarReferenceView()
+                }
             }
-            .listStyle(.plain)
             .background(Theme.paper)
-            .scrollContentBackground(.hidden)
-            .navigationTitle(L10n.dictionaryTitle)
-            .searchable(text: $searchText, prompt: L10n.dictionarySearch)
-            // Tab bar boşluğu
-            .safeAreaInset(edge: .bottom) {
-                Color.clear.frame(height: 80)
-            }
+            .navigationTitle(selectedTab == .vocabulary ? L10n.dictionaryTitle : "Dilbilgisi Kütüphanesi")
+            .navigationBarTitleDisplayMode(.large)
         }
         .onAppear {
             if allWords.isEmpty {
                 allWords = ContentStore.loadVocabulary(level: "N5")
             }
+        }
+    }
+
+    private var vocabularyContent: some View {
+        List(filteredWords) { word in
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(alignment: .firstTextBaseline) {
+                        Text(word.displayText)
+                            .font(Theme.heading(20))
+                            .foregroundStyle(Theme.ink)
+                        if !word.kanji.isEmpty {
+                            Text(word.hiragana)
+                                .font(.subheadline)
+                                .foregroundStyle(Theme.secondaryInk)
+                        }
+                    }
+                    Text(word.turkishMeaning)
+                        .font(.body)
+                        .foregroundStyle(Theme.ink)
+                }
+                
+                Spacer()
+                
+                Button {
+                    AudioService.shared.speak(word.speechText)
+                } label: {
+                    Image(systemName: "speaker.wave.2.circle.fill")
+                        .font(.title2)
+                        .foregroundStyle(Theme.accent)
+                }
+            }
+            .padding(.vertical, 8)
+            .listRowBackground(Theme.paper)
+            .listRowSeparatorTint(Theme.secondaryInk.opacity(0.3))
+        }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .searchable(text: $searchText, prompt: L10n.dictionarySearch)
+        // Tab bar boşluğu
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: 80)
         }
     }
 }
