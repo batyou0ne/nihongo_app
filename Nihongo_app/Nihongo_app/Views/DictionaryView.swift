@@ -54,44 +54,70 @@ struct DictionaryView: View {
     }
 
     private var vocabularyContent: some View {
-        List(filteredWords) { word in
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 6) {
-                    HStack(alignment: .firstTextBaseline) {
-                        Text(word.displayText)
-                            .font(Theme.heading(20))
-                            .foregroundStyle(Theme.ink)
-                        if !word.kanji.isEmpty {
-                            Text(word.hiragana)
-                                .font(.subheadline)
-                                .foregroundStyle(Theme.secondaryInk)
-                        }
+        VStack(spacing: 0) {
+            // Custom Search Bar
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundStyle(Theme.secondaryInk)
+                
+                TextField(L10n.dictionarySearch, text: $searchText)
+                    .font(.system(size: 16))
+                    .foregroundStyle(Theme.ink)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                
+                if !searchText.isEmpty {
+                    Button {
+                        searchText = ""
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(Theme.secondaryInk)
                     }
-                    Text(word.turkishMeaning)
-                        .font(.body)
-                        .foregroundStyle(Theme.ink)
-                }
-                
-                Spacer()
-                
-                Button {
-                    AudioService.shared.speak(word.speechText)
-                } label: {
-                    Image(systemName: "speaker.wave.2.circle.fill")
-                        .font(.title2)
-                        .foregroundStyle(Theme.accent)
                 }
             }
-            .padding(.vertical, 8)
-            .listRowBackground(Theme.paper)
-            .listRowSeparatorTint(Theme.secondaryInk.opacity(0.3))
-        }
-        .listStyle(.plain)
-        .scrollContentBackground(.hidden)
-        .searchable(text: $searchText, prompt: L10n.dictionarySearch)
-        // Tab bar boşluğu
-        .safeAreaInset(edge: .bottom) {
-            Color.clear.frame(height: 80)
+            .padding(12)
+            .inkBordered(lineWidth: 1.5)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 10)
+
+            List(filteredWords) { word in
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack(alignment: .firstTextBaseline) {
+                            Text(word.displayText)
+                                .font(Theme.heading(20))
+                                .foregroundStyle(Theme.ink)
+                            if !word.kanji.isEmpty {
+                                Text(word.hiragana)
+                                    .font(.subheadline)
+                                    .foregroundStyle(Theme.secondaryInk)
+                            }
+                        }
+                        Text(word.turkishMeaning)
+                            .font(.body)
+                            .foregroundStyle(Theme.ink)
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        AudioService.shared.speak(word.speechText)
+                    } label: {
+                        Image(systemName: "speaker.wave.2.circle.fill")
+                            .font(.title2)
+                            .foregroundStyle(Theme.accent)
+                    }
+                }
+                .padding(.vertical, 8)
+                .listRowBackground(Theme.paper)
+                .listRowSeparatorTint(Theme.secondaryInk.opacity(0.3))
+            }
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+            // Tab bar boşluğu
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 80)
+            }
         }
     }
 }
