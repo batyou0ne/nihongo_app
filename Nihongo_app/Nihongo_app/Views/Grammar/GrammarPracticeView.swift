@@ -57,6 +57,10 @@ struct GrammarPracticeView: View {
 
     @State private var isFinished = false
     @State private var hasRecordedStreak = false
+    @State private var showLessonComplete = false
+    @State private var sessionEarnedXP = 0
+    @State private var completedStreak = 0
+    @State private var didStreakIncrease = false
 
     private var currentPoint: GrammarPoint? {
         points.indices.contains(pointIndex) ? points[pointIndex] : nil
@@ -98,6 +102,16 @@ struct GrammarPracticeView: View {
         }
         .onDisappear {
             tabBarManager.isHidden = false
+        }
+        .fullScreenCover(isPresented: $showLessonComplete) {
+            LessonCompleteView(
+                xpGained: sessionEarnedXP > 0 ? sessionEarnedXP : 20,
+                streak: completedStreak,
+                streakIncreased: didStreakIncrease,
+                ringColor: Theme.accent
+            ) {
+                showLessonComplete = false
+            }
         }
     }
 
@@ -180,7 +194,9 @@ struct GrammarPracticeView: View {
         
         SpacedRepetitionService.shared.updateProgress(for: progress, correct: isCorrect)
         if isCorrect {
-            XPManager.shared.addXP(action: wasLearned ? .cardReviewed : .grammarCompleted, context: modelContext)
+            let action: XPManager.XPAction = wasLearned ? .cardReviewed : .grammarCompleted
+            sessionEarnedXP += action.points
+            XPManager.shared.addXP(action: action, context: modelContext)
         }
         
         if pointWrongCount > 0 {
@@ -197,7 +213,16 @@ struct GrammarPracticeView: View {
             modelContext.insert(newProgress)
             return newProgress
         }()
+        let prevStreak = userProgress.activeStreak
         userProgress.recordStudySession()
+        let newStreak = userProgress.activeStreak
+
+        completedStreak = newStreak
+        didStreakIncrease = (newStreak > prevStreak)
+        if sessionEarnedXP == 0 {
+            sessionEarnedXP = 20
+        }
+        showLessonComplete = true
         try? modelContext.save()
     }
 

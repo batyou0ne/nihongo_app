@@ -13,6 +13,10 @@ struct QuizView<Item: QuizItem>: View {
     @State private var viewModel: QuizViewModel<Item>?
     @State private var hasRecordedStreak = false
     @State private var showHint = false
+    @State private var showLessonComplete = false
+    @State private var sessionEarnedXP = 0
+    @State private var completedStreak = 0
+    @State private var didStreakIncrease = false
 
     private let questions: [Item]
     private let progressLookup: (String) -> LearningItemProgress?
@@ -47,6 +51,16 @@ struct QuizView<Item: QuizItem>: View {
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button(L10n.closeButton) { dismiss() }
+            }
+        }
+        .fullScreenCover(isPresented: $showLessonComplete) {
+            LessonCompleteView(
+                xpGained: sessionEarnedXP,
+                streak: completedStreak,
+                streakIncreased: didStreakIncrease,
+                ringColor: accentColor
+            ) {
+                showLessonComplete = false
             }
         }
         .onAppear {
@@ -158,7 +172,9 @@ struct QuizView<Item: QuizItem>: View {
                 let wasLearned = progress.isLearned
                 SpacedRepetitionService.shared.updateProgress(for: progress, correct: correct)
                 if correct {
-                    XPManager.shared.addXP(action: wasLearned ? .cardReviewed : .newCardLearned, context: modelContext)
+                    let action: XPManager.XPAction = wasLearned ? .cardReviewed : .newCardLearned
+                    sessionEarnedXP += action.points
+                    XPManager.shared.addXP(action: action, context: modelContext)
                 }
                 try? modelContext.save()
             }
@@ -200,7 +216,16 @@ struct QuizView<Item: QuizItem>: View {
             modelContext.insert(newProgress)
             return newProgress
         }()
+        let prevStreak = userProgress.activeStreak
         userProgress.recordStudySession()
+        let newStreak = userProgress.activeStreak
+
+        completedStreak = newStreak
+        didStreakIncrease = (newStreak > prevStreak)
+        if sessionEarnedXP == 0 {
+            sessionEarnedXP = max(viewModel?.score ?? 0, 1) * 5
+        }
+        showLessonComplete = true
         try? modelContext.save()
     }
 

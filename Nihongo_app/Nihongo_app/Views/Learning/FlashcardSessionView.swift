@@ -32,6 +32,10 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
     @State private var showHint = false
     @State private var autoAdvanceTask: Task<Void, Never>?
     @State private var didSetup = false
+    @State private var showLessonComplete = false
+    @State private var sessionEarnedXP = 0
+    @State private var completedStreak = 0
+    @State private var didStreakIncrease = false
 
     /// Toplam öğe sayısı üzerinden "kalıcı olarak ustalaşılan" oran. `remainingItemIDs` +
     /// `wrongItemIDs` her zaman "henüz bitmemiş" öğeleri temsil eder (tur değişse bile bu
@@ -92,6 +96,16 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         }
         .onDisappear {
             tabBarManager.isHidden = false
+        }
+        .fullScreenCover(isPresented: $showLessonComplete) {
+            LessonCompleteView(
+                xpGained: sessionEarnedXP,
+                streak: completedStreak,
+                streakIncreased: didStreakIncrease,
+                ringColor: accentColor
+            ) {
+                showLessonComplete = false
+            }
         }
     }
 
@@ -223,7 +237,9 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                 SpacedRepetitionService.shared.updateProgress(for: progress, correct: correct)
                 
                 if correct {
-                    XPManager.shared.addXP(action: wasLearned ? .cardReviewed : .newCardLearned, context: modelContext)
+                    let action: XPManager.XPAction = wasLearned ? .cardReviewed : .newCardLearned
+                    sessionEarnedXP += action.points
+                    XPManager.shared.addXP(action: action, context: modelContext)
                 }
             }
         }
@@ -526,7 +542,16 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             modelContext.insert(newProgress)
             return newProgress
         }()
+        let prevStreak = userProgress.activeStreak
         userProgress.recordStudySession()
+        let newStreak = userProgress.activeStreak
+
+        completedStreak = newStreak
+        didStreakIncrease = (newStreak > prevStreak)
+        if sessionEarnedXP == 0 {
+            sessionEarnedXP = max(allItems.count * 2, 10)
+        }
+        showLessonComplete = true
         try? modelContext.save()
     }
 }

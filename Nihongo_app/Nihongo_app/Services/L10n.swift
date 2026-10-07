@@ -105,6 +105,9 @@ enum L10n {
         lang == .turkish ? "\(score) / \(total) doğru" : "\(score) / \(total) correct"
     }
 
+    // MARK: - Lesson Complete
+    static var lessonCompleteTitle: String { lang == .turkish ? "Harika iş, ders tamamlandı" : "Great job, lesson complete" }
+
     // MARK: - Session Summary
     static var sessionSummary: String { lang == .turkish ? "Oturum Özeti" : "Session Summary" }
     static var cardsSeenLabel: String { lang == .turkish ? "Gördüğün kart" : "Cards seen" }
