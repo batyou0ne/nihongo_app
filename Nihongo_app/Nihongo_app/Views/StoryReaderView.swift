@@ -7,6 +7,10 @@ struct StoryReaderView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Environment(TabBarManager.self) private var tabBarManager
+    @Query private var userProgressRecords: [UserProgress]
+    @State private var showLessonComplete = false
+    @State private var streak = 0
+    @State private var streakIncreased = false
     
     var continuousText: AttributedString {
         var result = AttributedString()
@@ -70,7 +74,18 @@ struct StoryReaderView: View {
                 
                 Button {
                     XPManager.shared.addXP(action: .storyCompleted, context: modelContext)
-                    dismiss()
+                    let userProgress = userProgressRecords.first ?? {
+                        let newProgress = UserProgress()
+                        modelContext.insert(newProgress)
+                        return newProgress
+                    }()
+                    let prevStreak = userProgress.activeStreak
+                    userProgress.recordStudySession()
+                    let newStreak = userProgress.activeStreak
+                    streak = newStreak
+                    streakIncreased = (newStreak > prevStreak)
+                    try? modelContext.save()
+                    showLessonComplete = true
                 } label: {
                     Text(L10n.completeStory)
                         .font(.system(size: 17, weight: .bold))
@@ -107,6 +122,17 @@ struct StoryReaderView: View {
             SentenceDetailPopup(sentence: sentence)
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
+        }
+        .fullScreenCover(isPresented: $showLessonComplete) {
+            LessonCompleteView(
+                xpGained: XPManager.XPAction.storyCompleted.points,
+                streak: streak,
+                streakIncreased: streakIncreased,
+                ringColor: Theme.accent
+            ) {
+                showLessonComplete = false
+                dismiss()
+            }
         }
         .onAppear {
             tabBarManager.isHidden = true
