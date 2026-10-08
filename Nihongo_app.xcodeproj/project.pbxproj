@@ -21,7 +21,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4730F897303C69FD0074D0BD /* Nihongo_app */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Nihongo_app;
+			path = Nihongo_app/Nihongo_app;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -274,7 +274,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Nihongo_app/Nihongo_app.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Nihongo_app/Nihongo_app/Nihongo_app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PLNYDSS638;
@@ -282,7 +282,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Nihongo-app-Info.plist";
+				INFOPLIST_FILE = "Nihongo_app/Nihongo_app/Nihongo-app-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Kaimon;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -320,7 +320,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Nihongo_app/Nihongo_app.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Nihongo_app/Nihongo_app/Nihongo_app.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PLNYDSS638;
@@ -328,7 +328,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Nihongo-app-Info.plist";
+				INFOPLIST_FILE = "Nihongo_app/Nihongo_app/Nihongo-app-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Kaimon;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
