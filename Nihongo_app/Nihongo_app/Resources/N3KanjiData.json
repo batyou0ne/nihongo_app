@@ -1,0 +1,167 @@
+[
+  {
+    "character": "政",
+    "onyomi": "セイ、ショウ",
+    "kunyomi": "まつりごと",
+    "meaning": "siyaset, hükümet",
+    "strokeCount": 9,
+    "exampleWords": [
+      {
+        "hiragana": "政治",
+        "romaji": "seiji",
+        "turkishMeaning": "siyaset"
+      }
+    ]
+  },
+  {
+    "character": "経",
+    "onyomi": "ケイ、キョウ",
+    "kunyomi": "へる",
+    "meaning": "geçmek, yönetmek",
+    "strokeCount": 11,
+    "exampleWords": [
+      {
+        "hiragana": "経済",
+        "romaji": "keizai",
+        "turkishMeaning": "ekonomi"
+      },
+      {
+        "hiragana": "経験",
+        "romaji": "keiken",
+        "turkishMeaning": "deneyim"
+      }
+    ]
+  },
+  {
+    "character": "済",
+    "onyomi": "サイ、ザイ",
+    "kunyomi": "すむ",
+    "meaning": "tamamlanmak, kurtarmak",
+    "strokeCount": 11,
+    "exampleWords": [
+      {
+        "hiragana": "経済",
+        "romaji": "keizai",
+        "turkishMeaning": "ekonomi"
+      }
+    ]
+  },
+  {
+    "character": "歴",
+    "onyomi": "レキ",
+    "kunyomi": "",
+    "meaning": "tarih, geçmiş",
+    "strokeCount": 14,
+    "exampleWords": [
+      {
+        "hiragana": "歴史",
+        "romaji": "rekishi",
+        "turkishMeaning": "tarih"
+      }
+    ]
+  },
+  {
+    "character": "史",
+    "onyomi": "シ",
+    "kunyomi": "",
+    "meaning": "tarih, kronik",
+    "strokeCount": 5,
+    "exampleWords": [
+      {
+        "hiragana": "歴史",
+        "romaji": "rekishi",
+        "turkishMeaning": "tarih"
+      }
+    ]
+  },
+  {
+    "character": "育",
+    "onyomi": "イク",
+    "kunyomi": "そだつ、そだてる",
+    "meaning": "büyümek, yetiştirmek",
+    "strokeCount": 8,
+    "exampleWords": [
+      {
+        "hiragana": "教育",
+        "romaji": "kyouiku",
+        "turkishMeaning": "eğitim"
+      }
+    ]
+  },
+  {
+    "character": "化",
+    "onyomi": "カ、ケ",
+    "kunyomi": "ばける",
+    "meaning": "dönüşmek, kimya",
+    "strokeCount": 4,
+    "exampleWords": [
+      {
+        "hiragana": "文化",
+        "romaji": "bunka",
+        "turkishMeaning": "kültür"
+      },
+      {
+        "hiragana": "化学",
+        "romaji": "kagaku",
+        "turkishMeaning": "kimya"
+      }
+    ]
+  },
+  {
+    "character": "科",
+    "onyomi": "カ",
+    "kunyomi": "",
+    "meaning": "bölüm, ders, bilim",
+    "strokeCount": 9,
+    "exampleWords": [
+      {
+        "hiragana": "科学",
+        "romaji": "kagaku",
+        "turkishMeaning": "bilim"
+      },
+      {
+        "hiragana": "教科書",
+        "romaji": "kyoukasho",
+        "turkishMeaning": "ders kitabı"
+      }
+    ]
+  },
+  {
+    "character": "理",
+    "onyomi": "リ",
+    "kunyomi": "ことわり",
+    "meaning": "mantık, akıl, düzen",
+    "strokeCount": 11,
+    "exampleWords": [
+      {
+        "hiragana": "理由",
+        "romaji": "riyuu",
+        "turkishMeaning": "neden, sebep"
+      },
+      {
+        "hiragana": "料理",
+        "romaji": "ryouri",
+        "turkishMeaning": "yemek pişirme"
+      }
+    ]
+  },
+  {
+    "character": "由",
+    "onyomi": "ユ、ユウ",
+    "kunyomi": "よし",
+    "meaning": "neden, köken",
+    "strokeCount": 5,
+    "exampleWords": [
+      {
+        "hiragana": "理由",
+        "romaji": "riyuu",
+        "turkishMeaning": "sebep"
+      },
+      {
+        "hiragana": "自由",
+        "romaji": "jiyuu",
+        "turkishMeaning": "özgürlük"
+      }
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Nüans ve Mantıksal Açıklama Kalıpları",
+    "description": "N3'ün temel yapı taşları: olayların neden öyle olduğunu ve doğal sonuçları anlatan kalıplar.",
+    "grammarKeys": [
+      "wake_da",
+      "wake_ga_nai",
+      "koto_ni_natte_iru"
+    ]
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "key": "wake_da",
+    "pattern": "～わけだ",
+    "romaji": "~wake da",
+    "title": "Doğal Sonuç (~bu yüzden / demek ki öyle)",
+    "explanation": "Öğrenilen yeni bir bilgiyle durumun nedeninin anlaşıldığını belirtir.",
+    "formula": "[Düz Form] + わけだ",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      {
+        "japanese": "暑いわけだ。気温が35度もある。",
+        "hiragana": "あついわけだ。きおんがさんじゅうごどもある。",
+        "romaji": "Atsui wake da. Kion ga 35-do mo aru.",
+        "turkish": "Sıcak olması çok normal. Hava sıcaklığı tam 35 derece."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "彼が日本に5年住んでいたなら、日本語が上手な＿＿だ。",
+        "hint": "Doğal mantıksal sonuç kalıbı",
+        "promptReading": null,
+        "choices": [
+          "わけ",
+          "はず",
+          "もの",
+          "こと"
+        ],
+        "answer": "わけ"
+      }
+    ]
+  },
+  {
+    "key": "wake_ga_nai",
+    "pattern": "～わけがない",
+    "romaji": "~wake ga nai",
+    "title": "İmkansızlık Bildirme (~olması imkansız)",
+    "explanation": "Mantıken bir durumun gerçekleşmesinin kesinlikle imkansız olduğunu vurgular.",
+    "formula": "[Düz Form] + わけがない",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "そんな嘘を信じるわけがない。",
+        "hiragana": "そんなうそをしんじるわけがない。",
+        "romaji": "Sonna uso wo shinjiru wake ga nai.",
+        "turkish": "Böyle bir yalana inanması imkansız."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "multipleChoice",
+        "prompt": "'İmkansızlık / Asla öyle olamaz' anlamı veren kalıp hangisidir?",
+        "hint": "İmkansızlık kalıbı",
+        "promptReading": null,
+        "choices": [
+          "～わけがない",
+          "～わけだ",
+          "～かもしれない",
+          "～にちがいない"
+        ],
+        "answer": "～わけがない"
+      }
+    ]
+  },
+  {
+    "key": "koto_ni_natte_iru",
+    "pattern": "～ことになっている",
+    "romaji": "~koto ni natte iru",
+    "title": "Kural ve Kararlaştırılmış Durum (~ması kararlaştırıldı)",
+    "explanation": "Bir kural veya önceden alınmış karara göre bir şeyin yapılmasının beklendiğini belirtir.",
+    "formula": "[Fiil Sözlük Formu] + ことになっている",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "法律でシートベルトを締めることになっている。",
+        "hiragana": "ほうりつでシートベルトをしめることになっている。",
+        "romaji": "Houritsu de shiito beruto wo shimeru koto ni natte iru.",
+        "turkish": "Kanunen emniyet kemeri takılması gerekiyor."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "校則で髪を染めてはいけない＿＿になっている。",
+        "hint": "Kural bildiren yapı",
+        "promptReading": null,
+        "choices": [
+          "こと",
+          "もの",
+          "わけ",
+          "よう"
+        ],
+        "answer": "こと"
+      }
+    ]
+  }
+]

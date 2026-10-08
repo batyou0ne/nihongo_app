@@ -1,0 +1,68 @@
+[
+  {
+    "key": "ya_ina_ya",
+    "pattern": "～や否や",
+    "romaji": "~ya ina ya",
+    "title": "Yapar Yapmaz (~anında)",
+    "explanation": "Bir eylem biter bitmez hemen bir sonrakinin gerçekleştiğini edebi dille anlatır.",
+    "formula": "[Fiil Sözlük Formu] + や否や",
+    "category": "conjunction",
+    "difficulty": 3,
+    "examples": [
+      {
+        "japanese": "ベルが鳴るや否や、生徒たちは教室を飛び出した。",
+        "hiragana": "ベルがなるやいなや、せいとたちはきょうしつをとびだした。",
+        "romaji": "Beru ga naru ya ina ya, seitotachi wa kyoushitsu wo tobidashita.",
+        "turkish": "Zil çalar çalmaz öğrenciler sınıftan dışarı fırladı."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "multipleChoice",
+        "prompt": "'Yapar yapmaz anında' anlamına gelen edebi N1 yapısı hangisidir?",
+        "hint": "ya ina ya",
+        "promptReading": null,
+        "choices": [
+          "～や否や",
+          "～なりに",
+          "～まじき",
+          "～がてら"
+        ],
+        "answer": "～や否や"
+      }
+    ]
+  },
+  {
+    "key": "wo_kawaikiri_ni",
+    "pattern": "～を皮切りに",
+    "romaji": "~wo kawaikiri ni",
+    "title": "İlk Adım Olarak (~başlangıç alarak ardı ardına)",
+    "explanation": "Bir dizi benzer olayın ilki olarak başlamasını ifade eder.",
+    "formula": "[İsim] + を皮切りに(して)",
+    "category": "conjunction",
+    "difficulty": 3,
+    "examples": [
+      {
+        "japanese": "東京公演を皮切りに、全国ツアーが始まる。",
+        "hiragana": "とうきょうこうえんをかわきりに、ぜんこくツアーがはじまる。",
+        "romaji": "Toukyou kouen wo kawaikiri ni, zenkoku tsuaa ga hajimaru.",
+        "turkish": "Tokyo gösterisi başlangıç olmak üzere ulusal turne başlıyor."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "会長の挨拶を＿＿に、式典が厳かに執り行われた。",
+        "hint": "Başlangıç adımı kalıbı",
+        "promptReading": null,
+        "choices": [
+          "皮切り",
+          "きっかけ",
+          "手始め",
+          "最初"
+        ],
+        "answer": "皮切り"
+      }
+    ]
+  }
+]

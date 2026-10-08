@@ -1,0 +1,44 @@
+[
+  {
+    "character": "党",
+    "onyomi": "トウ",
+    "kunyomi": "なかま",
+    "meaning": "siyasi parti, hizip",
+    "strokeCount": 10,
+    "exampleWords": [
+      {
+        "hiragana": "政党",
+        "romaji": "seitou",
+        "turkishMeaning": "siyasi parti"
+      }
+    ]
+  },
+  {
+    "character": "協",
+    "onyomi": "キョウ",
+    "kunyomi": "",
+    "meaning": "işbirliği",
+    "strokeCount": 8,
+    "exampleWords": [
+      {
+        "hiragana": "協力",
+        "romaji": "kyouryoku",
+        "turkishMeaning": "işbirliği"
+      }
+    ]
+  },
+  {
+    "character": "総",
+    "onyomi": "ソウ",
+    "kunyomi": "すべて",
+    "meaning": "genel, toplam",
+    "strokeCount": 14,
+    "exampleWords": [
+      {
+        "hiragana": "総理大臣",
+        "romaji": "souridaijin",
+        "turkishMeaning": "başbakan"
+      }
+    ]
+  }
+]

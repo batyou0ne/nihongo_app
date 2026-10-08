@@ -1,0 +1,29 @@
+[
+  {
+    "id": "n3_story_1",
+    "type": "all",
+    "title": "地球温暖化と私たちの未来 (Küresel Isınma ve Geleceğimiz)",
+    "sentences": [
+      {
+        "id": "n3_s1_1",
+        "japaneseText": "最近、世界中で異常気象が増加しています。",
+        "romaji": "Saikin, sekaijuu de ijoukishou ga zouka shite imasu.",
+        "turkishTranslation": "Son zamanlarda tüm dünyada anormal hava olayları artmaktadır.",
+        "vocabulary": [
+          "異常気象 (Anormal hava olayları)",
+          "増加 (Artış)"
+        ]
+      },
+      {
+        "id": "n3_s1_2",
+        "japaneseText": "一人ひとりが環境問題に関心を持つことが重要です。",
+        "romaji": "Hitori hitori ga kankyou mondai ni kanshin wo motsu koto ga juuyou desu.",
+        "turkishTranslation": "Her bireyin çevre sorunlarına ilgi duyması önemlidir.",
+        "vocabulary": [
+          "環境問題 (Çevre sorunları)",
+          "重要 (Önemli)"
+        ]
+      }
+    ]
+  }
+]

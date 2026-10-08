@@ -1,0 +1,19 @@
+[
+  {
+    "id": "n1_story_1",
+    "type": "all",
+    "title": "古典文学に見る自然観の変遷 (Klasik Edebiyatta Doğa Anlayışının Dönüşümü)",
+    "sentences": [
+      {
+        "id": "n1_s1_1",
+        "japaneseText": "日本の古典文学において、自然は単なる背景にとどまらず、人間の心情を映し出す鏡としての役割を果たしてきた。",
+        "romaji": "Nihon no koten bungaku ni oite, shizen wa tannaru haikei ni todomarazu, ningen no shinjou wo utsushidasu kagami to shite no yakuwari wo hatashite kita.",
+        "turkishTranslation": "Japon klasik edebiyatında doğa yalnızca bir arka plan olarak kalmamış, insanın iç dünyasını yansıtan bir ayna işlevi görmüştür.",
+        "vocabulary": [
+          "古典文学 (Klasik edebiyat)",
+          "心情 (Duygusal durum, iç dünya)"
+        ]
+      }
+    ]
+  }
+]

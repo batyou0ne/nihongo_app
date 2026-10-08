@@ -1,0 +1,30 @@
+[
+  {
+    "character": "憂",
+    "onyomi": "ユウ",
+    "kunyomi": "うれえる、うれい",
+    "meaning": "keder, kaygı",
+    "strokeCount": 15,
+    "exampleWords": [
+      {
+        "hiragana": "憂慮",
+        "romaji": "yuuryo",
+        "turkishMeaning": "derin endişe"
+      }
+    ]
+  },
+  {
+    "character": "鬱",
+    "onyomi": "ウツ",
+    "kunyomi": "ふさぐ",
+    "meaning": "melankoli, kasvet",
+    "strokeCount": 29,
+    "exampleWords": [
+      {
+        "hiragana": "憂鬱",
+        "romaji": "yuuutsu",
+        "turkishMeaning": "melankoli, bunalım"
+      }
+    ]
+  }
+]

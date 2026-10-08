@@ -1,0 +1,42 @@
+[
+  {
+    "kanji": "愛情",
+    "hiragana": "あいじょう",
+    "romaji": "aijou",
+    "turkishMeaning": "sevgi, şefkat",
+    "exampleSentence": "子供に深い愛情を注ぐ。",
+    "exampleTranslation": "Çocuğa derin bir sevgi gösterir."
+  },
+  {
+    "kanji": "挨拶",
+    "hiragana": "あいさつ",
+    "romaji": "aisatsu",
+    "turkishMeaning": "selamlaşma",
+    "exampleSentence": "毎朝笑顔で挨拶します。",
+    "exampleTranslation": "Her sabah gülümseyerek selam veririm."
+  },
+  {
+    "kanji": "相手",
+    "hiragana": "あいて",
+    "romaji": "aite",
+    "turkishMeaning": "muhatap, ortak, rakip",
+    "exampleSentence": "話の相手をする。",
+    "exampleTranslation": "Sohbetine eşlik etmek."
+  },
+  {
+    "kanji": "曖昧",
+    "hiragana": "あいまい",
+    "romaji": "aimai",
+    "turkishMeaning": "belirsiz, muğlak",
+    "exampleSentence": "曖昧な返事は避けてください。",
+    "exampleTranslation": "Belirsiz yanıtlardan kaçının."
+  },
+  {
+    "kanji": "扇ぐ",
+    "hiragana": "あおぐ",
+    "romaji": "aogu",
+    "turkishMeaning": "yelpazelenmek",
+    "exampleSentence": "うちわで風を扇ぐ。",
+    "exampleTranslation": "Yelpazeyle rüzgar yapmak."
+  }
+]

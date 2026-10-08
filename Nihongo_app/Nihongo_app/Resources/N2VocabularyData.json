@@ -1,0 +1,18 @@
+[
+  {
+    "kanji": "把握",
+    "hiragana": "はあく",
+    "romaji": "haaku",
+    "turkishMeaning": "kavramak, tam anlamak",
+    "exampleSentence": "現状を正確に把握する。",
+    "exampleTranslation": "Mevcut durumu doğru bir şekilde kavramak."
+  },
+  {
+    "kanji": "反映",
+    "hiragana": "はんえい",
+    "romaji": "han'ei",
+    "turkishMeaning": "yansıtmak (fikir, durum)",
+    "exampleSentence": "市民の意見を政策に反映させる。",
+    "exampleTranslation": "Vatandaşların görüşlerini politikalara yansıtmak."
+  }
+]

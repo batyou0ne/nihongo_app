@@ -1,0 +1,19 @@
+[
+  {
+    "id": "n2_story_1",
+    "type": "all",
+    "title": "人工知能の進化と倫理的課題 (Yapay Zekanın Evrimi ve Etik Meseleler)",
+    "sentences": [
+      {
+        "id": "n2_s1_1",
+        "japaneseText": "AI技術の急速な発展は、利便性をもたらす一方で新たな倫理的課題を提起している。",
+        "romaji": "AI gijutsu no kyuusoku na hatten wa, ribensei wo motarasu ippou de arata na rinriteki kadai wo teiki shite iru.",
+        "turkishTranslation": "Yapay zeka teknolojisinin hızlı gelişimi kolaylık sağlarken öte yandan yeni etik meseleler ortaya koymaktadır.",
+        "vocabulary": [
+          "急速 (Hızlı)",
+          "倫理的課題 (Etik meseleler)"
+        ]
+      }
+    ]
+  }
+]

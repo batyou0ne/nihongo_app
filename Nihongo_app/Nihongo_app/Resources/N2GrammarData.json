@@ -1,0 +1,68 @@
+[
+  {
+    "key": "ni_saishi",
+    "pattern": "～に際して",
+    "romaji": "~ni saishite",
+    "title": "Önemli Bir Olay / Başlangıç Anında (~ırken)",
+    "explanation": "Özel ve resmi bir başlangıç veya tören anında kullanılır.",
+    "formula": "[İsim / Fiil Sözlük Formu] + に際して",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "新学期を迎えるに際して、一言申し上げます。",
+        "hiragana": "しんがっきをむかえるにさいして、ひとこともうしあげます。",
+        "romaji": "Shingakki wo mukaeru ni saishite, hitokoto moushiagemasu.",
+        "turkish": "Yeni dönemi karşılarken birkaç söz söylemek isterim."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "multipleChoice",
+        "prompt": "'Açılış vesilesiyle / anında' anlamına gelen resmi kalıp hangisidir?",
+        "hint": "Resmi başlangıç kalıbı",
+        "promptReading": null,
+        "choices": [
+          "～に際して",
+          "～につれて",
+          "～に伴って",
+          "～にしたがって"
+        ],
+        "answer": "～に際して"
+      }
+    ]
+  },
+  {
+    "key": "wo_keiki_ni",
+    "pattern": "～を契機に",
+    "romaji": "~wo keiki ni",
+    "title": "Dönüm Noktası Olarak (~fırsat bilerek / vesilesiyle)",
+    "explanation": "Büyük bir değişimin tetikleyicisi olan olayı anlatır.",
+    "formula": "[İsim] + を契機に",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "留学を契機に、世界観が大きく変わった。",
+        "hiragana": "りゅうがくをけいきに、せかいかんがおおきくかわった。",
+        "romaji": "Ryuugaku wo keiki ni, sekaikan ga ookiku kawatta.",
+        "turkish": "Yurtdışı eğitimini dönüm noktası alarak dünya görüşüm büyük ölçüde değişti."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "事件を＿＿に、法律が見直された。",
+        "hint": "Dönüm noktası kalıbı",
+        "promptReading": null,
+        "choices": [
+          "契機",
+          "際",
+          "ため",
+          "中心"
+        ],
+        "answer": "契機"
+      }
+    ]
+  }
+]
