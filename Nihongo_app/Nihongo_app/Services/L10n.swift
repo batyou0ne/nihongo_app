@@ -45,6 +45,11 @@ enum L10n {
 
     // MARK: - Alphabet
     static var alphabetTitle: String { lang == .turkish ? "Alfabe" : "Alphabet" }
+    static var alphabetChartTitle: String { lang == .turkish ? "Alfabe Tablosu" : "Alphabet Chart" }
+    static var alphabetChartSubtitle: String { lang == .turkish ? "Harfe dokunarak sesini dinle" : "Tap any character to listen" }
+    static var basicAlphabetTab: String { lang == .turkish ? "Temel (46 Harf)" : "Basic (46)" }
+    static var dakutenAlphabetTab: String { lang == .turkish ? "Tenten & Maru" : "Dakuten" }
+    static var practiceCardsTab: String { lang == .turkish ? "Kartlarla Çalış" : "Practice Cards" }
 
     // MARK: - Grammar
     static var grammarTitle: String { lang == .turkish ? "Gramer" : "Grammar" }

@@ -386,11 +386,13 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                     FuriganaText(text: promptText, font: Theme.display(fontSize), color: Theme.ink)
                         .minimumScaleFactor(0.3)
                         .lineLimit(isAlt ? 3 : 1)
-                    Button {
-                        AudioService.shared.speak(item.speechText)
-                    } label: {
-                        Image(systemName: "speaker.wave.2.fill")
-                            .foregroundStyle(accentColor)
+                    if itemKind != .hiraganaCharacter && itemKind != .katakanaCharacter {
+                        Button {
+                            AudioService.shared.speak(item.speechText)
+                        } label: {
+                            Image(systemName: "speaker.wave.2.fill")
+                                .foregroundStyle(accentColor)
+                        }
                     }
                 }
             }
