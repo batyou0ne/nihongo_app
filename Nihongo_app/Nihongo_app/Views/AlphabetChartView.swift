@@ -15,12 +15,30 @@ struct AlphabetChartRow: Identifiable {
     let cells: [AlphabetChartItem?] // 5 eleman (boşluklar nil)
 }
 
-/// Hiragana ve Katakana için etkileşimli, sesli alfabe tablosu görünümü.
+/// Desteklenen Japonca yazı sistemleri
+enum WritingSystemType: String, CaseIterable {
+    case hiragana
+    case katakana
+    case kanji
+    
+    var title: String {
+        switch self {
+        case .hiragana: return "Hiragana (あ)"
+        case .katakana: return "Katakana (ア)"
+        case .kanji: return "Kanji (漢)"
+        }
+    }
+}
+
+/// Hiragana, Katakana ve Kanji için etkileşimli, sesli alfabe ve karakter tablosu görünümü.
 /// Her karaktere dokunulduğunda `AlphabetAudioService` aracılığıyla sesli telaffuz çalar.
 struct AlphabetChartView: View {
-    @State private var selectedAlphabet: CharacterType = .hiragana
+    @State private var selectedSystem: WritingSystemType = .hiragana
     @State private var selectedCategory: AlphabetCategory = .basic
+    @State private var selectedKanjiPart: Int = 0 // 0: Tümü (80), 1..4: Bölüm 1..4
     @State private var lastTappedItem: AlphabetChartItem? = nil
+    @State private var lastTappedKanji: Kanji? = nil
+    @State private var allKanji: [Kanji] = []
     
     enum AlphabetCategory: String, CaseIterable {
         case basic
@@ -35,161 +53,300 @@ struct AlphabetChartView: View {
     }
     
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 5)
+    private let kanjiColumns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 4)
     private let columnHeaders = ["a", "i", "u", "e", "o"]
     
     var body: some View {
         VStack(spacing: 16) {
             // MARK: - Üst Seçici Kontrolleri
             VStack(spacing: 12) {
-                // Hiragana / Katakana Değiştirici
-                Picker("Alfabe", selection: $selectedAlphabet) {
-                    Text("Hiragana (あ)").tag(CharacterType.hiragana)
-                    Text("Katakana (ア)").tag(CharacterType.katakana)
+                // Hiragana / Katakana / Kanji Değiştirici
+                Picker("Yazı Sistemi", selection: $selectedSystem) {
+                    ForEach(WritingSystemType.allCases, id: \.self) { system in
+                        Text(system.title).tag(system)
+                    }
                 }
                 .pickerStyle(.segmented)
+                .onChange(of: selectedSystem) { _, _ in
+                    lastTappedItem = nil
+                    lastTappedKanji = nil
+                }
                 
-                // Temel / Dakuten Değiştirici
-                HStack(spacing: 8) {
-                    ForEach(AlphabetCategory.allCases, id: \.self) { category in
-                        Button {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                selectedCategory = category
-                            }
-                        } label: {
-                            Text(category.title)
-                                .font(Theme.heading(13))
-                                .foregroundStyle(selectedCategory == category ? Theme.paper : Theme.ink)
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 8)
-                                .background(
-                                    Capsule()
-                                        .fill(selectedCategory == category ? Theme.accent : Theme.paper)
-                                )
-                                .overlay(
-                                    Capsule()
-                                        .strokeBorder(selectedCategory == category ? Color.clear : Theme.ink.opacity(0.15), lineWidth: 1)
-                                )
-                        }
-                    }
-                    Spacer()
-                }
-            }
-            .padding(.horizontal)
-            
-            // MARK: - Son Dokunulan Karakter Bilgi Çubuğu
-            if let item = lastTappedItem {
-                HStack(spacing: 12) {
-                    Text(item.character)
-                        .font(Theme.display(28))
-                        .foregroundStyle(Theme.accent)
-                    
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(item.romaji)
-                            .font(Theme.heading(15))
-                            .foregroundStyle(Theme.ink)
-                        Text(item.pronunciation)
-                            .font(.caption)
-                            .foregroundStyle(Theme.secondaryInk)
-                    }
-                    
-                    Spacer()
-                    
-                    Button {
-                        AlphabetAudioService.shared.play(character: item.character)
-                    } label: {
-                        HStack(spacing: 6) {
-                            Image(systemName: "speaker.wave.2.fill")
-                            Text("Dinle")
-                        }
-                        .font(Theme.heading(13))
-                        .foregroundStyle(Theme.paper)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(Capsule().fill(Theme.accent))
-                    }
-                }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-                .background(
-                    RoundedRectangle(cornerRadius: 14)
-                        .fill(Theme.paper)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 14)
-                                .strokeBorder(Theme.accent.opacity(0.3), lineWidth: 1.5)
-                        )
-                )
-                .padding(.horizontal)
-                .transition(.opacity.combined(with: .scale(scale: 0.95)))
-            } else {
-                HStack(spacing: 8) {
-                    Image(systemName: "hand.tap.fill")
-                        .foregroundStyle(Theme.accent)
-                    Text(L10n.alphabetChartSubtitle)
-                        .font(.footnote)
-                        .foregroundStyle(Theme.secondaryInk)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-            }
-            
-            // MARK: - Sütun Başlıkları (a, i, u, e, o)
-            HStack(spacing: 8) {
-                // Satır başlığı boşluğu (K, S, T hizası için)
-                Text("")
-                    .frame(width: 24)
-                
-                ForEach(columnHeaders, id: \.self) { header in
-                    Text(header.uppercased())
-                        .font(Theme.heading(13))
-                        .foregroundStyle(Theme.secondaryInk)
-                        .frame(maxWidth: .infinity)
-                }
-            }
-            .padding(.horizontal)
-            
-            // MARK: - Alfabe Tablosu Izgarası
-            ScrollView {
-                VStack(spacing: 10) {
-                    ForEach(currentRows) { row in
+                // Alt Kategori / Filtre
+                if selectedSystem == .kanji {
+                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 8) {
-                            // Satır etiketi (ör. K, S, T)
-                            Text(row.header)
-                                .font(Theme.heading(12))
-                                .foregroundStyle(Theme.secondaryInk)
-                                .frame(width: 24, alignment: .center)
-                            
-                            // 5 Sütun
-                            ForEach(0..<5, id: \.self) { colIndex in
-                                if let item = row.cells[colIndex] {
-                                    AlphabetCellView(item: item) {
-                                        lastTappedItem = item
-                                        AlphabetAudioService.shared.play(character: item.character)
+                            ForEach(0...4, id: \.self) { partIndex in
+                                let label = partIndex == 0 ? "Tümü (80)" : "Bölüm \(partIndex)"
+                                Button {
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        selectedKanjiPart = partIndex
                                     }
-                                } else {
-                                    // Boşluk hücresi (ör. Ya/Wa satırlarındaki boşluklar)
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .fill(Theme.paper.opacity(0.3))
-                                        .frame(height: 66)
+                                } label: {
+                                    Text(label)
+                                        .font(Theme.heading(13))
+                                        .foregroundStyle(selectedKanjiPart == partIndex ? Theme.paper : Theme.ink)
+                                        .padding(.horizontal, 14)
+                                        .padding(.vertical, 8)
+                                        .background(
+                                            Capsule()
+                                                .fill(selectedKanjiPart == partIndex ? Theme.accent : Theme.paper)
+                                        )
                                         .overlay(
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .strokeBorder(Theme.ink.opacity(0.05), style: StrokeStyle(lineWidth: 1, dash: [4]))
+                                            Capsule()
+                                                .strokeBorder(selectedKanjiPart == partIndex ? Color.clear : Theme.ink.opacity(0.15), lineWidth: 1)
                                         )
                                 }
                             }
                         }
                     }
+                } else {
+                    // Temel / Dakuten Değiştirici
+                    HStack(spacing: 8) {
+                        ForEach(AlphabetCategory.allCases, id: \.self) { category in
+                            Button {
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    selectedCategory = category
+                                }
+                            } label: {
+                                Text(category.title)
+                                    .font(Theme.heading(13))
+                                    .foregroundStyle(selectedCategory == category ? Theme.paper : Theme.ink)
+                                    .padding(.horizontal, 14)
+                                    .padding(.vertical, 8)
+                                    .background(
+                                        Capsule()
+                                            .fill(selectedCategory == category ? Theme.accent : Theme.paper)
+                                    )
+                                    .overlay(
+                                        Capsule()
+                                            .strokeBorder(selectedCategory == category ? Color.clear : Theme.ink.opacity(0.15), lineWidth: 1)
+                                    )
+                            }
+                        }
+                        Spacer()
+                    }
+                }
+            }
+            .padding(.horizontal)
+            
+            // MARK: - Son Dokunulan Karakter Bilgi Çubuğu
+            if selectedSystem == .kanji {
+                if let kanji = lastTappedKanji {
+                    HStack(spacing: 12) {
+                        Text(kanji.character)
+                            .font(Theme.display(30))
+                            .foregroundStyle(Theme.accent)
+                        
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(kanji.meaning)
+                                .font(Theme.heading(15))
+                                .foregroundStyle(Theme.ink)
+                                .lineLimit(1)
+                            
+                            HStack(spacing: 8) {
+                                if !kanji.kunyomi.isEmpty {
+                                    Text("Kun: \(kanji.kunyomi)")
+                                        .font(.system(size: 11, weight: .medium))
+                                        .foregroundStyle(Theme.secondaryInk)
+                                }
+                                if !kanji.onyomi.isEmpty {
+                                    Text("On: \(kanji.onyomi)")
+                                        .font(.system(size: 11, weight: .medium))
+                                        .foregroundStyle(Theme.secondaryInk)
+                                }
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            AlphabetAudioService.shared.play(character: kanji.character)
+                        } label: {
+                            HStack(spacing: 6) {
+                                Image(systemName: "speaker.wave.2.fill")
+                                Text("Dinle")
+                            }
+                            .font(Theme.heading(13))
+                            .foregroundStyle(Theme.paper)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Capsule().fill(Theme.accent))
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14)
+                            .fill(Theme.paper)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .strokeBorder(Theme.accent.opacity(0.3), lineWidth: 1.5)
+                            )
+                    )
+                    .padding(.horizontal)
+                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
+                } else {
+                    HStack(spacing: 8) {
+                        Image(systemName: "hand.tap.fill")
+                            .foregroundStyle(Theme.accent)
+                        Text(L10n.kanjiChartSubtitle)
+                            .font(.footnote)
+                            .foregroundStyle(Theme.secondaryInk)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+                }
+            } else {
+                if let item = lastTappedItem {
+                    HStack(spacing: 12) {
+                        Text(item.character)
+                            .font(Theme.display(28))
+                            .foregroundStyle(Theme.accent)
+                        
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(item.romaji)
+                                .font(Theme.heading(15))
+                                .foregroundStyle(Theme.ink)
+                            Text(item.pronunciation)
+                                .font(.caption)
+                                .foregroundStyle(Theme.secondaryInk)
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            AlphabetAudioService.shared.play(character: item.character)
+                        } label: {
+                            HStack(spacing: 6) {
+                                Image(systemName: "speaker.wave.2.fill")
+                                Text("Dinle")
+                            }
+                            .font(Theme.heading(13))
+                            .foregroundStyle(Theme.paper)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Capsule().fill(Theme.accent))
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14)
+                            .fill(Theme.paper)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .strokeBorder(Theme.accent.opacity(0.3), lineWidth: 1.5)
+                            )
+                    )
+                    .padding(.horizontal)
+                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
+                } else {
+                    HStack(spacing: 8) {
+                        Image(systemName: "hand.tap.fill")
+                            .foregroundStyle(Theme.accent)
+                        Text(L10n.alphabetChartSubtitle)
+                            .font(.footnote)
+                            .foregroundStyle(Theme.secondaryInk)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+                }
+            }
+            
+            // MARK: - İçerik Izgarası (Kanji veya Hiragana/Katakana)
+            if selectedSystem == .kanji {
+                ScrollView {
+                    LazyVGrid(columns: kanjiColumns, spacing: 10) {
+                        ForEach(filteredKanji) { kanji in
+                            KanjiCellView(kanji: kanji) {
+                                lastTappedKanji = kanji
+                                lastTappedItem = nil
+                                AlphabetAudioService.shared.play(character: kanji.character)
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 90)
+                }
+            } else {
+                // Sütun Başlıkları (a, i, u, e, o)
+                HStack(spacing: 8) {
+                    Text("")
+                        .frame(width: 24)
+                    
+                    ForEach(columnHeaders, id: \.self) { header in
+                        Text(header.uppercased())
+                            .font(Theme.heading(13))
+                            .foregroundStyle(Theme.secondaryInk)
+                            .frame(maxWidth: .infinity)
+                    }
                 }
                 .padding(.horizontal)
-                .padding(.bottom, 90)
+                
+                // Alfabe Tablosu Izgarası
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(currentRows) { row in
+                            HStack(spacing: 8) {
+                                // Satır etiketi (ör. K, S, T)
+                                Text(row.header)
+                                    .font(Theme.heading(12))
+                                    .foregroundStyle(Theme.secondaryInk)
+                                    .frame(width: 24, alignment: .center)
+                                
+                                // 5 Sütun
+                                ForEach(0..<5, id: \.self) { colIndex in
+                                    if let item = row.cells[colIndex] {
+                                        AlphabetCellView(item: item) {
+                                            lastTappedItem = item
+                                            lastTappedKanji = nil
+                                            AlphabetAudioService.shared.play(character: item.character)
+                                        }
+                                    } else {
+                                        // Boşluk hücresi
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .fill(Theme.paper.opacity(0.3))
+                                            .frame(height: 66)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 12)
+                                                    .strokeBorder(Theme.ink.opacity(0.05), style: StrokeStyle(lineWidth: 1, dash: [4]))
+                                            )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 90)
+                }
             }
         }
         .background(Theme.paper)
+        .onAppear {
+            if allKanji.isEmpty {
+                allKanji = ContentStore.loadKanji(level: "N5")
+            }
+        }
+    }
+    
+    // MARK: - Filtrelenmiş Kanji Listesi
+    private var filteredKanji: [Kanji] {
+        if selectedKanjiPart == 0 {
+            return allKanji
+        }
+        let parts = ContentStore.kanjiParts(level: "N5", partCount: 4)
+        let index = selectedKanjiPart - 1
+        if index >= 0 && index < parts.count {
+            return parts[index]
+        }
+        return allKanji
     }
     
     // MARK: - Satır Verileri
     
     private var currentRows: [AlphabetChartRow] {
-        switch (selectedAlphabet, selectedCategory) {
+        switch (selectedSystem, selectedCategory) {
         case (.hiragana, .basic):
             return hiraganaBasicRows
         case (.hiragana, .dakuten):
@@ -198,6 +355,8 @@ struct AlphabetChartView: View {
             return katakanaBasicRows
         case (.katakana, .dakuten):
             return katakanaDakutenRows
+        case (.kanji, _):
+            return []
         }
     }
     
@@ -472,6 +631,54 @@ private struct AlphabetCellView: View {
             }
             .frame(maxWidth: .infinity)
             .frame(height: 66)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(isCurrentlyPlaying ? Theme.accent.opacity(0.12) : Theme.paper)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .strokeBorder(
+                        isCurrentlyPlaying ? Theme.accent : Theme.ink.opacity(0.12),
+                        lineWidth: isCurrentlyPlaying ? 2 : 1
+                    )
+            )
+            .scaleEffect(isCurrentlyPlaying ? 1.06 : 1.0)
+            .animation(.spring(response: 0.25, dampingFraction: 0.6), value: isCurrentlyPlaying)
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+/// Görsel Kanji tablosu hücresi
+private struct KanjiCellView: View {
+    let kanji: Kanji
+    let onTap: () -> Void
+    
+    private var isCurrentlyPlaying: Bool {
+        AlphabetAudioService.shared.currentCharacter == kanji.character
+    }
+    
+    var body: some View {
+        Button(action: onTap) {
+            VStack(spacing: 3) {
+                Text(kanji.character)
+                    .font(Theme.display(24))
+                    .foregroundStyle(isCurrentlyPlaying ? Theme.accent : Theme.ink)
+                
+                Text(kanji.meaning)
+                    .font(.system(size: 10, weight: .medium))
+                    .foregroundStyle(isCurrentlyPlaying ? Theme.accent : Theme.secondaryInk)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
+                
+                Text(kanji.kunyomi.isEmpty ? kanji.onyomi : kanji.kunyomi)
+                    .font(.system(size: 9))
+                    .foregroundStyle(Theme.secondaryInk.opacity(0.8))
+                    .lineLimit(1)
+            }
+            .padding(.horizontal, 4)
+            .frame(maxWidth: .infinity)
+            .frame(height: 72)
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(isCurrentlyPlaying ? Theme.accent.opacity(0.12) : Theme.paper)
