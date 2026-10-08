@@ -31,12 +31,6 @@ struct CharacterCardView: View {
                 Text(character.character)
                     .font(Theme.display(72))
                     .foregroundStyle(Theme.ink)
-                Button {
-                    AudioService.shared.speak(character.character)
-                } label: {
-                    Image(systemName: "speaker.wave.2.fill")
-                        .foregroundStyle(accentColor)
-                }
             }
         }
     }

@@ -88,7 +88,8 @@ struct QuizView<Item: QuizItem>: View {
                         .font(Theme.display(88))
                         .foregroundStyle(Theme.ink)
                     
-                    if let flashcardItem = question as? any FlashcardItem {
+                    if itemKind != .hiraganaCharacter && itemKind != .katakanaCharacter,
+                       let flashcardItem = question as? any FlashcardItem {
                         Button {
                             AudioService.shared.speak(flashcardItem.speechText)
                         } label: {
