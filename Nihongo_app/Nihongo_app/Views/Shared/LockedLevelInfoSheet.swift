@@ -10,6 +10,7 @@ struct LockedLevelInfoSheet: View {
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
+    @State private var isPresentingExam = false
 
     private var previousLevel: JLPTLevel {
         level.previousLevel ?? .n5
@@ -74,22 +75,19 @@ struct LockedLevelInfoSheet: View {
 
                 // Aksiyon Butonları
                 VStack(spacing: 12) {
-                    if let onStartTestOut {
-                        Button {
-                            dismiss()
-                            onStartTestOut()
-                        } label: {
-                            HStack {
-                                Image(systemName: "bolt.fill")
-                                Text("Seviyeyi Sınavla Atla (Test-Out)")
-                            }
-                            .font(Theme.heading(16))
-                            .foregroundStyle(Theme.paper)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 52)
-                            .background(Theme.accent)
-                            .clipShape(RoundedRectangle(cornerRadius: 14))
+                    Button {
+                        isPresentingExam = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "bolt.fill")
+                            Text("Seviyeyi Sınavla Atla (Test-Out)")
                         }
+                        .font(Theme.heading(16))
+                        .foregroundStyle(Theme.paper)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 52)
+                        .background(Theme.accent)
+                        .clipShape(RoundedRectangle(cornerRadius: 14))
                     }
 
                     Button {
@@ -113,6 +111,11 @@ struct LockedLevelInfoSheet: View {
             .padding(20)
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
+            .fullScreenCover(isPresented: $isPresentingExam) {
+                GatewayExamView(level: previousLevel, mode: .testOut) {
+                    dismiss()
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(L10n.closeButton) { dismiss() }
