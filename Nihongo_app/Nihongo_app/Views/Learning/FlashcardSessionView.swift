@@ -56,7 +56,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
     var body: some View {
         Group {
             if let quizViewModel {
-                if quizViewModel.isFinished {
+                if sessionState?.isCompleted == true {
                     completionView(quizViewModel)
                 } else {
                     flashcardContent(quizViewModel)
@@ -260,10 +260,14 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
     /// yapılan öğe varsa modülü bitirmek yerine sadece onlarla yeni bir tur açar — kullanıcı
     /// tüm kartları art arda doğru yapana kadar bu döngü sürer.
     private func handleRoundCompletionIfNeeded(_ vm: QuizViewModel<Item>) {
-        guard vm.isFinished, let session = sessionState else { return }
+        guard let session = sessionState else { return }
 
         if session.wrongItemIDs.isEmpty {
-            session.isCompleted = true
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                isFlipped = false
+                vm.moveToNext()
+                session.isCompleted = true
+            }
             try? modelContext.save()
         } else {
             let retryIDs = session.wrongItemIDs.shuffled()
@@ -271,6 +275,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             session.wrongItemIDs = []
             try? modelContext.save()
             withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                isFlipped = false
                 startRound(with: retryIDs)
             }
         }
@@ -506,12 +511,15 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
     }
 
     private func advanceToNext(_ vm: QuizViewModel<Item>) {
-        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
-            isFlipped = false
-            vm.moveToNext()
+        if vm.currentIndex + 1 >= vm.questions.count {
+            handleRoundCompletionIfNeeded(vm)
+        } else {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                isFlipped = false
+                vm.moveToNext()
+            }
+            syncCurrentCard(vm)
         }
-        syncCurrentCard(vm)
-        handleRoundCompletionIfNeeded(vm)
     }
 
     // MARK: - Bitiş
@@ -534,7 +542,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
     }
 
     private func recordStreakIfNeeded() {
-        guard !hasRecordedStreak else { return }
+        guard !hasRecordedStreak, sessionState?.isCompleted == true else { return }
         hasRecordedStreak = true
 
         let userProgress = userProgressRecords.first ?? {
