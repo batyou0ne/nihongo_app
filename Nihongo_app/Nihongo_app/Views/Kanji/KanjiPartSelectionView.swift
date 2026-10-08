@@ -1,16 +1,27 @@
 import SwiftUI
 import SwiftData
 
-/// Seçilen JLPT seviyesinin kanjilerini 4 eşit parçaya böler ("N5 Kanji's Part 1" gibi).
-/// Bir parça, o parçadaki kanjilerle FlashcardSessionView'ı açar — şık havuzu olarak
-/// yine tüm seviyeyi (80 kanji) kullanır ki 4 şık her zaman dolu olsun.
+/// Seçilen JLPT seviyesinin kanjilerini eşit parçalara böler ("N5 Kanji's Part 1" gibi).
+/// Bölüm İçi Kilit (Intra-Level Gating): Part 1 her zaman açıktır; sonraki parçalar
+/// ancak bir önceki parça tamamlandığında açılır.
 struct KanjiPartSelectionView: View {
     let level: String
 
-    @State private var allKanji: [Kanji] = []
+    @Environment(\.modelContext) private var modelContext
+    @Query private var levelRecords: [UserLevelProgress]
 
-    /// Bölümleme ContentStore'da; ana ekrandaki "Kaldığın yer" kartı da aynı
-    /// fonksiyonu kullanıyor ki iki taraf aynı kartlara işaret etsin.
+    @State private var allKanji: [Kanji] = []
+    @State private var showLockedPartAlert = false
+    @State private var lockedPartNumber: Int = 1
+
+    private var jlptLevel: JLPTLevel {
+        JLPTLevel(rawValue: level) ?? .n5
+    }
+
+    private var currentLevelProgress: UserLevelProgress {
+        LevelProgressionService.shared.getProgress(for: jlptLevel, context: modelContext)
+    }
+
     private var parts: [[Kanji]] {
         allKanji.isEmpty ? [] : ContentStore.kanjiParts(level: level)
     }
@@ -23,17 +34,35 @@ struct KanjiPartSelectionView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         ForEach(Array(parts.enumerated()), id: \.offset) { index, part in
-                            NavigationLink {
-                                FlashcardSessionView(
-                                    sessionKey: "kanji_\(level)_part\(index + 1)",
-                                    itemKind: .kanji,
-                                    allItems: part,
-                                    distractorPool: allKanji,
-                                    accentColor: Theme.accent,
-                                    title: "\(level) Kanji's Part \(index + 1)"
-                                )
-                            } label: {
-                                partRow(index: index, count: part.count)
+                            let isUnlocked = LevelProgressionService.shared.isPartUnlocked(
+                                module: "kanji",
+                                level: jlptLevel,
+                                partIndex: index,
+                                context: modelContext
+                            )
+                            let isCompleted = currentLevelProgress.isPartCompleted(module: "kanji", index: index)
+
+                            if isUnlocked {
+                                NavigationLink {
+                                    FlashcardSessionView(
+                                        sessionKey: "kanji_\(level)_part\(index + 1)",
+                                        itemKind: .kanji,
+                                        allItems: part,
+                                        distractorPool: allKanji,
+                                        accentColor: Theme.accent,
+                                        title: "\(level) Kanji's Part \(index + 1)"
+                                    )
+                                } label: {
+                                    partRow(index: index, count: part.count, isUnlocked: true, isCompleted: isCompleted)
+                                }
+                            } else {
+                                Button {
+                                    lockedPartNumber = index + 1
+                                    showLockedPartAlert = true
+                                } label: {
+                                    partRow(index: index, count: part.count, isUnlocked: false, isCompleted: false)
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                     }
@@ -44,7 +73,13 @@ struct KanjiPartSelectionView: View {
             }
         }
         .navigationTitle("\(level) Kanji's")
+        .alert("Bölüm Kilitli", isPresented: $showLockedPartAlert) {
+            Button("Tamam", role: .cancel) {}
+        } message: {
+            Text("Part \(lockedPartNumber) kilidini açmak için lütfen önceki bölümü tamamlayın.")
+        }
         .onAppear {
+            LevelProgressionService.shared.ensureInitialProgress(context: modelContext)
             guard allKanji.isEmpty else { return }
             guard let url = Bundle.main.url(forResource: "\(level)KanjiData", withExtension: "json"),
                   let data = try? Data(contentsOf: url),
@@ -55,30 +90,41 @@ struct KanjiPartSelectionView: View {
         }
     }
 
-    private func partRow(index: Int, count: Int) -> some View {
+    private func partRow(index: Int, count: Int, isUnlocked: Bool, isCompleted: Bool) -> some View {
         HStack(spacing: 16) {
             Text("\(index + 1)")
                 .font(Theme.heading(19))
                 .foregroundStyle(.white)
                 .frame(width: 44, height: 44)
-                .background(Theme.accent)
+                .background(isUnlocked ? (isCompleted ? Color.green : Theme.accent) : Theme.secondaryInk)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text("\(level) Kanji's Part \(index + 1)")
                     .font(Theme.heading(19))
-                    .foregroundStyle(Theme.ink)
-                Text("\(count) kanji")
+                    .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
+                Text(isUnlocked ? (isCompleted ? "Tamamlandı • \(count) kanji" : "\(count) kanji") : "Kilitli • Önceki bölümü tamamla")
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
-            Image(systemName: "arrow.right")
-                .font(.system(size: 15, weight: .bold))
-                .foregroundStyle(Theme.ink)
+
+            if isCompleted {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 20))
+                    .foregroundStyle(.green)
+            } else if isUnlocked {
+                Image(systemName: "arrow.right")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(Theme.ink)
+            } else {
+                Image(systemName: "lock.fill")
+                    .foregroundStyle(Theme.secondaryInk)
+            }
         }
         .padding()
         .inkBordered()
+        .opacity(isUnlocked ? 1 : 0.6)
     }
 }
 
@@ -86,5 +132,5 @@ struct KanjiPartSelectionView: View {
     NavigationStack {
         KanjiPartSelectionView(level: "N5")
     }
-    .modelContainer(for: [LearningItemProgress.self, UserProgress.self, LearningSessionState.self], inMemory: true)
+    .modelContainer(for: [UserLevelProgress.self, LearningItemProgress.self, UserProgress.self, LearningSessionState.self], inMemory: true)
 }

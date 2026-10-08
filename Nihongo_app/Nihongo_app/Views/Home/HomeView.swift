@@ -91,6 +91,7 @@ struct HomeView: View {
             }
             .onAppear {
                 _ = userProgress
+                LevelProgressionService.shared.ensureInitialProgress(context: modelContext)
                 resume = ResumeTarget(sessions: sessions)
             }
         }

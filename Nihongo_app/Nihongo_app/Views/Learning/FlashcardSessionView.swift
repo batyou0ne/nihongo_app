@@ -562,6 +562,33 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             sessionEarnedXP = max(allItems.count * 2, 10)
         }
         showLessonComplete = true
+
+        // Seviye ve bölüm ilerlemesini kaydet (Intra/Inter-level gating)
+        if let (module, level, partIdx) = Self.parseSessionKey(sessionKey) {
+            LevelProgressionService.shared.markPartCompleted(
+                module: module,
+                level: level,
+                partIndex: partIdx,
+                context: modelContext
+            )
+        }
+
         try? modelContext.save()
+    }
+
+    private static func parseSessionKey(_ key: String) -> (module: String, level: JLPTLevel, partIndex: Int)? {
+        let prefixes = [("kanji_", "kanji"), ("vocab_", "vocab")]
+        for (prefix, mod) in prefixes {
+            if key.hasPrefix(prefix) {
+                let rest = key.dropFirst(prefix.count)
+                let pieces = rest.components(separatedBy: "_part")
+                if pieces.count == 2,
+                   let level = JLPTLevel(rawValue: pieces[0]),
+                   let number = Int(pieces[1]), number > 0 {
+                    return (mod, level, number - 1)
+                }
+            }
+        }
+        return nil
     }
 }

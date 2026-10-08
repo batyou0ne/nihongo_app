@@ -110,11 +110,7 @@ enum VerbConjugationEngine {
     private static func isIchidan(_ hiragana: String) -> Bool {
         guard hiragana.count >= 2 else { return false }
 
-        // Hardcoded Godan-る exceptions (commonly tested at N5)
-        let godanRuExceptions: Set<String> = [
-            "ある", "いる", "おる", "かえる", "きる", "しる",
-            "はいる", "はしる", "はなす", "ちる", "ねる" // ねる IS ichidan; keep for reference
-        ]
+
         // Actually re-filter: exceptions that ARE godan despite ending in る
         let godanRuOnly: Set<String> = [
             "ある", "きる", "しる", "はいる", "はしる", "かえる",

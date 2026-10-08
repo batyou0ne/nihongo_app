@@ -3,6 +3,7 @@ import SwiftData
 
 /// Seçilen JLPT seviyesinin gramer konularını bir "Learning Path" (öğrenme yolu) olarak
 /// ünitelere böler. Kullanıcı bu ekranı yukarıdan aşağıya takip eder.
+/// Bölüm İçi Kilit (Intra-Level Gating): Ünite 1 açıktır; sonraki üniteler önceki ünite bitince açılır.
 struct GrammarPartSelectionView: View {
     let level: String
 
@@ -11,6 +12,12 @@ struct GrammarPartSelectionView: View {
     @State private var syllabus: [GrammarUnit] = []
     @State private var pointsDict: [String: GrammarPoint] = [:]
     @State private var learnedIDs: Set<String> = []
+    @State private var showLockedAlert = false
+    @State private var lockedUnitId: Int = 1
+
+    private var jlptLevel: JLPTLevel {
+        JLPTLevel(rawValue: level) ?? .n5
+    }
 
     var body: some View {
         Group {
@@ -19,30 +26,64 @@ struct GrammarPartSelectionView: View {
             } else {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 36) {
-                        ForEach(syllabus) { unit in
+                        ForEach(Array(syllabus.enumerated()), id: \.offset) { index, unit in
+                            let isUnlocked = LevelProgressionService.shared.isPartUnlocked(
+                                module: "grammar",
+                                level: jlptLevel,
+                                partIndex: index,
+                                context: modelContext
+                            )
+                            let isUnitComplete = isUnitFinished(unit)
+
                             VStack(alignment: .leading, spacing: 12) {
-                                VStack(alignment: .leading, spacing: 6) {
-                                    Text("Ünite \(unit.id): \(unit.title)")
-                                        .font(Theme.display(24))
-                                        .foregroundStyle(Theme.ink)
-                                    Text(unit.description)
-                                        .font(.subheadline)
-                                        .foregroundStyle(Theme.secondaryInk)
-                                        .lineSpacing(4)
-                                        .fixedSize(horizontal: false, vertical: true)
+                                // Ünite Başlığı
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        HStack(spacing: 8) {
+                                            Text("Ünite \(unit.id): \(unit.title)")
+                                                .font(Theme.display(24))
+                                                .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
+
+                                            if isUnitComplete {
+                                                Image(systemName: "checkmark.seal.fill")
+                                                    .foregroundStyle(.green)
+                                            } else if !isUnlocked {
+                                                Image(systemName: "lock.fill")
+                                                    .foregroundStyle(Theme.secondaryInk)
+                                            }
+                                        }
+
+                                        Text(unit.description)
+                                            .font(.subheadline)
+                                            .foregroundStyle(Theme.secondaryInk)
+                                            .lineSpacing(4)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                    }
                                 }
                                 .padding(.bottom, 8)
 
+                                // Ünite Konuları
                                 ForEach(unit.grammarKeys, id: \.self) { key in
                                     if let point = pointsDict[key] {
-                                        NavigationLink {
-                                            GrammarLessonView(point: point)
-                                        } label: {
-                                            topicRow(point)
+                                        if isUnlocked {
+                                            NavigationLink {
+                                                GrammarLessonView(point: point)
+                                            } label: {
+                                                topicRow(point, isUnlocked: true)
+                                            }
+                                        } else {
+                                            Button {
+                                                lockedUnitId = unit.id
+                                                showLockedAlert = true
+                                            } label: {
+                                                topicRow(point, isUnlocked: false)
+                                            }
+                                            .buttonStyle(.plain)
                                         }
                                     }
                                 }
                             }
+                            .opacity(isUnlocked ? 1 : 0.6)
                         }
                     }
                     .padding(20)
@@ -52,7 +93,13 @@ struct GrammarPartSelectionView: View {
             }
         }
         .navigationTitle("\(level) Gramer")
+        .alert("Ünite Kilitli", isPresented: $showLockedAlert) {
+            Button("Tamam", role: .cancel) {}
+        } message: {
+            Text("Ünite \(lockedUnitId) kilidini açmak için lütfen önceki ünitedeki konuları tamamlayın.")
+        }
         .onAppear {
+            LevelProgressionService.shared.ensureInitialProgress(context: modelContext)
             if syllabus.isEmpty {
                 syllabus = ContentStore.loadGrammarSyllabus(level: level)
                 let points = ContentStore.loadGrammar(level: level)
@@ -62,18 +109,44 @@ struct GrammarPartSelectionView: View {
         }
     }
 
+    private func isUnitFinished(_ unit: GrammarUnit) -> Bool {
+        guard !unit.grammarKeys.isEmpty else { return false }
+        for key in unit.grammarKeys {
+            if let point = pointsDict[key] {
+                if !learnedIDs.contains(point.id) {
+                    return false
+                }
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+
     private func refreshLearned() {
         let all = (try? modelContext.fetch(FetchDescriptor<LearningItemProgress>())) ?? []
         learnedIDs = Set(all.filter { $0.itemKind == .grammar && $0.repetitionCount >= 1 }.map(\.itemID))
+
+        // Ünite tamamlanmalarını LevelProgressionService'e senkronize et
+        for (index, unit) in syllabus.enumerated() {
+            if isUnitFinished(unit) {
+                LevelProgressionService.shared.markPartCompleted(
+                    module: "grammar",
+                    level: jlptLevel,
+                    partIndex: index,
+                    context: modelContext
+                )
+            }
+        }
     }
 
-    private func topicRow(_ point: GrammarPoint) -> some View {
+    private func topicRow(_ point: GrammarPoint, isUnlocked: Bool) -> some View {
         let done = learnedIDs.contains(point.id)
 
         return HStack(spacing: 14) {
             Text(point.pattern)
                 .font(Theme.heading(20))
-                .foregroundStyle(Theme.accent)
+                .foregroundStyle(isUnlocked ? Theme.accent : Theme.secondaryInk)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
                 .frame(width: 120, alignment: .leading)
@@ -81,7 +154,7 @@ struct GrammarPartSelectionView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(point.title)
                     .font(Theme.heading(16))
-                    .foregroundStyle(Theme.ink)
+                    .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
                     .lineLimit(1)
                 Text(point.romaji)
                     .font(.caption)
@@ -94,10 +167,13 @@ struct GrammarPartSelectionView: View {
             if done {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundStyle(.green)
-            } else {
+            } else if isUnlocked {
                 Image(systemName: "arrow.right")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(Theme.ink)
+            } else {
+                Image(systemName: "lock.fill")
+                    .foregroundStyle(Theme.secondaryInk)
             }
         }
         .padding()
@@ -110,5 +186,5 @@ struct GrammarPartSelectionView: View {
     NavigationStack {
         GrammarPartSelectionView(level: "N5")
     }
-    .modelContainer(for: [LearningItemProgress.self, UserProgress.self, LearningSessionState.self], inMemory: true)
+    .modelContainer(for: [UserLevelProgress.self, LearningItemProgress.self, UserProgress.self, LearningSessionState.self], inMemory: true)
 }

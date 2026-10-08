@@ -1,14 +1,11 @@
 import SwiftUI
+import SwiftData
 
 struct GrammarMainView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var levelRecords: [UserLevelProgress]
 
-    private let levels: [(level: String, isAvailable: Bool)] = [
-        ("N5", true),
-        ("N4", false),
-        ("N3", false),
-        ("N2", false),
-        ("N1", false)
-    ]
+    @State private var selectedLockedLevel: JLPTLevel?
 
     var body: some View {
         NavigationStack {
@@ -18,22 +15,27 @@ struct GrammarMainView: View {
                         .font(Theme.display(36))
                         .foregroundStyle(Theme.ink)
                         .padding(.top, 10)
-                        
+
                     VStack(spacing: 14) {
-                        ForEach(levels, id: \.level) { entry in
-                            if entry.isAvailable {
+                        ForEach(JLPTLevel.allCases) { level in
+                            let isUnlocked = LevelProgressionService.shared.isLevelUnlocked(level, context: modelContext)
+
+                            if isUnlocked {
                                 NavigationLink {
-                                    GrammarSessionView(level: entry.level)
+                                    GrammarSessionView(level: level.rawValue)
                                 } label: {
-                                    levelRow(entry.level, isAvailable: true)
+                                    levelRow(level, isUnlocked: true)
                                 }
                             } else {
-                                levelRow(entry.level, isAvailable: false)
+                                Button {
+                                    selectedLockedLevel = level
+                                } label: {
+                                    levelRow(level, isUnlocked: false)
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                     }
-
-
                 }
                 .padding(20)
                 .padding(.bottom, 80)
@@ -41,28 +43,37 @@ struct GrammarMainView: View {
             .scrollIndicators(.hidden)
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(item: $selectedLockedLevel) { level in
+                LockedLevelInfoSheet(level: level)
+            }
+            .onAppear {
+                LevelProgressionService.shared.ensureInitialProgress(context: modelContext)
+            }
         }
         .tint(Theme.accent)
     }
 
-    private func levelRow(_ level: String, isAvailable: Bool) -> some View {
-        HStack(spacing: 16) {
+    private func levelRow(_ level: JLPTLevel, isUnlocked: Bool) -> some View {
+        let counts = level.targetCounts
+
+        return HStack(spacing: 16) {
             Image(systemName: "text.alignleft")
                 .font(.title2)
-                .foregroundStyle(isAvailable ? Theme.accent : Theme.secondaryInk)
+                .foregroundStyle(isUnlocked ? Theme.accent : Theme.secondaryInk)
                 .frame(width: 44, height: 44)
 
             VStack(alignment: .leading, spacing: 2) {
-                Text(L10n.grammarLevel(level))
+                Text(L10n.grammarLevel(level.rawValue))
                     .font(Theme.heading(19))
-                    .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
-                Text(isAvailable ? L10n.grammarSubtitle(85, 5) : L10n.comingSoon)
+                    .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
+
+                Text(isUnlocked ? "\(counts.grammar) konu" : "Kilitli • \(level.subtitle)")
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
-            if isAvailable {
+            if isUnlocked {
                 Image(systemName: "arrow.right")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(Theme.ink)
@@ -73,10 +84,11 @@ struct GrammarMainView: View {
         }
         .padding()
         .inkBordered()
-        .opacity(isAvailable ? 1 : 0.5)
+        .opacity(isUnlocked ? 1 : 0.6)
     }
 }
 
 #Preview {
     GrammarMainView()
+        .modelContainer(for: [UserLevelProgress.self, LearningItemProgress.self, UserProgress.self], inMemory: true)
 }

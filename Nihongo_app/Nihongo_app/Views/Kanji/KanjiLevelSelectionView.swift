@@ -1,29 +1,34 @@
 import SwiftUI
+import SwiftData
 
-/// Kanji modülünün ilk ekranı: JLPT seviyesi seçimi (N5-N1). Şu an sadece N5 için veri
-/// var (bkz. N5KanjiData.json, https://jlptsensei.com/jlpt-n5-kanji-list/ kaynaklı);
-/// diğer seviyeler veri eklenene kadar kilitli gösteriliyor.
+/// Kanji modülünün ilk ekranı: JLPT seviyesi seçimi (N5-N1).
+/// N5 varsayılan açıktır; üst seviyeler (N4-N1) önceki seviye tamamlanana kadar
+/// kilitlidir ve tıklandığında kilit bilgilendirme sheet'i açılır.
 struct KanjiLevelSelectionView: View {
-    private let levels: [(level: String, isAvailable: Bool)] = [
-        ("N5", true),
-        ("N4", false),
-        ("N3", false),
-        ("N2", false),
-        ("N1", false)
-    ]
+    @Environment(\.modelContext) private var modelContext
+    @Query private var levelRecords: [UserLevelProgress]
+
+    @State private var selectedLockedLevel: JLPTLevel?
 
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
-                ForEach(levels, id: \.level) { entry in
-                    if entry.isAvailable {
+                ForEach(JLPTLevel.allCases) { level in
+                    let isUnlocked = LevelProgressionService.shared.isLevelUnlocked(level, context: modelContext)
+
+                    if isUnlocked {
                         NavigationLink {
-                            KanjiPartSelectionView(level: entry.level)
+                            KanjiPartSelectionView(level: level.rawValue)
                         } label: {
-                            levelRow(entry.level, isAvailable: true)
+                            levelRow(level, isUnlocked: true)
                         }
                     } else {
-                        levelRow(entry.level, isAvailable: false)
+                        Button {
+                            selectedLockedLevel = level
+                        } label: {
+                            levelRow(level, isUnlocked: false)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -32,26 +37,35 @@ struct KanjiLevelSelectionView: View {
         .scrollIndicators(.hidden)
         .background(Theme.paper)
         .navigationTitle("Kanji")
+        .sheet(item: $selectedLockedLevel) { level in
+            LockedLevelInfoSheet(level: level)
+        }
+        .onAppear {
+            LevelProgressionService.shared.ensureInitialProgress(context: modelContext)
+        }
     }
 
-    private func levelRow(_ level: String, isAvailable: Bool) -> some View {
-        HStack(spacing: 16) {
+    private func levelRow(_ level: JLPTLevel, isUnlocked: Bool) -> some View {
+        let counts = level.targetCounts
+
+        return HStack(spacing: 16) {
             Image(systemName: "character.book.closed.fill")
                 .font(.title2)
-                .foregroundStyle(isAvailable ? Theme.accent : Theme.secondaryInk)
+                .foregroundStyle(isUnlocked ? Theme.accent : Theme.secondaryInk)
                 .frame(width: 44, height: 44)
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(level) Kanji's")
+                Text("\(level.rawValue) Kanji's")
                     .font(Theme.heading(19))
-                    .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
-                Text(isAvailable ? L10n.kanjiSubtitle(80, 4) : L10n.comingSoon)
+                    .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
+
+                Text(isUnlocked ? "\(counts.kanji) kanji" : "Kilitli • \(level.subtitle)")
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
-            if isAvailable {
+            if isUnlocked {
                 Image(systemName: "arrow.right")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(Theme.ink)
@@ -62,7 +76,7 @@ struct KanjiLevelSelectionView: View {
         }
         .padding()
         .inkBordered()
-        .opacity(isAvailable ? 1 : 0.5)
+        .opacity(isUnlocked ? 1 : 0.6)
     }
 }
 
@@ -70,4 +84,5 @@ struct KanjiLevelSelectionView: View {
     NavigationStack {
         KanjiLevelSelectionView()
     }
+    .modelContainer(for: [UserLevelProgress.self, LearningItemProgress.self, UserProgress.self], inMemory: true)
 }

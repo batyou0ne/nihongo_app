@@ -32,6 +32,8 @@ struct ProgressOverviewView: View {
                     timeChartSection()
                 }
 
+                jlptLevelSection()
+
                 VStack(alignment: .leading, spacing: 14) {
                     sectionTitle(L10n.learnedSection)
                     progressRow(title: "Hiragana", kind: .hiraganaCharacter)
@@ -186,6 +188,51 @@ struct ProgressOverviewView: View {
         .inkBordered()
     }
 
+    private func jlptLevelSection() -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            sectionTitle("JLPT Seviye Durumu")
+
+            VStack(spacing: 10) {
+                ForEach(JLPTLevel.allCases) { level in
+                    let isUnlocked = LevelProgressionService.shared.isLevelUnlocked(level, context: modelContext)
+                    let progressData = LevelProgressionService.shared.calculateLevelProgress(level: level, context: modelContext)
+
+                    HStack(spacing: 12) {
+                        Text(level.rawValue)
+                            .font(Theme.heading(18))
+                            .foregroundStyle(isUnlocked ? Theme.accent : Theme.secondaryInk)
+                            .frame(width: 36, alignment: .leading)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(level.subtitle)
+                                .font(.subheadline)
+                                .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
+
+                            if isUnlocked {
+                                progressBar(fraction: progressData.overall)
+                                    .frame(height: 8)
+                            }
+                        }
+
+                        Spacer()
+
+                        if isUnlocked {
+                            Text("%\(Int(progressData.overall * 100))")
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundStyle(Theme.ink)
+                        } else {
+                            Image(systemName: "lock.fill")
+                                .foregroundStyle(Theme.secondaryInk)
+                        }
+                    }
+                    .padding(14)
+                    .inkBordered()
+                    .opacity(isUnlocked ? 1 : 0.6)
+                }
+            }
+        }
+    }
+
     /// Keskin köşeli, siyah kenarlıklı ilerleme çubuğu — dolu kısım vermilyon.
     private func progressBar(fraction: Double) -> some View {
         GeometryReader { geometry in
@@ -206,5 +253,6 @@ struct ProgressOverviewView: View {
     NavigationStack {
         ProgressOverviewView()
     }
-    .modelContainer(for: [LearningItemProgress.self, UserProgress.self, LearningSessionState.self], inMemory: true)
+    .modelContainer(for: [UserLevelProgress.self, LearningItemProgress.self, UserProgress.self, LearningSessionState.self], inMemory: true)
 }
+

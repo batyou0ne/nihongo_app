@@ -66,7 +66,8 @@ struct NihongoApp: App {
             LearningItemProgress.self,
             UserProgress.self,
             LearningSessionState.self,
-            DailyActivity.self
+            DailyActivity.self,
+            UserLevelProgress.self
         ])
         
         let fileManager = FileManager.default

@@ -1,13 +1,11 @@
 import SwiftUI
+import SwiftData
 
 struct VocabularyMainView: View {
-    private let levels: [(level: String, isAvailable: Bool)] = [
-        ("N5", true),
-        ("N4", false),
-        ("N3", false),
-        ("N2", false),
-        ("N1", false)
-    ]
+    @Environment(\.modelContext) private var modelContext
+    @Query private var levelRecords: [UserLevelProgress]
+
+    @State private var selectedLockedLevel: JLPTLevel?
 
     var body: some View {
         NavigationStack {
@@ -17,17 +15,24 @@ struct VocabularyMainView: View {
                         .font(Theme.display(36))
                         .foregroundStyle(Theme.ink)
                         .padding(.top, 10)
-                        
+
                     VStack(spacing: 14) {
-                        ForEach(levels, id: \.level) { entry in
-                            if entry.isAvailable {
+                        ForEach(JLPTLevel.allCases) { level in
+                            let isUnlocked = LevelProgressionService.shared.isLevelUnlocked(level, context: modelContext)
+
+                            if isUnlocked {
                                 NavigationLink {
-                                    VocabularyPartSelectionView(level: entry.level)
+                                    VocabularyPartSelectionView(level: level.rawValue)
                                 } label: {
-                                    levelRow(entry.level, isAvailable: true)
+                                    levelRow(level, isUnlocked: true)
                                 }
                             } else {
-                                levelRow(entry.level, isAvailable: false)
+                                Button {
+                                    selectedLockedLevel = level
+                                } label: {
+                                    levelRow(level, isUnlocked: false)
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                     }
@@ -38,28 +43,37 @@ struct VocabularyMainView: View {
             .scrollIndicators(.hidden)
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(item: $selectedLockedLevel) { level in
+                LockedLevelInfoSheet(level: level)
+            }
+            .onAppear {
+                LevelProgressionService.shared.ensureInitialProgress(context: modelContext)
+            }
         }
         .tint(Theme.accent)
     }
 
-    private func levelRow(_ level: String, isAvailable: Bool) -> some View {
-        HStack(spacing: 16) {
+    private func levelRow(_ level: JLPTLevel, isUnlocked: Bool) -> some View {
+        let counts = level.targetCounts
+
+        return HStack(spacing: 16) {
             Image(systemName: "character.bubble.fill")
                 .font(.title2)
-                .foregroundStyle(isAvailable ? Theme.accent : Theme.secondaryInk)
+                .foregroundStyle(isUnlocked ? Theme.accent : Theme.secondaryInk)
                 .frame(width: 44, height: 44)
 
             VStack(alignment: .leading, spacing: 2) {
-                Text(L10n.vocabularyLevel(level))
+                Text(L10n.vocabularyLevel(level.rawValue))
                     .font(Theme.heading(19))
-                    .foregroundStyle(isAvailable ? Theme.ink : Theme.secondaryInk)
-                Text(isAvailable ? L10n.vocabularySubtitle(675, 27) : L10n.comingSoon)
+                    .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
+
+                Text(isUnlocked ? "\(counts.vocab) kelime" : "Kilitli • \(level.subtitle)")
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
-            if isAvailable {
+            if isUnlocked {
                 Image(systemName: "arrow.right")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(Theme.ink)
@@ -70,10 +84,11 @@ struct VocabularyMainView: View {
         }
         .padding()
         .inkBordered()
-        .opacity(isAvailable ? 1 : 0.5)
+        .opacity(isUnlocked ? 1 : 0.6)
     }
 }
 
 #Preview {
     VocabularyMainView()
+        .modelContainer(for: [UserLevelProgress.self, LearningItemProgress.self, UserProgress.self], inMemory: true)
 }
