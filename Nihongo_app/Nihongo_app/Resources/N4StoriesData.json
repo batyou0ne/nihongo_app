@@ -1,0 +1,76 @@
+[
+  {
+    "id": "n4_story_1",
+    "type": "hiraganaKanji",
+    "title": "日本での新しい生活 (Japonya'da Yeni Hayat)",
+    "sentences": [
+      {
+        "id": "n4_s1_1",
+        "japaneseText": "わたしは先月、東京に引越しをしました。",
+        "romaji": "Watashi wa sengetsu, Toukyou ni hikkoshi wo shimashita.",
+        "turkishTranslation": "Geçen ay Tokyo'ya taşındım.",
+        "vocabulary": [
+          "先月 (Geçen ay)",
+          "引越し (Taşınma)"
+        ]
+      },
+      {
+        "id": "n4_s1_2",
+        "japaneseText": "東京は人が多くて電車がとても便利です。",
+        "romaji": "Toukyou wa hito ga ookute densha ga totemo benri desu.",
+        "turkishTranslation": "Tokyo'da çok insan var ve trenler çok kullanışlı.",
+        "vocabulary": [
+          "便利 (Kullanışlı)",
+          "電車 (Tren)"
+        ]
+      },
+      {
+        "id": "n4_s1_3",
+        "japaneseText": "困ったときは、近所の人が親切に案内してくれました。",
+        "romaji": "Komatta toki wa, kinjo no hito ga shinsetsu ni annai shite kuremashita.",
+        "turkishTranslation": "Zor durumda kaldığımda komşular nezaketle bana rehberlik etti.",
+        "vocabulary": [
+          "案内 (Rehberlik)",
+          "親切 (Kibar, yardımsever)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "n4_story_2",
+    "type": "all",
+    "title": "駅での忘れ物 (İstasyonda Unutulan Eşya)",
+    "sentences": [
+      {
+        "id": "n4_s2_1",
+        "japaneseText": "電車の中に大切な鞄を忘れてしまいました。",
+        "romaji": "Densha no naka ni taisetsu na kaban wo wasurete shimaimashita.",
+        "turkishTranslation": "Trenin içinde önemli çantamı unuttum.",
+        "vocabulary": [
+          "大切 (Önemli, kıymetli)",
+          "鞄 (Çanta)"
+        ]
+      },
+      {
+        "id": "n4_s2_2",
+        "japaneseText": "駅員さんに相談したら、親切に探してくれました。",
+        "romaji": "Ekiin-san ni soudan shitara, shinsetsu ni sagashite kuremashita.",
+        "turkishTranslation": "İstasyon görevlisine danıştığımda kibarca arayıp buldu.",
+        "vocabulary": [
+          "駅員 (İstasyon görevlisi)",
+          "探す (Aramak)"
+        ]
+      },
+      {
+        "id": "n4_s2_3",
+        "japaneseText": "鞄が見つかって本当に安心しました。",
+        "romaji": "Kaban ga mitsukatte hontou ni anshin shimashita.",
+        "turkishTranslation": "Çanta bulununca gerçekten içim rahatladı.",
+        "vocabulary": [
+          "安心 (İç rahatlığı)",
+          "見つかる (Bulunmak)"
+        ]
+      }
+    ]
+  }
+]

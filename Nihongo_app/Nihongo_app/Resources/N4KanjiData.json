@@ -1,0 +1,542 @@
+[
+  {
+    "character": "買",
+    "onyomi": "バイ",
+    "kunyomi": "かう",
+    "meaning": "satın almak",
+    "strokeCount": 12,
+    "exampleWords": [
+      {
+        "hiragana": "買う",
+        "romaji": "kau",
+        "turkishMeaning": "satın almak"
+      },
+      {
+        "hiragana": "買い物",
+        "romaji": "kaimono",
+        "turkishMeaning": "alışveriş"
+      }
+    ]
+  },
+  {
+    "character": "聞",
+    "onyomi": "ブン、モン",
+    "kunyomi": "きく",
+    "meaning": "dinlemek, sormak",
+    "strokeCount": 14,
+    "exampleWords": [
+      {
+        "hiragana": "聞く",
+        "romaji": "kiku",
+        "turkishMeaning": "dinlemek"
+      },
+      {
+        "hiragana": "新聞",
+        "romaji": "shinbun",
+        "turkishMeaning": "gazete"
+      }
+    ]
+  },
+  {
+    "character": "読",
+    "onyomi": "ドク",
+    "kunyomi": "よむ",
+    "meaning": "okumak",
+    "strokeCount": 14,
+    "exampleWords": [
+      {
+        "hiragana": "読む",
+        "romaji": "yomu",
+        "turkishMeaning": "okumak"
+      },
+      {
+        "hiragana": "読書",
+        "romaji": "dokusho",
+        "turkishMeaning": "kitap okuma"
+      }
+    ]
+  },
+  {
+    "character": "帰",
+    "onyomi": "キ",
+    "kunyomi": "かえる",
+    "meaning": "geri dönmek",
+    "strokeCount": 10,
+    "exampleWords": [
+      {
+        "hiragana": "帰る",
+        "romaji": "kaeru",
+        "turkishMeaning": "eve dönmek"
+      },
+      {
+        "hiragana": "帰国",
+        "romaji": "kikoku",
+        "turkishMeaning": "ülkeye dönüş"
+      }
+    ]
+  },
+  {
+    "character": "勉",
+    "onyomi": "ベン",
+    "kunyomi": "つとめる",
+    "meaning": "çabalamak, gayret",
+    "strokeCount": 10,
+    "exampleWords": [
+      {
+        "hiragana": "勉強",
+        "romaji": "benkyou",
+        "turkishMeaning": "ders çalışma"
+      }
+    ]
+  },
+  {
+    "character": "強",
+    "onyomi": "キョウ、ゴウ",
+    "kunyomi": "つよい",
+    "meaning": "güçlü",
+    "strokeCount": 11,
+    "exampleWords": [
+      {
+        "hiragana": "強い",
+        "romaji": "tsuyoi",
+        "turkishMeaning": "güçlü"
+      },
+      {
+        "hiragana": "勉強",
+        "romaji": "benkyou",
+        "turkishMeaning": "ders çalışma"
+      }
+    ]
+  },
+  {
+    "character": "待",
+    "onyomi": "タイ",
+    "kunyomi": "まつ",
+    "meaning": "beklemek",
+    "strokeCount": 9,
+    "exampleWords": [
+      {
+        "hiragana": "待つ",
+        "romaji": "matsu",
+        "turkishMeaning": "beklemek"
+      },
+      {
+        "hiragana": "期待",
+        "romaji": "kitai",
+        "turkishMeaning": "beklenti"
+      }
+    ]
+  },
+  {
+    "character": "書",
+    "onyomi": "ショ",
+    "kunyomi": "かく",
+    "meaning": "yazmak",
+    "strokeCount": 10,
+    "exampleWords": [
+      {
+        "hiragana": "書く",
+        "romaji": "kaku",
+        "turkishMeaning": "yazmak"
+      },
+      {
+        "hiragana": "辞書",
+        "romaji": "jisho",
+        "turkishMeaning": "sözlük"
+      }
+    ]
+  },
+  {
+    "character": "話",
+    "onyomi": "ワ",
+    "kunyomi": "はなす、はなし",
+    "meaning": "konuşmak, hikaye",
+    "strokeCount": 13,
+    "exampleWords": [
+      {
+        "hiragana": "話す",
+        "romaji": "hanasu",
+        "turkishMeaning": "konuşmak"
+      },
+      {
+        "hiragana": "電話",
+        "romaji": "denwa",
+        "turkishMeaning": "telefon"
+      }
+    ]
+  },
+  {
+    "character": "飲",
+    "onyomi": "イン",
+    "kunyomi": "のむ",
+    "meaning": "içmek",
+    "strokeCount": 12,
+    "exampleWords": [
+      {
+        "hiragana": "飲む",
+        "romaji": "nomu",
+        "turkishMeaning": "içmek"
+      },
+      {
+        "hiragana": "飲み物",
+        "romaji": "nomimono",
+        "turkishMeaning": "içecek"
+      }
+    ]
+  },
+  {
+    "character": "漢",
+    "onyomi": "カン",
+    "kunyomi": "",
+    "meaning": "Çin (Han)",
+    "strokeCount": 13,
+    "exampleWords": [
+      {
+        "hiragana": "漢字",
+        "romaji": "kanji",
+        "turkishMeaning": "kanji karakteri"
+      }
+    ]
+  },
+  {
+    "character": "字",
+    "onyomi": "ジ",
+    "kunyomi": "あざ",
+    "meaning": "karakter, harf",
+    "strokeCount": 6,
+    "exampleWords": [
+      {
+        "hiragana": "漢字",
+        "romaji": "kanji",
+        "turkishMeaning": "kanji karakteri"
+      },
+      {
+        "hiragana": "文字",
+        "romaji": "moji",
+        "turkishMeaning": "yazı karakteri"
+      }
+    ]
+  },
+  {
+    "character": "歩",
+    "onyomi": "ホ",
+    "kunyomi": "あるく",
+    "meaning": "yürümek",
+    "strokeCount": 8,
+    "exampleWords": [
+      {
+        "hiragana": "歩く",
+        "romaji": "aruku",
+        "turkishMeaning": "yürümek"
+      },
+      {
+        "hiragana": "散歩",
+        "romaji": "sanpo",
+        "turkishMeaning": "yürüyüş"
+      }
+    ]
+  },
+  {
+    "character": "走",
+    "onyomi": "ソウ",
+    "kunyomi": "はしる",
+    "meaning": "koşmak",
+    "strokeCount": 7,
+    "exampleWords": [
+      {
+        "hiragana": "走る",
+        "romaji": "hashiru",
+        "turkishMeaning": "koşmak"
+      }
+    ]
+  },
+  {
+    "character": "泳",
+    "onyomi": "エイ",
+    "kunyomi": "およぐ",
+    "meaning": "yüzmek",
+    "strokeCount": 8,
+    "exampleWords": [
+      {
+        "hiragana": "泳ぐ",
+        "romaji": "oyogu",
+        "turkishMeaning": "yüzmek"
+      },
+      {
+        "hiragana": "水泳",
+        "romaji": "suiei",
+        "turkishMeaning": "yüzme sporu"
+      }
+    ]
+  },
+  {
+    "character": "映",
+    "onyomi": "エイ",
+    "kunyomi": "うつる",
+    "meaning": "yansımak, göstermek",
+    "strokeCount": 9,
+    "exampleWords": [
+      {
+        "hiragana": "映画",
+        "romaji": "eiga",
+        "turkishMeaning": "film, sinema"
+      }
+    ]
+  },
+  {
+    "character": "画",
+    "onyomi": "ガ、カク",
+    "kunyomi": "",
+    "meaning": "resim, çizim",
+    "strokeCount": 8,
+    "exampleWords": [
+      {
+        "hiragana": "映画",
+        "romaji": "eiga",
+        "turkishMeaning": "film"
+      },
+      {
+        "hiragana": "計画",
+        "romaji": "keikaku",
+        "turkishMeaning": "plan"
+      }
+    ]
+  },
+  {
+    "character": "音",
+    "onyomi": "オン、イン",
+    "kunyomi": "おと、ね",
+    "meaning": "ses",
+    "strokeCount": 9,
+    "exampleWords": [
+      {
+        "hiragana": "音楽",
+        "romaji": "ongaku",
+        "turkishMeaning": "müzik"
+      },
+      {
+        "hiragana": "音",
+        "romaji": "oto",
+        "turkishMeaning": "ses"
+      }
+    ]
+  },
+  {
+    "character": "楽",
+    "onyomi": "ラク、ガク",
+    "kunyomi": "たのしい",
+    "meaning": "eğlenceli, rahat",
+    "strokeCount": 13,
+    "exampleWords": [
+      {
+        "hiragana": "楽しい",
+        "romaji": "tanoshii",
+        "turkishMeaning": "eğlenceli"
+      },
+      {
+        "hiragana": "音楽",
+        "romaji": "ongaku",
+        "turkishMeaning": "müzik"
+      }
+    ]
+  },
+  {
+    "character": "歌",
+    "onyomi": "カ",
+    "kunyomi": "うた、うたう",
+    "meaning": "şarkı, şarkı söylemek",
+    "strokeCount": 14,
+    "exampleWords": [
+      {
+        "hiragana": "歌う",
+        "romaji": "utau",
+        "turkishMeaning": "şarkı söylemek"
+      },
+      {
+        "hiragana": "歌手",
+        "romaji": "kashu",
+        "turkishMeaning": "şarkıcı"
+      }
+    ]
+  },
+  {
+    "character": "店",
+    "onyomi": "テン",
+    "kunyomi": "みせ",
+    "meaning": "dükkan, mağaza",
+    "strokeCount": 8,
+    "exampleWords": [
+      {
+        "hiragana": "店",
+        "romaji": "mise",
+        "turkishMeaning": "dükkan"
+      },
+      {
+        "hiragana": "店員",
+        "romaji": "ten'in",
+        "turkishMeaning": "tezgahtar"
+      }
+    ]
+  },
+  {
+    "character": "春",
+    "onyomi": "シュン",
+    "kunyomi": "はる",
+    "meaning": "ilkbahar",
+    "strokeCount": 9,
+    "exampleWords": [
+      {
+        "hiragana": "春",
+        "romaji": "haru",
+        "turkishMeaning": "ilkbahar"
+      }
+    ]
+  },
+  {
+    "character": "夏",
+    "onyomi": "カ",
+    "kunyomi": "なつ",
+    "meaning": "yaz",
+    "strokeCount": 10,
+    "exampleWords": [
+      {
+        "hiragana": "夏",
+        "romaji": "natsu",
+        "turkishMeaning": "yaz mevsimi"
+      },
+      {
+        "hiragana": "夏休み",
+        "romaji": "natsuyasumi",
+        "turkishMeaning": "yaz tatili"
+      }
+    ]
+  },
+  {
+    "character": "秋",
+    "onyomi": "シュウ",
+    "kunyomi": "あき",
+    "meaning": "sonbahar",
+    "strokeCount": 9,
+    "exampleWords": [
+      {
+        "hiragana": "秋",
+        "romaji": "aki",
+        "turkishMeaning": "sonbahar"
+      }
+    ]
+  },
+  {
+    "character": "冬",
+    "onyomi": "トウ",
+    "kunyomi": "ふゆ",
+    "meaning": "kış",
+    "strokeCount": 5,
+    "exampleWords": [
+      {
+        "hiragana": "冬",
+        "romaji": "fuyu",
+        "turkishMeaning": "kış mevsimi"
+      },
+      {
+        "hiragana": "冬休み",
+        "romaji": "fuyuyasumi",
+        "turkishMeaning": "kış tatili"
+      }
+    ]
+  },
+  {
+    "character": "魚",
+    "onyomi": "ギョ",
+    "kunyomi": "さかな",
+    "meaning": "balık",
+    "strokeCount": 11,
+    "exampleWords": [
+      {
+        "hiragana": "魚",
+        "romaji": "sakana",
+        "turkishMeaning": "balık"
+      },
+      {
+        "hiragana": "金魚",
+        "romaji": "kingyo",
+        "turkishMeaning": "japon balığı"
+      }
+    ]
+  },
+  {
+    "character": "鳥",
+    "onyomi": "チョウ",
+    "kunyomi": "とり",
+    "meaning": "kuş",
+    "strokeCount": 11,
+    "exampleWords": [
+      {
+        "hiragana": "鳥",
+        "romaji": "tori",
+        "turkishMeaning": "kuş"
+      },
+      {
+        "hiragana": "小鳥",
+        "romaji": "kotori",
+        "turkishMeaning": "küçük kuş"
+      }
+    ]
+  },
+  {
+    "character": "肉",
+    "onyomi": "ニク",
+    "kunyomi": "",
+    "meaning": "et",
+    "strokeCount": 6,
+    "exampleWords": [
+      {
+        "hiragana": "牛肉",
+        "romaji": "gyuuniku",
+        "turkishMeaning": "dana eti"
+      },
+      {
+        "hiragana": "肉屋",
+        "romaji": "nikuya",
+        "turkishMeaning": "kasap"
+      }
+    ]
+  },
+  {
+    "character": "飯",
+    "onyomi": "ハン",
+    "kunyomi": "めし",
+    "meaning": "yemek, pirinç",
+    "strokeCount": 12,
+    "exampleWords": [
+      {
+        "hiragana": "ご飯",
+        "romaji": "gohan",
+        "turkishMeaning": "yemek, pilav"
+      },
+      {
+        "hiragana": "朝飯",
+        "romaji": "asameshi",
+        "turkishMeaning": "sabah yemeği"
+      }
+    ]
+  },
+  {
+    "character": "牛",
+    "onyomi": "ギュウ",
+    "kunyomi": "うし",
+    "meaning": "sığır, inek",
+    "strokeCount": 4,
+    "exampleWords": [
+      {
+        "hiragana": "牛乳",
+        "romaji": "gyuunyuu",
+        "turkishMeaning": "süt"
+      },
+      {
+        "hiragana": "牛肉",
+        "romaji": "gyuuniku",
+        "turkishMeaning": "dana eti"
+      }
+    ]
+  }
+]

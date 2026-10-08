@@ -1,0 +1,202 @@
+[
+  {
+    "kanji": "安心",
+    "hiragana": "あんしん",
+    "romaji": "anshin",
+    "turkishMeaning": "iç rahatlığı, huzur",
+    "exampleSentence": "テストが終わって安心しました。",
+    "exampleTranslation": "Sınav bittiğinde içim rahatladı."
+  },
+  {
+    "kanji": "案内",
+    "hiragana": "あんない",
+    "romaji": "annai",
+    "turkishMeaning": "rehberlik etme, gezdirme",
+    "exampleSentence": "街を案内します。",
+    "exampleTranslation": "Sana şehri gezdireceğim."
+  },
+  {
+    "kanji": "以上",
+    "hiragana": "いじょう",
+    "romaji": "ijou",
+    "turkishMeaning": "...den fazla, yukarı",
+    "exampleSentence": "これ以上は食べられません。",
+    "exampleTranslation": "Bundan fazlasını yiyemem."
+  },
+  {
+    "kanji": "以内",
+    "hiragana": "いない",
+    "romaji": "inai",
+    "turkishMeaning": "...içinde (süre, miktar)",
+    "exampleSentence": "一週間以内に連絡します。",
+    "exampleTranslation": "Bir hafta içinde haber vereceğim."
+  },
+  {
+    "kanji": "意味",
+    "hiragana": "いみ",
+    "romaji": "imi",
+    "turkishMeaning": "anlam",
+    "exampleSentence": "この言葉の意味は何ですか？",
+    "exampleTranslation": "Bu kelimenin anlamı nedir?"
+  },
+  {
+    "kanji": "遠慮",
+    "hiragana": "えんりょ",
+    "romaji": "enryo",
+    "turkishMeaning": "çekinme, tereddüt",
+    "exampleSentence": "遠慮しないで食べてください。",
+    "exampleTranslation": "Çekinmeden lütfen yiyin."
+  },
+  {
+    "kanji": "億",
+    "hiragana": "おく",
+    "romaji": "oku",
+    "turkishMeaning": "yüz milyon",
+    "exampleSentence": "人口が一億人を超えました。",
+    "exampleTranslation": "Nüfus 100 milyonu aştı."
+  },
+  {
+    "kanji": "屋上",
+    "hiragana": "おくじょう",
+    "romaji": "okujou",
+    "turkishMeaning": "çatı katı, teras",
+    "exampleSentence": "屋上で休みましょう。",
+    "exampleTranslation": "Çatıda dinlenelim."
+  },
+  {
+    "kanji": "贈り物",
+    "hiragana": "おくりもの",
+    "romaji": "okurimono",
+    "turkishMeaning": "hediye",
+    "exampleSentence": "母に贈り物を買いました。",
+    "exampleTranslation": "Anneme bir hediye aldım."
+  },
+  {
+    "kanji": "押し入れ",
+    "hiragana": "おしいれ",
+    "romaji": "oshiire",
+    "turkishMeaning": "gömme dolap",
+    "exampleSentence": "布団を押し入れに入れます。",
+    "exampleTranslation": "Yatağı gömme dolaba koyuyorum."
+  },
+  {
+    "kanji": "思い出",
+    "hiragana": "おもいで",
+    "romaji": "omoide",
+    "turkishMeaning": "anı, hatıra",
+    "exampleSentence": "旅行は良い思い出になりました。",
+    "exampleTranslation": "Seyahat güzel bir anı oldu."
+  },
+  {
+    "kanji": "海岸",
+    "hiragana": "かいがん",
+    "romaji": "kaigan",
+    "turkishMeaning": "sahil, kıyı",
+    "exampleSentence": "海岸を散歩しました。",
+    "exampleTranslation": "Sahilde yürüyüş yaptım."
+  },
+  {
+    "kanji": "会議",
+    "hiragana": "かいぎ",
+    "romaji": "kaigi",
+    "turkishMeaning": "toplantı",
+    "exampleSentence": "午後から会議があります。",
+    "exampleTranslation": "Öğleden sonra toplantı var."
+  },
+  {
+    "kanji": "科学",
+    "hiragana": "かがく",
+    "romaji": "kagaku",
+    "turkishMeaning": "bilim, fen",
+    "exampleSentence": "科学の実験をします。",
+    "exampleTranslation": "Bilim deneyi yapıyoruz."
+  },
+  {
+    "kanji": "鏡",
+    "hiragana": "かがみ",
+    "romaji": "kagami",
+    "turkishMeaning": "ayna",
+    "exampleSentence": "鏡を見て髪を整えます。",
+    "exampleTranslation": "Aynaya bakıp saçımı düzeltiyorum."
+  },
+  {
+    "kanji": "飾る",
+    "hiragana": "かざる",
+    "romaji": "kazaru",
+    "turkishMeaning": "süslemek, dekore etmek",
+    "exampleSentence": "部屋に花を飾りました。",
+    "exampleTranslation": "Odaya çiçek süsledim."
+  },
+  {
+    "kanji": "火事",
+    "hiragana": "かじ",
+    "romaji": "kaji",
+    "turkishMeaning": "yangın",
+    "exampleSentence": "近くで火事がありました。",
+    "exampleTranslation": "Yakında bir yangın çıktı."
+  },
+  {
+    "kanji": "硬い",
+    "hiragana": "かたい",
+    "romaji": "katai",
+    "turkishMeaning": "sert, katı",
+    "exampleSentence": "このパンは少し硬いです。",
+    "exampleTranslation": "Bu ekmek biraz sert."
+  },
+  {
+    "kanji": "形",
+    "hiragana": "かたち",
+    "romaji": "katachi",
+    "turkishMeaning": "şekil, biçim",
+    "exampleSentence": "星の形をしたクッキーです。",
+    "exampleTranslation": "Yıldız şeklinde kurabiye."
+  },
+  {
+    "kanji": "片付ける",
+    "hiragana": "かたづける",
+    "romaji": "katadzukeru",
+    "turkishMeaning": "toparlamak, temizlemek",
+    "exampleSentence": "部屋を片付けました。",
+    "exampleTranslation": "Odayı toparladım."
+  },
+  {
+    "kanji": "勝つ",
+    "hiragana": "かつ",
+    "romaji": "katsu",
+    "turkishMeaning": "kazanmak (maç vb.)",
+    "exampleSentence": "試合に勝ちました！",
+    "exampleTranslation": "Maçı kazandık!"
+  },
+  {
+    "kanji": "関係",
+    "hiragana": "かんけい",
+    "romaji": "kankei",
+    "turkishMeaning": "ilişki, bağ",
+    "exampleSentence": "彼とは良い関係です。",
+    "exampleTranslation": "Onunla iyi bir ilişkimiz var."
+  },
+  {
+    "kanji": "危険",
+    "hiragana": "きけん",
+    "romaji": "kiken",
+    "turkishMeaning": "tehlike, tehlikeli",
+    "exampleSentence": "ここは危険ですから離れてください。",
+    "exampleTranslation": "Burası tehlikeli, lütfen uzaklaşın."
+  },
+  {
+    "kanji": "技術",
+    "hiragana": "ぎじゅつ",
+    "romaji": "gijutsu",
+    "turkishMeaning": "teknoloji, teknik",
+    "exampleSentence": "日本の技術は進んでいます。",
+    "exampleTranslation": "Japon teknolojisi ileridedir."
+  },
+  {
+    "kanji": "季節",
+    "hiragana": "きせつ",
+    "romaji": "kisetsu",
+    "turkishMeaning": "mevsim",
+    "exampleSentence": "どの季節が好きですか？",
+    "exampleTranslation": "Hangi mevsimi seversin?"
+  }
+]

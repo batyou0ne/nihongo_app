@@ -1,0 +1,404 @@
+[
+  {
+    "key": "te_mo_ii",
+    "pattern": "～てもいい",
+    "romaji": "~te mo ii",
+    "title": "İzin Bildirme (~abilir)",
+    "explanation": "Bir eylemin yapılmasına izin verildiğini veya izin istendiğini belirtir.",
+    "formula": "[Fiil Te-formu] + もいい (ですか)",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      {
+        "japanese": "ここで写真を撮ってもいいですか。",
+        "hiragana": "ここでしゃしんをとってもいいですか。",
+        "romaji": "Koko de shashin wo totte mo ii desu ka.",
+        "turkish": "Burada fotoğraf çekebilir miyim?"
+      },
+      {
+        "japanese": "帰ってもいいですよ。",
+        "hiragana": "かえってもいいですよ。",
+        "romaji": "Kaette mo ii desu yo.",
+        "turkish": "Eve dönebilirsin."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "部屋に入っ＿＿いいですか。",
+        "hint": "İzin isteme (Te-form + mo ii)",
+        "promptReading": "へやにはいっ＿＿いいですか。",
+        "choices": [
+          "ても",
+          "たら",
+          "てもう",
+          "のに"
+        ],
+        "answer": "ても"
+      }
+    ]
+  },
+  {
+    "key": "te_wa_ikemasen",
+    "pattern": "～てはいけません",
+    "romaji": "~te wa ikemasen",
+    "title": "Yasaklama (~mamalısın)",
+    "explanation": "Bir eylemin yapılmasının kesin olarak yasak olduğunu bildirir.",
+    "formula": "[Fiil Te-formu] + はいけません",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      {
+        "japanese": "ここでタバコを吸ってはいけません。",
+        "hiragana": "ここでタバコをすってはいけません。",
+        "romaji": "Koko de tabako wo sutte wa ikemasen.",
+        "turkish": "Burada sigara içmemelisin."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "multipleChoice",
+        "prompt": "Yasak bildiren doğru ifade hangisidir?",
+        "hint": "Yasaklama kalıbı",
+        "promptReading": null,
+        "choices": [
+          "～てはいけません",
+          "～てもいいです",
+          "～たほうがいい",
+          "～ないでください"
+        ],
+        "answer": "～てはいけません"
+      }
+    ]
+  },
+  {
+    "key": "nakereba_narimasen",
+    "pattern": "～なければなりません",
+    "romaji": "~nakereba narimasen",
+    "title": "Zorunluluk (~mak zorunda olmak)",
+    "explanation": "Bir eylemin mutlaka yapılması gerektiğini ifade eder.",
+    "formula": "[Fiil Nai-formu (i atılır)] + ければなりません",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "毎日薬を飲まなければなりません。",
+        "hiragana": "まいにちくすりをのまなければなりません。",
+        "romaji": "Mainichi kusuri wo nomanakereba narimasen.",
+        "turkish": "Her gün ilaç içmek zorundayım."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "明日、早く起き＿＿なりません。",
+        "hint": "Zorunluluk kalıbı",
+        "promptReading": "あした、はやくおき＿＿なりません。",
+        "choices": [
+          "なければ",
+          "なくても",
+          "ないで",
+          "ないと"
+        ],
+        "answer": "なければ"
+      }
+    ]
+  },
+  {
+    "key": "nakute_mo_ii",
+    "pattern": "～なくてもいい",
+    "romaji": "~nakute mo ii",
+    "title": "Gereksizlik Bildirme (~mana gerek yok)",
+    "explanation": "Bir eylemin yapılmasına gerek olmadığını belirtir.",
+    "formula": "[Fiil Nai-formu (i atılır)] + くてもいい",
+    "category": "expression",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "今日は来なくてもいいです。",
+        "hiragana": "きょうはこなくてもいいです。",
+        "romaji": "Kyou wa konakute mo ii desu.",
+        "turkish": "Bugün gelmene gerek yok."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "multipleChoice",
+        "prompt": "'Yapmana gerek yok' cümlesi hangisidir?",
+        "hint": "Gereksizlik",
+        "promptReading": null,
+        "choices": [
+          "しなくてもいいです",
+          "してはいけません",
+          "しなければなりません",
+          "してください"
+        ],
+        "answer": "しなくてもいいです"
+      }
+    ]
+  },
+  {
+    "key": "tsumori_da",
+    "pattern": "～つもりだ",
+    "romaji": "~tsumori da",
+    "title": "Niyet Bildirme (~mayı planlıyorum)",
+    "explanation": "Gelecekte yapmayı planladığımız kesin niyetleri anlatır.",
+    "formula": "[Fiil Düz Formu] + つもりです",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      {
+        "japanese": "来年、日本へ行くつもりです。",
+        "hiragana": "らいねん、にほんへいくつもりです。",
+        "romaji": "Rainen, nihon e iku tsumori desu.",
+        "turkish": "Gelecek yıl Japonya'ya gitmeye niyetliyim."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "大学で日本語を勉強する＿＿です。",
+        "hint": "Niyet bildiren kalıp",
+        "promptReading": "だいがくでにほんごをべんきょうする＿＿です。",
+        "choices": [
+          "つもり",
+          "とおり",
+          "ばかり",
+          "はず"
+        ],
+        "answer": "つもり"
+      }
+    ]
+  },
+  {
+    "key": "yotei_da",
+    "pattern": "～予定だ",
+    "romaji": "~yotei da",
+    "title": "Plan ve Program (~ması planlanıyor)",
+    "explanation": "Resmi veya önceden ayarlanmış programları ifade eder.",
+    "formula": "[Fiil Düz Formu / İsim + の] + 予定です",
+    "category": "expression",
+    "difficulty": 1,
+    "examples": [
+      {
+        "japanese": "明日は会議の予定です。",
+        "hiragana": "あしたはかいぎのよていです。",
+        "romaji": "Ashita wa kaigi no yotei desu.",
+        "turkish": "Yarın toplantı planlanıyor."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "multipleChoice",
+        "prompt": "'Plan/Program' belirten ifade hangisidir?",
+        "hint": "Program kalıbı",
+        "promptReading": null,
+        "choices": [
+          "予定です",
+          "つもりです",
+          "そうです",
+          "らしいです"
+        ],
+        "answer": "予定です"
+      }
+    ]
+  },
+  {
+    "key": "tame_ni",
+    "pattern": "～ために",
+    "romaji": "~tame ni",
+    "title": "Amaç ve Gaye (~mak için)",
+    "explanation": "Belli bir amaç uğruna hareket edildiğini gösterir.",
+    "formula": "[Fiil Sözlük Formu / İsim + の] + ために",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "家を買うために貯金しています。",
+        "hiragana": "いえをかうためにちょきんしています。",
+        "romaji": "Ie wo kau tame ni chokin shite imasu.",
+        "turkish": "Ev almak için para biriktiriyorum."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "健康の＿＿、毎日運動します。",
+        "hint": "İsim + no + amaç kalıbı",
+        "promptReading": "けんこうの＿＿、まいにちうんどうします。",
+        "choices": [
+          "ために",
+          "ように",
+          "ながら",
+          "のに"
+        ],
+        "answer": "ために"
+      }
+    ]
+  },
+  {
+    "key": "you_ni",
+    "pattern": "～ように",
+    "romaji": "~you ni",
+    "title": "Hedef ve Durum Amaçlama (~sın diye)",
+    "explanation": "Bir durumun gerçekleşmesi veya gerçekleşmemesi amacıyla hareket etmeyi bildirir.",
+    "formula": "[Fiil Potansiyel / Olumsuz] + ように",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "忘れないようにメモします。",
+        "hiragana": "わすれないようにメモします。",
+        "romaji": "Wasurenai you ni memo shimasu.",
+        "turkish": "Unutmayayım diye not alıyorum."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "風邪をひかない＿＿気をつけてください。",
+        "hint": "Olumsuz fiil + amaç",
+        "promptReading": "かぜをひかない＿＿きをつけてください。",
+        "choices": [
+          "ように",
+          "ために",
+          "ので",
+          "から"
+        ],
+        "answer": "ように"
+      }
+    ]
+  },
+  {
+    "key": "tara_conditional",
+    "pattern": "～たら",
+    "romaji": "~tara",
+    "title": "Şart Kipi (~ırsa / ~dığı zaman)",
+    "explanation": "Genel şart ve bir olay bittiğinde ardından olanları anlatır.",
+    "formula": "[Fiil Ta-formu] + ら",
+    "category": "verb",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "雨が降ったら行きません。",
+        "hiragana": "あめがふったら いきません。",
+        "romaji": "Ame ga futtara ikimasen.",
+        "turkish": "Yağmur yağarsa gitmeyeceğim."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "時間が＿＿、映画を見ましょう。",
+        "hint": "Şart eki (arimasu -> atta + ra)",
+        "promptReading": "じかんが＿＿、えいがをみましょう。",
+        "choices": [
+          "あったら",
+          "あって",
+          "あれば",
+          "あると"
+        ],
+        "answer": "あったら"
+      }
+    ]
+  },
+  {
+    "key": "ba_conditional",
+    "pattern": "～ば",
+    "romaji": "~ba",
+    "title": "Koşul Kipi (~rsa / e-formu + ba)",
+    "explanation": "Varsayımsal mantıksal koşulları ifade eder.",
+    "formula": "[Fiil e-sırası] + ば (ör. 行く -> 行けば)",
+    "category": "verb",
+    "difficulty": 3,
+    "examples": [
+      {
+        "japanese": "安ければ買います。",
+        "hiragana": "やすければかいます。",
+        "romaji": "Yasukereba kaimasu.",
+        "turkish": "Ucuzsa satın alırım."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "multipleChoice",
+        "prompt": "'İçersen' fiilinin -ba formu hangisidir?",
+        "hint": "nomu -> nome + ba",
+        "promptReading": null,
+        "choices": [
+          "飲めば",
+          "飲んだら",
+          "飲むと",
+          "飲むなら"
+        ],
+        "answer": "飲めば"
+      }
+    ]
+  },
+  {
+    "key": "to_conditional",
+    "pattern": "～と",
+    "romaji": "~to",
+    "title": "Doğal Sonuç Şartı (~ınca otomatikman)",
+    "explanation": "Bir eylemin ardından kaçınılmaz veya doğal sonucun geldiğini bildirir (doğa olayları, makineler).",
+    "formula": "[Fiil Sözlük Formu] + と",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "このボタンを押すと水が出ます。",
+        "hiragana": "このボタンをおすとみずがでます。",
+        "romaji": "Kono botan wo osu to mizu ga demasu.",
+        "turkish": "Bu butona basınca su çıkar."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "fillBlank",
+        "prompt": "春になる＿＿、桜が咲きます。",
+        "hint": "Doğal sonuç şartı",
+        "promptReading": "はるになる＿＿、さくらがさきます。",
+        "choices": [
+          "と",
+          "たら",
+          "ば",
+          "なら"
+        ],
+        "answer": "と"
+      }
+    ]
+  },
+  {
+    "key": "nara_conditional",
+    "pattern": "～なら",
+    "romaji": "~nara",
+    "title": "Bağlamsal Şart (~ise, madem öyle)",
+    "explanation": "Muhatabın bahsettiği konu hakkında tavsiye veya yorum yaparken kullanılır.",
+    "formula": "[İsim / Sıfat / Fiil Düz] + なら",
+    "category": "conjunction",
+    "difficulty": 2,
+    "examples": [
+      {
+        "japanese": "京都へ行くなら秋がいいですよ。",
+        "hiragana": "きょうとへいくならあきがいいですよ。",
+        "romaji": "Kyouto e iku nara aki ga ii desu yo.",
+        "turkish": "Kyoto'ya gideceksen sonbahar güzeldir."
+      }
+    ],
+    "questions": [
+      {
+        "kind": "multipleChoice",
+        "prompt": "'Japon mutfağı ise suşi lezzetlidir' cümlesinde hangi edat uygundur?",
+        "hint": "Konu bazlı şart",
+        "promptReading": null,
+        "choices": [
+          "なら",
+          "と",
+          "ば",
+          "たら"
+        ],
+        "answer": "なら"
+      }
+    ]
+  }
+]

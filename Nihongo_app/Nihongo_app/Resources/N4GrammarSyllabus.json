@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "İzin, Yasak ve Zorunluluk İfadeleri",
+    "description": "N4 seviyesine girişte günlük kuralları, nelerin serbest nelerin yasak olduğunu ifade eden temel fiil yapıları.",
+    "grammarKeys": [
+      "te_mo_ii",
+      "te_wa_ikemasen",
+      "nakereba_narimasen",
+      "nakute_mo_ii"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Niyet, Plan ve Amaç Bildirme",
+    "description": "Geleceğe dair kararları, amaçları ve ne yapmayı tasarladığımızı ifade eden yapılar.",
+    "grammarKeys": [
+      "tsumori_da",
+      "yotei_da",
+      "tame_ni",
+      "you_ni"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Koşul ve Şart Cümleleri (Tara, Ba, To, Nara)",
+    "description": "Japoncanın en önemli dört şart kipinin anlam ve kullanım farklılıkları.",
+    "grammarKeys": [
+      "tara_conditional",
+      "ba_conditional",
+      "to_conditional",
+      "nara_conditional"
+    ]
+  }
+]
