@@ -8,11 +8,11 @@ struct AlphabetMainView: View {
 
 
     enum AlphabetDisplayMode: Int {
-        case chart
         case practice
+        case chart
     }
 
-    @State private var displayMode: AlphabetDisplayMode = .chart
+    @State private var displayMode: AlphabetDisplayMode = .practice
 
     private func learnedCount(_ kind: LearnableItemKind) -> Int {
         allProgress.filter { $0.itemKind == kind && $0.repetitionCount >= 1 }.count
@@ -32,19 +32,19 @@ struct AlphabetMainView: View {
                 .padding(.top, 10)
                 .padding(.bottom, 8)
 
-                // Tab Değiştirici: Alfabe Tablosu (Sesli) / Kartlarla Çalış
+                // Tab Değiştirici: Kartlarla Çalış (Varsayılan) / Alfabe Tablosu (Sesli)
                 Picker("", selection: $displayMode) {
-                    Text(L10n.alphabetChartTitle).tag(AlphabetDisplayMode.chart)
                     Text(L10n.practiceCardsTab).tag(AlphabetDisplayMode.practice)
+                    Text(L10n.alphabetChartTitle).tag(AlphabetDisplayMode.chart)
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal, 20)
                 .padding(.bottom, 12)
 
-                if displayMode == .chart {
-                    AlphabetChartView()
-                } else {
+                if displayMode == .practice {
                     practiceCardsView
+                } else {
+                    AlphabetChartView()
                 }
             }
             .background(Theme.paper)
