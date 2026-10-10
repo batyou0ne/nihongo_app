@@ -75,6 +75,7 @@ struct HomeView: View {
                     NavigationStack {
                         resumeDestination(target)
                     }
+                    .environment(TabBarManager.shared)
                 }
             }
             .sheet(isPresented: $showSignIn) {

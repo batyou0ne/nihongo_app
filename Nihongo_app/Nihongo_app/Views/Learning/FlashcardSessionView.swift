@@ -68,6 +68,19 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         .background(Theme.paper)
         .navigationTitle(title)
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 16, weight: .bold))
+                        Text(L10n.backButton)
+                            .font(.system(size: 16, weight: .medium))
+                    }
+                    .foregroundStyle(Theme.ink)
+                }
+            }
             ToolbarItem(placement: .primaryAction) {
                 Button(L10n.quickQuiz) {
                     isPresentingQuiz = true
@@ -89,7 +102,11 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             tabBarManager.isHidden = true
             guard !didSetup else { return }
             didSetup = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            syncProgress()
+            setupSession()
+        }
+        .onChange(of: allItems.count) { _, newCount in
+            if newCount > 0 && quizViewModel == nil {
                 syncProgress()
                 setupSession()
             }
@@ -383,9 +400,17 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
                     let promptText = isAlt ? (item.alternatePrompt ?? item.prompt) : item.prompt
                     let fontSize: CGFloat = isAlt ? 24 : 80
                     
-                    FuriganaText(text: promptText, font: Theme.display(fontSize), color: Theme.ink)
-                        .minimumScaleFactor(0.3)
-                        .lineLimit(isAlt ? 3 : 1)
+                    if itemKind == .hiraganaCharacter || itemKind == .katakanaCharacter {
+                        Text(promptText)
+                            .font(Theme.display(fontSize))
+                            .foregroundStyle(Theme.ink)
+                            .minimumScaleFactor(0.3)
+                            .lineLimit(1)
+                    } else {
+                        FuriganaText(text: promptText, font: Theme.display(fontSize), color: Theme.ink)
+                            .minimumScaleFactor(0.3)
+                            .lineLimit(isAlt ? 3 : 1)
+                    }
                     if itemKind != .hiraganaCharacter && itemKind != .katakanaCharacter {
                         Button {
                             AudioService.shared.speak(item.speechText)
@@ -404,7 +429,6 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             .opacity(isFlipped ? 1 : 0)
             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
         }
-        .drawingGroup()
         .rotation3DEffect(.degrees(isFlipped ? 180 : 0), axis: (x: 0, y: 1, z: 0))
         .frame(height: 220)
     }
