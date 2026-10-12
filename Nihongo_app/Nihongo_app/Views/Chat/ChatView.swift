@@ -11,8 +11,10 @@ struct ChatView: View {
                 ScrollView {
                     LazyVStack(spacing: 12) {
                         ForEach(viewModel.messages) { message in
-                            MessageBubble(message: message)
-                                .id(message.id)
+                            MessageBubble(message: message) {
+                                viewModel.retryLastMessage()
+                            }
+                            .id(message.id)
                         }
                         
                         if viewModel.isTyping {
@@ -80,6 +82,15 @@ struct ChatView: View {
                     dismiss()
                 }
             }
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    viewModel.clearMessages()
+                } label: {
+                    Image(systemName: "arrow.counterclockwise")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundStyle(Theme.secondaryInk)
+                }
+            }
         }
         .background(Theme.paper)
     }
@@ -87,26 +98,155 @@ struct ChatView: View {
 
 struct MessageBubble: View {
     let message: ChatMessage
+    var onRetry: () -> Void = {}
+    
+    var body: some View {
+        if message.isError {
+            ErrorBubble(message: message, onRetry: onRetry)
+        } else if message.isUser {
+            UserBubble(message: message)
+        } else {
+            BotBubble(message: message)
+        }
+    }
+}
+
+struct UserBubble: View {
+    let message: ChatMessage
     
     var body: some View {
         HStack {
-            if message.isUser {
-                Spacer(minLength: 40)
-            }
+            Spacer(minLength: 40)
             
-            FuriganaText(text: message.text, font: .system(size: 16, weight: .regular), color: message.isUser ? Theme.paper : Theme.ink)
+            Text(message.text)
+                .font(.system(size: 16, weight: .regular))
+                .foregroundStyle(Theme.paper)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
-                .background(message.isUser ? Theme.accent : Theme.paper)
+                .background(Theme.accent)
                 .clipShape(RoundedRectangle(cornerRadius: 18))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 18)
-                        .strokeBorder(Theme.ink, lineWidth: message.isUser ? 0 : 1.5)
-                )
-            
-            if !message.isUser {
-                Spacer(minLength: 40)
+        }
+        .padding(.horizontal)
+    }
+}
+
+struct BotBubble: View {
+    let message: ChatMessage
+    
+    private var parsed: (japanese: String, translation: String?) {
+        parseMessage(message.text)
+    }
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 10) {
+                // Japanese content & Audio button
+                HStack(alignment: .top, spacing: 10) {
+                    FuriganaText(
+                        text: parsed.japanese,
+                        font: .system(size: 16, weight: .regular),
+                        readingFont: .system(size: 11, weight: .regular),
+                        color: Theme.ink
+                    )
+                    
+                    Spacer(minLength: 4)
+                    
+                    Button {
+                        AudioService.shared.speak(parsed.japanese)
+                    } label: {
+                        Image(systemName: "speaker.wave.2.fill")
+                            .font(.system(size: 13))
+                            .foregroundStyle(Theme.accent)
+                            .padding(7)
+                            .background(Theme.accent.opacity(0.12))
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(.plain)
+                }
+                
+                // Turkish Translation (if available)
+                if let translation = parsed.translation {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Divider()
+                            .background(Theme.ink.opacity(0.12))
+                        Text(translation)
+                            .font(.system(size: 14, weight: .regular))
+                            .foregroundStyle(Theme.secondaryInk)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
             }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(Theme.paper)
+            .clipShape(RoundedRectangle(cornerRadius: 18))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18)
+                    .strokeBorder(Theme.ink, lineWidth: 1.5)
+            )
+            
+            Spacer(minLength: 40)
+        }
+        .padding(.horizontal)
+    }
+    
+    private func parseMessage(_ text: String) -> (japanese: String, translation: String?) {
+        let pattern = "^([\\s\\S]*?)[\\s\\n]*\\(([^()]+)\\)[\\s\\n]*$"
+        if let regex = try? NSRegularExpression(pattern: pattern, options: []) {
+            let nsString = text as NSString
+            let matches = regex.matches(in: text, options: [], range: NSRange(location: 0, length: nsString.length))
+            if let match = matches.first, match.numberOfRanges >= 3 {
+                let jp = nsString.substring(with: match.range(at: 1)).trimmingCharacters(in: .whitespacesAndNewlines)
+                let tr = nsString.substring(with: match.range(at: 2)).trimmingCharacters(in: .whitespacesAndNewlines)
+                if !jp.isEmpty && !tr.isEmpty {
+                    return (jp, tr)
+                }
+            }
+        }
+        return (text, nil)
+    }
+}
+
+struct ErrorBubble: View {
+    let message: ChatMessage
+    let onRetry: () -> Void
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundStyle(Color.orange)
+                        .font(.system(size: 16))
+                    Text(message.text)
+                        .font(.system(size: 14))
+                        .foregroundStyle(Theme.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                
+                Button(action: onRetry) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "arrow.clockwise")
+                        Text("Tekrar Dene")
+                    }
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(Theme.accent)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(Theme.accent.opacity(0.12))
+                    .clipShape(Capsule())
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(Theme.paper)
+            .clipShape(RoundedRectangle(cornerRadius: 18))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18)
+                    .strokeBorder(Color.orange.opacity(0.7), lineWidth: 1.5)
+            )
+            
+            Spacer(minLength: 40)
         }
         .padding(.horizontal)
     }

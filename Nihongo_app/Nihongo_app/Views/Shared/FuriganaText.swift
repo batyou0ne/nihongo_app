@@ -17,6 +17,7 @@ struct FuriganaText: View {
     }
     
     private let tokens: [Token]
+    private let hasFurigana: Bool
     
     init(text: String, font: Font = .body, readingFont: Font = .caption2, color: Color = Theme.ink) {
         self.text = text
@@ -24,10 +25,16 @@ struct FuriganaText: View {
         self.readingFont = readingFont
         self.color = color
         
-        if text.contains("[") && text.contains("]") {
+        let hasTags = text.contains("[") && text.contains("]")
+        let hasKanji = text.range(of: "\\p{Han}", options: .regularExpression) != nil
+        self.hasFurigana = hasTags || hasKanji
+        
+        if hasTags {
             self.tokens = FuriganaText.parseManualTags(text)
-        } else {
+        } else if hasKanji {
             self.tokens = FuriganaText.generateAutoFurigana(for: text)
+        } else {
+            self.tokens = []
         }
     }
     
@@ -126,21 +133,33 @@ struct FuriganaText: View {
     }
     
     var body: some View {
-        FlowLayout(alignment: .leading, spacing: 0) {
-            ForEach(tokens) { token in
-                VStack(spacing: 0) {
-                    Text(token.kanji)
-                        .font(font)
-                        .foregroundStyle(color)
-                    
-                    if let reading = token.reading {
-                        Text(reading)
-                            .font(readingFont)
-                            .foregroundStyle(color.opacity(0.7))
+        if !hasFurigana {
+            Text(text)
+                .font(font)
+                .foregroundStyle(color)
+        } else if text.contains("\n") {
+            let lines = text.components(separatedBy: "\n")
+            VStack(alignment: .leading, spacing: 6) {
+                ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
+                    if line.isEmpty {
+                        Spacer().frame(height: 6)
                     } else {
-                        Text("あ")
-                            .font(readingFont)
-                            .opacity(0)
+                        FuriganaText(text: line, font: font, readingFont: readingFont, color: color)
+                    }
+                }
+            }
+        } else {
+            FlowLayout(alignment: .leading, spacing: 0) {
+                ForEach(tokens) { token in
+                    VStack(spacing: 1) {
+                        if let reading = token.reading {
+                            Text(reading)
+                                .font(readingFont)
+                                .foregroundStyle(color.opacity(0.7))
+                        }
+                        Text(token.kanji)
+                            .font(font)
+                            .foregroundStyle(color)
                     }
                 }
             }
