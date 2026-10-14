@@ -13,6 +13,7 @@ struct VocabularyPartSelectionView: View {
     @State private var allWords: [VocabularyWord] = []
     @State private var showLockedPartAlert = false
     @State private var lockedPartNumber: Int = 1
+    @State private var showPaywall = false
 
     private var jlptLevel: JLPTLevel {
         JLPTLevel(rawValue: level) ?? .n5
@@ -47,7 +48,7 @@ struct VocabularyPartSelectionView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         // Kaldığın Yerden Devam Et Başlığı / Hızlı Giriş Kartı
                         let activeIdx = currentPartIndex
-                        if parts.indices.contains(activeIdx) {
+                        if parts.indices.contains(activeIdx), FeatureGate.shared.isUnitAvailable(index: activeIdx) {
                             continueCard(index: activeIdx)
                         }
 
@@ -64,7 +65,16 @@ struct VocabularyPartSelectionView: View {
                                 )
                                 let isCompleted = currentLevelProgress.isPartCompleted(module: "vocab", index: index)
 
-                                if isUnlocked {
+                                let isProLocked = !FeatureGate.shared.isUnitAvailable(index: index)
+
+                                if isProLocked {
+                                    Button {
+                                        showPaywall = true
+                                    } label: {
+                                        partRow(index: index, count: part.count, isUnlocked: false, isCompleted: false, isProLocked: true)
+                                    }
+                                    .buttonStyle(.plain)
+                                } else if isUnlocked {
                                     NavigationLink {
                                         FlashcardSessionView(
                                             sessionKey: "vocab_\(level)_part\(index + 1)",
@@ -97,6 +107,9 @@ struct VocabularyPartSelectionView: View {
             }
         }
         .navigationTitle(L10n.vocabularyLevel(level))
+        .sheet(isPresented: $showPaywall) {
+            PaywallView()
+        }
         .alert("Bölüm Kilitli", isPresented: $showLockedPartAlert) {
             Button("Tamam", role: .cancel) {}
         } message: {
@@ -169,7 +182,7 @@ struct VocabularyPartSelectionView: View {
 
     // MARK: - Satır
 
-    private func partRow(index: Int, count: Int, isUnlocked: Bool, isCompleted: Bool) -> some View {
+    private func partRow(index: Int, count: Int, isUnlocked: Bool, isCompleted: Bool, isProLocked: Bool = false) -> some View {
         HStack(spacing: 16) {
             Text("\(index + 1)")
                 .font(Theme.heading(18))
@@ -181,14 +194,16 @@ struct VocabularyPartSelectionView: View {
                 Text("\(level) Part \(index + 1)")
                     .font(Theme.heading(18))
                     .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
-                Text(isUnlocked ? (isCompleted ? "Tamamlandı • \(count) kelime" : "\(count) kelime") : "Kilitli • Önceki bölümü tamamla")
+                Text(isProLocked ? L10n.proUnlockHint : (isUnlocked ? (isCompleted ? "Tamamlandı • \(count) kelime" : "\(count) kelime") : "Kilitli • Önceki bölümü tamamla"))
                     .font(.caption)
                     .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
 
-            if isCompleted {
+            if isProLocked {
+                ProBadge()
+            } else if isCompleted {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 20))
                     .foregroundStyle(.green)

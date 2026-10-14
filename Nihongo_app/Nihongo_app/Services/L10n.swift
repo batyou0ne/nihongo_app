@@ -282,4 +282,54 @@ enum L10n {
     static var notificationsTitle: String { lang == .turkish ? "Bildirimler" : "Notifications" }
     static var dailyReminderToggle: String { lang == .turkish ? "Günlük Hatırlatıcı" : "Daily Reminder" }
     static var reminderTimeLabel: String { lang == .turkish ? "Hatırlatma Saati" : "Reminder Time" }
+
+    // MARK: - Paywall / Pro
+    static var proName: String { "Kaimon Pro" }
+    static var paywallHeadline: String { lang == .turkish ? "Japoncaya\ntam erişim." : "Full access\nto Japanese." }
+    static var paywallBenefitContent: String { lang == .turkish ? "Tüm N5 kanji, kelime ve gramer bölümleri" : "All N5 kanji, vocabulary and grammar parts" }
+    static var paywallBenefitAI: String { lang == .turkish ? "Sınırsız AI sohbet partneri" : "Unlimited AI chat partner" }
+    static var paywallBenefitExams: String { lang == .turkish ? "Sınırsız JLPT deneme sınavı" : "Unlimited JLPT practice exams" }
+    static var paywallBenefitNoAds: String { lang == .turkish ? "Reklamsız, kesintisiz çalışma" : "Ad-free, uninterrupted study" }
+    static var proUnlockHint: String { lang == .turkish ? "Pro ile aç" : "Unlock with Pro" }
+    static func aiQuotaRemaining(_ count: Int) -> String {
+        lang == .turkish ? "Bugün \(count) ücretsiz mesaj hakkın kaldı" : "\(count) free messages left today"
+    }
+    static var aiQuotaExhausted: String {
+        lang == .turkish ? "Günlük ücretsiz mesaj hakkın bitti. Sınırsız sohbet için Pro'ya geç." : "You've used today's free messages. Go Pro for unlimited chat."
+    }
+    static var planYearly: String { lang == .turkish ? "Yıllık" : "Yearly" }
+    static var planMonthly: String { lang == .turkish ? "Aylık" : "Monthly" }
+    static var planLifetime: String { lang == .turkish ? "Ömür Boyu" : "Lifetime" }
+    static var planBestValue: String { lang == .turkish ? "EN AVANTAJLI" : "BEST VALUE" }
+    static var planOneTime: String { lang == .turkish ? "Tek seferlik ödeme" : "One-time payment" }
+    static var planPerYear: String { lang == .turkish ? "/ yıl" : "/ year" }
+    static var planPerMonth: String { lang == .turkish ? "/ ay" : "/ month" }
+    static func planPerMonthEquivalent(_ price: String) -> String {
+        lang == .turkish ? "ayda \(price)" : "\(price) per month"
+    }
+    static var startTrial: String { lang == .turkish ? "7 GÜN ÜCRETSİZ BAŞLAT" : "START 7-DAY FREE TRIAL" }
+    static var subscribeButton: String { lang == .turkish ? "PRO'YA GEÇ" : "GO PRO" }
+    static var buyLifetimeButton: String { lang == .turkish ? "ÖMÜR BOYU SATIN AL" : "BUY LIFETIME" }
+    static var restorePurchases: String { lang == .turkish ? "Satın Alımları Geri Yükle" : "Restore Purchases" }
+    static var termsOfUse: String { lang == .turkish ? "Kullanım Koşulları" : "Terms of Use" }
+    static var privacyPolicy: String { lang == .turkish ? "Gizlilik Politikası" : "Privacy Policy" }
+    static var productsUnavailable: String { lang == .turkish ? "Planlar şu an yüklenemedi." : "Plans couldn't be loaded right now." }
+    static var retry: String { lang == .turkish ? "Tekrar Dene" : "Try Again" }
+    static var purchasePending: String { lang == .turkish ? "Satın alma onay bekliyor." : "Purchase is awaiting approval." }
+    static var proActiveTitle: String { lang == .turkish ? "Pro aktif" : "Pro is active" }
+    static var proActiveSubtitle: String { lang == .turkish ? "Tüm içeriğe erişimin var. Teşekkürler!" : "You have access to everything. Thank you!" }
+    static var manageSubscription: String { lang == .turkish ? "Aboneliği Yönet" : "Manage Subscription" }
+    static func renewsOn(_ date: String) -> String {
+        lang == .turkish ? "Yenilenme/bitiş: \(date)" : "Renews/ends: \(date)"
+    }
+    static var lifetimeActive: String { lang == .turkish ? "Ömür boyu erişim" : "Lifetime access" }
+    static func paywallFinePrint(trial: Bool) -> String {
+        if lang == .turkish {
+            return (trial ? "Ücretsiz deneme bitince seçtiğin plan otomatik başlar. " : "")
+                + "Abonelik, dönem bitiminden en az 24 saat önce iptal edilmezse otomatik yenilenir. Ödeme Apple Kimliği hesabından alınır; iptal için Ayarlar > Apple Kimliği > Abonelikler."
+        }
+        return (trial ? "Your plan starts automatically when the free trial ends. " : "")
+            + "Subscriptions renew automatically unless cancelled at least 24 hours before the period ends. Payment is charged to your Apple ID; manage in Settings > Apple ID > Subscriptions."
+    }
 }
+

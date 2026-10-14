@@ -19,6 +19,7 @@ struct HomeView: View {
 
     @State private var showSignIn = false
     @State private var showChat = false
+    @State private var showPaywall = false
     @State private var selectedResumeTarget: ResumeTarget?
     @State private var isShowingResumeTarget = false
     /// İçerik JSON'larından üretilir; body içinde dosya okumamak için onAppear'da hesaplanır.
@@ -59,6 +60,15 @@ struct HomeView: View {
             .background(Theme.paper)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showPaywall = true
+                    } label: {
+                        Label("PRO", systemImage: SubscriptionManager.shared.isPro ? "crown.fill" : "crown")
+                            .font(.system(size: 13, weight: .heavy, design: .rounded))
+                            .foregroundStyle(Theme.accent)
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showSignIn = true
@@ -77,6 +87,9 @@ struct HomeView: View {
                     }
                     .environment(TabBarManager.shared)
                 }
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
             .sheet(isPresented: $showSignIn) {
                 if AuthService.shared.hasAccount {

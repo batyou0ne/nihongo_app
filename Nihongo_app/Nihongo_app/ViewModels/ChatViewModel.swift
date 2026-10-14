@@ -39,6 +39,7 @@ final class ChatViewModel {
                 let aiResponse = try await AIService.shared.sendMessage(userText)
                 await MainActor.run {
                     self.isTyping = false
+                    FeatureGate.shared.recordAIMessage()
                     self.messages.append(ChatMessage(text: aiResponse, isUser: false))
                 }
             } catch {

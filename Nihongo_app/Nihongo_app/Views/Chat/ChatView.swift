@@ -4,6 +4,8 @@ struct ChatView: View {
     @State private var viewModel = ChatViewModel()
     @State private var inputText = ""
     @Environment(\.dismiss) private var dismiss
+    @State private var showPaywall = false
+    private let gate = FeatureGate.shared
     
     var body: some View {
         VStack(spacing: 0) {
@@ -52,6 +54,10 @@ struct ChatView: View {
             // Input area
             VStack(spacing: 0) {
                 Divider().background(Theme.ink)
+                if let remaining = gate.remainingAIMessages {
+                    AIQuotaBanner(remaining: remaining) { showPaywall = true }
+                    Divider().background(Theme.ink.opacity(0.2))
+                }
                 HStack(spacing: 12) {
                     TextField(L10n.chatInputPlaceholder, text: $inputText)
                         .padding(.horizontal, 16)
@@ -60,6 +66,10 @@ struct ChatView: View {
                         .overlay(RoundedRectangle(cornerRadius: 20).strokeBorder(Theme.ink, lineWidth: 1.5))
                     
                     Button {
+                        guard gate.canSendAIMessage else {
+                            showPaywall = true
+                            return
+                        }
                         viewModel.sendMessage(inputText)
                         inputText = ""
                     } label: {
@@ -73,6 +83,9 @@ struct ChatView: View {
                 .padding(.vertical, 12)
                 .background(Theme.paper)
             }
+        }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView()
         }
         .navigationTitle(L10n.aiPracticeTitle)
         .navigationBarTitleDisplayMode(.inline)
