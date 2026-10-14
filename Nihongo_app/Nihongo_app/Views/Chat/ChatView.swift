@@ -70,7 +70,6 @@ struct ChatView: View {
                             showPaywall = true
                             return
                         }
-                        gate.recordAIMessage()
                         viewModel.sendMessage(inputText)
                         inputText = ""
                     } label: {
