@@ -13,6 +13,7 @@ struct KanjiPartSelectionView: View {
     @State private var allKanji: [Kanji] = []
     @State private var showLockedPartAlert = false
     @State private var lockedPartNumber: Int = 1
+    @State private var showPaywall = false
 
     private var jlptLevel: JLPTLevel {
         JLPTLevel(rawValue: level) ?? .n5
@@ -42,7 +43,16 @@ struct KanjiPartSelectionView: View {
                             )
                             let isCompleted = currentLevelProgress.isPartCompleted(module: "kanji", index: index)
 
-                            if isUnlocked {
+                            let isProLocked = !FeatureGate.shared.isUnitAvailable(index: index)
+
+                            if isProLocked {
+                                Button {
+                                    showPaywall = true
+                                } label: {
+                                    partRow(index: index, count: part.count, isUnlocked: false, isCompleted: false, isProLocked: true)
+                                }
+                                .buttonStyle(.plain)
+                            } else if isUnlocked {
                                 NavigationLink {
                                     FlashcardSessionView(
                                         sessionKey: "kanji_\(level)_part\(index + 1)",
@@ -73,6 +83,9 @@ struct KanjiPartSelectionView: View {
             }
         }
         .navigationTitle("\(level) Kanji's")
+        .sheet(isPresented: $showPaywall) {
+            PaywallView()
+        }
         .alert("Bölüm Kilitli", isPresented: $showLockedPartAlert) {
             Button("Tamam", role: .cancel) {}
         } message: {
@@ -90,7 +103,7 @@ struct KanjiPartSelectionView: View {
         }
     }
 
-    private func partRow(index: Int, count: Int, isUnlocked: Bool, isCompleted: Bool) -> some View {
+    private func partRow(index: Int, count: Int, isUnlocked: Bool, isCompleted: Bool, isProLocked: Bool = false) -> some View {
         HStack(spacing: 16) {
             Text("\(index + 1)")
                 .font(Theme.heading(19))
@@ -102,14 +115,16 @@ struct KanjiPartSelectionView: View {
                 Text("\(level) Kanji's Part \(index + 1)")
                     .font(Theme.heading(19))
                     .foregroundStyle(isUnlocked ? Theme.ink : Theme.secondaryInk)
-                Text(isUnlocked ? (isCompleted ? "Tamamlandı • \(count) kanji" : "\(count) kanji") : "Kilitli • Önceki bölümü tamamla")
+                Text(isProLocked ? L10n.proUnlockHint : (isUnlocked ? (isCompleted ? "Tamamlandı • \(count) kanji" : "\(count) kanji") : "Kilitli • Önceki bölümü tamamla"))
                     .font(.subheadline)
                     .foregroundStyle(Theme.secondaryInk)
             }
 
             Spacer()
 
-            if isCompleted {
+            if isProLocked {
+                ProBadge()
+            } else if isCompleted {
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 20))
                     .foregroundStyle(.green)

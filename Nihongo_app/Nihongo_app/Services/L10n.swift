@@ -290,6 +290,13 @@ enum L10n {
     static var paywallBenefitAI: String { lang == .turkish ? "Sınırsız AI sohbet partneri" : "Unlimited AI chat partner" }
     static var paywallBenefitExams: String { lang == .turkish ? "Sınırsız JLPT deneme sınavı" : "Unlimited JLPT practice exams" }
     static var paywallBenefitNoAds: String { lang == .turkish ? "Reklamsız, kesintisiz çalışma" : "Ad-free, uninterrupted study" }
+    static var proUnlockHint: String { lang == .turkish ? "Pro ile aç" : "Unlock with Pro" }
+    static func aiQuotaRemaining(_ count: Int) -> String {
+        lang == .turkish ? "Bugün \(count) ücretsiz mesaj hakkın kaldı" : "\(count) free messages left today"
+    }
+    static var aiQuotaExhausted: String {
+        lang == .turkish ? "Günlük ücretsiz mesaj hakkın bitti. Sınırsız sohbet için Pro'ya geç." : "You've used today's free messages. Go Pro for unlimited chat."
+    }
     static var planYearly: String { lang == .turkish ? "Yıllık" : "Yearly" }
     static var planMonthly: String { lang == .turkish ? "Aylık" : "Monthly" }
     static var planLifetime: String { lang == .turkish ? "Ömür Boyu" : "Lifetime" }

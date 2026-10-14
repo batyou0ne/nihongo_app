@@ -14,6 +14,7 @@ struct GrammarPartSelectionView: View {
     @State private var learnedIDs: Set<String> = []
     @State private var showLockedAlert = false
     @State private var lockedUnitId: Int = 1
+    @State private var showPaywall = false
 
     private var jlptLevel: JLPTLevel {
         JLPTLevel(rawValue: level) ?? .n5
@@ -34,6 +35,7 @@ struct GrammarPartSelectionView: View {
                                 context: modelContext
                             )
                             let isUnitComplete = isUnitFinished(unit)
+                            let isProLocked = !FeatureGate.shared.isUnitAvailable(index: index)
 
                             VStack(alignment: .leading, spacing: 12) {
                                 // Ünite Başlığı
@@ -47,6 +49,8 @@ struct GrammarPartSelectionView: View {
                                             if isUnitComplete {
                                                 Image(systemName: "checkmark.seal.fill")
                                                     .foregroundStyle(.green)
+                                            } else if isProLocked {
+                                                ProBadge()
                                             } else if !isUnlocked {
                                                 Image(systemName: "lock.fill")
                                                     .foregroundStyle(Theme.secondaryInk)
@@ -65,7 +69,14 @@ struct GrammarPartSelectionView: View {
                                 // Ünite Konuları
                                 ForEach(unit.grammarKeys, id: \.self) { key in
                                     if let point = pointsDict[key] {
-                                        if isUnlocked {
+                                        if isProLocked {
+                                            Button {
+                                                showPaywall = true
+                                            } label: {
+                                                topicRow(point, isUnlocked: false)
+                                            }
+                                            .buttonStyle(.plain)
+                                        } else if isUnlocked {
                                             NavigationLink {
                                                 GrammarLessonView(point: point)
                                             } label: {
@@ -93,6 +104,9 @@ struct GrammarPartSelectionView: View {
             }
         }
         .navigationTitle("\(level) Gramer")
+        .sheet(isPresented: $showPaywall) {
+            PaywallView()
+        }
         .alert("Ünite Kilitli", isPresented: $showLockedAlert) {
             Button("Tamam", role: .cancel) {}
         } message: {

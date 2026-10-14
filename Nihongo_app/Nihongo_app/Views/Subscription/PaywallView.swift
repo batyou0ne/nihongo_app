@@ -109,7 +109,6 @@ struct PaywallView: View {
         VStack(alignment: .leading, spacing: 14) {
             benefitRow("books.vertical.fill", L10n.paywallBenefitContent)
             benefitRow("bubble.left.and.bubble.right.fill", L10n.paywallBenefitAI)
-            benefitRow("checkmark.seal.fill", L10n.paywallBenefitExams)
             benefitRow("nosign", L10n.paywallBenefitNoAds)
         }
         .padding(18)
