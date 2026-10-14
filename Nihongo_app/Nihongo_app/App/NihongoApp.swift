@@ -44,6 +44,10 @@ struct NihongoApp: App {
                 // sonra hesap bağladığında uid korunur.
                 await AuthService.shared.signInAnonymouslyIfNeeded()
             }
+            .task {
+                // StoreKit işlem dinleyicisini başlat ve mevcut haklara bak.
+                await SubscriptionManager.shared.refresh()
+            }
             .onAppear {
                 let uid = AuthService.shared.currentUser?.uid
                 self.currentUid = uid
