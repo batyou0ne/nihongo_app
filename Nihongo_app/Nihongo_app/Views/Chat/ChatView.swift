@@ -5,6 +5,7 @@ struct ChatView: View {
     @State private var inputText = ""
     @Environment(\.dismiss) private var dismiss
     @State private var showPaywall = false
+    @State private var showAdUnavailable = false
     private let gate = FeatureGate.shared
     
     var body: some View {
@@ -55,7 +56,16 @@ struct ChatView: View {
             VStack(spacing: 0) {
                 Divider().background(Theme.ink)
                 if let remaining = gate.remainingAIMessages {
-                    AIQuotaBanner(remaining: remaining) { showPaywall = true }
+                    AIQuotaBanner(
+                        remaining: remaining,
+                        onUpgrade: { showPaywall = true },
+                        onWatchAd: {
+                            let shown = AdManager.shared.showRewarded {
+                                FeatureGate.shared.grantAIBonus(AdConfig.rewardedAIMessages)
+                            }
+                            if !shown { showAdUnavailable = true }
+                        }
+                    )
                     Divider().background(Theme.ink.opacity(0.2))
                 }
                 HStack(spacing: 12) {
@@ -86,6 +96,9 @@ struct ChatView: View {
         }
         .sheet(isPresented: $showPaywall) {
             PaywallView()
+        }
+        .alert(L10n.adNotReady, isPresented: $showAdUnavailable) {
+            Button("OK", role: .cancel) {}
         }
         .navigationTitle(L10n.aiPracticeTitle)
         .navigationBarTitleDisplayMode(.inline)

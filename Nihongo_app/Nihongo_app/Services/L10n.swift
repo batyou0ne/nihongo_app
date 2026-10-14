@@ -291,6 +291,12 @@ enum L10n {
     static var paywallBenefitExams: String { lang == .turkish ? "Sınırsız JLPT deneme sınavı" : "Unlimited JLPT practice exams" }
     static var paywallBenefitNoAds: String { lang == .turkish ? "Reklamsız, kesintisiz çalışma" : "Ad-free, uninterrupted study" }
     static var proUnlockHint: String { lang == .turkish ? "Pro ile aç" : "Unlock with Pro" }
+    static func watchAdForMessages(_ count: Int) -> String {
+        lang == .turkish ? "Reklam izle, +\(count) mesaj kazan" : "Watch an ad, get +\(count) messages"
+    }
+    static var adNotReady: String {
+        lang == .turkish ? "Reklam şu an hazır değil, birazdan tekrar dene." : "No ad is ready right now, try again shortly."
+    }
     static func aiQuotaRemaining(_ count: Int) -> String {
         lang == .turkish ? "Bugün \(count) ücretsiz mesaj hakkın kaldı" : "\(count) free messages left today"
     }

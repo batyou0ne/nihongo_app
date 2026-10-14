@@ -91,6 +91,7 @@ struct LessonCompleteView: View {
                 Button {
                     UIImpactFeedbackGenerator(style: .light).impactOccurred()
                     onContinue()
+                    AdManager.shared.lessonCompleted()
                 } label: {
                     Text(ctaTitle)
                         .font(Theme.heading(17))

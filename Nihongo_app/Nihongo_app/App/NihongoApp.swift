@@ -47,6 +47,9 @@ struct NihongoApp: App {
             .task {
                 // StoreKit işlem dinleyicisini başlat ve mevcut haklara bak.
                 await SubscriptionManager.shared.refresh()
+                // ATT izni için uygulamanın aktif olması gerekir; kısa bekleyip başlat.
+                try? await Task.sleep(for: .seconds(1.5))
+                await AdManager.shared.start()
             }
             .onAppear {
                 let uid = AuthService.shared.currentUser?.uid
