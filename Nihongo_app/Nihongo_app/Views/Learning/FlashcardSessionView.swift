@@ -113,6 +113,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
             }
         }
         .onDisappear {
+            autoAdvanceTask?.cancel()
             tabBarManager.isHidden = false
         }
         .fullScreenCover(isPresented: $showLessonComplete) {
