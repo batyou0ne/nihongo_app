@@ -67,6 +67,7 @@ struct FlashcardSessionView<Item: FlashcardItem>: View {
         }
         .background(Theme.paper)
         .navigationTitle(title)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
