@@ -116,6 +116,102 @@ object L10n {
     fun vocabularySubtitle(words: Int, parts: Int): String =
         if (lang == LanguageManager.AppLanguage.TURKISH) "$words kelime · $parts bölüm" else "$words words · $parts parts"
 
+    fun vocabularyPartTitle(level: String, part: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$level Part $part" else "$level Part $part"
+
+    fun vocabularySessionTitle(level: String, part: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$level Kelimeler Part $part" else "$level Words Part $part"
+
+    fun vocabularyContinueCardTitle(level: String, part: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$level Kelimeler: Part $part" else "$level Words: Part $part"
+
+    fun vocabularyContinueCardSubtitle(count: Int = 25): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Hemen devam et ve bu bölümdeki $count kelimeyi tamamla."
+        } else {
+            "Continue right away and complete the $count words in this part."
+        }
+
+    val startStudyButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Çalışmaya Başla" else "Start Studying"
+
+    fun partFractionLabel(current: Int, total: Int): String = "Part $current / $total"
+
+    fun allPartsSectionLabel(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "TÜM BÖLÜMLER ($count PARÇA)" else "ALL PARTS ($count PARTS)"
+
+    fun vocabPartCompletedSubtitle(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "Tamamlandı • $count kelime" else "Completed • $count words"
+
+    fun learnedPercentLabel(percent: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "%$percent öğrenildi" else "$percent% learned"
+
+    val wordListPreviewButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kelime Önizleme" else "Word Preview"
+
+    val startFlashcardsButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kartlar" else "Flashcards"
+
+    // MARK: - Gateway & Test-Out Exams
+    fun gatewayExamCardTitle(level: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$level Seviye Kapı Sınavı" else "$level Gateway Exam"
+
+    fun gatewayExamReadySubtitle(nextLevel: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "%85 ilerleme barajını geçtin! $nextLevel seviyesini açmak için 30 soruluk sınava gir."
+        } else {
+            "You passed the 85% threshold! Take the 30-question exam to unlock $nextLevel."
+        }
+
+    fun gatewayExamProgressSubtitle(currentPercent: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Kapı Sınavı için %85 ilerleme gerekli (Şu an: %$currentPercent). Beklemeden geçmek için Test-Out sınavını deneyebilirsin."
+        } else {
+            "85% progress required for Gateway Exam (Current: $currentPercent%). Try the Test-Out exam to skip ahead."
+        }
+
+    val startGatewayExamButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kapı Sınavına Başla (30 Soru)" else "Start Gateway Exam (30 Qs)"
+
+    val startTestOutChallengeButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Test-Out Meydan Okuma (❤️❤️❤️)" else "Test-Out Challenge (❤️❤️❤️)"
+
+    val examQuotaExhaustedTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Günlük Sınav Hakkı Doldu" else "Daily Exam Limit Reached"
+
+    val examQuotaExhaustedMessage: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Ücretsiz planda günde 1 sınav hakkın var. Sınırsız JLPT seviye sınavı için Kaimon Pro'ya geçebilirsin."
+        } else {
+            "Free tier includes 1 exam per day. Upgrade to Kaimon Pro for unlimited JLPT level exams."
+        }
+
+    val examFailedTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Sınav Tamamlanamadı" else "Exam Not Completed"
+
+    val examFailedTestOutMessage: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "3 hata sınırına ulaştın. Eksik olduğun konuları çalışıp tekrar deneyebilirsin."
+        } else {
+            "You reached the 3-mistake limit. Study the topics you missed and try again."
+        }
+
+    fun examFailedGatewayMessage(correct: Int, total: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "%80 başarı barajına ulaşılamadı. (Doğru: $correct / $total)\nBiraz daha pratik yaparak tekrar deneyebilirsin."
+        } else {
+            "Did not reach the 80% passing score. (Correct: $correct / $total)\nPractice a bit more and try again."
+        }
+
+    val backToLessonsButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Derslere Geri Dön" else "Back to Lessons"
+
+    fun levelUnlockedTitle(level: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$level Seviyesi Açıldı!" else "$level Level Unlocked!"
+
+    fun examPassedSummarySubtitle(level: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$level sınavını başarıyla tamamladın." else "You successfully passed the $level exam."
+
     // MARK: - Reading
     val readingTitle: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Okuma" else "Reading"

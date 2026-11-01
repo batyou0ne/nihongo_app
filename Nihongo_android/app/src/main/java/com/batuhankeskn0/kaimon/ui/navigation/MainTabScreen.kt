@@ -78,6 +78,8 @@ import com.batuhankeskn0.kaimon.ui.screens.alphabet.AlphabetMainScreen
 import com.batuhankeskn0.kaimon.ui.screens.dictionary.DictionaryScreen
 import com.batuhankeskn0.kaimon.ui.screens.home.HomeScreen
 import com.batuhankeskn0.kaimon.ui.screens.home.ResumeTarget
+import com.batuhankeskn0.kaimon.ui.screens.vocabulary.VocabularyDestination
+import com.batuhankeskn0.kaimon.ui.screens.vocabulary.VocabularyMainScreen
 import com.batuhankeskn0.kaimon.ui.theme.Theme
 import com.batuhankeskn0.kaimon.ui.theme.inkBordered
 import kotlinx.coroutines.Dispatchers
@@ -138,6 +140,7 @@ fun MainTabScreen(
 ) {
     var selectedTabIndex by rememberSaveable { mutableStateOf(MainTab.HOME.index) }
     var alphabetInitialDestination by remember { mutableStateOf<AlphabetDestination>(AlphabetDestination.Root) }
+    var vocabularyInitialDestination by remember { mutableStateOf<VocabularyDestination>(VocabularyDestination.Root) }
     val selectedTab = MainTab.fromIndex(selectedTabIndex)
     val lifecycleOwner = LocalLifecycleOwner.current
     val ioScope = rememberCoroutineScope()
@@ -182,6 +185,7 @@ fun MainTabScreen(
                             HomeScreen(
                                 onNavigateToTab = { tab ->
                                     alphabetInitialDestination = AlphabetDestination.Root
+                                    vocabularyInitialDestination = VocabularyDestination.Root
                                     selectedTabIndex = tab.index
                                 },
                                 onResumeSession = { target ->
@@ -202,6 +206,10 @@ fun MainTabScreen(
                                             selectedTabIndex = MainTab.ALPHABET.index
                                         }
                                         is ResumeTarget.Module.Vocabulary -> {
+                                            vocabularyInitialDestination = VocabularyDestination.PartSession(
+                                                level = mod.level,
+                                                partIndex = mod.index
+                                            )
                                             selectedTabIndex = MainTab.VOCABULARY.index
                                         }
                                     }
@@ -227,12 +235,13 @@ fun MainTabScreen(
                         )
                     }
                     MainTab.VOCABULARY -> {
-                        if (vocabularyContent != null) vocabularyContent() else DefaultLevelModuleShellTab(
-                            title = L10n.vocabularyTitle,
-                            levelTitle = { L10n.vocabularyLevel(it.rawValue) },
-                            levelSubtitle = { L10n.wordCount(it.targetCounts.vocab) },
-                            icon = Icons.Filled.Book
-                        )
+                        if (vocabularyContent != null) {
+                            vocabularyContent()
+                        } else {
+                            VocabularyMainScreen(
+                                initialDestination = vocabularyInitialDestination
+                            )
+                        }
                     }
                     MainTab.READING -> {
                         if (readingContent != null) readingContent() else DefaultReadingShellTab()

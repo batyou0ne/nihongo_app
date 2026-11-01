@@ -17,20 +17,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.automirrored.filled.MenuBook
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -38,34 +28,29 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.batuhankeskn0.kaimon.data.local.JLPTLevel
 import com.batuhankeskn0.kaimon.data.local.LearnableItemKind
 import com.batuhankeskn0.kaimon.data.local.LearningItemProgressEntity
 import com.batuhankeskn0.kaimon.data.local.UserDatabaseManager
-import com.batuhankeskn0.kaimon.data.local.UserLevelProgressEntity
 import com.batuhankeskn0.kaimon.data.model.CharacterType
 import com.batuhankeskn0.kaimon.data.model.JapaneseCharacter
 import com.batuhankeskn0.kaimon.data.model.Kanji
 import com.batuhankeskn0.kaimon.data.repository.ContentStore
 import com.batuhankeskn0.kaimon.data.service.FeedbackManager
 import com.batuhankeskn0.kaimon.data.service.L10n
-import com.batuhankeskn0.kaimon.domain.engine.LevelProgressionService
-import com.batuhankeskn0.kaimon.ui.components.LevelSelectionRow
-import com.batuhankeskn0.kaimon.ui.components.LockedLevelInfoSheet
 import com.batuhankeskn0.kaimon.ui.components.ModuleCard
 import com.batuhankeskn0.kaimon.ui.components.SectionLabel
+import com.batuhankeskn0.kaimon.ui.screens.kanji.KanjiLevelSelectionScreen
+import com.batuhankeskn0.kaimon.ui.screens.kanji.KanjiPartSelectionScreen
 import com.batuhankeskn0.kaimon.ui.screens.learning.CharacterCardView
 import com.batuhankeskn0.kaimon.ui.screens.learning.FlashcardSessionScreen
 import com.batuhankeskn0.kaimon.ui.screens.learning.LearningScreen
 import com.batuhankeskn0.kaimon.ui.theme.Theme
-import com.batuhankeskn0.kaimon.ui.theme.inkBordered
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flatMapLatest
@@ -147,7 +132,7 @@ fun AlphabetMainScreen(
             )
         }
         is AlphabetDestination.KanjiLevels -> {
-            KanjiLevelSelectionContent(
+            KanjiLevelSelectionScreen(
                 onSelectLevel = { level ->
                     destination = AlphabetDestination.KanjiParts(level.rawValue)
                 },
@@ -156,7 +141,7 @@ fun AlphabetMainScreen(
             )
         }
         is AlphabetDestination.KanjiParts -> {
-            KanjiPartSelectionContent(
+            KanjiPartSelectionScreen(
                 level = current.level,
                 onSelectPart = { partIndex ->
                     destination = AlphabetDestination.KanjiSession(
@@ -402,278 +387,5 @@ private fun PracticeCardsTabContent(
                 }
             }
         }
-    }
-}
-
-/**
- * Alfabe modülü içinden erişilen Kanji Seviye Seçimi (`Views/Kanji/KanjiLevelSelectionView.swift` karşılığı).
- */
-@Composable
-private fun KanjiLevelSelectionContent(
-    onSelectLevel: (JLPTLevel) -> Unit,
-    onBack: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    var selectedLockedLevel by remember { mutableStateOf<JLPTLevel?>(null) }
-
-    val unlockedLevels by produceState(initialValue = setOf(JLPTLevel.N5)) {
-        value = withContext(Dispatchers.IO) {
-            runCatching {
-                val records = LevelProgressionService.shared.ensureInitialProgress()
-                JLPTLevel.allCases.filter {
-                    LevelProgressionService.shared.isLevelUnlocked(it, records)
-                }.toSet()
-            }.getOrDefault(setOf(JLPTLevel.N5))
-        }
-    }
-
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(Theme.paper)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            Row(
-                modifier = Modifier
-                    .clickable(onClick = onBack)
-                    .padding(4.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
-                    contentDescription = L10n.backButton,
-                    tint = Theme.ink,
-                    modifier = Modifier.size(22.dp)
-                )
-                Text(
-                    text = L10n.backButton,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Theme.ink
-                )
-            }
-
-            Text(
-                text = "Kanji",
-                style = Theme.heading(20.sp),
-                color = Theme.ink
-            )
-        }
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(20.dp)
-                .padding(bottom = 90.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            JLPTLevel.allCases.forEach { level ->
-                val isUnlocked = unlockedLevels.contains(level)
-                LevelSelectionRow(
-                    level = level,
-                    title = L10n.kanjiLevel(level.rawValue),
-                    unlockedSubtitle = L10n.kanjiCount(level.targetCounts.kanji),
-                    isUnlocked = isUnlocked,
-                    icon = Icons.AutoMirrored.Filled.MenuBook,
-                    onClick = {
-                        if (isUnlocked) {
-                            onSelectLevel(level)
-                        } else {
-                            selectedLockedLevel = level
-                        }
-                    }
-                )
-            }
-        }
-    }
-
-    selectedLockedLevel?.let { locked ->
-        LockedLevelInfoSheet(
-            level = locked,
-            onDismiss = { selectedLockedLevel = null },
-            onStartTestOut = { selectedLockedLevel = null }
-        )
-    }
-}
-
-/**
- * Seçilen JLPT seviyesinin Kanji bölüm seçimi (`Views/Kanji/KanjiPartSelectionView.swift` karşılığı).
- */
-@Composable
-private fun KanjiPartSelectionContent(
-    level: String,
-    onSelectPart: (Int) -> Unit,
-    onBack: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    val jlptLevel = remember(level) { JLPTLevel.fromRawValue(level) ?: JLPTLevel.N5 }
-    var lockedPartNumber by remember { mutableIntStateOf(0) }
-
-    val allKanji by produceState<List<Kanji>>(initialValue = emptyList(), key1 = level) {
-        value = withContext(Dispatchers.IO) {
-            ContentStore.loadKanji(level = level)
-        }
-    }
-
-    val parts = remember(allKanji, level) {
-        if (allKanji.isEmpty()) emptyList() else ContentStore.kanjiParts(level = level)
-    }
-
-    val levelProgress by produceState<UserLevelProgressEntity?>(initialValue = null, key1 = jlptLevel) {
-        value = withContext(Dispatchers.IO) {
-            runCatching {
-                LevelProgressionService.shared.getProgress(jlptLevel)
-            }.getOrNull()
-        }
-    }
-
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(Theme.paper)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            Row(
-                modifier = Modifier
-                    .clickable(onClick = onBack)
-                    .padding(4.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
-                    contentDescription = L10n.backButton,
-                    tint = Theme.ink,
-                    modifier = Modifier.size(22.dp)
-                )
-                Text(
-                    text = L10n.backButton,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Theme.ink
-                )
-            }
-
-            Text(
-                text = L10n.kanjiLevel(level),
-                style = Theme.heading(20.sp),
-                color = Theme.ink
-            )
-        }
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(20.dp)
-                .padding(bottom = 90.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            parts.forEachIndexed { index, part ->
-                val isUnlocked = LevelProgressionService.shared.isPartUnlocked(
-                    module = "kanji",
-                    level = jlptLevel,
-                    partIndex = index,
-                    progress = levelProgress
-                )
-                val isCompleted = levelProgress?.isPartCompleted(module = "kanji", index = index) == true
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .alpha(if (isUnlocked) 1f else 0.6f)
-                        .inkBordered()
-                        .clickable {
-                            if (isUnlocked) {
-                                onSelectPart(index)
-                            } else {
-                                lockedPartNumber = index + 1
-                            }
-                        }
-                        .padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(44.dp)
-                            .background(
-                                color = when {
-                                    !isUnlocked -> Theme.secondaryInk
-                                    isCompleted -> Theme.success
-                                    else -> Theme.accent
-                                }
-                            ),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "${index + 1}",
-                            style = Theme.heading(19.sp),
-                            color = Color.White
-                        )
-                    }
-
-                    Column(
-                        modifier = Modifier.weight(1f),
-                        verticalArrangement = Arrangement.spacedBy(2.dp)
-                    ) {
-                        Text(
-                            text = L10n.kanjiPartTitle(level, index + 1),
-                            style = Theme.heading(19.sp),
-                            color = if (isUnlocked) Theme.ink else Theme.secondaryInk
-                        )
-                        Text(
-                            text = when {
-                                !isUnlocked -> L10n.partLockedSubtitle
-                                isCompleted -> L10n.kanjiPartCompletedSubtitle(part.size)
-                                else -> L10n.kanjiCount(part.size)
-                            },
-                            fontSize = 14.sp,
-                            color = Theme.secondaryInk
-                        )
-                    }
-
-                    Icon(
-                        imageVector = when {
-                            isCompleted -> Icons.Filled.CheckCircle
-                            isUnlocked -> Icons.AutoMirrored.Filled.ArrowForward
-                            else -> Icons.Filled.Lock
-                        },
-                        contentDescription = null,
-                        tint = when {
-                            isCompleted -> Theme.success
-                            isUnlocked -> Theme.ink
-                            else -> Theme.secondaryInk
-                        },
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
-            }
-        }
-    }
-
-    if (lockedPartNumber > 0) {
-        AlertDialog(
-            onDismissRequest = { lockedPartNumber = 0 },
-            title = { Text(text = L10n.partLockedTitle, style = Theme.heading(18.sp)) },
-            text = { Text(text = L10n.partLockedMessage(lockedPartNumber)) },
-            confirmButton = {
-                TextButton(onClick = { lockedPartNumber = 0 }) {
-                    Text(text = L10n.okButton, color = Theme.accent)
-                }
-            }
-        )
     }
 }
