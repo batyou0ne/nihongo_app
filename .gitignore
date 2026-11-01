@@ -18,3 +18,15 @@ GoogleService-Info.plist
 Secrets.swift
 gcloud-key.json
 __pycache__/
+
+# Android & Gradle
+Nihongo_android/.gradle/
+Nihongo_android/**/build/
+Nihongo_android/local.properties
+local.properties
+.idea/
+*.iml
+Nihongo_android/.cxx/
+Nihongo_android/.navigation/
+Nihongo_android/captures/
+
