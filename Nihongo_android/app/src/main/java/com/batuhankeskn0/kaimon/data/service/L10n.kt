@@ -106,6 +106,185 @@ object L10n {
     fun grammarSubtitle(topics: Int, categories: Int): String =
         if (lang == LanguageManager.AppLanguage.TURKISH) "$topics konu · $categories kategori" else "$topics topics · $categories categories"
 
+    fun grammarUnitTitle(unitId: Int, title: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "Ünite $unitId: $title" else "Unit $unitId: $title"
+
+    val grammarUnitLockedTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Ünite Kilitli" else "Unit Locked"
+
+    fun grammarUnitLockedMessage(unitId: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Ünite $unitId kilidini açmak için lütfen önceki ünitedeki konuları tamamlayın."
+        } else {
+            "Please complete the topics in the previous unit to unlock Unit $unitId."
+        }
+
+    fun grammarAutoSessionTitle(level: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$level Otomatik Gramer Oturumu" else "$level Auto Grammar Session"
+
+    val grammarAutoSessionSubtitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Öğrenilmemiş 3 konuyu sırayla çalış ve toplu pratik yap."
+        } else {
+            "Study 3 unlearned topics in order and practice together."
+        }
+
+    val grammarStartAutoSessionButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Oturumu Başlat" else "Start Session"
+
+    fun grammarSyllabusSectionLabel(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "ÖĞRENME YOLU ($count ÜNİTE)" else "LEARNING PATH ($count UNITS)"
+
+    val grammarShortcutsSectionLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "BAŞVURU & ARAÇLAR" else "REFERENCE & TOOLS"
+
+    val verbConjugatorShortcutTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Fiil Çekimleyici" else "Verb Conjugator"
+
+    val verbConjugatorShortcutSubtitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Seçilen veya aranan fiilin tüm çekim tabloları"
+        } else {
+            "All conjugation tables for any searched or selected verb"
+        }
+
+    val grammarLibraryShortcutTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Gramer Kütüphanesi" else "Grammar Library"
+
+    val grammarLibraryShortcutSubtitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Tüm gramer konularına ve fiil kategorilerine kilitsiz göz at"
+        } else {
+            "Browse all grammar rules and verb categories without locks"
+        }
+
+    val grammarPracticeUnitButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Ünite Pratiği" else "Unit Practice"
+
+    val grammarAllLearnedTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Harika!" else "Awesome!"
+
+    fun grammarAllLearnedMessage(level: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "$level seviyesindeki tüm gramer konularını bitirdin."
+        } else {
+            "You finished all grammar topics in level $level."
+        }
+
+    val grammarGoBackButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Geri Dön" else "Go Back"
+
+    val grammarUnderstoodNextButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Anladım, Devam Et →" else "Got It, Continue →"
+
+    val grammarStartPracticeButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Pratiğe geç →" else "Start Practice →"
+
+    val grammarVerbConjugationCardTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Fiil Çekim Tablosu" else "Verb Conjugation Table"
+
+    val grammarVerbConjugationCardSubtitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Geçmiş, Olumsuz, て, ます formlarını gör"
+        } else {
+            "See Past, Negative, て, ます forms"
+        }
+
+    val grammarExamplesTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Örnekler" else "Examples"
+
+    val grammarSampleVerbMeaning: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "yemek (örnek fiil)" else "to eat (sample verb)"
+
+    val grammarPracticeTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Pratik" else "Practice"
+
+    fun grammarTopicProgress(current: Int, total: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "Konu $current/$total" else "Topic $current/$total"
+
+    val grammarFillBlankPromptLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Boşluğu doldur" else "Fill in the blank"
+
+    val grammarMultipleChoicePromptLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Soru" else "Question"
+
+    val grammarWordOrderPromptLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kelimeleri sıraya diz" else "Arrange words in order"
+
+    val grammarWordOrderEmptyHint: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Aşağıdaki kelimelere dokunarak diz."
+        } else {
+            "Tap the words below to arrange them."
+        }
+
+    val grammarCheckOrderButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kontrol Et" else "Check"
+
+    fun grammarCorrectAnswerPrefix(answer: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "Doğrusu: $answer" else "Correct: $answer"
+
+    val grammarPracticeFinishedTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Pratik Bitti" else "Practice Complete"
+
+    val grammarStatCorrect: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Doğru" else "Correct"
+
+    val grammarStatWrong: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Yanlış" else "Wrong"
+
+    val grammarReviewAgainTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tekrar bakılacaklar" else "Items to review"
+
+    val grammarWrongAddedToReview: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Yanlış yaptığın konular \"Tekrar Çalış\" listesine eklendi."
+        } else {
+            "Topics you missed were added to the Review list."
+        }
+
+    // MARK: - Verb Conjugation & Reference Library
+    val verbGroupPolite: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kibar" else "Polite"
+
+    val verbGroupPlain: String
+        get() = "Plain"
+
+    val verbGroupSpecial: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Özel" else "Special"
+
+    val verbGroup1Label: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Grup 1" else "Group 1"
+
+    val verbGroup2Label: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Grup 2" else "Group 2"
+
+    val verbFullTableTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tam Çekim Tablosu" else "Full Conjugation Table"
+
+    val verbTableFormColumn: String
+        get() = "Form"
+
+    val verbTableJapaneseColumn: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Japonca" else "Japanese"
+
+    val verbSearchPlaceholder: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Fiil, romaji veya Türkçe anlam ara..."
+        } else {
+            "Search verb, romaji or meaning..."
+        }
+
+    val grammarCategorySearchPlaceholder: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Kural, romaji veya açıklama ara..."
+        } else {
+            "Search rule, romaji or explanation..."
+        }
+
+    val verbLegendIrregular: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Düzensiz" else "Irregular"
+
     // MARK: - Vocabulary
     val vocabularyTitle: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kelimeler" else "Words"
@@ -599,6 +778,22 @@ object L10n {
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Anahtar Kelimeler" else "Key Vocabulary"
     val noNewVocab: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Bu cümle için yeni kelime yok." else "No new vocabulary for this sentence."
+    val readingModeContinuous: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tam Metin" else "Full Text"
+    val readingModeSentenceBySentence: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Cümle Cümle" else "By Sentence"
+    val toggleFuriganaLabel: String
+        get() = "Furigana"
+    val toggleRomajiLabel: String
+        get() = "Romaji"
+    val toggleTranslationLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Çeviri" else "Translation"
+    val storyTapSentenceHint: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Cümleye dokunarak sesli dinleyebilir ve kelime incelemesini açabilirsin."
+        } else {
+            "Tap any sentence to listen and inspect vocabulary."
+        }
 
     // MARK: - Story Types
     fun storyTypeName(type: String): String =

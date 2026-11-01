@@ -131,6 +131,16 @@ object VerbConjugationEngine {
         )
     }
 
+    /**
+     * Temel 10 N5 çekim formuna ek olarak İstek (たい), İrade (よう/おう), Emir (命令形) ve Şart (ば)
+     * formlarını da içeren kapsamlı çekim tablosunu döner (`VerbConjugationScreen` için).
+     */
+    fun conjugateExtended(hiragana: String, kanji: String? = null): VerbConjugationResult {
+        val base = conjugate(hiragana = hiragana, kanji = kanji)
+        val extra = buildExtendedForms(hiragana = hiragana, type = base.verbType, kanji = base.kanji)
+        return base.copy(forms = base.forms + extra)
+    }
+
     // MARK: - Classification
 
     /**
@@ -450,6 +460,153 @@ object VerbConjugationEngine {
         ConjugationForm(id = "potential", label = "Yapabilme", japanese = "ありえる", romaji = "ariereru", explanation = "Mümkün olmak."),
         ConjugationForm(id = "mashou", label = "Öneri (ましょう)", japanese = "ありましょう", romaji = "arimashou", explanation = "Nadiren kullanılır.")
     )
+
+    // MARK: - Extended Forms (İstek, İrade, Emir, Şart)
+
+    private fun godanORowStem(type: VerbType): String = when (type) {
+        VerbType.GODAN_U -> "お"
+        VerbType.GODAN_KU -> "こ"
+        VerbType.GODAN_GU -> "ご"
+        VerbType.GODAN_SU -> "そ"
+        VerbType.GODAN_TSU -> "と"
+        VerbType.GODAN_NU -> "の"
+        VerbType.GODAN_BU -> "ぼ"
+        VerbType.GODAN_MU -> "も"
+        VerbType.GODAN_RU -> "ろ"
+        else -> ""
+    }
+
+    private fun buildExtendedForms(
+        hiragana: String,
+        type: VerbType,
+        kanji: String?
+    ): List<ConjugationForm> = when (type) {
+        VerbType.ICHIDAN -> {
+            val stem = hiragana.dropLast(1)
+            val displayStem = kanji?.dropLast(1) ?: stem
+            listOf(
+                ConjugationForm(
+                    id = "tai",
+                    label = "İstek (たい)",
+                    japanese = displayStem + "たい",
+                    romaji = toRomaji(stem + "tai"),
+                    explanation = "\"...yapmak istemek\" anlamında istek ifadesi."
+                ),
+                ConjugationForm(
+                    id = "volitional",
+                    label = "İrade / İstek Plain (よう)",
+                    japanese = displayStem + "よう",
+                    romaji = toRomaji(stem + "you"),
+                    explanation = "\"...yapalım / yapayım\" — Günlük konuşma öneri ve niyet formu."
+                ),
+                ConjugationForm(
+                    id = "imperative",
+                    label = "Emir (ろ)",
+                    japanese = displayStem + "ろ",
+                    romaji = toRomaji(stem + "ro"),
+                    explanation = "Doğrudan emir kipi (\"...yap!\")."
+                ),
+                ConjugationForm(
+                    id = "conditional",
+                    label = "Şart (れば)",
+                    japanese = displayStem + "れば",
+                    romaji = toRomaji(stem + "reba"),
+                    explanation = "\"Eğer ... yaparsa\" şart kipi."
+                )
+            )
+        }
+        VerbType.GODAN_U,
+        VerbType.GODAN_KU,
+        VerbType.GODAN_GU,
+        VerbType.GODAN_SU,
+        VerbType.GODAN_TSU,
+        VerbType.GODAN_NU,
+        VerbType.GODAN_BU,
+        VerbType.GODAN_MU,
+        VerbType.GODAN_RU -> {
+            val stem = hiragana.dropLast(1)
+            val displayStem = kanji?.dropLast(1) ?: stem
+            val (_, _, masuStem, _, potentialStem) = godanEndings(type)
+            val oRow = godanORowStem(type)
+            listOf(
+                ConjugationForm(
+                    id = "tai",
+                    label = "İstek (たい)",
+                    japanese = displayStem + masuStem + "たい",
+                    romaji = toRomaji(stem + masuStem + "tai"),
+                    explanation = "\"...yapmak istemek\" anlamında istek ifadesi."
+                ),
+                ConjugationForm(
+                    id = "volitional",
+                    label = "İrade / İstek Plain (おう)",
+                    japanese = displayStem + oRow + "う",
+                    romaji = toRomaji(stem + oRow + "u"),
+                    explanation = "\"...yapalım / yapayım\" — Günlük konuşma öneri ve niyet formu."
+                ),
+                ConjugationForm(
+                    id = "imperative",
+                    label = "Emir",
+                    japanese = displayStem + potentialStem,
+                    romaji = toRomaji(stem + potentialStem),
+                    explanation = "Doğrudan emir kipi (\"...yap!\")."
+                ),
+                ConjugationForm(
+                    id = "conditional",
+                    label = "Şart (ば)",
+                    japanese = displayStem + potentialStem + "ば",
+                    romaji = toRomaji(stem + potentialStem + "ba"),
+                    explanation = "\"Eğer ... yaparsa\" şart kipi."
+                )
+            )
+        }
+        VerbType.SURU -> {
+            val prefix = if (hiragana.endsWith("する")) hiragana.dropLast(2) else ""
+            val kPrefix = if (kanji?.endsWith("する") == true) kanji.dropLast(2) else (kanji ?: prefix)
+            listOf(
+                ConjugationForm(
+                    id = "tai",
+                    label = "İstek (たい)",
+                    japanese = kPrefix + "したい",
+                    romaji = toRomaji(prefix + "shitai"),
+                    explanation = "\"...yapmak istemek\"."
+                ),
+                ConjugationForm(
+                    id = "volitional",
+                    label = "İrade / İstek Plain (しよう)",
+                    japanese = kPrefix + "しよう",
+                    romaji = toRomaji(prefix + "shiyou"),
+                    explanation = "\"...yapalım\" (plain)."
+                ),
+                ConjugationForm(
+                    id = "imperative",
+                    label = "Emir (しろ)",
+                    japanese = kPrefix + "しろ",
+                    romaji = toRomaji(prefix + "shiro"),
+                    explanation = "Doğrudan emir kipi."
+                ),
+                ConjugationForm(
+                    id = "conditional",
+                    label = "Şart (すれば)",
+                    japanese = kPrefix + "すれば",
+                    romaji = toRomaji(prefix + "sureba"),
+                    explanation = "\"Eğer ... yaparsa\"."
+                )
+            )
+        }
+        VerbType.KURU -> listOf(
+            ConjugationForm(id = "tai", label = "İstek (たい)", japanese = "きたい", romaji = "kitai", explanation = "\"...gelmek istemek\"."),
+            ConjugationForm(id = "volitional", label = "İrade / İstek Plain", japanese = "こよう", romaji = "koyou", explanation = "\"...gelelim\" (plain)."),
+            ConjugationForm(id = "imperative", label = "Emir", japanese = "こい", romaji = "koi", explanation = "\"Gel!\" (doğrudan emir)."),
+            ConjugationForm(id = "conditional", label = "Şart (くれば)", japanese = "くれば", romaji = "kureba", explanation = "\"Eğer gelirse\".")
+        )
+        VerbType.ARU -> listOf(
+            ConjugationForm(id = "tai", label = "İstek (たい)", japanese = "ありたい", romaji = "aritai", explanation = "Olmasını istemek."),
+            ConjugationForm(id = "volitional", label = "İrade / Tahmin", japanese = "あろう", romaji = "arou", explanation = "Muhtemelen vardır."),
+            ConjugationForm(id = "imperative", label = "Emir", japanese = "あれ", romaji = "are", explanation = "Emir formu."),
+            ConjugationForm(id = "conditional", label = "Şart (あれば)", japanese = "あれば", romaji = "areba", explanation = "\"Eğer varsa\".")
+        )
+        VerbType.UNKNOWN -> emptyList()
+    }
 
     // MARK: - Romaji Helper
 

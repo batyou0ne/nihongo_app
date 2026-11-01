@@ -76,8 +76,10 @@ import com.batuhankeskn0.kaimon.data.model.CharacterType
 import com.batuhankeskn0.kaimon.ui.screens.alphabet.AlphabetDestination
 import com.batuhankeskn0.kaimon.ui.screens.alphabet.AlphabetMainScreen
 import com.batuhankeskn0.kaimon.ui.screens.dictionary.DictionaryScreen
+import com.batuhankeskn0.kaimon.ui.screens.grammar.GrammarMainScreen
 import com.batuhankeskn0.kaimon.ui.screens.home.HomeScreen
 import com.batuhankeskn0.kaimon.ui.screens.home.ResumeTarget
+import com.batuhankeskn0.kaimon.ui.screens.reading.ReadingMainScreen
 import com.batuhankeskn0.kaimon.ui.screens.vocabulary.VocabularyDestination
 import com.batuhankeskn0.kaimon.ui.screens.vocabulary.VocabularyMainScreen
 import com.batuhankeskn0.kaimon.ui.theme.Theme
@@ -227,12 +229,11 @@ fun MainTabScreen(
                         }
                     }
                     MainTab.GRAMMAR -> {
-                        if (grammarContent != null) grammarContent() else DefaultLevelModuleShellTab(
-                            title = L10n.grammarTitle,
-                            levelTitle = { L10n.grammarLevel(it.rawValue) },
-                            levelSubtitle = { L10n.topicCount(it.targetCounts.grammar) },
-                            icon = Icons.AutoMirrored.Filled.Article
-                        )
+                        if (grammarContent != null) {
+                            grammarContent()
+                        } else {
+                            GrammarMainScreen()
+                        }
                     }
                     MainTab.VOCABULARY -> {
                         if (vocabularyContent != null) {
@@ -244,7 +245,11 @@ fun MainTabScreen(
                         }
                     }
                     MainTab.READING -> {
-                        if (readingContent != null) readingContent() else DefaultReadingShellTab()
+                        if (readingContent != null) {
+                            readingContent()
+                        } else {
+                            ReadingMainScreen()
+                        }
                     }
                     MainTab.DICTIONARY -> {
                         if (dictionaryContent != null) {
