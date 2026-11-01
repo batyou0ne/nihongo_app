@@ -72,6 +72,8 @@ import com.batuhankeskn0.kaimon.ui.components.ModuleCard
 import com.batuhankeskn0.kaimon.ui.components.SectionLabel
 import com.batuhankeskn0.kaimon.ui.components.StreakStrip
 import com.batuhankeskn0.kaimon.ui.components.UtilityCard
+import com.batuhankeskn0.kaimon.ui.screens.dictionary.DictionaryScreen
+import com.batuhankeskn0.kaimon.ui.screens.home.HomeScreen
 import com.batuhankeskn0.kaimon.ui.theme.Theme
 import com.batuhankeskn0.kaimon.ui.theme.inkBordered
 import kotlinx.coroutines.Dispatchers
@@ -169,7 +171,15 @@ fun MainTabScreen(
             Box(modifier = Modifier.fillMaxSize()) {
                 when (selectedTab) {
                     MainTab.HOME -> {
-                        if (homeContent != null) homeContent() else DefaultHomeShellTab()
+                        if (homeContent != null) {
+                            homeContent()
+                        } else {
+                            HomeScreen(
+                                onNavigateToTab = { tab ->
+                                    selectedTabIndex = tab.index
+                                }
+                            )
+                        }
                     }
                     MainTab.ALPHABET -> {
                         if (alphabetContent != null) alphabetContent() else DefaultAlphabetShellTab()
@@ -194,7 +204,11 @@ fun MainTabScreen(
                         if (readingContent != null) readingContent() else DefaultReadingShellTab()
                     }
                     MainTab.DICTIONARY -> {
-                        if (dictionaryContent != null) dictionaryContent() else DefaultDictionaryShellTab()
+                        if (dictionaryContent != null) {
+                            dictionaryContent()
+                        } else {
+                            DictionaryScreen()
+                        }
                     }
                 }
             }

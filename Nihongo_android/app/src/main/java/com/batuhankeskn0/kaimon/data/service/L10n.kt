@@ -112,6 +112,61 @@ object L10n {
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Sözlük" else "Dictionary"
     val dictionarySearch: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kelime veya anlam ara..." else "Search word or meaning..."
+    val dictionaryVocabTab: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kelime" else "Words"
+    val dictionaryKanjiTab: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kanji" else "Kanji"
+    val dictionaryGrammarTab: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Gramer" else "Grammar"
+    val grammarLibraryTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Dilbilgisi Kütüphanesi" else "Grammar Library"
+    val grammarLibrarySubtitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Bir kategoriye tıkla, kuralları ve formları incele." else "Tap a category to explore rules and forms."
+    val allFilterLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tümü" else "All"
+    val verbLibrarySubtitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Çekim tabloları · N5 fiilleri" else "Conjugation tables · N5 verbs"
+    val grammarReferenceTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Gramer Referansı" else "Grammar Reference"
+    val difficultyLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Zorluk" else "Difficulty"
+    val formulaLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Formül" else "Formula"
+    val exampleSentencesLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Örnek Cümleler" else "Example Sentences"
+    val exampleWordsLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Örnek Kelimeler" else "Example Words"
+    val meaningLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Anlam" else "Meaning"
+    val readingLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Okunuş" else "Reading"
+    val onyomiLabel: String
+        get() = "On'yomi"
+    val kunyomiLabel: String
+        get() = "Kun'yomi"
+    val verbConjugationTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Fiil Çekimleri" else "Verb Conjugations"
+    val listenPronunciation: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Telaffuzu Dinle" else "Listen Pronunciation"
+
+    fun strokeCountLabel(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$count çizgi" else "$count strokes"
+
+    fun grammarRuleCountSubtitle(count: Int, level: String = "N5"): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$count kural · $level" else "$count rules · $level"
+
+    fun grammarLessonHint(title: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Bu konuyu öğrenmek için Gramer bölümündeki \"$title\" dersine git."
+        } else {
+            "Go to the \"$title\" lesson in the Grammar tab to practice this topic."
+        }
+
+    fun noSearchResults(query: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "'$query' için sonuç yok" else "No results for '$query'"
+
+    fun verbCountLabel(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$count fiil" else "$count verbs"
 
     // MARK: - Soon / locked
     val comingSoon: String
@@ -262,6 +317,40 @@ object L10n {
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Gün" else "Day"
     val chartMinutes: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Dakika" else "Minutes"
+    val chartXpEarned: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kazanılan XP" else "XP Earned"
+    val totalXpLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Toplam XP" else "Total XP"
+    val totalLearnedLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Öğrenilen Öğe" else "Items Learned"
+    val srsDistributionSection: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "SRS Kademe Dağılımı" else "SRS Stage Distribution"
+    val jlptLevelStatusSection: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "JLPT Seviye Durumu" else "JLPT Level Status"
+    val srsStageNew: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Yeni" else "New"
+    val srsStageApprentice: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Çırak" else "Apprentice"
+    val srsStageGuru: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kalfa" else "Guru"
+    val srsStageMaster: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Usta" else "Master"
+    val srsStageEnlightened: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Aydınlanmış" else "Enlightened"
+    val srsStageBurned: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kalıcı" else "Burned"
+
+    fun readingModuleSubtitle(storyCount: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "N5 · $storyCount hikaye" else "N5 · $storyCount stories"
+
+    fun kanjiModuleSubtitle(parts: Int = 4): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "N5 · $parts bölüm" else "N5 · $parts parts"
+
+    fun vocabModuleSubtitle(parts: Int = 27): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "N5 · $parts bölüm" else "N5 · $parts parts"
+
+    fun grammarModuleSubtitle(categories: Int = 5): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "N5 · $categories kategori" else "N5 · $categories categories"
 
     // MARK: - Auth / Account
     val accountTitle: String
