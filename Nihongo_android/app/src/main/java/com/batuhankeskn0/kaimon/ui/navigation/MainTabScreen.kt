@@ -72,8 +72,12 @@ import com.batuhankeskn0.kaimon.ui.components.ModuleCard
 import com.batuhankeskn0.kaimon.ui.components.SectionLabel
 import com.batuhankeskn0.kaimon.ui.components.StreakStrip
 import com.batuhankeskn0.kaimon.ui.components.UtilityCard
+import com.batuhankeskn0.kaimon.data.model.CharacterType
+import com.batuhankeskn0.kaimon.ui.screens.alphabet.AlphabetDestination
+import com.batuhankeskn0.kaimon.ui.screens.alphabet.AlphabetMainScreen
 import com.batuhankeskn0.kaimon.ui.screens.dictionary.DictionaryScreen
 import com.batuhankeskn0.kaimon.ui.screens.home.HomeScreen
+import com.batuhankeskn0.kaimon.ui.screens.home.ResumeTarget
 import com.batuhankeskn0.kaimon.ui.theme.Theme
 import com.batuhankeskn0.kaimon.ui.theme.inkBordered
 import kotlinx.coroutines.Dispatchers
@@ -133,6 +137,7 @@ fun MainTabScreen(
     dictionaryContent: (@Composable () -> Unit)? = null
 ) {
     var selectedTabIndex by rememberSaveable { mutableStateOf(MainTab.HOME.index) }
+    var alphabetInitialDestination by remember { mutableStateOf<AlphabetDestination>(AlphabetDestination.Root) }
     val selectedTab = MainTab.fromIndex(selectedTabIndex)
     val lifecycleOwner = LocalLifecycleOwner.current
     val ioScope = rememberCoroutineScope()
@@ -176,13 +181,42 @@ fun MainTabScreen(
                         } else {
                             HomeScreen(
                                 onNavigateToTab = { tab ->
+                                    alphabetInitialDestination = AlphabetDestination.Root
                                     selectedTabIndex = tab.index
+                                },
+                                onResumeSession = { target ->
+                                    when (val mod = target.module) {
+                                        is ResumeTarget.Module.Hiragana -> {
+                                            alphabetInitialDestination = AlphabetDestination.Learning(CharacterType.HIRAGANA)
+                                            selectedTabIndex = MainTab.ALPHABET.index
+                                        }
+                                        is ResumeTarget.Module.Katakana -> {
+                                            alphabetInitialDestination = AlphabetDestination.Learning(CharacterType.KATAKANA)
+                                            selectedTabIndex = MainTab.ALPHABET.index
+                                        }
+                                        is ResumeTarget.Module.Kanji -> {
+                                            alphabetInitialDestination = AlphabetDestination.KanjiSession(
+                                                level = mod.level,
+                                                partIndex = mod.index
+                                            )
+                                            selectedTabIndex = MainTab.ALPHABET.index
+                                        }
+                                        is ResumeTarget.Module.Vocabulary -> {
+                                            selectedTabIndex = MainTab.VOCABULARY.index
+                                        }
+                                    }
                                 }
                             )
                         }
                     }
                     MainTab.ALPHABET -> {
-                        if (alphabetContent != null) alphabetContent() else DefaultAlphabetShellTab()
+                        if (alphabetContent != null) {
+                            alphabetContent()
+                        } else {
+                            AlphabetMainScreen(
+                                initialDestination = alphabetInitialDestination
+                            )
+                        }
                     }
                     MainTab.GRAMMAR -> {
                         if (grammarContent != null) grammarContent() else DefaultLevelModuleShellTab(

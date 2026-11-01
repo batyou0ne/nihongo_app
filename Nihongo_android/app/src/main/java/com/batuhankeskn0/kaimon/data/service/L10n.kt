@@ -75,10 +75,26 @@ object L10n {
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Temel (46 Harf)" else "Basic (46)"
     val dakutenAlphabetTab: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tenten & Maru" else "Dakuten"
+    val yoonAlphabetTab: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Birleşik Heceler" else "Combo (Yoon)"
     val practiceCardsTab: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kartlarla Çalış" else "Practice Cards"
     val kanjiChartSubtitle: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kanji'ye dokunarak sesini ve anlamını incele" else "Tap any kanji to listen and inspect meaning"
+    val writingSystemHiragana: String
+        get() = "Hiragana (あ)"
+    val writingSystemKatakana: String
+        get() = "Katakana (ア)"
+    val writingSystemKanji: String
+        get() = "Kanji (漢)"
+    val listenButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Dinle" else "Listen"
+
+    fun kanjiChartAllFilter(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "Tümü ($count)" else "All ($count)"
+
+    fun kanjiChartPartFilter(part: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "Bölüm $part" else "Part $part"
 
     // MARK: - Grammar
     val grammarTitle: String
@@ -222,9 +238,36 @@ object L10n {
 
     fun kanjiCount(count: Int): String = "$count kanji"
 
+    fun kanjiPartCompletedSubtitle(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "Tamamlandı • $count kanji" else "Completed • $count kanji"
+
+    val partLockedTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Bölüm Kilitli" else "Part Locked"
+
+    val partLockedSubtitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kilitli • Önceki bölümü tamamla" else "Locked • Complete previous part"
+
+    fun partLockedMessage(partNumber: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Part $partNumber kilidini açmak için lütfen önceki bölümü tamamlayın."
+        } else {
+            "Please complete the previous part to unlock Part $partNumber."
+        }
+
+    val okButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tamam" else "OK"
+
     // MARK: - Flashcard / Quiz
+    val quizTitle: String
+        get() = "Quiz"
     val quickQuiz: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Hızlı Quiz" else "Quick Quiz"
+    val flashcardKnownButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Öğrendim" else "I Know"
+    val flashcardRepeatButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tekrar Et" else "Repeat"
+    val swipeHint: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "← Tekrar Et   ·   Öğrendim →" else "← Repeat   ·   I Know →"
 
     fun learnedCount(learned: Int, total: Int): String =
         if (lang == LanguageManager.AppLanguage.TURKISH) "$learned/$total öğrenildi" else "$learned/$total learned"
