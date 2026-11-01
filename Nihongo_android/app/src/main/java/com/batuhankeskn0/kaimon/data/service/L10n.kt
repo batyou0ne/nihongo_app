@@ -117,6 +117,46 @@ object L10n {
     val comingSoon: String
         get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Yakında" else "Coming soon"
 
+    fun levelLockedTitle(level: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$level Seviyesi Kilitli" else "$level Level Locked"
+
+    fun levelLockedDescription(previousLevel: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Bu seviyenin derslerine erişebilmek için $previousLevel seviyesini tamamlamalı veya Seviye Atlama Sınavı'nı (Test-Out) geçmelisin."
+        } else {
+            "Complete $previousLevel or pass the Test-Out exam to unlock this level's lessons."
+        }
+
+    fun levelProgressStatus(previousLevel: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$previousLevel İlerleme Durumu" else "$previousLevel Progress Status"
+
+    val kanjiPartsMetric: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kanji Parçaları" else "Kanji Parts"
+
+    val vocabPartsMetric: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kelime Parçaları" else "Vocabulary Parts"
+
+    val grammarUnitsMetric: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Gramer Üniteleri" else "Grammar Units"
+
+    val testOutButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Seviyeyi Sınavla Atla (Test-Out)" else "Skip Level via Test-Out Exam"
+
+    val completeMissingLessonsButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Eksik Dersleri Tamamla" else "Complete Missing Lessons"
+
+    fun lockedLevelSubtitle(subtitle: String): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "Kilitli • $subtitle" else "Locked • $subtitle"
+
+    fun topicCount(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$count konu" else "$count topics"
+
+    fun wordCount(count: Int): String =
+        if (lang == LanguageManager.AppLanguage.TURKISH) "$count kelime" else "$count words"
+
+    val noStoriesForLevel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Bu seviye için henüz hikaye eklenmedi." else "No stories added for this level yet."
+
     // MARK: - Kanji
     fun kanjiLevel(level: String): String = "${level} Kanji's"
 
