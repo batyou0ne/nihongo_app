@@ -2,6 +2,7 @@ package com.batuhankeskn0.kaimon.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.batuhankeskn0.kaimon.data.service.NotificationManager
 import java.time.Instant
 import java.time.ZoneId
 import java.time.temporal.ChronoUnit
@@ -67,6 +68,8 @@ data class UserProgressEntity(
 
     /**
      * Bugün çalışıldığında çağrılır. Streak'i güncel tutar; bir gün atlanırsa sıfırlar.
+     * iOS `UserProgress.recordStudySession` ile birebir aynı şekilde güncellenen aktif seriyi
+     * `NotificationManager.shared.updateDailyReminderStreak` üzerinden bildirim metnine senkronize eder.
      */
     fun recordStudySession(
         on: Long = System.currentTimeMillis(),
@@ -77,6 +80,7 @@ data class UserProgressEntity(
             currentStreak = 1
             longestStreak = maxOf(longestStreak, currentStreak)
             lastStudyDate = on
+            NotificationManager.shared.updateDailyReminderStreak(activeStreak(nowMillis = on, zoneId = zoneId))
             return this
         }
 
@@ -86,6 +90,7 @@ data class UserProgressEntity(
         if (lastDay.isEqual(sessionDay)) {
             // Bugün zaten kaydedildi; son çalışma zamanını güncelle.
             lastStudyDate = on
+            NotificationManager.shared.updateDailyReminderStreak(activeStreak(nowMillis = on, zoneId = zoneId))
             return this
         }
 
@@ -96,6 +101,7 @@ data class UserProgressEntity(
         }
         longestStreak = maxOf(longestStreak, currentStreak)
         lastStudyDate = on
+        NotificationManager.shared.updateDailyReminderStreak(activeStreak(nowMillis = on, zoneId = zoneId))
         return this
     }
 

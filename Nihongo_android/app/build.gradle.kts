@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -11,6 +12,24 @@ plugins {
 
 val sharedResourcesDir = rootProject.projectDir.resolve("../Nihongo_app/Nihongo_app/Resources").canonicalFile
 
+val localProperties = Properties().apply {
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        localPropertiesFile.inputStream().use { load(it) }
+    }
+}
+
+fun resolveSecret(key: String, defaultValue: String = ""): String {
+    val fromProps = localProperties.getProperty(key)?.trim()
+    if (!fromProps.isNullOrEmpty()) return fromProps
+    val fromEnv = System.getenv(key)?.trim()
+    if (!fromEnv.isNullOrEmpty()) return fromEnv
+    return defaultValue
+}
+
+fun escapeBuildConfigString(value: String): String =
+    value.replace("\\", "\\\\").replace("\"", "\\\"")
+
 android {
     namespace = "com.batuhankeskn0.kaimon"
     compileSdk = 35
@@ -21,6 +40,14 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
+
+        val geminiApiKey = resolveSecret("GEMINI_API_KEY", resolveSecret("AI_API_KEY", ""))
+        val openAiApiKey = resolveSecret("OPENAI_API_KEY", "")
+        val aiProvider = resolveSecret("AI_PROVIDER", "gemini")
+
+        buildConfigField("String", "GEMINI_API_KEY", "\"${escapeBuildConfigString(geminiApiKey)}\"")
+        buildConfigField("String", "OPENAI_API_KEY", "\"${escapeBuildConfigString(openAiApiKey)}\"")
+        buildConfigField("String", "AI_PROVIDER", "\"${escapeBuildConfigString(aiProvider)}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
