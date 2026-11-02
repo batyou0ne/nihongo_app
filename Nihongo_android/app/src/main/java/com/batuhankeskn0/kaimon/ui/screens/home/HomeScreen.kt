@@ -54,15 +54,19 @@ import com.batuhankeskn0.kaimon.ui.components.SectionLabel
 import com.batuhankeskn0.kaimon.ui.components.StreakStrip
 import com.batuhankeskn0.kaimon.ui.components.UtilityCard
 import com.batuhankeskn0.kaimon.ui.navigation.MainTab
+import com.batuhankeskn0.kaimon.ui.screens.chat.ChatScreen
 import com.batuhankeskn0.kaimon.ui.screens.progress.ProgressScreen
 import com.batuhankeskn0.kaimon.ui.screens.review.ReviewListScreen
+import com.batuhankeskn0.kaimon.ui.screens.scenarios.ScenarioListScreen
 import com.batuhankeskn0.kaimon.ui.theme.Theme
 import com.batuhankeskn0.kaimon.ui.theme.inkBordered
 
 private enum class HomeDestination {
     DASHBOARD,
     REVIEW_LIST,
-    PROGRESS
+    PROGRESS,
+    SCENARIOS,
+    AI_CHAT
 }
 
 /**
@@ -113,6 +117,19 @@ fun HomeScreen(
                 onBack = { currentDestination = HomeDestination.DASHBOARD }
             )
         }
+        HomeDestination.SCENARIOS -> {
+            ScenarioListScreen(
+                modifier = modifier,
+                onBack = { currentDestination = HomeDestination.DASHBOARD }
+            )
+        }
+        HomeDestination.AI_CHAT -> {
+            ChatScreen(
+                modifier = modifier,
+                onDismiss = { currentDestination = HomeDestination.DASHBOARD },
+                onOpenPaywall = onOpenPaywall
+            )
+        }
         HomeDestination.DASHBOARD -> {
             HomeDashboardContent(
                 uiState = uiState,
@@ -148,10 +165,12 @@ fun HomeScreen(
                 onOpenScenarios = {
                     FeedbackManager.shared.playSelection()
                     onOpenScenarios()
+                    currentDestination = HomeDestination.SCENARIOS
                 },
                 onOpenAiChat = {
                     FeedbackManager.shared.playSelection()
                     onOpenAiChat()
+                    currentDestination = HomeDestination.AI_CHAT
                 },
                 onNavigateToTab = { tab ->
                     FeedbackManager.shared.playSelection()

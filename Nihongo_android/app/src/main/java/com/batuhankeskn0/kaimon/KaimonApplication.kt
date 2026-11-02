@@ -7,6 +7,7 @@ import com.batuhankeskn0.kaimon.data.service.AudioService
 import com.batuhankeskn0.kaimon.data.service.FeatureGate
 import com.batuhankeskn0.kaimon.data.service.FeedbackManager
 import com.batuhankeskn0.kaimon.data.service.LanguageManager
+import com.batuhankeskn0.kaimon.data.service.NotificationManager
 import dagger.hilt.android.HiltAndroidApp
 
 /**
@@ -23,5 +24,6 @@ class KaimonApplication : Application() {
         FeatureGate.init(this)
         FeedbackManager.init(this)
         AudioService.init(this)
+        NotificationManager.init(this)
     }
 }
