@@ -73,6 +73,9 @@ import com.batuhankeskn0.kaimon.ui.components.SectionLabel
 import com.batuhankeskn0.kaimon.ui.components.StreakStrip
 import com.batuhankeskn0.kaimon.ui.components.UtilityCard
 import com.batuhankeskn0.kaimon.data.model.CharacterType
+import com.batuhankeskn0.kaimon.ui.screens.auth.AccountScreen
+import com.batuhankeskn0.kaimon.ui.screens.auth.SignInScreen
+import com.batuhankeskn0.kaimon.ui.screens.subscription.PaywallScreen
 import com.batuhankeskn0.kaimon.ui.screens.alphabet.AlphabetDestination
 import com.batuhankeskn0.kaimon.ui.screens.alphabet.AlphabetMainScreen
 import com.batuhankeskn0.kaimon.ui.screens.dictionary.DictionaryScreen
@@ -143,6 +146,9 @@ fun MainTabScreen(
     var selectedTabIndex by rememberSaveable { mutableStateOf(MainTab.HOME.index) }
     var alphabetInitialDestination by remember { mutableStateOf<AlphabetDestination>(AlphabetDestination.Root) }
     var vocabularyInitialDestination by remember { mutableStateOf<VocabularyDestination>(VocabularyDestination.Root) }
+    var showPaywallSheet by rememberSaveable { mutableStateOf(false) }
+    var showAccountSheet by rememberSaveable { mutableStateOf(false) }
+    var showSignInSheet by rememberSaveable { mutableStateOf(false) }
     val selectedTab = MainTab.fromIndex(selectedTabIndex)
     val lifecycleOwner = LocalLifecycleOwner.current
     val ioScope = rememberCoroutineScope()
@@ -190,6 +196,8 @@ fun MainTabScreen(
                                     vocabularyInitialDestination = VocabularyDestination.Root
                                     selectedTabIndex = tab.index
                                 },
+                                onOpenPaywall = { showPaywallSheet = true },
+                                onOpenAccount = { showAccountSheet = true },
                                 onResumeSession = { target ->
                                     when (val mod = target.module) {
                                         is ResumeTarget.Module.Hiragana -> {
@@ -232,7 +240,7 @@ fun MainTabScreen(
                         if (grammarContent != null) {
                             grammarContent()
                         } else {
-                            GrammarMainScreen()
+                            GrammarMainScreen(onOpenPaywall = { showPaywallSheet = true })
                         }
                     }
                     MainTab.VOCABULARY -> {
@@ -240,7 +248,8 @@ fun MainTabScreen(
                             vocabularyContent()
                         } else {
                             VocabularyMainScreen(
-                                initialDestination = vocabularyInitialDestination
+                                initialDestination = vocabularyInitialDestination,
+                                onOpenPaywall = { showPaywallSheet = true }
                             )
                         }
                     }
@@ -248,7 +257,7 @@ fun MainTabScreen(
                         if (readingContent != null) {
                             readingContent()
                         } else {
-                            ReadingMainScreen()
+                            ReadingMainScreen(onOpenPaywall = { showPaywallSheet = true })
                         }
                     }
                     MainTab.DICTIONARY -> {
@@ -279,6 +288,36 @@ fun MainTabScreen(
                     onTabSelected = { tab ->
                         FeedbackManager.shared.playSelection()
                         selectedTabIndex = tab.index
+                    }
+                )
+            }
+
+            // Faz 10: Pro Paywall, Profil/Hesap ve Giriş/Kayıt Modal Ekranları
+            if (showPaywallSheet) {
+                PaywallScreen(
+                    onDismiss = { showPaywallSheet = false }
+                )
+            }
+
+            if (showAccountSheet) {
+                AccountScreen(
+                    onDismiss = { showAccountSheet = false },
+                    onOpenSignIn = {
+                        showAccountSheet = false
+                        showSignInSheet = true
+                    },
+                    onOpenPaywall = {
+                        showAccountSheet = false
+                        showPaywallSheet = true
+                    }
+                )
+            }
+
+            if (showSignInSheet) {
+                SignInScreen(
+                    onDismiss = { showSignInSheet = false },
+                    onSignedIn = {
+                        showSignInSheet = false
                     }
                 )
             }
@@ -621,6 +660,8 @@ private fun DefaultDictionaryShellTab() {
                 fontSize = 16.sp,
                 color = Theme.secondaryInk
             )
+
+
         }
     }
 }

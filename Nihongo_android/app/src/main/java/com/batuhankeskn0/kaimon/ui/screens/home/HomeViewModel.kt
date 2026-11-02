@@ -12,6 +12,7 @@ import com.batuhankeskn0.kaimon.data.local.UserDatabaseManager
 import com.batuhankeskn0.kaimon.data.local.UserProgressEntity
 import com.batuhankeskn0.kaimon.data.model.CharacterType
 import com.batuhankeskn0.kaimon.data.repository.ContentStore
+import com.batuhankeskn0.kaimon.data.service.SubscriptionManager
 import com.batuhankeskn0.kaimon.domain.engine.LevelProgressionService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +23,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.max
@@ -212,8 +214,15 @@ class HomeViewModel @Inject constructor(
                 }
                 .flowOn(Dispatchers.IO)
                 .collect { state ->
-                    _uiState.value = state
+                    _uiState.value = state.copy(isPro = SubscriptionManager.shared.isPro)
                 }
+        }
+
+        // Pro durumu (satın alma / geri yükleme / debug anahtarı) değiştiğinde Home arayüzünü günceller.
+        viewModelScope.launch {
+            SubscriptionManager.shared.isProFlow.collect { isPro ->
+                _uiState.update { it.copy(isPro = isPro) }
+            }
         }
     }
 
@@ -231,6 +240,7 @@ class HomeViewModel @Inject constructor(
                     sessions = sessions,
                     contentStore = contentStore,
                     hasAccount = userDatabaseManager.currentUid != UserDatabaseManager.ANONYMOUS_UID,
+                    isPro = SubscriptionManager.shared.isPro,
                     nowMillis = nowMillis
                 )
             }

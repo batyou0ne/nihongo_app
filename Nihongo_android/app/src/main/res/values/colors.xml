@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Kaimon Brutalist palet: vermilyon vurgu + kâğıt/mürekkep -->
+    <color name="ic_launcher_background">#EB3B0D</color>
+    <color name="kaimon_paper">#FFFFFF</color>
+    <color name="kaimon_ink">#000000</color>
+    <color name="kaimon_splash_background">#EB3B0D</color>
+</resources>

@@ -529,8 +529,6 @@ object L10n {
             "Please complete the previous part to unlock Part $partNumber."
         }
 
-    val okButton: String
-        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tamam" else "OK"
 
     // MARK: - Flashcard / Quiz
     val quizTitle: String
@@ -918,9 +916,110 @@ object L10n {
     fun paywallFinePrint(trial: Boolean): String {
         if (lang == LanguageManager.AppLanguage.TURKISH) {
             return (if (trial) "Ücretsiz deneme bitince seçtiğin plan otomatik başlar. " else "") +
-                "Abonelik, dönem bitiminden en az 24 saat önce iptal edilmezse otomatik yenilenir. Ödeme Apple Kimliği hesabından alınır; iptal için Ayarlar > Apple Kimliği > Abonelikler."
+                "Abonelik, dönem bitiminden en az 24 saat önce iptal edilmezse otomatik yenilenir. Ödeme Google Play hesabından alınır; iptal için Play Store > Profil > Ödemeler ve abonelikler > Abonelikler."
         }
         return (if (trial) "Your plan starts automatically when the free trial ends. " else "") +
-            "Subscriptions renew automatically unless cancelled at least 24 hours before the period ends. Payment is charged to your Apple ID; manage in Settings > Apple ID > Subscriptions."
+            "Subscriptions renew automatically unless cancelled at least 24 hours before the period ends. Payment is charged to your Google Play account; manage in Play Store > Profile > Payments & subscriptions > Subscriptions."
     }
+
+    // MARK: - Auth Hataları & Hesap Yönetimi (Faz 10)
+    val authFirebaseUnavailable: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Bulut hesabı bu sürümde yapılandırılmamış. Uygulama yerel (çevrimdışı) modda çalışıyor."
+        } else {
+            "Cloud account is not configured in this build. The app is running in local (offline) mode."
+        }
+    val authInvalidEmail: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Geçersiz email adresi." else "Invalid email address."
+    val authEmailInUse: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Bu email zaten kayıtlı. Giriş yapmayı dene." else "This email is already registered. Try signing in."
+    val authWeakPassword: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Şifre en az 6 karakter olmalı." else "Password must be at least 6 characters."
+    val authWrongCredentials: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Email veya şifre hatalı." else "Incorrect email or password."
+    val authUserNotFound: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Bu email ile bir hesap bulunamadı. Önce kayıt ol." else "No account found for this email. Sign up first."
+    val authNetworkError: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "İnternet bağlantını kontrol edip tekrar dene." else "Check your internet connection and try again."
+    val authTooManyRequests: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Çok fazla deneme yapıldı. Biraz bekleyip tekrar dene." else "Too many attempts. Please wait a moment and try again."
+    val authOperationNotAllowed: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Bu giriş yöntemi Firebase Console'da etkin değil (Sign-in method sekmesinden açılmalı)."
+        } else {
+            "This sign-in method is not enabled in the Firebase Console (enable it under Sign-in method)."
+        }
+    val authInvalidCredential: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kimlik bilgileri doğrulanamadı. Lütfen tekrar deneyin." else "Credentials could not be verified. Please try again."
+    val authMissingGoogleConfig: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Google giriş yapılandırması bulunamadı." else "Google sign-in configuration was not found."
+    val authNoGoogleAccount: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Cihazda kullanılabilir bir Google hesabı bulunamadı." else "No usable Google account was found on this device."
+    val authRecentLoginRequired: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Güvenlik için bu işlemden önce yeniden giriş yapman gerekiyor. Çıkış yapıp tekrar giriş yap."
+        } else {
+            "For security, please sign in again before this action. Sign out and sign back in."
+        }
+    val authGenericError: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Bir hata oluştu." else "Something went wrong."
+
+    val okButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Tamam" else "OK"
+    val cancelButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Vazgeç" else "Cancel"
+    val deleteAccountButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Hesabı Sil" else "Delete Account"
+    val deleteAccountConfirmTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Hesap silinsin mi?" else "Delete account?"
+    val deleteAccountConfirmMessage: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Hesabın, profil bilgilerin ve bu cihazdaki ilerleme verilerin kalıcı olarak silinir. Bu işlem geri alınamaz."
+        } else {
+            "Your account, profile data and the progress stored on this device will be permanently deleted. This cannot be undone."
+        }
+    val guestAccountTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Misafir hesabı" else "Guest account"
+    val guestAccountInfo: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "İlerlemen yalnızca bu cihazda saklanıyor. Hesap oluşturup giriş yaparak ilerlemeni buluta taşıyabilirsin."
+        } else {
+            "Your progress is stored on this device only. Create an account to back it up to the cloud."
+        }
+    val createAccountButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Hesap Oluştur / Giriş Yap" else "Create Account / Sign In"
+    val profileSectionTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Profil" else "Profile"
+    val signInMethodsLabel: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Giriş yöntemleri" else "Sign-in methods"
+    val proStatusSectionTitle: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Abonelik" else "Subscription"
+    val proStatusFree: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Ücretsiz plan" else "Free plan"
+    val proStatusActive: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Kaimon Pro aktif" else "Kaimon Pro active"
+    val upgradeToProButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "PRO'YA GEÇ" else "UPGRADE TO PRO"
+    val viewProButton: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Pro Detaylarını Gör" else "View Pro Details"
+    val reminderPermissionDenied: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) {
+            "Bildirim izni verilmedi. Hatırlatıcı için sistem ayarlarından izin ver."
+        } else {
+            "Notification permission was not granted. Allow it in system settings to get reminders."
+        }
+    val adPrivacyOptions: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Reklam Gizlilik Tercihleri" else "Ad Privacy Options"
+    val paywallLoading: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Planlar yükleniyor…" else "Loading plans…"
+    val purchaseFailed: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Satın alma tamamlanamadı." else "The purchase could not be completed."
+    val restoreNothingFound: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Geri yüklenecek aktif bir satın alım bulunamadı." else "No active purchase was found to restore."
+    val restoreSuccess: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Satın alımların geri yüklendi." else "Your purchases were restored."
+    val billingUnavailable: String
+        get() = if (lang == LanguageManager.AppLanguage.TURKISH) "Google Play Faturalandırma şu an kullanılamıyor." else "Google Play Billing is currently unavailable."
+    val debugForceProLabel: String
+        get() = "DEBUG · Force Pro"
 }

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Kaimon" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- Splash Screen API: sistem splash'ı vermilyon zemin üzerinde 開門 ikonuyla açılır,
+         ardından `postSplashScreenTheme` ile Theme.Kaimon'a geçilir. -->
+    <style name="Theme.Kaimon.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/kaimon_splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Kaimon</item>
+    </style>
 </resources>

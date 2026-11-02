@@ -4,10 +4,12 @@ import android.app.Application
 import com.batuhankeskn0.kaimon.data.local.UserDatabaseManager
 import com.batuhankeskn0.kaimon.data.repository.ContentStore
 import com.batuhankeskn0.kaimon.data.service.AudioService
+import com.batuhankeskn0.kaimon.data.service.AuthService
 import com.batuhankeskn0.kaimon.data.service.FeatureGate
 import com.batuhankeskn0.kaimon.data.service.FeedbackManager
 import com.batuhankeskn0.kaimon.data.service.LanguageManager
 import com.batuhankeskn0.kaimon.data.service.NotificationManager
+import com.batuhankeskn0.kaimon.data.service.SubscriptionManager
 import dagger.hilt.android.HiltAndroidApp
 
 /**
@@ -25,5 +27,8 @@ class KaimonApplication : Application() {
         FeedbackManager.init(this)
         AudioService.init(this)
         NotificationManager.init(this)
+        // Faz 10: Pro durumu (Play Billing) ve Firebase Auth. Firebase yapılandırılmamışsa yerel modda kalır.
+        SubscriptionManager.init(this)
+        AuthService.init(this)
     }
 }

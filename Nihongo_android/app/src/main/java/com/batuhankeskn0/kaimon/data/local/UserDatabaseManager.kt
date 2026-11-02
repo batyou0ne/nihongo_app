@@ -118,6 +118,26 @@ class UserDatabaseManager {
         }
     }
 
+    /**
+     * Hesap silme (`AuthService.deleteAccount`) sonrası kullanıcının yerel `progress_<uid>.db`
+     * dosyalarını (`-shm`/`-wal` dahil) kalıcı olarak siler. Aktif veritabanı bu kullanıcıya aitse önce kapatılır.
+     * Anonim veritabanı bu yöntemle silinemez.
+     */
+    fun deleteUserDatabase(uid: String?): Boolean {
+        synchronized(lock) {
+            val targetUid = normalizeUid(uid)
+            if (targetUid == ANONYMOUS_UID) return false
+            val context = appContext ?: return false
+
+            if (_currentUidFlow.value == targetUid) {
+                activeDatabase?.close()
+                activeDatabase = null
+                _databaseFlow.value = null
+            }
+            return context.deleteDatabase(databaseFileName(targetUid))
+        }
+    }
+
     private fun switchUserInternal(targetUid: String): KaimonDatabase {
         val context = checkNotNull(appContext) {
             "UserDatabaseManager başlatılmadı. KaimonApplication.onCreate içinde UserDatabaseManager.init(context) çağrılmalıdır."
@@ -163,6 +183,14 @@ class UserDatabaseManager {
         fun init(context: Context) {
             sharedInstance.attachContext(context)
         }
+
+        /**
+         * Firebase kullanıcısından yerel veritabanı kimliğini çözer: oturum yoksa veya anonim oturumdaysa
+         * `anonymous`, bağlı (Google/Email) hesapta ise gerçek `uid` döner.
+         * Anonim -> bağlı geçişte `migrateDatabaseFilesIfNeeded` ilerlemeyi yeni `progress_<uid>.db` dosyasına taşır.
+         */
+        fun resolveDatabaseUid(firebaseUid: String?, isAnonymous: Boolean): String =
+            if (firebaseUid.isNullOrBlank() || isAnonymous) ANONYMOUS_UID else normalizeUid(firebaseUid)
 
         fun normalizeUid(uid: String?): String {
             val trimmed = uid?.trim().orEmpty()

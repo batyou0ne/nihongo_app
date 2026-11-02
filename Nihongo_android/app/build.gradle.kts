@@ -10,6 +10,18 @@ plugins {
     alias(libs.plugins.hilt.android)
 }
 
+/**
+ * `google-services.json` yalnızca mevcutsa (Firebase Console'dan indirilip `app/` altına konduysa)
+ * `google-services` eklentisi etkinleşir. Dosya yoksa derleme kırılmaz; `AuthService`/`UserProfileService`
+ * çalışma zamanında `FirebaseApp` yokluğunu algılayıp yerel (offline) moda düşer.
+ */
+val hasGoogleServicesConfig: Boolean = file("google-services.json").exists()
+if (hasGoogleServicesConfig) {
+    apply(plugin = "com.google.gms.google-services")
+} else {
+    logger.lifecycle("ℹ︎ [firebase] app/google-services.json bulunamadı; google-services eklentisi atlandı (yerel mod).")
+}
+
 val sharedResourcesDir = rootProject.projectDir.resolve("../Nihongo_app/Nihongo_app/Resources").canonicalFile
 
 val localProperties = Properties().apply {
@@ -49,15 +61,45 @@ android {
         buildConfigField("String", "OPENAI_API_KEY", "\"${escapeBuildConfigString(openAiApiKey)}\"")
         buildConfigField("String", "AI_PROVIDER", "\"${escapeBuildConfigString(aiProvider)}\"")
 
+        // AdMob: varsayılanlar Google'ın resmi TEST kimlikleridir. Canlı kimlikler `local.properties` / ortam
+        // değişkeninden (ADMOB_APP_ID, ADMOB_BANNER_ID, ADMOB_INTERSTITIAL_ID, ADMOB_REWARDED_ID) okunur; repoya girmez.
+        val admobAppId = resolveSecret("ADMOB_APP_ID", "ca-app-pub-3940256099942544~3347511713")
+        val admobBannerId = resolveSecret("ADMOB_BANNER_ID", "ca-app-pub-3940256099942544/9214589741")
+        val admobInterstitialId = resolveSecret("ADMOB_INTERSTITIAL_ID", "ca-app-pub-3940256099942544/1033173712")
+        val admobRewardedId = resolveSecret("ADMOB_REWARDED_ID", "ca-app-pub-3940256099942544/5224354917")
+        manifestPlaceholders["admobAppId"] = admobAppId
+        buildConfigField("String", "ADMOB_BANNER_ID", "\"${escapeBuildConfigString(admobBannerId)}\"")
+        buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"${escapeBuildConfigString(admobInterstitialId)}\"")
+        buildConfigField("String", "ADMOB_REWARDED_ID", "\"${escapeBuildConfigString(admobRewardedId)}\"")
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
     }
 
+    // Release imzası: `KAIMON_KEYSTORE_PATH/PASSWORD`, `KAIMON_KEY_ALIAS/PASSWORD` tanımlıysa kullanılır;
+    // aksi halde `assembleRelease` imzasız APK üretir (CI/yerel doğrulama için derlemeyi kırmaz).
+    val releaseKeystorePath = resolveSecret("KAIMON_KEYSTORE_PATH")
+    val hasReleaseSigning = releaseKeystorePath.isNotEmpty() && file(releaseKeystorePath).exists()
+    if (hasReleaseSigning) {
+        signingConfigs {
+            create("release") {
+                storeFile = file(releaseKeystorePath)
+                storePassword = resolveSecret("KAIMON_KEYSTORE_PASSWORD")
+                keyAlias = resolveSecret("KAIMON_KEY_ALIAS")
+                keyPassword = resolveSecret("KAIMON_KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -174,6 +216,23 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+
+    // Splash Screen
+    implementation(libs.androidx.core.splashscreen)
+
+    // Firebase (Auth + Firestore) & Credential Manager (Google ile Giriş)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.kotlinx.coroutines.play.services)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
+
+    // Google Play Billing v7 (Pro abonelik) & AdMob + UMP
+    implementation(libs.billing.ktx)
+    implementation(libs.play.services.ads)
+    implementation(libs.ump)
 
     // Kuromoji (Auto-Furigana)
     implementation(libs.kuromoji.ipadic)

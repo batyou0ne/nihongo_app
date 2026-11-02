@@ -22,10 +22,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.CallMade
-import androidx.compose.material.icons.filled.ChatBubble
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.WorkspacePremium
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -466,74 +464,3 @@ fun LevelSelectorBar(
         }
     }
 }
-
-/**
- * Pro'ya özel içerikte kilit ikonunun yerine gösterilen küçük rozet.
- * iOS `ProBadge` karşılığıdır.
- */
-@Composable
-fun ProBadge(
-    modifier: Modifier = Modifier
-) {
-    Row(
-        modifier = modifier
-            .background(color = Theme.accent, shape = CircleShape)
-            .padding(horizontal = 8.dp, vertical = 4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(4.dp)
-    ) {
-        Icon(
-            imageVector = Icons.Filled.WorkspacePremium,
-            contentDescription = null,
-            tint = ColorWhiteConstant,
-            modifier = Modifier.size(12.dp)
-        )
-        Text(
-            text = "PRO",
-            fontSize = 11.sp,
-            fontWeight = FontWeight.ExtraBold,
-            color = ColorWhiteConstant
-        )
-    }
-}
-
-/**
- * Günlük AI mesaj hakkı göstergesi ve Pro yükseltme daveti.
- * iOS `AIQuotaBanner` karşılığıdır.
- */
-@Composable
-fun AIQuotaBanner(
-    remaining: Int,
-    onUpgrade: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(color = Theme.paper)
-            .padding(horizontal = 16.dp, vertical = 10.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(10.dp)
-    ) {
-        Icon(
-            imageVector = if (remaining > 0) Icons.Filled.ChatBubble else Icons.Filled.Lock,
-            contentDescription = null,
-            tint = Theme.accent,
-            modifier = Modifier.size(18.dp)
-        )
-        Text(
-            text = if (remaining > 0) L10n.aiQuotaRemaining(remaining) else L10n.aiQuotaExhausted,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.SemiBold,
-            color = Theme.ink,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.weight(1f)
-        )
-        Box(modifier = Modifier.clickable(onClick = onUpgrade)) {
-            ProBadge()
-        }
-    }
-}
-
-private val ColorWhiteConstant = androidx.compose.ui.graphics.Color.White

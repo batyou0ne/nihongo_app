@@ -41,6 +41,8 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.platform.LocalContext
+import com.batuhankeskn0.kaimon.data.service.AdManager
 import com.batuhankeskn0.kaimon.data.service.FeedbackManager
 import com.batuhankeskn0.kaimon.data.service.L10n
 import com.batuhankeskn0.kaimon.ui.theme.Theme
@@ -67,6 +69,7 @@ fun LessonCompleteView(
     modifier: Modifier = Modifier,
     onContinue: () -> Unit
 ) {
+    val hostActivity = LocalContext.current.findActivity()
     val scrim = remember { Animatable(0f) }
     val trackProgress = remember { Animatable(0f) }
     val ringProgress = remember { Animatable(0f) }
@@ -261,7 +264,12 @@ fun LessonCompleteView(
                     .background(color = Theme.ink, shape = ctaShape)
                     .clickable(enabled = ctaAlpha > 0.5f) {
                         FeedbackManager.shared.playSelection()
-                        onContinue()
+                        // Pro olmayan kullanıcılarda politika uygunsa geçiş reklamı gösterilir; Pro'da doğrudan devam edilir.
+                        if (hostActivity != null) {
+                            AdManager.shared.onSessionCompleted(hostActivity) { onContinue() }
+                        } else {
+                            onContinue()
+                        }
                     },
                 contentAlignment = Alignment.Center
             ) {

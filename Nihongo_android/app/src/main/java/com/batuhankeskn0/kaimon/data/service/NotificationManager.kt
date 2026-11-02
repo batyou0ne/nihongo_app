@@ -226,6 +226,12 @@ class NotificationManager {
             storage.reminderTimeIntervalSeconds = value
         }
 
+    val savedHour: Int
+        get() = storage.savedHour
+
+    val savedMinute: Int
+        get() = storage.savedMinute
+
     /**
      * Her gün belirtilen `hour` ve `minute` saatinde kullanıcının aktif serisine (`activeStreak`)
      * göre yerel hatırlatıcı kurar.
